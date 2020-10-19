@@ -17,6 +17,7 @@ namespace dotNet5781_00_5055_1872
         static partial void Welcome1872();
         private static void Welcome5055()
         {
+
             Console.WriteLine("Enter your name: ");
             string yehudamendy = Console.ReadLine();
             Console.WriteLine("{0} ", yehudamendy + " welcome to my first console application");
