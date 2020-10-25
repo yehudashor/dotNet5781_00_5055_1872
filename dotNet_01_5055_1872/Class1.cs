@@ -11,6 +11,6 @@ namespace dotNet_01_5055_1872
         Console.WriteLine("dani zilb erman");
 	{
 		default:
-	}
+	
 }
 }
