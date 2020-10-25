@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp4", "ConsoleApp4\ConsoleApp4.csproj", "{4D5BE5D0-3B02-49F8-A8FD-E425CF8833E8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{83FCD373-EE95-49CA-B1FA-3DF4D8CD62B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotNet5781-00_5055_1872", "dotNet5781-00_5055_1872\dotNet5781-00_5055_1872.csproj", "{9A620319-C182-4F69-BAAC-62289055FA21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02", "02\02.csproj", "{EC9C1A47-8A35-4CD7-ACB1-5A0E37AD3103}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,14 @@ Global
 		{4D5BE5D0-3B02-49F8-A8FD-E425CF8833E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D5BE5D0-3B02-49F8-A8FD-E425CF8833E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D5BE5D0-3B02-49F8-A8FD-E425CF8833E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A620319-C182-4F69-BAAC-62289055FA21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A620319-C182-4F69-BAAC-62289055FA21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A620319-C182-4F69-BAAC-62289055FA21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A620319-C182-4F69-BAAC-62289055FA21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC9C1A47-8A35-4CD7-ACB1-5A0E37AD3103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC9C1A47-8A35-4CD7-ACB1-5A0E37AD3103}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC9C1A47-8A35-4CD7-ACB1-5A0E37AD3103}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC9C1A47-8A35-4CD7-ACB1-5A0E37AD3103}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
