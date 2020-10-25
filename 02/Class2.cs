@@ -8,5 +8,10 @@ namespace _02
 {
     class Class2
     {
-    }
+        switch ("dani din")
+	{
+		default:
+ break;
+	}
+}
 }
