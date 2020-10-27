@@ -12,24 +12,27 @@ namespace dotNet_01_5055_1872
     {
         DateTime dayOfTreatment;
         private int kmOfTreatment;
- 
+
+
+        /// <summary>
+        /// 
+        /// </summary>
         private int kmForTreatment;
         public int KmForTreatment
         {
             get { return kmForTreatment; }
-            set { 
-                if(kmForTreatment + value <= 20000)
-                {
+            set {
+
+                if (kmForTreatment + value <= 20000)
                     kmForTreatment += value;
-                }
                 else
-                {
-                    //חריגה
-                }
+                    throw new ArgumentException("danger!!! To make this trip you must perform treatment first.");
             }
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         private int totalMiles;
         public int TotalMiles
         {
@@ -37,6 +40,9 @@ namespace dotNet_01_5055_1872
             set { totalMiles += value;}
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private DateTime startDate;
         public DateTime StartDate
         {
@@ -44,6 +50,9 @@ namespace dotNet_01_5055_1872
             set { startDate = value; }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private string license_number;
         public string License_number
         {
@@ -67,23 +76,40 @@ namespace dotNet_01_5055_1872
             }
             set
             {
-                if (startDate.Year < 2018 && license_number.Length == 7)
-                    license_number = value;
-                else if (startDate.Year >= 2018 && license_number.Length == 8)
-                    license_number = value;
-                // חריגה
+                try
+                {
+                    if (startDate.Year < 2018 && license_number.Length == 7)
+                        license_number = value;
+                    else if (startDate.Year >= 2018 && license_number.Length == 8)
+                        license_number = value;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("The license number must be 7 or 8 digits");
+                }
+               // catch (Exception ex) { Console.WriteLine(ex.Message); }
             }
         }
-        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_license_number"></param>
+        /// <param name="Start_Date"></param>
         public Bus(string _license_number, DateTime Start_Date)
         {    
           this.license_number = _license_number;
           this.startDate = Start_Date;
         }
+
+        /// <summary>
+        ///             
+        /// </summary>
         public void Treatment()
         {
             this.dayOfTreatment = DateTime.Now;
             this.kmOfTreatment = this.totalMiles;
+            this.kmForTreatment -= this.kmOfTreatment;
         }
         
     }
