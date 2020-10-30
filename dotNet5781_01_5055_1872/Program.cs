@@ -8,7 +8,7 @@ namespace dotNet_01_5055_1872
 { 
 enum myenum {EnterNewBus = 1 , BusSelection , RefuelingOrHandling, TravelPresentation , Exit = -1};
     class Program
-    { //לדאוג למדי שנה 2.אם זה לא אפשרי לבצע את הנסיעה אז להגריל מחדש 
+    {   
         static void Main(string[] args)
         {
             List<Bus> buses = new List<Bus>();
