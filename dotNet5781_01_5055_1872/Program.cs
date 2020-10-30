@@ -13,8 +13,7 @@ enum myenum {EnterNewBus = 1 , BusSelection , RefuelingOrHandling, TravelPresent
         {
             List<Bus> buses = new List<Bus>();
             int number;
-            Console.WriteLine(@"
-             enter 1 to EnterNewBus: 
+            Console.WriteLine(@" 
              enter 1 to EnterNewBus:
              enter 2 to BusSelection:
              enter 3 to  RefuelingOrHandling:
