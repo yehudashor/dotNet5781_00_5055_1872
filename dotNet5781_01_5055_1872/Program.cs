@@ -80,16 +80,6 @@ enum myenum {EnterNewBus = 1 , BusSelection , RefuelingOrHandling, TravelPresent
         /// <param name="buses"></param>
         /// <param name="numofbus"></param>
         /// <returns></returns>
-        static bool findbus(List<Bus> buses, string numofbus)
-        {
-            bool flag = false;
-            foreach (Bus item in buses)
-            {
-                if (item.Nicense_number == numofbus)
-                    flag = true;
-            }
-            return flag;
-        }
 
         /// <summary>
         /// 
