@@ -6,14 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace dotNet_01_5055_1872
-{
-
+{ 
     class Bus
     {
-        DateTime dayOfTreatment;
+        private DateTime dayOfTreatment;
         private int kmOfTreatment;
-
-
+        public static int kmForAllBuses = 0;
         /// <summary>
         /// 
         /// </summary>
@@ -22,11 +20,10 @@ namespace dotNet_01_5055_1872
         {
             get { return kmForTreatment; }
             set {
-
-                if (kmForTreatment + value <= 20000)
-                    kmForTreatment += value;
+                if (value + kmForTreatment > 20000 || ((DateTime.Now - dayOfTreatment).TotalDays < 365))
+                    Console.WriteLine("danger!!! To make this trip you must perform treatment first.");
                 else
-                    throw new ArgumentException("danger!!! To make this trip you must perform treatment first.");
+                       kmForTreatment += value;
             }
         }
 
@@ -54,16 +51,26 @@ namespace dotNet_01_5055_1872
         /// 
         /// </summary>
         private string license_number;
+
+        public string Nicense_number
+        {
+            get { return license_number; }
+            set { license_number = value; }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public string License_number
         {
             get
             {
                 string start, middel, end;
-                if (license_number.Length == 7)
+                if (startDate.Year < 2018)
                 {
                     start = license_number.Substring(0, 2);
                     middel = license_number.Substring(2, 3);
-                    end = license_number.Substring(4, 2);
+                    end = license_number.Substring(5, 2);
                 }
                 else
                 {
@@ -71,46 +78,74 @@ namespace dotNet_01_5055_1872
                     middel = license_number.Substring(3, 2);
                     end = license_number.Substring(5, 3);
                 }
-                license_number = string.Format("{0}-{1}-{2}", start, middel, end);
-                return license_number;
+               return string.Format("{0}-{1}-{2}", start, middel, end); 
             }
             set
             {
-                try
-                {
-                    if (startDate.Year < 2018 && license_number.Length == 7)
-                        license_number = value;
-                    else if (startDate.Year >= 2018 && license_number.Length == 8)
-                        license_number = value;
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("The license number must be 7 or 8 digits");
-                }
-               // catch (Exception ex) { Console.WriteLine(ex.Message); }
+                    if (startDate.Year < 2018 && value.Length == 7)
+                            license_number = value;
+                    if (startDate.Year >= 2018 && value.Length == 8)
+                            license_number = value;
+                    if (value.Length  != 7 && value.Length != 8)
+                          Console.WriteLine("The license number must be 7 or 8 digits");
             }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="_license_number"></param>
-        /// <param name="Start_Date"></param>
-        public Bus(string _license_number, DateTime Start_Date)
-        {    
-          this.license_number = _license_number;
-          this.startDate = Start_Date;
+        private int kmForRefueling;
+        public int KmForRefueling
+        {
+            get { return kmForRefueling; }
+            set
+            {
+                if (kmForRefueling + value <= 1200)
+                    kmForRefueling += value;
+                else
+                    Console.WriteLine("Refueling is required for this trip!!!");
+            }
         }
 
         /// <summary>
         ///             
         /// </summary>
+        /// 
         public void Treatment()
         {
             this.dayOfTreatment = DateTime.Now;
             this.kmOfTreatment = this.totalMiles;
-            this.kmForTreatment -= this.kmOfTreatment;
+            this.kmForTreatment = 0;
         }
-        
+
+        /// <summary>
+        /// 
+        /// </summary>
+       public void Refueling()
+        {
+            this.KmForRefueling *= -1;
+        }
+
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <returns></returns>
+       public override string ToString()
+       {
+            return string.Format("License_number = {0} kmForTreatment = {1} ", License_number, kmForTreatment);
+       }
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_license_number"></param>
+        /// <param name="Start_Date"></param>
+        //public Bus(string _license_number, DateTime Start_Date)
+        //{
+        //    License_number = _license_number;
+        //    StartDate = Start_Date;
+        //}
     }
 }
