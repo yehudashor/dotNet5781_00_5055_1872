@@ -11,9 +11,15 @@ namespace dotNet_01_5055_1872
     {
         private DateTime dayOfTreatment;
         private int kmOfTreatment;
-        public static int kmForAllBuses = 0;
+
         /// <summary>
-        /// 
+        /// kmForAllBuses = A personal addition that sums up the overall mileage of all buses For future optional use
+        /// </summary>
+        public static int kmForAllBuses = 0;
+
+        /// <summary>
+        /// A feature whose function is to measure the number of kilometers between treatments in order to prevent deviation above 20,000 km.
+        /// In addition, it produces an abnormality if a year has passed since the last treatment
         /// </summary>
         private int kmForTreatment;
         public int KmForTreatment
@@ -28,7 +34,7 @@ namespace dotNet_01_5055_1872
         }
 
         /// <summary>
-        /// 
+        /// counter of km general
         /// </summary>
         private int totalMiles;
         public int TotalMiles
@@ -48,7 +54,7 @@ namespace dotNet_01_5055_1872
         }
 
         /// <summary>
-        /// 
+        /// The license number in the form of int
         /// </summary>
         private string license_number;
 
@@ -59,7 +65,8 @@ namespace dotNet_01_5055_1872
         }
 
         /// <summary>
-        /// 
+        /// A property that places a value in the license number and returns a value of the license number,
+        /// in the form of the required format
         /// </summary>
         public string License_number
         {
@@ -92,7 +99,7 @@ namespace dotNet_01_5055_1872
         }
 
         /// <summary>
-        /// 
+        /// A feature whose function is to prevent the vehicle from exceeding 1200 kilometers without refueling
         /// </summary>
         private int kmForRefueling;
         public int KmForRefueling
@@ -108,7 +115,7 @@ namespace dotNet_01_5055_1872
         }
 
         /// <summary>
-        ///             
+        ///     A treatment method that updates the required fields        
         /// </summary>
         /// 
         public void Treatment()
@@ -119,18 +126,19 @@ namespace dotNet_01_5055_1872
         }
 
         /// <summary>
-        /// 
+        /// Reset the fuel
         /// </summary>
-       public void Refueling()
+        public void Refueling()
         {
             this.KmForRefueling *= -1;
         }
 
-       /// <summary>
-       /// 
-       /// </summary>
-       /// <returns></returns>
-       public override string ToString()
+        /// <summary>
+        /// Execution of Command 4.
+        /// Printing a license number and mileage from a recent handling for the vehicle
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
        {
             return string.Format("License_number = {0} kmForTreatment = {1} ", License_number, kmForTreatment);
        }

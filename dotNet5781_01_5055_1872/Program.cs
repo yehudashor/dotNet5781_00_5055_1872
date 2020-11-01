@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace dotNet_01_5055_1872
 { 
-enum myenum {EnterNewBus = 1 , BusSelection , RefuelingOrHandling, TravelPresentation , Exit = -1};
     class Program
-    {   
+    {
+        /// <summary>
+        /// The main menu for selecting the options according to the exercise
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             List<Bus> buses = new List<Bus>();
@@ -61,9 +64,9 @@ enum myenum {EnterNewBus = 1 , BusSelection , RefuelingOrHandling, TravelPresent
         }
 
         /// <summary>
-        /// 
+        /// A function that adds a new bus to the company updates the required fields and puts it on the list
         /// </summary>
-        /// <param name="buses"></param>
+        /// <param name="buses = list"></param>
         static void addbus(ref List<Bus> buses)
         {
             Console.WriteLine("Please enter a license number and start date of activity: ");
@@ -74,21 +77,15 @@ enum myenum {EnterNewBus = 1 , BusSelection , RefuelingOrHandling, TravelPresent
             bus.License_number = numberOfbus;
             buses.Add(bus);
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="buses"></param>
-        /// <param name="numofbus"></param>
-        /// <returns></returns>
 
         /// <summary>
-        /// 
+        /// Function of issuing a new trip. 
+        /// Which includes checking the feasibility of the trip and printing an error in the impossibility and updating the appropriate fields
         /// </summary>
         /// <param name="buses"></param>
         static void Busselection(List<Bus> buses)
         {
             int number = 0;
-            //Random r = new Random();
             Random r = new Random(DateTime.Now.Millisecond);
             Console.WriteLine("license number: ");
             string str = Console.ReadLine();
@@ -110,7 +107,7 @@ enum myenum {EnterNewBus = 1 , BusSelection , RefuelingOrHandling, TravelPresent
         }
 
         /// <summary>
-        /// 
+        /// Field 3 in the main menu that asks for treatment or refueling and performs according to the user's choice
         /// </summary>
         /// <param name="buses"></param>
         static void RefuelOrTreat(List<Bus> buses)
