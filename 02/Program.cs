@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _02
+namespace dotNet_02_5055_1872
 {
     class Program
     {
