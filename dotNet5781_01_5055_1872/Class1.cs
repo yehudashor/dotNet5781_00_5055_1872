@@ -24,6 +24,7 @@ namespace dotNet_01_5055_1872
         private int kmForTreatment;
         public int KmForTreatment
         {
+            
             get { return kmForTreatment; }
             set {
                 if (value + kmForTreatment > 20000 || ((DateTime.Now - dayOfTreatment).TotalDays < 365))
