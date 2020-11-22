@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace dotNet_02_5055_1872
 {
-    class BusStop
+    public class BusStop
     {
         private static readonly Random line = new Random();
 

@@ -1,5 +1,4 @@
-﻿/*
- using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,11 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows;
-using System.Windows.Controls;
 using dotNet_02_5055_1872;
-
-namespace dotNet_5781_03A_5055_1870
+namespace dotNet5781_03A_5055_1872
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -25,14 +21,14 @@ namespace dotNet_5781_03A_5055_1870
     public partial class MainWindow : Window
     {
         private BusLine currentDisplayBusLine;
-        static Random r = new Random();
-        CollectionOfBusLines collectionOfbusLines = new CollectionOfBusLines();
-        List<BusLineStation> buslinestation = new List<BusLineStation>();
+        private static Random r = new Random(DateTime.Now.Millisecond);
+        private CollectionOfBusLines collectionOfbusLines = new CollectionOfBusLines();
+        private List<BusLineStation> buslinestation = new List<BusLineStation>();
         public MainWindow()
         {
-            InitializeComponent();
             int numberOfStatian;
             int numberLine;
+
             for (int i = 0; i < 10; i++)
             {
                 numberLine = r.Next(999);
@@ -42,9 +38,21 @@ namespace dotNet_5781_03A_5055_1870
                 Console.WriteLine("good the Line insrted to list ");
             }
 
+            for (int i = 0; i < 2; i++)
+            {
+                numberLine = r.Next(999);
+                BusLine busLine1 = new BusLine(numberLine)
+                {
+                    RouteTheLine = buslinestation
+                };
+                collectionOfbusLines.CollectionOfLines = busLine1;
+            }
+
+            InitializeComponent();
             cbBusLines.ItemsSource = collectionOfbusLines;
             cbBusLines.DisplayMemberPath = "LineNumber";
-            cbBusLines.SelectedIndex = 0;
+            cbBusLines.SelectedIndex = -1;
+            cbBusLines.SelectionChanged += CbBusLines_SelectionChanged;
         }
 
         private void ShowBusLine(int index)
@@ -54,19 +62,14 @@ namespace dotNet_5781_03A_5055_1870
             lbBusLineStations.DataContext = currentDisplayBusLine.RouteTheLine;
         }
 
-        private void InitializeComponent()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void cbBusLines_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void CbBusLines_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ShowBusLine((cbBusLines.SelectedValue as BusLine).LineNumber);
         }
 
-        //private void tbArea_TextChanged(object sender, TextChangedEventArgs e)
+        //private void TbArea_TextChanged(object sender, TextChangedEventArgs e)
         //{
-
+        //    UpGrid.DataContext = currentDisplayBusLine.Area1;
         //}
 
         /// <summary>
@@ -148,31 +151,6 @@ namespace dotNet_5781_03A_5055_1870
             stationaddress1[39] = "קרית אונו  ";
             stationaddress1[40] = " האדמור מנדי כהנא";
         }
-    }
- Title="MainWindow" Height="640" Width="800">
-    <Grid x:Name="MainGrid">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="400*"/>
-        </Grid.RowDefinitions>
 
-        <Grid Name="UpGrid" HorizontalAlignment="Stretch" Height="auto" Grid.Row="0"
-VerticalAlignment="Stretch" Width="auto">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions >
-            <Label Content = "Bus Line Number: " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
-            <ComboBox x:Name="cbBusLines" Grid.Column="1" VerticalAlignment="Stretch"/>
-            <TextBox x:Name="tbArea" HorizontalAlignment= "Stretch" VerticalAlignment="Stretch" Grid.Column="3" Text="{Binding Path=Area1}" />
-            <Label Content = "Area : " Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
-        </Grid>
-        <ListBox Name="lbBusLineStations"
- HorizontalAlignment="Stretch" Height="100"  VerticalAlignment="Stretch" Grid.Row="1" ItemsSource="{Binding}"/>
-    </Grid>
-</Windo
+    }
 }
- */
-public enum Area { North, South, Center, Jerusalem, Galil, Hasharon, Shefela, Eilat };

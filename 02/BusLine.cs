@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using System.Collections;
 namespace dotNet_02_5055_1872
 {
-    class BusLine : IComparable
+
+    public class BusLine : IComparable
     {
 
         public BusLine() { }
@@ -28,7 +29,7 @@ namespace dotNet_02_5055_1872
         /// <summary>
         /// An object of the rendom class designed to grill a random number to select the line area from the enum.
         /// </summary>
-        private readonly Random r = new Random(DateTime.Now.Millisecond);
+        private static readonly Random r = new Random(DateTime.Now.Millisecond);
 
         /// <summary>
         /// A constructor that initializes the line number and area.

@@ -8,7 +8,7 @@ using System.Collections;
 
 namespace dotNet_02_5055_1872
 {
-    class CollectionOfBusLines : BusLine, IEnumerable
+    public class CollectionOfBusLines : BusLine, IEnumerable
     {
         /// <summary>
         /// List of bus line objects

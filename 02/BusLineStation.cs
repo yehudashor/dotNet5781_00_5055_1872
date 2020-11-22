@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace dotNet_02_5055_1872
 {
-    class BusLineStation : BusStop
+    public class BusLineStation : BusStop
     {
         public BusLineStation() { }
 
