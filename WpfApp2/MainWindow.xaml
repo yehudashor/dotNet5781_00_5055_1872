@@ -1,0 +1,32 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid x:Name="list" RenderTransformOrigin="0.5,0.5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="upGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="License_number:" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
+            <Label Content="StartDate:" Grid.Column="1" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
+            <Label Content="KmForRefueling:" Grid.Column="2" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
+            <Label Content="KmForTreatment:" Grid.Column="3" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
+            <Label Content="TotalMiles:" Grid.Column="4" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
+            <Label Content="DayOfTreatment:" Grid.Column="5" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
+        </Grid>
+        <ListBox x:Name="Bus" Grid.Row="1" SelectionChanged ="Bus_SelectionChanged"  Background="PaleTurquoise" ItemsSource= "{Binding}"/>
+    </Grid>
+</Window>

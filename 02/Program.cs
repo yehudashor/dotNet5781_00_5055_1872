@@ -192,8 +192,8 @@ namespace dotNet_02_5055_1872
         {
             List<BusLineStation> buslinestation1 = new List<BusLineStation>();
             int stationNumber;
-
             string[] stationaddress1 = new string[42];
+
             AddAdress(ref stationaddress1);
 
             for (int i = 0; i < count; i++)

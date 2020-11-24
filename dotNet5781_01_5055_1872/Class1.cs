@@ -6,10 +6,51 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace dotNet_01_5055_1872
-{ 
-    class Bus
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    /// 
+    public enum TravelMode
     {
-        private DateTime dayOfTreatment;
+        ReadyToGo,
+        InMiddleOfTrip,
+        InTreatment,
+        OnRefueling
+    }
+    public class Bus
+    {
+        public Bus(string _License_number, DateTime _StartDate, int _KmForRefueling, int _KmForTreatment, int _TotalMiles, DateTime _DayOfTreatment)
+        {
+            StartDate = _StartDate;
+            License_number = _License_number;
+            KmForRefueling = _KmForRefueling;
+            KmForTreatment = _KmForTreatment;
+            TotalMiles = _TotalMiles;
+            DayOfTreatment = _DayOfTreatment;
+        }
+
+        private static readonly Random random = new Random(DateTime.Now.Millisecond);
+        private TravelMode status;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public TravelMode Status
+        {
+            get => status;
+            set
+            {
+                int number = random.Next(3);
+                value = (TravelMode)number;
+                status = status == TravelMode.InMiddleOfTrip ? TravelMode.InMiddleOfTrip : value;
+            }
+        }
+
+        public Bus() { }
+
+        public DateTime DayOfTreatment { get; set; }
+
         private int kmOfTreatment;
 
         /// <summary>
@@ -24,13 +65,53 @@ namespace dotNet_01_5055_1872
         private int kmForTreatment;
         public int KmForTreatment
         {
-            
-            get { return kmForTreatment; }
-            set {
-                if (value + kmForTreatment > 20000 || ((DateTime.Now - dayOfTreatment).TotalDays < 365))
-                    Console.WriteLine("danger!!! To make this trip you must perform treatment first.");
+
+            get => kmForTreatment;
+            set
+            {
+                if (value + kmForTreatment > 20000 || ((DateTime.Now - DayOfTreatment).TotalDays < 365))
+                {
+                    Console.WriteLine("treatment.");
+                    Status = TravelMode.InTreatment;
+                    Treatment();
+                }
                 else
-                       kmForTreatment += value;
+                {
+                    kmForTreatment += value;
+                    Status = TravelMode.ReadyToGo;
+                }
+            }
+        }
+
+        /// <summary>
+        /// A feature whose function is to prevent the vehicle from exceeding 1200 kilometers without refueling
+        /// </summary>
+        private int kmForRefueling;
+        public int KmForRefueling
+        {
+            get => kmForRefueling;
+            set
+            {
+                if (kmForRefueling + value <= 1200)
+                {
+                    kmForRefueling += value;
+                }
+
+                else
+                {
+                    //Status = TravelMode.ReadyToGo;
+                    //if (Status == TravelMode.InTreatment)
+                    //{
+
+                    //}
+
+                    //else
+                    //{
+                    Console.WriteLine("Refueling");
+                    Refueling();
+                    Status = TravelMode.ReadyToGo;
+                    // }
+                }
             }
         }
 
@@ -40,30 +121,12 @@ namespace dotNet_01_5055_1872
         private int totalMiles;
         public int TotalMiles
         {
-            get { return totalMiles; }
-            set { totalMiles += value;}
+            get => totalMiles;
+            set => totalMiles += value;
         }
+        public DateTime StartDate { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        private DateTime startDate;
-        public DateTime StartDate
-        {
-            get { return startDate; }
-            set { startDate = value; }
-        }
-
-        /// <summary>
-        /// The license number in the form of int
-        /// </summary>
-        private string license_number;
-
-        public string Nicense_number
-        {
-            get { return license_number; }
-            set { license_number = value; }
-        }
+        public string Nicense_number { get; set; }
 
         /// <summary>
         /// A property that places a value in the license number and returns a value of the license number,
@@ -74,44 +137,36 @@ namespace dotNet_01_5055_1872
             get
             {
                 string start, middel, end;
-                if (startDate.Year < 2018)
+                if (StartDate.Year < 2018)
                 {
-                    start = license_number.Substring(0, 2);
-                    middel = license_number.Substring(2, 3);
-                    end = license_number.Substring(5, 2);
+                    start = Nicense_number.Substring(0, 2);
+                    middel = Nicense_number.Substring(2, 3);
+                    end = Nicense_number.Substring(5, 2);
                 }
                 else
                 {
-                    start = license_number.Substring(0, 3);
-                    middel = license_number.Substring(3, 2);
-                    end = license_number.Substring(5, 3);
+                    start = Nicense_number.Substring(0, 3);
+                    middel = Nicense_number.Substring(3, 2);
+                    end = Nicense_number.Substring(5, 3);
                 }
-               return string.Format("{0}-{1}-{2}", start, middel, end); 
+                return string.Format("{0}-{1}-{2}", start, middel, end);
             }
             set
             {
-                    if (startDate.Year < 2018 && value.Length == 7)
-                            license_number = value;
-                    if (startDate.Year >= 2018 && value.Length == 8)
-                            license_number = value;
-                    if (value.Length  != 7 && value.Length != 8)
-                          Console.WriteLine("The license number must be 7 or 8 digits");
-            }
-        }
+                if (StartDate.Year < 2018 && value.Length == 7)
+                {
+                    Nicense_number = value;
+                }
 
-        /// <summary>
-        /// A feature whose function is to prevent the vehicle from exceeding 1200 kilometers without refueling
-        /// </summary>
-        private int kmForRefueling;
-        public int KmForRefueling
-        {
-            get { return kmForRefueling; }
-            set
-            {
-                if (kmForRefueling + value <= 1200)
-                    kmForRefueling += value;
-                else
-                    Console.WriteLine("Refueling is required for this trip!!!");
+                if (StartDate.Year >= 2018 && value.Length == 8)
+                {
+                    Nicense_number = value;
+                }
+
+                if (value.Length != 7 && value.Length != 8)
+                {
+                    Console.WriteLine("The license number must be 7 or 8 digits");
+                }
             }
         }
 
@@ -121,9 +176,9 @@ namespace dotNet_01_5055_1872
         /// 
         public void Treatment()
         {
-            this.dayOfTreatment = DateTime.Now;
-            this.kmOfTreatment = this.totalMiles;
-            this.kmForTreatment = 0;
+            DayOfTreatment = DateTime.Now;
+            kmOfTreatment = totalMiles;
+            kmForTreatment = 0;
         }
 
         /// <summary>
@@ -131,7 +186,7 @@ namespace dotNet_01_5055_1872
         /// </summary>
         public void Refueling()
         {
-            this.KmForRefueling *= -1;
+            KmForRefueling = 0;
         }
 
         /// <summary>
@@ -140,21 +195,8 @@ namespace dotNet_01_5055_1872
         /// </summary>
         /// <returns></returns>
         public override string ToString()
-       {
-            return string.Format("License_number = {0} kmForTreatment = {1} ", License_number, kmForTreatment);
-       }
-
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="_license_number"></param>
-        /// <param name="Start_Date"></param>
-        //public Bus(string _license_number, DateTime Start_Date)
-        //{
-        //    License_number = _license_number;
-        //    StartDate = Start_Date;
-        //}
+        {
+            return string.Format("License_number = {0}\t StartDate = {1}\t kmForTreatment {2}\t KmForRefueling = {3}\t TotalMiles = {4}\t  DayOfTreatment = {5}  ", License_number, StartDate, kmForTreatment, KmForRefueling, TotalMiles, DayOfTreatment);
+        }
     }
 }

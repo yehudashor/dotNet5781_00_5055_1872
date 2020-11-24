@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace dotNet_01_5055_1872
-{ 
-    class Program
+{
+    public class Program
     {
         /// <summary>
         /// The main menu for selecting the options according to the exercise
         /// </summary>
         /// <param name="args"></param>
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             List<Bus> buses = new List<Bus>();
             int number;
@@ -23,58 +23,67 @@ namespace dotNet_01_5055_1872
              enter 4 to TravelPresentation:
                 enter -1 to Exit :");
             Console.WriteLine("enter a number: ");
-            while (!int.TryParse(Console.ReadLine() , out number))
+            while (!int.TryParse(Console.ReadLine(), out number))
+            {
                 Console.WriteLine("rong number!!! enter again:");
-            myenum choice = (myenum)number;
-            while (choice != myenum.Exit)
+            }
+
+            Myenum choice = (Myenum)number;
+            while (choice != Myenum.Exit)
             {
                 switch (choice)
                 {
-                    case myenum.EnterNewBus:
+                    case Myenum.EnterNewBus:
                         Console.WriteLine("Please introduce a new bus to the company: ");
-                        addbus(ref buses);
+                        Addbus(ref buses);
                         break;
-                    case myenum.BusSelection:
+                    case Myenum.BusSelection:
                         Console.WriteLine("Choose a bus to travel: ");
                         Busselection(buses);
                         break;
-                    case myenum.RefuelingOrHandling:
+                    case Myenum.RefuelingOrHandling:
                         Console.WriteLine("Treatment or refueling: ");
                         RefuelOrTreat(buses);
                         break;
-                    case myenum.TravelPresentation:
+                    case Myenum.TravelPresentation:
                         Console.WriteLine("View the license number and passenger for all buses in the company: ");
                         foreach (Bus item in buses)
+                        {
                             Console.WriteLine(item);
+                        }
                         break;
-                    case myenum.Exit:
+                    case Myenum.Exit:
                         break;
-                        default:
+                    default:
                         Console.WriteLine("end of progrem: ");
                         break;
                 }
                 Console.WriteLine();
                 Console.WriteLine("enter a number: ");
                 while (!int.TryParse(Console.ReadLine(), out number))
+                {
                     Console.WriteLine("rong number!!! enter again: ");
-                choice = (myenum)number;
+                }
+
+                choice = (Myenum)number;
                 Console.WriteLine();
             }
-            
         }
 
         /// <summary>
         /// A function that adds a new bus to the company updates the required fields and puts it on the list
         /// </summary>
         /// <param name="buses = list"></param>
-        static void addbus(ref List<Bus> buses)
+        public static void Addbus(ref List<Bus> buses)
         {
             Console.WriteLine("Please enter a license number and start date of activity: ");
             string numberOfbus = Console.ReadLine();
             DateTime detaForBus = DateTime.Parse(Console.ReadLine());
-            Bus bus = new Bus();
-            bus.StartDate = detaForBus;
-            bus.License_number = numberOfbus;
+            Bus bus = new Bus
+            {
+                StartDate = detaForBus,
+                License_number = numberOfbus
+            };
             buses.Add(bus);
         }
 
@@ -83,9 +92,8 @@ namespace dotNet_01_5055_1872
         /// Which includes checking the feasibility of the trip and printing an error in the impossibility and updating the appropriate fields
         /// </summary>
         /// <param name="buses"></param>
-        static void Busselection(List<Bus> buses)
+        public static void Busselection(List<Bus> buses)
         {
-            int number = 0;
             Random r = new Random(DateTime.Now.Millisecond);
             Console.WriteLine("license number: ");
             string str = Console.ReadLine();
@@ -94,23 +102,25 @@ namespace dotNet_01_5055_1872
             {
                 if (item.Nicense_number == str)
                 {
-                    number = r.Next(1200);
+                    int number = r.Next(1200);
                     item.KmForRefueling = number;
                     item.KmForTreatment = number;
                     item.TotalMiles = number;
                     Bus.kmForAllBuses = number;
-                        chack = true;
+                    chack = true;
                 }
             }
             if (!chack)
-                Console.WriteLine("The bus is not in the system");          
+            {
+                Console.WriteLine("The bus is not in the system");
+            }
         }
 
         /// <summary>
         /// Field 3 in the main menu that asks for treatment or refueling and performs according to the user's choice
         /// </summary>
         /// <param name="buses"></param>
-        static void RefuelOrTreat(List<Bus> buses)
+        public static void RefuelOrTreat(List<Bus> buses)
         {
             int number;
             Console.WriteLine("license number: ");
@@ -122,16 +132,27 @@ namespace dotNet_01_5055_1872
                 {
                     Console.WriteLine("Choose 1 to refuel or 2 to treat: ");
                     while (!int.TryParse(Console.ReadLine(), out number))
+                    {
                         Console.WriteLine("rong number!!! enter again ");
+                    }
+
                     if (number == 1)
+                    {
                         item.Refueling();
+                    }
+
                     if (number == 2)
+                    {
                         item.Treatment();
+                    }
+
                     chack = true;
                 }
             }
             if (!chack)
+            {
                 Console.WriteLine("The bus is not in the system");
+            }
         }
     }
 }

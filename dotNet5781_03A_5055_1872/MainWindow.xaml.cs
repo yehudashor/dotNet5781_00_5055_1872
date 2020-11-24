@@ -47,7 +47,6 @@ namespace dotNet5781_03A_5055_1872
                 };
                 collectionOfbusLines.CollectionOfLines = busLine1;
             }
-
             InitializeComponent();
             cbBusLines.ItemsSource = collectionOfbusLines;
             cbBusLines.DisplayMemberPath = "LineNumber";

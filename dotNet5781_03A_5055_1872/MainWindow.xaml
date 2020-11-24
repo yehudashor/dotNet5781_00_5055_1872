@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dotNet5781_03A_5055_1872"
         mc:Ignorable="d"
-         Title="transportation" Height="640" Width="800" Icon="https://www.evm.co.il/wp-content/uploads/2020/01/BYD_Electric_Bus-390x220.jpg">
+         Title="transportation" Height="640" Width="800" Icon ="https://www.evm.co.il/wp-content/uploads/2020/01/BYD_Electric_Bus-390x220.jpg">
     <Grid x:Name="MainGrid" Background="Aqua">
         <Grid.RowDefinitions>
             <RowDefinition Height="50*"/>
@@ -14,13 +14,13 @@
         <Border BorderBrush="Olive" BorderThickness="2">
             <Grid Name="UpGrid" HorizontalAlignment="Stretch" Height="auto" Grid.Row="0"
 VerticalAlignment="Stretch" Width="auto">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions >
-            <Label Content = "Bus Line Number: " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions >
+                <Label Content = "Bus Line Number: " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"/>
             <ComboBox x:Name="cbBusLines" Padding="65,5,0,0"  Margin="15" Background="Blue" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontSize="22"/>
             <TextBox x:Name="tbArea" FontSize="22" Margin ="15" Padding="30,5,0,0" Background="Yellow" HorizontalAlignment= "Stretch" VerticalAlignment="Stretch" Grid.Column="3" Text="{Binding Path=Area1}" />
             <Label Content = "Area : " Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"/>
