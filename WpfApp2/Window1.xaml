@@ -4,15 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
-        xmlns:dotNet_01_5055_1872="clr-namespace:dotNet_01_5055_1872;assembly=dotNet_01_5055_1872" x:Class="WpfApp2.Window1"
+        xmlns:dotNet_01_5055_1872="clr-namespace:dotNet_01_5055_1872;assembly=dotNet_01_5055_1872"  x:Class="WpfApp2.Window1"
         mc:Ignorable="d"
-        Title="Window1" Height="400" Width="400" Loaded="Window_Loaded" FontSize="15" Background="Crimson">
+        Title="Add New Bus" Height="400" Width="400" FontSize="15" Background="Crimson">
     <Window.Resources>
         <CollectionViewSource x:Key="busViewSource" d:DesignSource="{d:DesignInstance {x:Type dotNet_01_5055_1872:Bus}, CreateList=True}"/>
     </Window.Resources>
     <Grid>
 
-        <Grid x:Name="grid1" VerticalAlignment="Top" Margin="0,10,-10.667,-0.333" HorizontalAlignment="Left" DataContext="{StaticResource busViewSource}" Height="361" Width="404" RenderTransformOrigin="0.683,0.464">
+        <Grid x:Name="grid1" VerticalAlignment="Top" Margin="0,10,-10.667,-17.333" HorizontalAlignment="Left" Height="378" Width="404" RenderTransformOrigin="0.683,0.464">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -36,7 +36,7 @@
             <TextBox x:Name="kmForTreatmentTextBox" Width="120" VerticalAlignment="Center" Text="{Binding KmForTreatment, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="2.667,7.333,0,4" Height="24" HorizontalAlignment="Left" Grid.Column="1"/>
             <Label VerticalAlignment="Center" Grid.Row="3" Margin="3,3,0,6.333" HorizontalAlignment="Left" Grid.Column="0" Content="License number:" Height="26" Width="96"/>
             <TextBox x:Name="license_numberTextBox" Width="120" VerticalAlignment="Center" Grid.Row="3" Margin="2.667,4,0,7.333" Height="24" HorizontalAlignment="Left" Grid.Column="1"/>
-
+   
             <Label VerticalAlignment="Center" Grid.Row="6" Margin="3,4,0,8" HorizontalAlignment="Left" Grid.Column="0" Content="Start Date:" Height="26" Width="65"/>
             <DatePicker x:Name="startDateDatePicker" VerticalAlignment="Center" SelectedDate="{Binding StartDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="6" Margin="2.667,4,0,8" HorizontalAlignment="Left" Grid.Column="1" Height="26" Width="103"/>
             <Label VerticalAlignment="Center" Grid.Row="7" Margin="3,4,0,5.333" HorizontalAlignment="Left" Grid.Column="0" Content="Status:" Height="26" Width="45"/>

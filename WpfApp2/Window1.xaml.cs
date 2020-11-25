@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using dotNet_01_5055_1872;
 namespace WpfApp2
 {
     /// <summary>
@@ -19,17 +19,11 @@ namespace WpfApp2
     /// </summary>
     public partial class Window1 : Window
     {
+        public Bus BBus { get; } = new Bus();
         public Window1()
         {
             InitializeComponent();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-            System.Windows.Data.CollectionViewSource busViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("busViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // busViewSource.Source = [generic data source]
+            DataContext = BBus;
         }
     }
 }

@@ -13,6 +13,7 @@
         </Grid.RowDefinitions>
         <Grid x:Name="upGrid">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.3*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -20,12 +21,13 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label Content="License_number:" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
-            <Label Content="StartDate:" Grid.Column="1" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
-            <Label Content="KmForRefueling:" Grid.Column="2" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
-            <Label Content="KmForTreatment:" Grid.Column="3" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
-            <Label Content="TotalMiles:" Grid.Column="4" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
-            <Label Content="DayOfTreatment:" Grid.Column="5" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
+            <Button Content="NewBus " Background="HotPink" Margin="0,0,0.333,0" Click="NewBus1"   />
+            <Label Content="License_number:" Grid.Column="1" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
+            <Label Content="StartDate:" Grid.Column="2" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
+            <Label Content="KmForRefueling:" Grid.Column="3" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
+            <Label Content="KmForTreatment:" Grid.Column="4" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
+            <Label Content="TotalMiles:" Grid.Column="5" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
+            <Label Content="DayOfTreatment:" Grid.Column="6" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
         </Grid>
         <ListBox x:Name="Bus" Grid.Row="1" SelectionChanged ="Bus_SelectionChanged"  Background="PaleTurquoise" ItemsSource= "{Binding}"/>
     </Grid>

@@ -41,11 +41,18 @@ namespace WpfApp2
             InitializeComponent();
             Bus.ItemsSource = listBus;
             Bus.SelectedIndex = -1;
+            Bus.SelectionChanged += NewBus1;
             Bus.SelectionChanged += Bus_SelectionChanged;
         }
         private void Bus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             _ = MessageBox.Show((string)Bus.ItemsSource);
+        }
+
+        private void NewBus1(object sender, RoutedEventArgs e)
+        {
+            Window1 window1 = new Window1();
+            window1.Show();
         }
     }
 
