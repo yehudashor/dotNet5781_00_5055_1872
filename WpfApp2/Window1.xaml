@@ -6,43 +6,36 @@
         xmlns:local="clr-namespace:WpfApp2"
         xmlns:dotNet_01_5055_1872="clr-namespace:dotNet_01_5055_1872;assembly=dotNet_01_5055_1872"  x:Class="WpfApp2.Window1"
         mc:Ignorable="d"
-        Title="Add New Bus" Height="400" Width="400" FontSize="15" Background="Crimson">
-    <Window.Resources>
+        Title="Add New Bus" Height="200" Width="300" FontSize="15" Background="Crimson">
+    
+        <Window.Resources>
         <CollectionViewSource x:Key="busViewSource" d:DesignSource="{d:DesignInstance {x:Type dotNet_01_5055_1872:Bus}, CreateList=True}"/>
     </Window.Resources>
     <Grid>
-
-        <Grid x:Name="grid1" VerticalAlignment="Top" Margin="0,10,-10.667,-17.333" HorizontalAlignment="Left" Height="378" Width="404" RenderTransformOrigin="0.683,0.464">
+        
+            <Grid x:Name="grid1" VerticalAlignment="Top" Margin="33,10,-143.667,-217.333" HorizontalAlignment="Left" Height="378" Width="404" RenderTransformOrigin="0.683,0.464">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="0.667"/>
-                <RowDefinition Height="37.333"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+               
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" MinWidth="114.667"/>
                 <ColumnDefinition Width="Auto" MinWidth="124"/>
             </Grid.ColumnDefinitions>
-            <Label VerticalAlignment="Center" Grid.Row="0" Margin="3,3,0,6.333" HorizontalAlignment="Left" Grid.Column="0" Content="Day Of Treatment:" Height="26" Width="105"/>
-            <DatePicker x:Name="dayOfTreatmentDatePicker" VerticalAlignment="Bottom" SelectedDate="{Binding DayOfTreatment, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="2.667,0,0,7" HorizontalAlignment="Left" Grid.Column="1" Height="26" Width="103"/>
-            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3,4.667,0,4.667" HorizontalAlignment="Left" Grid.Column="0" Content="Km For Refueling:" Height="26" Width="103"/>
-            <TextBox x:Name="kmForRefuelingTextBox" Width="120" VerticalAlignment="Bottom" Grid.Row="1" Margin="2.667,0,0,6" Height="24" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="2" Margin="3,6.333,0,3" HorizontalAlignment="Left" Grid.Column="0" Content="Km For Treatment:" Height="26" Width="107"/>
-            <TextBox x:Name="kmForTreatmentTextBox" Width="120" VerticalAlignment="Center" Text="{Binding KmForTreatment, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="2.667,7.333,0,4" Height="24" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3,3,0,6.333" HorizontalAlignment="Left" Grid.Column="0" Content="License number:" Height="26" Width="96"/>
-            <TextBox x:Name="license_numberTextBox" Width="120" VerticalAlignment="Center" Grid.Row="3" Margin="2.667,4,0,7.333" Height="24" HorizontalAlignment="Left" Grid.Column="1"/>
-   
-            <Label VerticalAlignment="Center" Grid.Row="6" Margin="3,4,0,8" HorizontalAlignment="Left" Grid.Column="0" Content="Start Date:" Height="26" Width="65"/>
-            <DatePicker x:Name="startDateDatePicker" VerticalAlignment="Center" SelectedDate="{Binding StartDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="6" Margin="2.667,4,0,8" HorizontalAlignment="Left" Grid.Column="1" Height="26" Width="103"/>
-            <Label VerticalAlignment="Center" Grid.Row="7" Margin="3,4,0,5.333" HorizontalAlignment="Left" Grid.Column="0" Content="Status:" Height="26" Width="45"/>
-            <TextBox x:Name="statusTextBox" Width="120" VerticalAlignment="Center" Text="{Binding Status, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="7" Margin="2.667,5,0,6.333" Height="24" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="8" Margin="3,5.667,0,3.667" HorizontalAlignment="Left" Grid.Column="0" Content="Total Miles:" Height="26" Width="69"/>
-            <TextBox x:Name="totalMilesTextBox" Width="120" VerticalAlignment="Center" Text="{Binding TotalMiles, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="8" Margin="2.667,6.667,0,4.667" Height="24" HorizontalAlignment="Left" Grid.Column="1"/>
+
+            <!--data for new bus-->
+            <Label VerticalAlignment="Center"  Margin="3,3,0,6.333" HorizontalAlignment="Left"  Content="License number:" Height="26" Width="120"/>
+            <TextBox x:Name="license_numberTextBox" Text="{Binding XPath}" Width="120" VerticalAlignment="Center"  Margin="2.667,4,0,7.333" Height="24" HorizontalAlignment="Left"  Grid.Column="1" />
+            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3,4,0,8" HorizontalAlignment="Left" Grid.Column="0" Content="Start Date:" Height="26" Width="100"/>
+            <DatePicker x:Name="startDateDatePicker" DisplayDate="{Binding XPath}" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Left" Grid.Column="1" Height="26" Width="130"/>
+            <Label VerticalAlignment="Center" Grid.Row="2" Margin="3,3,0,6.333" HorizontalAlignment="Left" Content="Day Of Treatment:" Height="26" Width="130"/>
+            <DatePicker x:Name="dayOfTreatmentDatePicker" DisplayDate="{Binding XPath}" VerticalAlignment="Bottom" Grid.Row="2" Margin="2.667,0,0,7" HorizontalAlignment="Left" Grid.Column="1" Height="26" Width="103"/>
+
+            <!--Button for add a data for new bus-->
+            <Button Content="AddToList" Click="Button_Click" Background="Cornsilk" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Grid.Row="3" Margin="-30,0.333,7,0"/>
         </Grid>
 
     </Grid>

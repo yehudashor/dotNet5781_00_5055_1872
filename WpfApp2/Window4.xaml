@@ -1,0 +1,16 @@
+﻿<Window x:Class="WpfApp2.Window4"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="Window4" Height="150" Width="230">
+    <!-- Deleting a bus for a bonus by enriching the graphical interface -->
+    <StackPanel Background="BurlyWood">
+        <Label VerticalAlignment="Stretch"  HorizontalAlignment="Left"  Content="License number In the right format:" Height="26" Width="205"/>
+        <TextBox x:Name="license_numberTextBox" Text="{Binding XPath}" Width="120" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  />
+        <Button Content="Delete" Click="DeleteBus" Background="Cornsilk" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="170"/>
+    </StackPanel>
+
+</Window>

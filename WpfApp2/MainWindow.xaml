@@ -1,34 +1,89 @@
-﻿<Window x:Class="WpfApp2.MainWindow"
+﻿<Window x:Class= "WpfApp2.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="1100">
     <Grid x:Name="list" RenderTransformOrigin="0.5,0.5">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="15*"/>
-        </Grid.RowDefinitions>
-        <Grid x:Name="upGrid">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.3*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Button Content="NewBus " Background="HotPink" Margin="0,0,0.333,0" Click="NewBus1"   />
-            <Label Content="License_number:" Grid.Column="1" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
-            <Label Content="StartDate:" Grid.Column="2" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
-            <Label Content="KmForRefueling:" Grid.Column="3" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
-            <Label Content="KmForTreatment:" Grid.Column="4" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
-            <Label Content="TotalMiles:" Grid.Column="5" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
-            <Label Content="DayOfTreatment:" Grid.Column="6" HorizontalAlignment="Center" Background="Cornsilk" VerticalAlignment="Center"/>
-        </Grid>
-        <ListBox x:Name="Bus" Grid.Row="1" SelectionChanged ="Bus_SelectionChanged"  Background="PaleTurquoise" ItemsSource= "{Binding}"/>
+        <ListView Margin="10" x:Name="BusList" Background="PaleTurquoise"  SelectionChanged ="Bus_SelectionChanged_1" ItemsSource="{Binding}">
+
+            <ListView.Resources>
+                <Style x:Key="myButtonStyle3" TargetType="ListView">
+                    <Setter Property="Background" Value="{Binding}" />
+                </Style>
+                <Style TargetType="{x:Type GridViewColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Left" />
+                </Style>
+                <Style x:Key="myButtonStyle" TargetType="Button">
+                    <Setter Property="Background" Value="LemonChiffon" />
+                </Style>
+                
+                <Style x:Key="myButtonStyle1" TargetType="Button">
+                    <Setter Property="Background" Value="LemonChiffon" />
+                </Style>
+                <Style x:Key="myButtonStyle2" TargetType="ProgressBar">
+                        <Setter Property="Background" Value="LightPink" />
+                    <Setter Property="Value" Value="{Binding ElementName=temp, Path=Text}" />
+                </Style>
+
+                <Style x:Key="myButtonStyle5" TargetType="ProgressBar">
+                    <Setter Property="Background" Value="LightPink" />
+                </Style>
+            </ListView.Resources>
+
+            <ListView.View>
+                <GridView>
+
+                    <!--View the active buses in the system by connecting to the listView features-->
+                    
+                        <GridViewColumn x:Name="LicNum" Header="License_number" Width="120" DisplayMemberBinding= "{Binding License_number}" />
+                    <GridViewColumn Header="fuel" Width="120" DisplayMemberBinding="{Binding KmForRefueling}" />
+
+                    <!--Adding a button to each element in the list whose event opens a window for entering travel details-->
+                    <GridViewColumn Header="Trip" Width="115">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Name="jjj">
+                                <Button x:Name="GoToT"  Content="GoToTrip" Style="{StaticResource myButtonStyle1}" Click="GoTrip" Width="100" Height ="40"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    
+                    <GridViewColumn Header="Travel time" Width="115">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate >
+                                <ProgressBar x:Name="Travel_time" Minimum="0" Maximum="100" Style="{StaticResource myButtonStyle5}" Width="115" Height ="40" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <!--Adding a button to each element in the list whose event opens a window for refueling -->
+                    <GridViewColumn x:Name="refueling" Header="refueling" Width="180">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate >
+                                <Button Content="refueling" Name="refule"  Style="{StaticResource myButtonStyle}" Click="RefuelingToBus" Width="115"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                       
+                    </GridViewColumn>
+
+                    <GridViewColumn x:Name="refu"  Header="Refueling time" Width="115">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ProgressBar x:Name="TimeFoul" Minimum="0" Maximum="12"  Width="115" Height ="40" Style="{StaticResource myButtonStyle2}" ValueChanged="TimeFoul_ValueChanged" />
+                            </DataTemplate>
+                          
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView> 
+            </ListView.View>
+        </ListView>
+        
+        <!--Button for add a new bus-->
+        <Button x:Name="vel" Content="NewBus" Background="HotPink" Click="NewBus1"  Margin="650,10,0,0" VerticalAlignment="Top" Width="120" Height="225"/>
+        
+        <Button x:Name="t" Content="DeleteBus" Background="DarkOrchid" Click="DeleteBus"  Margin="650,225,0,0"  Width="120" Height="225"/>
+        <TextBox x:Name="temp" Margin="350,225,0,0"  Width="20" Height="225"/>
     </Grid>
 </Window>

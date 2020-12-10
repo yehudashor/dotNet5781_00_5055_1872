@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfApp2.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="Window2" Height="200" Width="200" FontSize="15" Background="BlanchedAlmond">
+
+    <!-- TextBox to enter data of the trip -->
+    <StackPanel>
+        <Label Content="TravelDistance:"/>
+        <TextBox x:Name="kmForRefuelingTextBox" PreviewKeyDown="TextBox_PreviewKeyDown" PreviewTextInput= "NumberValidationTextBox"  />
+    </StackPanel>
+</Window>
+    
+    
+    
+            <!-- exampal of mouse double click by button click -->
+<!--<Button MouseDoubleClick="Button_MouseDoubleClick" Height="117" Margin="0,0,0.333,0" />-->
+<!--PreviewTextInput= "NumberValidationTextBox"-->

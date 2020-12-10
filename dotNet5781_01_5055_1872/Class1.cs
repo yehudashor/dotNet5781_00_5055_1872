@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
+using System.Windows;
 
 namespace dotNet_01_5055_1872
 {
     /// <summary>
-    /// 
+    /// TravelMode by
     /// </summary>
     /// 
     public enum TravelMode
@@ -16,18 +18,21 @@ namespace dotNet_01_5055_1872
         ReadyToGo,
         InMiddleOfTrip,
         InTreatment,
-        OnRefueling
+        OnRefueling,
+        EndOfTrip
     }
-    public class Bus
+    public class Bus : INotifyPropertyChanged
     {
-        public Bus(string _License_number, DateTime _StartDate, int _KmForRefueling, int _KmForTreatment, int _TotalMiles, DateTime _DayOfTreatment)
+        public event PropertyChangedEventHandler PropertyChanged;
+        public Bus(string _License_number, DateTime _StartDate, DateTime _DayOfTreatment, int _KmForRefueling = 0, int _KmForTreatment = 0, int _TotalMiles = 0)
         {
+            DayOfTreatment = _DayOfTreatment;
             StartDate = _StartDate;
             License_number = _License_number;
             KmForRefueling = _KmForRefueling;
             KmForTreatment = _KmForTreatment;
             TotalMiles = _TotalMiles;
-            DayOfTreatment = _DayOfTreatment;
+            Status = TravelMode.ReadyToGo;
         }
 
         private static readonly Random random = new Random(DateTime.Now.Millisecond);
@@ -44,6 +49,7 @@ namespace dotNet_01_5055_1872
                 int number = random.Next(3);
                 value = (TravelMode)number;
                 status = status == TravelMode.InMiddleOfTrip ? TravelMode.InMiddleOfTrip : value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Status"));
             }
         }
 
@@ -51,7 +57,7 @@ namespace dotNet_01_5055_1872
 
         public DateTime DayOfTreatment { get; set; }
 
-        private int kmOfTreatment;
+        public int KmOfTreatment { get; set; }
 
         /// <summary>
         /// kmForAllBuses = A personal addition that sums up the overall mileage of all buses For future optional use
@@ -69,17 +75,17 @@ namespace dotNet_01_5055_1872
             get => kmForTreatment;
             set
             {
-                if (value + kmForTreatment > 20000 || ((DateTime.Now - DayOfTreatment).TotalDays < 365))
+                DateTime yearAgo = DateTime.Today.AddYears(-1);
+                if (value + kmForTreatment > 20000 || yearAgo > DayOfTreatment)
                 {
-                    Console.WriteLine("treatment.");
-                    Status = TravelMode.InTreatment;
-                    Treatment();
+                    _ = MessageBox.Show("Treatment");
                 }
+
                 else
                 {
                     kmForTreatment += value;
-                    Status = TravelMode.ReadyToGo;
                 }
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("KmForTreatment"));
             }
         }
 
@@ -96,22 +102,20 @@ namespace dotNet_01_5055_1872
                 {
                     kmForRefueling += value;
                 }
-
                 else
                 {
-                    //Status = TravelMode.ReadyToGo;
-                    //if (Status == TravelMode.InTreatment)
-                    //{
-
-                    //}
-
-                    //else
-                    //{
-                    Console.WriteLine("Refueling");
-                    Refueling();
-                    Status = TravelMode.ReadyToGo;
-                    // }
+                    if (value + kmForTreatment > 20000 || ((DateTime.Now - DayOfTreatment).TotalDays < 365))
+                    {
+                        RefuelingAndTreatment();
+                        _ = MessageBox.Show("Refueling and handling The bus was ready to go");
+                    }
+                    else
+                    {
+                        _ = MessageBox.Show("Refueling");
+                        Refueling();
+                    }
                 }
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("KmForRefueling"));
             }
         }
 
@@ -119,10 +123,15 @@ namespace dotNet_01_5055_1872
         /// counter of km general
         /// </summary>
         private int totalMiles;
+
         public int TotalMiles
         {
             get => totalMiles;
-            set => totalMiles += value;
+            set
+            {
+                totalMiles += value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalMiles"));
+            }
         }
         public DateTime StartDate { get; set; }
 
@@ -167,6 +176,7 @@ namespace dotNet_01_5055_1872
                 {
                     Console.WriteLine("The license number must be 7 or 8 digits");
                 }
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("License_number"));
             }
         }
 
@@ -177,8 +187,8 @@ namespace dotNet_01_5055_1872
         public void Treatment()
         {
             DayOfTreatment = DateTime.Now;
-            kmOfTreatment = totalMiles;
-            kmForTreatment = 0;
+            KmOfTreatment = totalMiles;
+            KmForTreatment *= -1;
         }
 
         /// <summary>
@@ -186,7 +196,14 @@ namespace dotNet_01_5055_1872
         /// </summary>
         public void Refueling()
         {
-            KmForRefueling = 0;
+            KmForRefueling *= -1;
+        }
+
+        public void RefuelingAndTreatment()
+        {
+            Treatment();
+            Refueling();
+            Status = TravelMode.ReadyToGo;
         }
 
         /// <summary>
@@ -196,7 +213,7 @@ namespace dotNet_01_5055_1872
         /// <returns></returns>
         public override string ToString()
         {
-            return string.Format("License_number = {0}\t StartDate = {1}\t kmForTreatment {2}\t KmForRefueling = {3}\t TotalMiles = {4}\t  DayOfTreatment = {5}  ", License_number, StartDate, kmForTreatment, KmForRefueling, TotalMiles, DayOfTreatment);
+            return string.Format("License_number = {0}\t {1}\t {2}\t  {3}\t  {4}\t  {5}  ", License_number, StartDate.Date.ToString(), kmForTreatment, KmForRefueling, TotalMiles, DayOfTreatment);
         }
     }
 }

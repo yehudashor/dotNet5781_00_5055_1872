@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using dotNet_01_5055_1872;
+using System.Collections.ObjectModel;
 namespace WpfApp2
 {
     /// <summary>
@@ -19,11 +20,25 @@ namespace WpfApp2
     /// </summary>
     public partial class Window1 : Window
     {
-        public Bus BBus { get; } = new Bus();
+        private Bus _Bus;
+
         public Window1()
         {
             InitializeComponent();
-            DataContext = BBus;
+        }
+
+        /// <summary>
+        /// Entering the data of the new line and adding them to the main list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string LicinsNumber = license_numberTextBox.Text;
+            DateTime dateTime = startDateDatePicker.DisplayDate;
+            DateTime dateTime1 = dayOfTreatmentDatePicker.DisplayDate;
+            _Bus = new Bus(LicinsNumber, dateTime, dateTime1);
+            MainWindow.listBus.Add(_Bus);
         }
     }
 }

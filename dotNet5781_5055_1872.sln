@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotNet5781_03A_5055_1872", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotNet_5781_03B_5055_1872", "WpfApp2\dotNet_5781_03B_5055_1872.csproj", "{56819E0B-1BEF-4CB8-823F-CFAB986C19D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp3", "..\..\..\..\Pictures\WpfApp3\WpfApp3.csproj", "{DD8E62B3-C2FD-45BD-B369-861DFED76D54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{56819E0B-1BEF-4CB8-823F-CFAB986C19D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56819E0B-1BEF-4CB8-823F-CFAB986C19D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56819E0B-1BEF-4CB8-823F-CFAB986C19D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD8E62B3-C2FD-45BD-B369-861DFED76D54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD8E62B3-C2FD-45BD-B369-861DFED76D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD8E62B3-C2FD-45BD-B369-861DFED76D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD8E62B3-C2FD-45BD-B369-861DFED76D54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
