@@ -30,6 +30,7 @@ namespace WpfApp2
         public float Number1 { get; set; }
         private static readonly Random r = new Random(DateTime.Now.Millisecond);
         public static BackgroundWorker _timeOfTrval;
+        public static BackgroundWorker Worker1;
         public Window2()
         {
             //_timeOfTrval.ProgressChanged += MainWindow.RefuelingToBus2;
@@ -37,6 +38,12 @@ namespace WpfApp2
             _timeOfTrval = new BackgroundWorker();
             _timeOfTrval.DoWork += RefuelingToBus1;
             _timeOfTrval.WorkerReportsProgress = true;
+
+            Worker1 = new BackgroundWorker();
+            Worker1 = new BackgroundWorker();
+            Worker1.DoWork += RefuelingToBus0;
+            Worker1.ProgressChanged += RefuelingToBus3;
+            Worker1.WorkerReportsProgress = true;
         }
 
         /// <summary>
@@ -60,6 +67,7 @@ namespace WpfApp2
             {
                 Number = int.Parse(kmForRefuelingTextBox.Text);
                 _timeOfTrval.RunWorkerAsync();
+                Worker1.RunWorkerAsync();
             }
         }
 
@@ -110,6 +118,19 @@ namespace WpfApp2
         {
             Regex regex = new Regex("[^0-9]$");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void RefuelingToBus0(object sender, DoWorkEventArgs e)
+        {
+            for (int i = 0; i < Number1 / 1000; i++)
+            {
+                Worker1.ReportProgress(i);
+                Thread.Sleep(1000);
+            }
+        }
+        private void RefuelingToBus3(object sender, ProgressChangedEventArgs e)
+        {
+            proggr.Value = e.ProgressPercentage;
         }
     }
 }

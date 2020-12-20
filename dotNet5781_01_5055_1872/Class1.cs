@@ -6,6 +6,8 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Windows;
 using System.Windows;
+using System.Windows.Media;
+using DocumentFormat.OpenXml.Drawing.Diagrams;
 
 namespace dotNet_01_5055_1872
 {
@@ -19,10 +21,11 @@ namespace dotNet_01_5055_1872
         InMiddleOfTrip,
         InTreatment,
         OnRefueling,
-        EndOfTrip
     }
     public class Bus : INotifyPropertyChanged
     {
+        public Background background = new Background();
+
         public event PropertyChangedEventHandler PropertyChanged;
         public Bus(string _License_number, DateTime _StartDate, DateTime _DayOfTreatment, int _KmForRefueling = 0, int _KmForTreatment = 0, int _TotalMiles = 0)
         {
@@ -36,6 +39,7 @@ namespace dotNet_01_5055_1872
         }
 
         private static readonly Random random = new Random(DateTime.Now.Millisecond);
+        private readonly Background Brushes;
         private TravelMode status;
 
         /// <summary>

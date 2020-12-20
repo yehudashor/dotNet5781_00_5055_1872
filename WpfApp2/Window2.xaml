@@ -11,6 +11,7 @@
     <StackPanel>
         <Label Content="TravelDistance:"/>
         <TextBox x:Name="kmForRefuelingTextBox" PreviewKeyDown="TextBox_PreviewKeyDown" PreviewTextInput= "NumberValidationTextBox"  />
+        <ProgressBar x:Name="proggr" Background="DarkMagenta"  Minimum="0"  Width="120" Height ="40"  />
     </StackPanel>
 </Window>
     

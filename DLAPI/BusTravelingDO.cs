@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DLAPI;
+
+namespace DO
+{
+    public class BusTraveling
+    {
+
+        public string License_number1 { get; set; }
+        public int LineInExecution { get; set; }
+        public DateTime LeavingTime { get; set; }
+        public DateTime ActualDepartureTime { get; set; }
+
+        public int LastStopNumber { get; set; }
+        public DateTime TransitTimeAt_TheLastStop { get; set; }
+        public DateTime ArrivalAtTheNextStation { get; set; }
+
+        public string DriverName { get; set; }
+        public int DriverID { get; set; }
+    }
+}

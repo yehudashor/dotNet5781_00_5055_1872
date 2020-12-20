@@ -4,28 +4,26 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EC9C1A47-8A35-4CD7-ACB1-5A0E37AD3103}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>_02</RootNamespace>
-    <AssemblyName>02</AssemblyName>
+    <ProjectGuid>{5BE4CE44-D906-495B-AD93-6AB2616749F0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DLAPI</RootNamespace>
+    <AssemblyName>DLAPI</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\..\..\..\Music\פרויקט 2020\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -45,17 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Area.cs" />
     <Compile Include="BusLine.cs" />
-    <Compile Include="BusStop.cs" />
-    <Compile Include="BusLineStation.cs" />
-    <Compile Include="Enum.cs" />
-    <Compile Include="CollectionOfBusLines.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="BusTravelingDO.cs" />
+    <Compile Include="Bus_DO.cs" />
+    <Compile Include="ConsecutiveStations.cs" />
+    <Compile Include="DLFactory.cs" />
+    <Compile Include="Interface1.cs" />
+    <Compile Include="LineExit.cs" />
+    <Compile Include="LineStation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
+    <Compile Include="BusStation.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserJourney.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

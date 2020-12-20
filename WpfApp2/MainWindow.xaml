@@ -23,10 +23,10 @@
                 <Style x:Key="myButtonStyle1" TargetType="Button">
                     <Setter Property="Background" Value="LemonChiffon" />
                 </Style>
-                <Style x:Key="myButtonStyle2" TargetType="ProgressBar">
+                <!--<Style x:Key="myButtonStyle2" TargetType="ProgressBar">
                         <Setter Property="Background" Value="LightPink" />
                     <Setter Property="Value" Value="{Binding ElementName=temp, Path=Text}" />
-                </Style>
+                </Style>-->
 
                 <Style x:Key="myButtonStyle5" TargetType="ProgressBar">
                     <Setter Property="Background" Value="LightPink" />
@@ -71,7 +71,7 @@
                     <GridViewColumn x:Name="refu"  Header="Refueling time" Width="115">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <ProgressBar x:Name="TimeFoul" Minimum="0" Maximum="12"  Width="115" Height ="40" Style="{StaticResource myButtonStyle2}" ValueChanged="TimeFoul_ValueChanged" />
+                                <ProgressBar x:Name="TimeFoul" Minimum="0" Maximum="12"  Width="115" Height ="40"  ValueChanged="TimeFoul_ValueChanged" />
                             </DataTemplate>
                           
                         </GridViewColumn.CellTemplate>
@@ -84,6 +84,7 @@
         <Button x:Name="vel" Content="NewBus" Background="HotPink" Click="NewBus1"  Margin="650,10,0,0" VerticalAlignment="Top" Width="120" Height="225"/>
         
         <Button x:Name="t" Content="DeleteBus" Background="DarkOrchid" Click="DeleteBus"  Margin="650,225,0,0"  Width="120" Height="225"/>
-        <TextBox x:Name="temp" Margin="350,225,0,0"  Width="20" Height="225"/>
+        <TextBox x:Name="temp" Margin="900,225,0,0"  Width="20" Height="225"/>
+        <ProgressBar x:Name="proggr"  Minimum="0" Maximum="12"  Width="115" Height ="40" Margin="900,225,0,0" />
     </Grid>
 </Window>

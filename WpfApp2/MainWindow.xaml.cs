@@ -33,6 +33,8 @@ namespace WpfApp2
         public static ObservableCollection<Bus> listBus = new ObservableCollection<Bus>();
         private static readonly Random r = new Random(DateTime.Now.Millisecond);
         public static BackgroundWorker Worker;
+        public static BackgroundWorker Worker1;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
@@ -45,6 +47,10 @@ namespace WpfApp2
             BusList.ItemsSource = listBus;
             Worker = new BackgroundWorker();
             Worker.DoWork += RefuelingToBus1;
+            Worker1 = new BackgroundWorker();
+            Worker1.DoWork += RefuelingToBus0;
+            Worker1.ProgressChanged += RefuelingToBus3;
+            Worker1.WorkerReportsProgress = true;
         }
 
         public FrameworkElement FxElt
@@ -136,6 +142,7 @@ namespace WpfApp2
             FxElt = sender as FrameworkElement;
             Bus1 = FxElt.DataContext as Bus;
             Worker.RunWorkerAsync();
+            Worker1.RunWorkerAsync();
             BusList.Items.Refresh();
         }
 
@@ -164,11 +171,31 @@ namespace WpfApp2
             BusList.Items.Refresh();
         }
 
+        private void RefuelingToBus0(object sender, DoWorkEventArgs e)
+        {
+            for (int i = 12; i >= 0; i--)
+            {
+                Worker1.ReportProgress(i);
+                Thread.Sleep(1000);
+            }
+        }
 
-        //private void RefuelingToBus3(object sender, ProgressChangedEventArgs e)
-        //{
-        //    temp.Text = e.ProgressPercentage.ToString();
-        //}
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RefuelingToBus3(object sender, ProgressChangedEventArgs e)
+        {
+            temp.Text = e.ProgressPercentage.ToString();
+            proggr.Value = e.ProgressPercentage;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TimeFoul_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             //var p = FxElt.Parent as Grid;
