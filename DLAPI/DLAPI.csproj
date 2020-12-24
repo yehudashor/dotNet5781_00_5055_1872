@@ -47,8 +47,9 @@
     <Compile Include="BusTravelingDO.cs" />
     <Compile Include="Bus_DO.cs" />
     <Compile Include="ConsecutiveStations.cs" />
+    <Compile Include="DlConfig.cs" />
     <Compile Include="DLFactory.cs" />
-    <Compile Include="Interface1.cs" />
+    <Compile Include="IDAL.cs" />
     <Compile Include="LineExit.cs" />
     <Compile Include="LineStation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DLAPI;
 
-namespace DO
+namespace BO
 {
-    public class LineStation
+    public class StationLineBO
     {
         public int BusLineID2 { get; set; }
         public int StationNumberOnLine { get; set; }

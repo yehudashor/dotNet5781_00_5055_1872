@@ -9,14 +9,15 @@ namespace DL
 {
     public static class Cloning
     {
-        static T Cloned<T>(this T original)
+        internal static T Clone<T>(this T original) where T : new()
         {
-            T result = (T)Activator.CreateInstance(typeof(T));
-            foreach (PropertyInfo item in original.GetType().GetProperties())
-            {
-                item.SetValue(result, item.GetValue(original, null));
-            }
-            return result;
+            T copyToObject = new T();
+            //T copyToObject = (T)Activator.CreateInstance(typeof(T));
+
+            foreach (PropertyInfo propertyInfo in typeof(T).GetProperties())
+                propertyInfo.SetValue(copyToObject, propertyInfo.GetValue(original, null), null);
+
+            return copyToObject;
         }
     }
 }

@@ -15,5 +15,14 @@ namespace DO
         public int U_DownStationID { get; set; }
         public DateTime U_UpStationTimeID { get; set; }
         public DateTime U_DownStationTimeID { get; set; }
+        public override string ToString()
+        {
+            return ToStringProperty();
+        }
+
+        private string ToStringProperty()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

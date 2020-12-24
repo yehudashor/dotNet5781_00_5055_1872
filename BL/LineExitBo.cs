@@ -3,14 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DLAPI;
 
-namespace DO
+namespace BO
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    public class LineExit
+    public class LineExitBo
     {
         public int BusLineID1 { get; set; }
         public string LineStartTime { get; set; }

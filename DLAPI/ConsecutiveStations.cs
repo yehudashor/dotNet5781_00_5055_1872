@@ -15,5 +15,14 @@ namespace DO
 
         public int DistanceBetweenTooStations { get; set; }
         public double AverageTime { get; set; }
+        public override string ToString()
+        {
+            return ToStringProperty();
+        }
+
+        private string ToStringProperty()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -34,7 +34,6 @@ namespace WpfApp2
         private static readonly Random r = new Random(DateTime.Now.Millisecond);
         public static BackgroundWorker Worker;
         public static BackgroundWorker Worker1;
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>

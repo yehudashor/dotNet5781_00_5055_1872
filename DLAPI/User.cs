@@ -23,5 +23,15 @@ namespace DO
         public Permission Permission1 { get; set; }
 
         public bool ManagementPermission { get; set; }
+        public bool ChackDelete { get; set; }
+        public override string ToString()
+        {
+            return ToStringProperty();
+        }
+
+        private string ToStringProperty()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

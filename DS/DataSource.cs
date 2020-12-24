@@ -36,6 +36,7 @@ namespace DS
         public static List<BusLine> BusLines { get; set; }
         public static List<BusTraveling> BusTravelings { get; set; }
         public static List<LineExit> LineExits { get; set; }
+        public static List<User> Users { get; set; }
 
         public static void InitializationStation()
         {
@@ -69,7 +70,7 @@ namespace DS
                 License_number = R.Next(1000000, 100000000).ToString(),
                 StartDate = new DateTime(R.Next(1999, 2020), R.Next(1, 13), R.Next(1, 29)),
                 KmForRefueling = number,
-                KmOfTreatment = number * R.Next(3, 10),
+                KmForTreatment = number * R.Next(3, 10),
                 TotalMiles = number * R.Next(20, 25),
                 Status = (TravelMode)R.Next(4)
             };
@@ -84,8 +85,8 @@ namespace DS
             {
                 StationNumber1 = BusStations[i].StationNumber,
                 StationNumber2 = BusStations[i + 1].StationNumber,
-                DistanceBetweenTooStations = R.Next(300),
-                AverageTime = R.Next(3, 10)
+                DistanceBetweenTooStations = R.Next(50),
+                AverageTime = R.Next(3, 20)
             };
             ConsecutiveStations.Add(consecutiveStations);
         }
@@ -97,7 +98,7 @@ namespace DS
             {
                 BusLineID1 = NumbersAreRunning.BusLineID,
                 LineNumber = R.Next(999),
-                Area1 = (Area)R.Next(5),
+                AreaBusInterUrban = (Area)R.Next(5),
                 UrbanInterUrban = chack[R.Next(3)]
             };
             BusLines.Add(busLine);
@@ -106,18 +107,26 @@ namespace DS
 
         public static void InitializationLineStation()
         {
+            int k = 0, j;
             for (int i = 0; i < BusLines.Count; i++)
             {
                 LineStation lineStation = new LineStation
                 {
                     BusLineID2 = BusLines[i].BusLineID1
                 };
-                for (int j = 0; j < BusStations.Count / 5; j++)
+                for (j = 0; j < 55; j += R.Next(1, 4))
                 {
-                    lineStation.StationNumberOnLine = BusStations[R.Next(100)].StationNumber;
-                    lineStation.LocationNumberOnLine = j;
+                    lineStation.StationNumberOnLine = BusStations[j].StationNumber;
+                    lineStation.LocationNumberOnLine = k;
                     LineStations.Add(lineStation);
+                    if (j == 0)
+                    {
+                        BusLines[i].FirstStation = BusStations[j].StationNumber;
+                    }
+                    k++;
                 }
+                BusLines[i].LastStation = BusStations[j].StationNumber;
+                k = 0;
             }
         }
 

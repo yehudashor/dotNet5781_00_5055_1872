@@ -3,37 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DLAPI;
 
-namespace DO
+namespace BO
 {
-    /// <summary>
-    /// TravelMode by
-    /// </summary>
-    /// 
-    public enum TravelMode
+    public class BusBO
     {
-        ReadyToGo,
-        InMiddleOfTrip,
-        InTreatment,
-        OnRefueling,
-    }
-    public class Bus
-    {
+        /// <summary>
+        /// TravelMode by
+        /// </summary>
+        /// 
+        public enum TravelMode
+        {
+            ReadyToGo,
+            InMiddleOfTrip,
+            InTreatment,
+            OnRefueling,
+        }
         public string License_number { get; set; }
-        public int KmForTreatment { get; set; }
+
         public DateTime StartDate { get; set; }
         public int KmOfTreatment { get; set; }
 
         public int KmForRefueling { get; set; }
         public TravelMode Status { get; set; }
-
+        public int KmForTreatment { get; set; }
         public int TotalMiles { get; set; }
-        /// <summary>
-        /// kmForAllBuses = A personal addition that sums up the overall mileage of all buses For future optional use
-        /// </summary>
-        public static int kmForAllBuses = 0;
 
+        public static int kmForAllBuses = 0;
         public DateTime DayOfTreatment { get; set; }
 
         public bool IsAvailable { get; set; }
@@ -48,5 +44,4 @@ namespace DO
             throw new NotImplementedException();
         }
     }
-
 }
