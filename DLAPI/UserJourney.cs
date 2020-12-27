@@ -7,6 +7,9 @@ using DLAPI;
 
 namespace DO
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class UserJourney
     {
         public string U_Username1 { get; set; }

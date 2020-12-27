@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DS
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class NumbersAreRunning
     {
         public static int LineInTravel = 0;

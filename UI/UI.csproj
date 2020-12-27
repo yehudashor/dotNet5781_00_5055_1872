@@ -57,6 +57,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LineDisplay.xaml.cs">
+      <DependentUpon>LineDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerLogin.xaml.cs">
+      <DependentUpon>ManagerLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowBuses.xaml.cs">
+      <DependentUpon>ShowBuses.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowLines.xaml.cs">
+      <DependentUpon>ShowLines.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowStations.xaml.cs">
+      <DependentUpon>ShowStations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Station.cs" />
+    <Page Include="LineDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,6 +89,22 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ManagerLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowBuses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowLines.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowStations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//using System.Text;
+//using System.Threading.Tasks;
 using DLAPI;
-using IBL;
+using BLAPI;
 using BO;
 using DO;
 
@@ -14,8 +14,17 @@ namespace BL
     internal class InformationBusLineBl : BusLineBO, IBL1
     {
         internal IDAL dl = DLFactory.GetDL();
+        private static readonly Random D = new Random(DateTime.Now.Millisecond);
+        // תקינות נתונים להכל
+        // הוספה ועדכון
+        // מחיקה
+        // בקשות 
+        // להשתמש בגרופינג ולהסתכל על שימוש בלפחות ארבעה ביטויי למבדה
         // להציג את התחנות עוקבות בחלון של התחנות על ידי שאילתא מהתחנות עוקבות בDO
         // לעשות רשימה של כל התחנות
+        // שאילתה של יציאות קו והוספת לוז לקו מסוים
+        // #region LineExit
+        // #endregion LineExit
 
         #region BusLineStation
         // קווים שעוברים בתחנה
@@ -23,10 +32,14 @@ namespace BL
         {
             try
             {
-                IEnumerable<BusLineBO> busLineBOs = from Line in CollectionOfBusLinesBL.busLineBls
-                                                    from Line1 in Line.BusStationBO1
-                                                    where Line1.StationNumber == NumberStation
-                                                    select Line;
+                IEnumerable<int> busLine = dl.LinesFromList(NumberStation);
+                IEnumerable<BusLineBO> busLineBOs;
+                IEnumerable<BusLine> busLine1 = from line in busLine
+                                                let p = dl.ReturnBusLine(line)
+                                                select p;
+                busLineBOs = (IEnumerable<BusLineBO>)busLine1;
+                // busLine1.CopyPropertiesTo(busLineBOs);
+
                 if (busLineBOs != null)
                 {
                     var v = from line in busLineBOs
@@ -56,13 +69,15 @@ namespace BL
                 BusLine busLine = dl.ReturnBusLine(numberLine);
                 busLine.CopyPropertiesTo(busLineBO);
                 IEnumerable<LineStation> lineStations = dl.OneLineFromList(numberLine);
+                IEnumerable<LineStation> lineStations1 = from SortlineStation in lineStations
+                                                         orderby SortlineStation.LocationNumberOnLine
+                                                         select SortlineStation;
                 lineStations.CopyPropertiesTo(busLineBO.StationLineBOs);
-
-                IEnumerable<LineStation> Result = from AddLineStationToDL in busLineBO.StationLineBOs
-                                                  let p = ReturnNewLineStationDoFromBo(AddLineStationToDL)
-                                                  orderby AddLineStationToDL.LocationNumberOnLine
-                                                  select p;
-                Result.CopyPropertiesTo(busLineBO.StationLineBOs);
+                busLineBO.BusStationBO1 = (List<BusStationBO>)(from busLine5 in busLineBO.StationLineBOs
+                                                               let p = dl.ReturnStation(busLine5.StationNumberOnLine)
+                                                               select p);
+                busLineBO.BusStationBO1 = (List<BusStationBO>)(from busLine5 in busLineBO.BusStationBO1
+                                                               select new { StationNumber1 = busLine5.StationNumber, NameOfStation1 = busLine5.NameOfStation, RoofToTheStation1 = busLine5.RoofToTheStation, AccessForDisabled1 = busLine5.AccessForDisabled });
 
                 for (int i = 0; i < busLineBO.StationLineBOs.Count - 1; i++)
                 {
@@ -83,23 +98,32 @@ namespace BL
         #endregion BusLineStation
 
         #region Stations
-
+        public void ChackStation(ref BusStationBO busStationBO)
+        {
+            if (busStationBO.StationNumber < 0 || busStationBO.StationNumber > 1000000)
+            {
+                throw new ArgumentException("Incorrect station number!!!");
+            }
+            busStationBO.Latitude = (float)((float)(D.NextDouble() * (33.3 - 31)) + 31);
+            busStationBO.Longitude = (float)((float)(D.NextDouble() * (35.5 - 34.3)) + 34.3);
+        }
         // הוספה תחנה בודדת
         void IBL1.AddStationToDo(BusStationBO busStationBO)
         {
-            BusStation busStation = new BusStation
-            {
-                StationNumber = busStationBO.StationNumber,
-                NameOfStation = busStationBO.NameOfStation,
-                StationAddress = busStationBO.StationAddress,
-                Latitude = busStationBO.Latitude,
-                Longitude = busStationBO.Longitude,
-                AccessForDisabled = busStationBO.AccessForDisabled,
-                RoofToTheStation = busStationBO.RoofToTheStation,
-                IsAvailable3 = busStationBO.IsAvailable3
-            };
             try
             {
+                ChackStation(ref busStationBO);
+                BusStation busStation = new BusStation
+                {
+                    StationNumber = busStationBO.StationNumber,
+                    NameOfStation = busStationBO.NameOfStation,
+                    StationAddress = busStationBO.StationAddress,
+                    Latitude = busStationBO.Latitude,
+                    Longitude = busStationBO.Longitude,
+                    AccessForDisabled = busStationBO.AccessForDisabled,
+                    RoofToTheStation = busStationBO.RoofToTheStation,
+                    IsAvailable3 = busStationBO.IsAvailable3
+                };
                 dl.AddStation(busStation);
                 // public List<StationLineBO> StationLineBOs { get; set; }
             }
@@ -132,17 +156,18 @@ namespace BL
             // לבדוק תקינות הנתון
             try
             {
-                if (busLineBO.BusStationBO1.Count > 2)
+                // && busLineBO.BusStationBO1.FindAll(item => item.IsAvailable3 == true)
+                if (busLineBO.StationLineBOs.Count > 2)
                 {
                     for (int i = 0; i < BusStationBO1.Count - 1; i++)
                     {
-                        ConsecutiveStationsBl consecutiveStations1 = new ConsecutiveStationsBl(BusStationBO1[i].StationNumber, BusStationBO1[i + 1].StationNumber);
+                        busLineBO.ConsecutiveStationsBos.Add(new ConsecutiveStationsBl(BusStationBO1[i].StationNumber, BusStationBO1[i + 1].StationNumber));
                         ConsecutiveStations consecutiveStations = new ConsecutiveStations
                         {
-                            StationNumber1 = consecutiveStations1.StationNumber1,
-                            StationNumber2 = consecutiveStations1.StationNumber2,
-                            DistanceBetweenTooStations = consecutiveStations1.DistanceBetweenTooStations,
-                            AverageTime = consecutiveStations1.AverageTime
+                            StationNumber1 = busLineBO.ConsecutiveStationsBos[i].StationNumber1,
+                            StationNumber2 = busLineBO.ConsecutiveStationsBos[i].StationNumber2,
+                            DistanceBetweenTooStations = busLineBO.ConsecutiveStationsBos[i].DistanceBetweenTooStations,
+                            AverageTime = busLineBO.ConsecutiveStationsBos[i].AverageTime
                         };
                         dl.AddConsecutiveStations(consecutiveStations);
                     }
@@ -158,22 +183,34 @@ namespace BL
                     };
                     busLineBO.BusLineID1 = dl.AddBusLine(busLine);
 
-                    for (int i = 0; i < busLineBO.BusStationBO1.Count; i++)
-                    {
-                        StationLineBO stationLineBO = new StationLineBO
-                        {
-                            BusLineID2 = busLineBO.BusLineID1,
-                            StationNumberOnLine = busLineBO.BusStationBO1[i].StationNumber,
-                            LocationNumberOnLine = i
-                        };
-                        busLineBO.StationLineBOs.Add(stationLineBO);
-                    }
                     IEnumerable<LineStation> s = from AddLineStationToDL in busLineBO.StationLineBOs
                                                  let p = ReturnNewLineStationDoFromBo(AddLineStationToDL)
                                                  select p;
                     foreach (LineStation item in s)
                     {
                         dl.AddLineStation(item);
+                    }
+
+                    for (int i = 0; i < busLineBO.LineExitBos1.Count; i++)
+                    {
+                        LineExit lineExit = new LineExit
+                        {
+                            BusLineID1 = busLineBO.LineExitBos1[i].BusLineID2,
+                            LineStartTime = busLineBO.LineExitBos1[i].LineStartTime,
+                            LineFrequency = busLineBO.LineExitBos1[i].LineFrequency
+                        };
+                        dl.AddLineExit(lineExit);
+                    }
+                    if (busLineBO.LineExitBos1.Count > 0)
+                    {
+                        for (int i = 0; i < busLineBO.LineExitBos1.Count; i++)
+                        {
+                            busLineBO.LineExitBos1[i].LineFinishTime = busLineBO.UrbanInterUrban
+                                ? int.Parse(busLineBO.LineExitBos1[i].LineStartTime)
+                                    + (int)busLineBO.ConsecutiveStationsBos.Sum(item => item.AverageTime) + D.Next(10, 30)
+                                : int.Parse(busLineBO.LineExitBos1[i].LineStartTime)
+                                    + (int)busLineBO.ConsecutiveStationsBos.Sum(item => item.AverageTime);
+                        }
                     }
                 }
                 else
@@ -203,27 +240,20 @@ namespace BL
             }
         }
 
-
-        public void AddStationToLine(int LineNumber, int NumberStation)
+        public void AddStationToLine(StationLineBO stationLineBO)
         {
             try
             {
-                BusStationBO busStationBo = new BusStationBO();
-                BusStation busStation = new BusStation();
-                busStation = dl.ReturnStation(NumberStation);
-                busStation.CopyPropertiesTo(busStationBo);
-                int index = CollectionOfBusLinesBL.busLineBls.FindIndex(item => item.LineNumber == LineNumber);
-                CollectionOfBusLinesBL.busLineBls[index].BusStationBO1.Add(busStationBo);
-
-                LineStation lineStation = new LineStation
+                LineStation lineStation1 = new LineStation
                 {
-                    BusLineID2 = LineNumber,
-                    StationNumberOnLine = NumberStation,
-                    LocationNumberOnLine = CollectionOfBusLinesBL.busLineBls[index].BusStationBO1.Count()
+                    BusLineID2 = stationLineBO.BusLineID2,
+                    StationNumberOnLine = stationLineBO.StationNumberOnLine,
+                    LocationNumberOnLine = stationLineBO.LocationNumberOnLine,
+                    ChackDelete2 = stationLineBO.ChackDelete2
                 };
-                dl.AddLineStation(lineStation);
-
-                ConsecutiveStationsBl consecutiveStationsBl = new ConsecutiveStationsBl(CollectionOfBusLinesBL.busLineBls[index].BusStationBO1[BusStationBO1.Count - 1].StationNumber, NumberStation);
+                dl.AddLineStation(lineStation1);
+                int number = dl.IndexOfLastLineStation(LineNumber);
+                ConsecutiveStationsBl consecutiveStationsBl = new ConsecutiveStationsBl(number, stationLineBO.StationNumberOnLine);
                 ConsecutiveStations consecutiveStations = new ConsecutiveStations
                 {
                     StationNumber1 = consecutiveStationsBl.StationNumber1,
@@ -241,6 +271,21 @@ namespace BL
             }
         }
 
+        public void DeleteStationFromLine(int LineNumber, int NumberStationToDelete, int DeleteFromConsecutiveStations)
+        {
+            try
+            {
+                dl.DeleteOneLineStation(LineNumber, NumberStationToDelete);
+                // לבדוק את זה כי יכול להיות שהתחנות האלה עוקבות בכללי ובקו אחר
+                dl.DeleteConsecutiveStations(NumberStationToDelete, DeleteFromConsecutiveStations);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public static LineStation ReturnNewLineStationDoFromBo(StationLineBO func1)
         {
             LineStation lineStation = new LineStation
@@ -253,6 +298,139 @@ namespace BL
             return lineStation;
         }
         #endregion BusLine
+
+        #region LineExit
+        public void AddExitToLine(LineExitBo lineExitBo, int numberLine)
+        {
+            try
+            {
+                lineExitBo.BusLineID2 = numberLine;
+                LineExit lineExit = new LineExit
+                {
+                    BusLineID1 = lineExitBo.BusLineID2,
+                    LineStartTime = lineExitBo.LineStartTime,
+                    LineFrequency = lineExitBo.LineFrequency,
+                    LineFinishTime = lineExitBo.LineFinishTime
+                };
+                dl.AddLineExit(lineExit);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public void DeleteLineExit(int numberOfLine, string startLineExit)
+        {
+            try
+            {
+                dl.DeleteLineExit(LineNumber, startLineExit);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public IEnumerable<LineExitBo> ShowlineExit(int numberLine)
+        {
+            try
+            {
+                IEnumerable<LineExit> lineExitBos = dl.LineExitList(numberLine);
+                Func<LineExit, LineExitBo> func = item =>
+                {
+                    LineExitBo lineExitBo = new LineExitBo
+                    {
+                        LineStartTime = item.LineStartTime,
+                        LineFinishTime = item.LineFinishTime,
+                        LineFrequency = item.LineFrequency
+                    };
+                    return lineExitBo;
+                };
+                return from one in lineExitBos
+                       let p = func(one)
+                       select p;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        #endregion LineExit
+
+        #region ConsecutiveStations
+        public IEnumerable<ConsecutiveStationsBo> ShowConsecutiveStationsBo()
+        {
+            IEnumerable<ConsecutiveStations> consecutiveStationsBos = dl.ConsecutiveStationsList();
+            Func<ConsecutiveStations, ConsecutiveStationsBo> func1 = item =>
+            {
+                ConsecutiveStationsBo consecutiveStationsBo = new ConsecutiveStationsBo
+                {
+                    StationNumber1 = item.StationNumber1,
+                    StationNumber2 = item.StationNumber2,
+                    DistanceBetweenTooStations = item.DistanceBetweenTooStations,
+                    AverageTime = item.AverageTime
+                };
+                return consecutiveStationsBo;
+            };
+            return from con in consecutiveStationsBos
+                   let p = func1(con)
+                   select p;
+        }
+        #endregion ConsecutiveStations
+
+        #region User
+        public void AddUserToDo(UserBo userBo)
+        {
+            try
+            {
+                User user = new User
+                {
+                    Username = userBo.Username,
+                    Password = userBo.Password,
+                    ManagementPermission = userBo.ManagementPermission
+                };
+                user.Permission1 = userBo.ManagementPermission ? DO.Permission.ManagementPermission
+                   : DO.Permission.WithoutManagementPermission;
+                dl.AddUser(user);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public void DeleteUserFromDo(string Username)
+        {
+            try
+            {
+                dl.DeleteUser(Username);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public void UdptingUser(UserBo userBo)
+        {
+            User user = new User
+            {
+                Username = userBo.Username,
+                Password = userBo.Password,
+                ManagementPermission = userBo.ManagementPermission
+            };
+            user.Permission1 = userBo.ManagementPermission ? DO.Permission.ManagementPermission
+               : DO.Permission.WithoutManagementPermission;
+            dl.AddUser(user);
+        }
+
+        public bool FindUser(string pass, string UserNam)
+        {
+            return dl.FindUser(pass, UserNam);
+        }
+        #endregion User
     }
 }
 

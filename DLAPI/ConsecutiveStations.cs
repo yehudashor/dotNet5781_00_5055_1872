@@ -7,6 +7,9 @@ using DLAPI;
 
 namespace DO
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ConsecutiveStations
     {
         public int StationNumber1 { get; set; }

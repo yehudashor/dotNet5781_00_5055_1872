@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using DO;
 namespace DS
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class DataSource
     {
         public DataSource()
@@ -28,7 +31,7 @@ namespace DS
             }
         }
         public static Random R = new Random(DateTime.Now.Millisecond);
-
+        // 
         public static List<Bus> Bus1 { get; set; }
         public static List<BusStation> BusStations { get; set; }
         public static List<ConsecutiveStations> ConsecutiveStations { get; set; }
@@ -38,8 +41,778 @@ namespace DS
         public static List<LineExit> LineExits { get; set; }
         public static List<User> Users { get; set; }
 
+        public static void InitializationUser()
+        {
+            Users = new List<User>
+            {
+                new User
+                {
+                    ChackDelete = true,
+                    Username = "yehuda",
+                    Password = "yehudashor789",
+                    ManagementPermission = true,
+                    Permission1 = Permission.ManagementPermission
+                },
+
+                new User
+                {
+                    ChackDelete = true,
+                    Username = "45454",
+                    Password = "yehudashor789",
+                    ManagementPermission = true,
+                    Permission1 = Permission.ManagementPermission
+                },
+
+                new User
+                {
+                    ChackDelete = true,
+                    Username = "Shor1998",
+                    Password = "05276351",
+                    ManagementPermission = false,
+                    Permission1 = Permission.WithoutManagementPermission
+                },
+
+                new User
+                {
+                    ChackDelete = false,
+                    Username = "koko",
+                    Password = "111111",
+                    ManagementPermission = true,
+                    Permission1 = Permission.ManagementPermission
+                },
+
+                new User
+                {
+                    ChackDelete = true,
+                    Username = "gggg",
+                    Password = "222222",
+                    ManagementPermission = true,
+                    Permission1 = Permission.ManagementPermission
+                }
+            };
+        }
+
         public static void InitializationStation()
         {
+            //BusStations = new List<BusStation>
+            //{
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    },
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    },
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+            //    new BusStation
+            //    {
+            //         IsAvailable3 = true,
+            //         StationId1 = NumbersAreRunning.StationID,
+            //         StationNumber = R.Next(1000000),
+            //         //NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
+            //        // StationAddress = stationaddress1[R.Next(42)],
+            //         RoofToTheStation = true,
+            //         AccessForDisabled = true,
+            //         Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
+            //         Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
+            //    }
+
+
+            //};
             string[] stationaddress1 = new string[42];
             string[] stationaddress2 = new string[42];
             bool[] chack = new bool[2] { true, false };
@@ -53,14 +826,13 @@ namespace DS
                 Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3),
                 NameOfStation = stationaddress2[R.Next(42)] + "\t" + R.Next(100),
                 StationAddress = stationaddress1[R.Next(42)],
-                AccessForDisabled = chack[R.Next(3)],
+                AccessForDisabled = chack[R.Next(2)],
                 IsAvailable3 = true,
-                RoofToTheStation = chack[R.Next(3)]
+                RoofToTheStation = chack[R.Next(2)]
             };
             BusStations.Add(busStation);
             NumbersAreRunning.StationID++;
         }
-
 
         public static void InitializationBus()
         {
@@ -76,8 +848,6 @@ namespace DS
             };
             Bus1.Add(bus);
         }
-
-
 
         public static void InitializationConsecutiveStations(int i)
         {

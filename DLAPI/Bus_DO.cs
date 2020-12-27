@@ -8,9 +8,8 @@ using DLAPI;
 namespace DO
 {
     /// <summary>
-    /// TravelMode by
-    /// </summary>
     /// 
+    /// </summary>
     public enum TravelMode
     {
         ReadyToGo,

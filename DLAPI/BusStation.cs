@@ -7,6 +7,9 @@ using DLAPI;
 
 namespace DO
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class BusStation
     {
         public int StationNumber { get; set; }

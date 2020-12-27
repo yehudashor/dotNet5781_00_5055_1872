@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using BLAPI;
 namespace UI
 {
     /// <summary>
@@ -20,9 +20,21 @@ namespace UI
     /// </summary>
     public partial class MainWindow : Window
     {
+         IBL1 bl = BLFactory.GetBL("1");
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Administrator(object sender, RoutedEventArgs e)
+        {
+            ManagerLogin managerLogin = new ManagerLogin();
+            _ = managerLogin.ShowDialog();
+        }
+
+        private void Customer(object sender, RoutedEventArgs e)
+        {
+            _ = MessageBox.Show("In construction");
         }
     }
 }

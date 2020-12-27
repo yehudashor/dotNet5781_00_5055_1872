@@ -6,7 +6,7 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Windows;
 using System.Windows;
-using IBL;
+using BLAPI;
 using BO;
 using DO;
 using System.Windows.Forms;
@@ -20,7 +20,7 @@ namespace BL
         InTreatment,
         OnRefueling,
     }
-    public class BusBL : BusBO, IBL1
+    public class BusBL : BusBO
     {
         public BusBL(string _License_number, DateTime _StartDate, DateTime _DayOfTreatment, int _KmForRefueling = 0, int _KmForTreatment = 0, int _TotalMiles = 0)
         {
@@ -86,19 +86,6 @@ namespace BL
                 {
                     KmForTreatment += value;
                 }
-            }
-        }
-
-        void IBL1.AddBusBO(BusBO bus)
-        {
-            try
-            {
-
-            }
-            catch (Exception)
-            {
-
-                throw;
             }
         }
     }

@@ -8,6 +8,9 @@ using System.Xml.Linq;
 
 namespace DLAPI
 {
+    /// <summary>
+    /// 
+    /// </summary>
     static class DLConfig
     {
         public class DLPackage

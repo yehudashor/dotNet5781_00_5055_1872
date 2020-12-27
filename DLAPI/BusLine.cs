@@ -7,6 +7,9 @@ using DLAPI;
 
 namespace DO
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum Area { North, South, Center };
     public enum Area1 { Jerusalem, Galil, Hasharon, Shefela, Eilat };
     public class BusLine

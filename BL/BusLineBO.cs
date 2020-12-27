@@ -10,6 +10,8 @@ namespace BO
     public enum Area1 { Jerusalem, Galil, Hasharon, Shefela, Eilat };
     public class BusLineBO
     {
+        public List<ConsecutiveStationsBo> ConsecutiveStationsBos { get; set; }
+        public List<LineExitBo> LineExitBos1 { get; set; }
         public List<BusStationBO> BusStationBO1 { get; set; }
         public List<StationLineBO> StationLineBOs { get; set; }
         public List<int> DistanceBetweenTooStationsList { get; set; }

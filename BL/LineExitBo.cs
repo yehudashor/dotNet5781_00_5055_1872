@@ -8,9 +8,8 @@ namespace BO
 {
     public class LineExitBo
     {
-        public int BusLineID1 { get; set; }
+        public int BusLineID2 { get; set; }
         public string LineStartTime { get; set; }
-
         //זמן סיום מחושב ע"פ זמן יציאה + תחנות קו וזמנים ביניהן
         public int LineFinishTime { get; set; }
         public int LineFrequency { get; set; }

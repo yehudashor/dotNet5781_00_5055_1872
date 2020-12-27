@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using DO;
 namespace DLAPI
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IDAL
     {
         #region Bus
@@ -36,6 +39,8 @@ namespace DLAPI
         public void UpdatingBusLine(BusLine Line);
         public BusLine ReturnBusLine(int numberLineId);
         public IEnumerable<BusLine> BusLinesList();
+
+        public IEnumerable<BusLine> BusLinesList(int numberLine);
         #endregion BusLine
 
         #region LineStation
@@ -46,7 +51,7 @@ namespace DLAPI
         public IEnumerable<LineStation> LineStationList();
         public void UpdatingLineStation(LineStation lineStation);
         public IEnumerable<LineStation> OneLineFromList(int numberLine);
-
+        public int IndexOfLastLineStation(int numberLine);
         public IEnumerable<int> LinesFromList(int numberStation);
 
         // public IEnumerable<LineStation> OneLineFromList(Predicate<LineStation> predicate);
@@ -58,7 +63,7 @@ namespace DLAPI
         public void UpdatingConsecutiveStations(ConsecutiveStations consecutiveStations);
         public ConsecutiveStations ReturnConsecutiveStation(int stationNumber1, int stationNumber2);
         public IEnumerable<ConsecutiveStations> ConsecutiveStationsList();
-
+        public double SumOfTime(int NumberOfLine);
         public int DistanceBetweenTooStations(int numberStation1, int numberStation2);
         public double AverageTimeBetweenTooStationsList(int numberStation1, int numberStation2);
         // public IEnumerable<ConsecutiveStations> OneLineFromList(int numberLine);
@@ -70,7 +75,8 @@ namespace DLAPI
         public void DeleteLineExit(int lineNumber, string StartTime);
         public void UpdatingLineExit(LineExit lineExit);
         public LineExit ReturnLineExit(int lineNumber, string StartTime);
-        public IEnumerable<LineExit> LineExitList();
+        public LineExit OneLineExitFromList(int numberLine, string start);
+        public IEnumerable<LineExit> LineExitList(int numberLine);
 
         // public IEnumerable<ConsecutiveStations> OneLineFromList(int numberLine);
         #endregion LineExit
@@ -89,7 +95,7 @@ namespace DLAPI
         public void UpdatingUser(User user);
         public User ReturnUser(string Username1);
         public IEnumerable<User> UseresList();
+        public bool FindUser(string pass, string UserNam);
         #endregion User
     }
-
 }

@@ -22,6 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <LangVersion>8.0</LangVersion>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -49,6 +50,7 @@
     <Compile Include="ConsecutiveStations.cs" />
     <Compile Include="DlConfig.cs" />
     <Compile Include="DLFactory.cs" />
+    <Compile Include="ExceptionDl.cs" />
     <Compile Include="IDAL.cs" />
     <Compile Include="LineExit.cs" />
     <Compile Include="LineStation.cs" />

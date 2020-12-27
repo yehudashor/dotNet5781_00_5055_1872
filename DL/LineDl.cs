@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DLAPI;
 using DO;
 using DS;
+
 namespace DL
 {
     public class LineDl : IDAL
@@ -15,15 +16,13 @@ namespace DL
         LineDl() { } // default => private
         public static LineDl Instance { get; } = new LineDl(); // The public Instance property to use
         #endregion
-        // public static LineDl Instance => instance;
-        // נשאר בקשות לפי תנאי סינון 
-        // עדכון נשאר
+
         #region Bus
         void IDAL.AddBus(Bus bus)
         {
             if (DataSource.Bus1.Exists(bus1 => bus1.License_number == bus.License_number && bus1.IsAvailable == true))
             {
-                throw new ArgumentException("The buses alrady exist in the compny");
+                throw new ExceptionDl("The buses alrady exist in the compny");
             }
             else
             {
@@ -45,18 +44,18 @@ namespace DL
             }
             else
             {
-                throw new ArgumentException("The buses not exist in the compny");
+                throw new ExceptionDl("The buses not exist in the compny");
             }
         }
         void IDAL.UpdatingBus(Bus bus)
         {
             int index = DataSource.Bus1.FindIndex(bus1 => bus1.License_number == bus.License_number);
-            DataSource.Bus1[index] = index == -1 ? throw new ArgumentException("The buses not exist in the compny") : bus.Clone();
+            DataSource.Bus1[index] = index == -1 ? throw new ExceptionDl("The buses not exist in the compny") : bus.Clone();
         }
         Bus IDAL.ReturnBusToBl(string License_number)
         {
             Bus bus = DataSource.Bus1.Find(bus1 => bus1.License_number == License_number);
-            return bus.Clone() ?? throw new ArgumentNullException("The buses not exist in the compny");
+            return bus.Clone() ?? throw new ExceptionDl("The buses not exist in the compny");
         }
 
         IEnumerable<Bus> IDAL.BusList()
@@ -72,7 +71,7 @@ namespace DL
         {
             if (!DataSource.BusStations.Exists(station1 => station1.StationNumber == station.StationNumber && station1.IsAvailable3))
             {
-                throw new ArgumentException("The Station alrady exist in the compny");
+                throw new ExceptionDl("The Station alrady exist in the compny");
             }
             else
             {
@@ -85,11 +84,11 @@ namespace DL
             int index = DataSource.BusStations.FindIndex(station1 => station1.StationNumber == numberStation);
             if (index == -1)
             {
-                throw new ArgumentException("The Station not exist in the compny");
+                throw new ExceptionDl("The Station not exist in the compny");
             }
             else
             {
-                DataSource.BusStations[index].IsAvailable3 = true ? false : throw new ArgumentException("The station exists but has already been deleted");
+                DataSource.BusStations[index].IsAvailable3 = true ? false : throw new ExceptionDl("The station exists but has already been deleted");
                 _ = DataSource.LineStations.RemoveAll(station1 => station1.StationNumberOnLine == numberStation);
             }
         }
@@ -97,12 +96,12 @@ namespace DL
         void IDAL.UpdatingStation(BusStation station)
         {
             int index = DataSource.BusStations.FindIndex(station1 => station1.StationNumber == station.StationNumber);
-            DataSource.BusStations[index] = index == -1 ? throw new ArgumentException("The buses not exist in the compny") : station.Clone();
+            DataSource.BusStations[index] = index == -1 ? throw new ExceptionDl("The buses not exist in the compny") : station.Clone();
         }
         BusStation IDAL.ReturnStation(int numberStation)
         {
             BusStation station = DataSource.BusStations.Find(station1 => station1.StationNumber == numberStation);
-            return station.Clone() ?? throw new ArgumentNullException("The Station not exist in the compny");
+            return station.Clone() ?? throw new ExceptionDl("The Station not exist in the compny");
         }
 
         IEnumerable<BusStation> IDAL.StationList()
@@ -126,24 +125,31 @@ namespace DL
         {
             int index = DataSource.BusLines.FindIndex(BusLine => BusLine.BusLineID1 == BusLineID);
             DataSource.BusLines[index].IsAvailable1 = index == -1
-                ? throw new ArgumentException("The line not exist in the compny!!!")
-                : true ? false : throw new ArgumentException("The Line exists but has already been deleted!!!");
+                ? throw new ExceptionDl("The line not exist in the compny!!!")
+                : true ? false : throw new ExceptionDl("The Line exists but has already been deleted!!!");
         }
         void IDAL.UpdatingBusLine(BusLine line)
         {
             int index = DataSource.BusLines.FindIndex(line1 => line1.BusLineID1 == line.BusLineID1);
-            DataSource.BusLines[index] = index == -1 ? throw new ArgumentException("The BusLine not exist in the compny!!!") : line.Clone();
+            DataSource.BusLines[index] = index == -1 ? throw new ExceptionDl("The BusLine not exist in the compny!!!") : line.Clone();
         }
         BusLine IDAL.ReturnBusLine(int numberLineId)
         {
             BusLine busLine = DataSource.BusLines.Find(line => line.BusLineID1 == numberLineId);
-            return busLine.Clone() ?? throw new ArgumentNullException("The line not exist in the compny!!!");
+            return busLine.Clone() ?? throw new ExceptionDl("The line not exist in the compny!!!");
         }
 
         IEnumerable<BusLine> IDAL.BusLinesList()
         {
             return from line in DataSource.BusLines
                    where line.IsAvailable1 == true
+                   select line.Clone();
+        }
+
+        IEnumerable<BusLine> IDAL.BusLinesList(int numberLine)
+        {
+            return from line in DataSource.BusLines
+                   where line.IsAvailable1 == true && line.BusLineID1 == numberLine
                    select line.Clone();
         }
         #endregion BusLine
@@ -154,11 +160,11 @@ namespace DL
         {
             if (!DataSource.BusLines.Exists(BusLine => BusLine.BusLineID1 == lineStation.BusLineID2 && BusLine.IsAvailable1))
             {
-                throw new ArgumentException("The line not exist in the compny");
+                throw new ExceptionDl("The line not exist in the compny");
             }
             if (!DataSource.BusStations.Exists(station1 => station1.StationNumber == lineStation.StationNumberOnLine && station1.IsAvailable3))
             {
-                throw new ArgumentException("The Station not exist in the compny");
+                throw new ExceptionDl("The Station not exist in the compny");
             }
 
             if (DataSource.LineStations.Exists(lineStation1 => lineStation1.BusLineID2 == lineStation.BusLineID2))
@@ -166,7 +172,7 @@ namespace DL
                 LineStation lineStation1 = DataSource.LineStations.FirstOrDefault(lineStation1 => lineStation1.BusLineID2 == lineStation.BusLineID2 && lineStation1.StationNumberOnLine == lineStation.StationNumberOnLine && lineStation1.ChackDelete2);
                 if (lineStation1 != null)
                 {
-                    throw new ArgumentException("the Station alrady exist in the this line!!!");
+                    throw new ExceptionDl("the Station alrady exist in the this line!!!");
                 }
                 else
                 {
@@ -188,11 +194,11 @@ namespace DL
             }
             if (index != -1 && !DataSource.LineStations[index].ChackDelete2)
             {
-                throw new ArgumentException("the station found but she deleted!!!");
+                throw new ExceptionDl("the station found but she deleted!!!");
             }
             if (index == -1)
             {
-                throw new ArgumentException("the line isnt exist in the list!!!");
+                throw new ExceptionDl("the line isnt exist in the list!!!");
             }
         }
         void IDAL.DeleteLineStation(int NumberLine)
@@ -210,18 +216,18 @@ namespace DL
             }
             else
             {
-                throw new ArgumentException("the line isnt exist in the list!!!");
+                throw new ExceptionDl("the line isnt exist in the list!!!");
             }
         }
         void IDAL.UpdatingLineStation(LineStation lineStation)
         {
             int index = DataSource.LineStations.FindIndex(lineStation1 => lineStation1.BusLineID2 == lineStation.BusLineID2 && lineStation1.StationNumberOnLine == lineStation.StationNumberOnLine);
-            DataSource.LineStations[index] = index == -1 ? throw new ArgumentException("The lineStation not exist in the compny!!!") : lineStation.Clone();
+            DataSource.LineStations[index] = index == -1 ? throw new ExceptionDl("The lineStation not exist in the compny!!!") : lineStation.Clone();
         }
         LineStation IDAL.ReturnLineStation(int numberLine, int stationNumber)
         {
             LineStation lineStation1 = DataSource.LineStations.Find(lineStation => lineStation.BusLineID2 == numberLine && lineStation.StationNumberOnLine == stationNumber);
-            return lineStation1.Clone() ?? throw new ArgumentNullException("The lineStation not exist in the compny!!!");
+            return lineStation1.Clone() ?? throw new ExceptionDl("The lineStation not exist in the compny!!!");
         }
 
         IEnumerable<LineStation> IDAL.LineStationList()
@@ -231,20 +237,29 @@ namespace DL
                    select line;
         }
 
+        int IDAL.IndexOfLastLineStation(int numberLine)
+        {
+            List<LineStation> lineStations = DataSource.LineStations.FindAll(item => item.BusLineID2 == numberLine);
+            lineStations = (List<LineStation>)(from lineStation in lineStations
+                                               orderby lineStation.LocationNumberOnLine
+                                               select lineStation);
+            return lineStations[lineStations.Count].StationNumberOnLine;
+        }
 
         IEnumerable<LineStation> IDAL.OneLineFromList(int numberLine)
         {
             IEnumerable<LineStation> OneLineStation = from line in DataSource.LineStations
                                                       where line.ChackDelete2 && line.BusLineID2 == numberLine
                                                       select line;
-            return OneLineStation ?? throw new ArgumentNullException("the line dsnt exist in the compny");
+            return OneLineStation ?? throw new ExceptionDl("the line dsnt exist in the compny");
         }
+
         IEnumerable<int> IDAL.LinesFromList(int numberStation)
         {
             IEnumerable<int> Lines = from line in DataSource.LineStations
                                      where line.StationNumberOnLine == numberStation && line.ChackDelete2
                                      select line.BusLineID2;
-            return Lines ?? throw new ArgumentNullException("there is no lines that pass in this station!!!");
+            return Lines ?? throw new ExceptionDl("there is no lines that pass in this station!!!");
         }
         #endregion LineStation
 
@@ -252,16 +267,13 @@ namespace DL
 
         void IDAL.AddConsecutiveStations(ConsecutiveStations consecutiveStations)
         {
-            if (stationNumber1 != stationNumber2)
+            if (DataSource.ConsecutiveStations.Exists(consecutiveStations1 => consecutiveStations1.StationNumber1 == consecutiveStations.StationNumber1 && consecutiveStations1.StationNumber2 == consecutiveStations.StationNumber2))
             {
-                if (DataSource.ConsecutiveStations.Exists(consecutiveStations1 => consecutiveStations1.StationNumber1 == consecutiveStations.StationNumber1 && consecutiveStations1.StationNumber2 == consecutiveStations.StationNumber2))
-                {
-                    throw new ArgumentException("There are already two such stations on the list!!!");
-                }
-                else
-                {
-                    DataSource.ConsecutiveStations.Add(consecutiveStations.Clone());
-                }
+                throw new ExceptionDl("There are already two such stations on the list!!!");
+            }
+            else
+            {
+                DataSource.ConsecutiveStations.Add(consecutiveStations.Clone());
             }
         }
 
@@ -274,28 +286,28 @@ namespace DL
             }
             else
             {
-                throw new ArgumentException("There are no two such stations on the list!!!");
+                throw new ExceptionDl("There are no two such stations on the list!!!");
             }
         }
 
         void IDAL.UpdatingConsecutiveStations(ConsecutiveStations consecutiveStations)
         {
             int index = DataSource.ConsecutiveStations.FindIndex(consecutiveStations1 => consecutiveStations1.StationNumber1 == consecutiveStations.StationNumber1 && consecutiveStations1.StationNumber2 == consecutiveStations.StationNumber2);
-            DataSource.ConsecutiveStations[index] = index == -1 ? throw new ArgumentException("The consecutiveStations not exist in the compny!!!") : consecutiveStations.Clone();
+            DataSource.ConsecutiveStations[index] = index == -1 ? throw new ExceptionDl("The consecutiveStations not exist in the compny!!!") : consecutiveStations.Clone();
         }
         public int DistanceBetweenTooStations(int numberStation1, int numberStation2)
         {
             int index = DataSource.ConsecutiveStations.FindIndex(consecutiveStations1 => consecutiveStations1.StationNumber1 == numberStation1 && consecutiveStations1.StationNumber2 == numberStation2);
             return index != -1
                 ? DataSource.ConsecutiveStations[index].DistanceBetweenTooStations
-                : throw new ArgumentException("There are no two such stations on the list!!!");
+                : throw new ExceptionDl("There are no two such stations on the list!!!");
         }
         public double AverageTimeBetweenTooStationsList(int numberStation1, int numberStation2)
         {
             int index = DataSource.ConsecutiveStations.FindIndex(consecutiveStations1 => consecutiveStations1.StationNumber1 == numberStation1 && consecutiveStations1.StationNumber2 == numberStation2);
             return index != -1
                 ? DataSource.ConsecutiveStations[index].AverageTime
-                : throw new ArgumentException("There are no two such stations on the list!!!");
+                : throw new ExceptionDl("There are no two such stations on the list!!!");
         }
         ConsecutiveStations IDAL.ReturnConsecutiveStation(int stationNumber1, int stationNumber2)
         {
@@ -304,13 +316,17 @@ namespace DL
             {
                 item = DataSource.ConsecutiveStations.Find(consecutiveStations1 => consecutiveStations1.StationNumber1 == stationNumber1 && consecutiveStations1.StationNumber2 == stationNumber1);
             }
-            return item.Clone() ?? throw new ArgumentException("There are no two such stations on the list!!!"); ;
+            return item.Clone() ?? throw new ExceptionDl("There are no two such stations on the list!!!"); ;
         }
 
         IEnumerable<ConsecutiveStations> IDAL.ConsecutiveStationsList()
         {
             return from Consecutive in DataSource.ConsecutiveStations
                    select Consecutive;
+        }
+        double IDAL.SumOfTime(int NumberOfLine)
+        {
+            return DataSource.ConsecutiveStations.Sum(item => item.AverageTime);
         }
         #endregion ConsecutiveStations
 
@@ -319,7 +335,7 @@ namespace DL
         {
             if (DataSource.LineExits.Exists(lineExit1 => lineExit1.BusLineID1 == lineExit.BusLineID1 && lineExit1.LineStartTime == lineExit.LineStartTime))
             {
-                throw new ArgumentException("the LineExit alrdy exist in the list in the same time");
+                throw new ExceptionDl("the LineExit alrdy exist in the list in the same time");
             }
             else
             {
@@ -331,7 +347,7 @@ namespace DL
             int index = DataSource.LineExits.FindIndex(lineExit1 => lineExit1.BusLineID1 == lineNumber && lineExit1.LineStartTime == StartTime);
             if (index == -1)
             {
-                throw new ArgumentException("the LineExit not found!!!");
+                throw new ExceptionDl("the LineExit not found!!!");
             }
             else
             {
@@ -341,16 +357,24 @@ namespace DL
         void IDAL.UpdatingLineExit(LineExit lineExit)
         {
             int index = DataSource.LineExits.FindIndex(lineExit1 => lineExit1.BusLineID1 == lineExit.BusLineID1 && lineExit1.LineStartTime == lineExit.LineStartTime);
-            DataSource.LineExits[index] = index == -1 ? throw new ArgumentException("The lineExit not exist in the compny") : lineExit.Clone();
+            DataSource.LineExits[index] = index == -1 ? throw new ExceptionDl("The lineExit not exist in the compny") : lineExit.Clone();
         }
         LineExit IDAL.ReturnLineExit(int lineNumber, string StartTime)
         {
             LineExit lineExit = DataSource.LineExits.FirstOrDefault(lineExit1 => lineExit1.BusLineID1 == lineNumber && lineExit1.LineStartTime == StartTime);
-            return lineExit.Clone() ?? throw new ArgumentNullException("the LineExit not exist in the list");
+            return lineExit.Clone() ?? throw new ExceptionDl("the LineExit not exist in the list");
         }
-        IEnumerable<LineExit> IDAL.LineExitList()
+
+        LineExit IDAL.OneLineExitFromList(int numberLine, string start)
+        {
+            LineExit b = DataSource.LineExits.FirstOrDefault(lineExit => lineExit.BusLineID1 == numberLine && lineExit.LineStartTime == start);
+            return b = default ? throw new ExceptionDl("the line Exit dsnt Exist") : b;
+        }
+
+        IEnumerable<LineExit> IDAL.LineExitList(int numberLine)
         {
             return from lineExit in DataSource.LineExits
+                   where lineExit.BusLineID1 == numberLine
                    select lineExit;
         }
         #endregion LineExit
@@ -360,7 +384,7 @@ namespace DL
         {
             if (DataSource.BusTravelings.Exists(busTraveling1 => busTraveling1.License_number1 == busTraveling.License_number1 && busTraveling.LineInExecution == busTraveling.LineInExecution && busTraveling.LeavingTime == busTraveling.LeavingTime))
             {
-                throw new ArgumentException("the BusTraveling alrdy exist in the list whis the same Data!!!");
+                throw new ExceptionDl("the BusTraveling alrdy exist in the list whis the same Data!!!");
             }
             else
             {
@@ -375,7 +399,7 @@ namespace DL
             int index = DataSource.BusTravelings.FindIndex(BusTravelings1 => BusTravelings1.License_number1 == License_number && BusTravelings1.LineInExecution == LineExecution && BusTravelings1.LeavingTime == LeavingTime);
             if (index == -1)
             {
-                throw new ArgumentException("the BusTraveling not exist!!!");
+                throw new ExceptionDl("the BusTraveling not exist!!!");
             }
             else
             {
@@ -385,12 +409,12 @@ namespace DL
         void IDAL.UpdatingBusTraveling(BusTraveling busTraveling)
         {
             int index = DataSource.BusTravelings.FindIndex(BusTravelings1 => BusTravelings1.License_number1 == busTraveling.License_number1 && BusTravelings1.LineInExecution == busTraveling.LineInExecution && BusTravelings1.LeavingTime == busTraveling.LeavingTime);
-            DataSource.BusTravelings[index] = index == -1 ? throw new ArgumentException("The busTraveling not exist in the compny!!!") : busTraveling.Clone();
+            DataSource.BusTravelings[index] = index == -1 ? throw new ExceptionDl("The busTraveling not exist in the compny!!!") : busTraveling.Clone();
         }
         public BusTraveling ReturnBusTraveling(int LineExecution, string License_number, string LeavingTime)
         {
             BusTraveling busTraveling = DataSource.BusTravelings.FirstOrDefault(BusTravelings1 => BusTravelings1.License_number1 == License_number && BusTravelings1.LineInExecution == LineExecution && BusTravelings1.LeavingTime == LeavingTime);
-            return busTraveling.Clone() ?? throw new ArgumentNullException("the busTraveling not exist in the list!!!");
+            return busTraveling.Clone() ?? throw new ExceptionDl("the busTraveling not exist in the list!!!");
         }
 
         public IEnumerable<BusTraveling> BusTravelingList()
@@ -406,7 +430,7 @@ namespace DL
             User user1 = DataSource.Users.FirstOrDefault(user1 => user1.Username == user.Username);
             if (user1 != null)
             {
-                throw new ArgumentNullException("the User alrdy exist in the compny!!!");
+                throw new ExceptionDl("the User alrdy exist in the compny!!!");
             }
             else
             {
@@ -417,19 +441,19 @@ namespace DL
         void IDAL.DeleteUser(string Username1)
         {
             int index = DataSource.Users.FindIndex(user1 => user1.Username == Username1 && user1.ChackDelete);
-            _ = index == -1 ? throw new ArgumentException("the user not exist in the list!!!") : DataSource.Users[index].ChackDelete = false;
+            _ = index == -1 ? throw new ExceptionDl("the user not exist in the list!!!") : DataSource.Users[index].ChackDelete = false;
         }
 
         void IDAL.UpdatingUser(User user)
         {
             int index = DataSource.Users.FindIndex(user1 => user1.Username == user.Username);
-            DataSource.Users[index] = index == -1 ? throw new ArgumentException("The user not exist in the compny!!!") : user.Clone();
+            DataSource.Users[index] = index == -1 ? throw new ExceptionDl("The user not exist in the compny!!!") : user.Clone();
         }
 
         User IDAL.ReturnUser(string Username1)
         {
             int index = DataSource.Users.FindIndex(user1 => user1.Username == Username1);
-            return index == -1 ? throw new ArgumentException("the user not exist in the list!!!") : DataSource.Users[index].Clone();
+            return index == -1 ? throw new ExceptionDl("the user not exist in the list!!!") : DataSource.Users[index].Clone();
         }
 
         IEnumerable<User> IDAL.UseresList()
@@ -439,9 +463,9 @@ namespace DL
                    select user;
         }
 
-        public object AddLineStation(BO.StationLineBO addLineStationToDL)
+        public bool FindUser(string pass, string UserNam)
         {
-            throw new NotImplementedException();
+            return DataSource.Users.Exists(item => item.ChackDelete && item.Password == pass && item.Username == UserNam && item.ManagementPermission && item.Permission1 == Permission.ManagementPermission);
         }
         #endregion User
     }
