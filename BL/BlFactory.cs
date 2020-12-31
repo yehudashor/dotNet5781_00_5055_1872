@@ -18,7 +18,6 @@ namespace BLAPI
                 case "1":
                     return new InformationBusLineBl();
                 case "2":
-                //return new BLImp2();
                 default:
                     return new InformationBusLineBl();
             }

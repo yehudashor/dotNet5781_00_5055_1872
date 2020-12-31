@@ -12,16 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace UI
+namespace UI.StationShow
 {
     /// <summary>
-    /// Interaction logic for ShowStations.xaml
+    /// Interaction logic for Station1.xaml
     /// </summary>
-    public partial class ShowStations : Window
+    public partial class Station1 : Window
     {
-        public ShowStations()
+        BO.BusStationBO Station = new BO.BusStationBO();
+        public Station1(BO.BusStationBO BusStationBO1)
         {
+            Station = BusStationBO1;
             InitializeComponent();
+            StationList1.DataContext = Station;
         }
     }
 }

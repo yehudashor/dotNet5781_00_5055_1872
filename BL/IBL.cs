@@ -12,9 +12,11 @@ namespace BLAPI
     public interface IBL1
     {
         #region BusBo
-        // public void DeleteBusBO(int License_number);
-        //public void AddBusBO(BusBO bus);
-        // public BusLineBO BusInformation(int License_number);
+        public void AddBusBO(BusBO bus);
+        public void DeleteBusBO(string License_number);
+        public BusBO ShowBus(string License_number);
+        //public IEnumerable<BusBO> BusInformation();
+
         #endregion Bus
 
         #region BusLineStation
@@ -26,11 +28,14 @@ namespace BLAPI
         #region BusLine
         public void AddBusLineBO(BusLineBO busLineBO);
         public void DeleteBusLineBO(int NumberLine);
+        //ReturnBusLineId()
+        public int ReturnBusLineIdFromDl();
         #endregion BusLine
 
         #region Station
         public void AddStationToDo(BusStationBO busStationBO);
         public void DeleteStationFromDo(int numberOfStation);
+        public IEnumerable<BusStationBO> ShowStation();
         IEnumerable<BusLineBO> LinePastInStationBOs(int NumberStation);
         #endregion Station
 
@@ -38,7 +43,6 @@ namespace BLAPI
         public void AddExitToLine(LineExitBo lineExitBo, int numberLine);
         public void DeleteLineExit(int numberOfLine, string startLineExit);
         public IEnumerable<LineExitBo> ShowlineExit(int numberLine);
-
         #endregion LineExit
 
         #region ConsecutiveStationsBo

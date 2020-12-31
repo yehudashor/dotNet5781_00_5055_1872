@@ -11,23 +11,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using BLAPI;
 
-namespace UI
+namespace UI.StationShow
 {
     /// <summary>
-    /// Interaction logic for ShowLine.xaml
+    /// Interaction logic for LineInStation.xaml
     /// </summary>
-    public partial class ShowLine : Window
+    public partial class LineInStation : Window
     {
-        IBL1 bl4;
-        public BO.BusLineBO BusLine { get; set; }
-        public ShowLine(BO.BusLineBO busLineBO)
+        public LineInStation(IEnumerable<BO.BusLineBO> busLineBOs)
         {
             InitializeComponent();
-            BusLine = busLineBO;
-            busStationBOListView.ItemsSource = busLineBO.BusStationBO1;
-            shoeLine.DataContext = busLineBO;
+            linesPastInStationListView.ItemsSource = busLineBOs;
         }
     }
 }

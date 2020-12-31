@@ -11,23 +11,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using BLAPI;
 
-namespace UI
+namespace UI.bus
 {
     /// <summary>
-    /// Interaction logic for ShowLine.xaml
+    /// Interaction logic for BusSelectionChanged.xaml
     /// </summary>
-    public partial class ShowLine : Window
+    public partial class BusSelectionChanged : Window
     {
-        IBL1 bl4;
-        public BO.BusLineBO BusLine { get; set; }
-        public ShowLine(BO.BusLineBO busLineBO)
+        private readonly BO.BusBO bus;
+        public BusSelectionChanged(BO.BusBO Bus1)
         {
             InitializeComponent();
-            BusLine = busLineBO;
-            busStationBOListView.ItemsSource = busLineBO.BusStationBO1;
-            shoeLine.DataContext = busLineBO;
+            bus = Bus1;
+            MainGrid.DataContext = bus;
         }
+
     }
 }

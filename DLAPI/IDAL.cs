@@ -18,7 +18,7 @@ namespace DLAPI
         public void UpdatingBus(Bus bus);
         public Bus ReturnBusToBl(string License_number);
 
-        public IEnumerable<Bus> BusList();
+        public IEnumerable<Bus> BusLists();
 
         // public IEnumerable<object> FilteringBusList(Predicate<Bus> predicate);
         #endregion Bus
@@ -39,7 +39,7 @@ namespace DLAPI
         public void UpdatingBusLine(BusLine Line);
         public BusLine ReturnBusLine(int numberLineId);
         public IEnumerable<BusLine> BusLinesList();
-
+        public int BusLineId();
         public IEnumerable<BusLine> BusLinesList(int numberLine);
         #endregion BusLine
 
@@ -50,7 +50,7 @@ namespace DLAPI
         public LineStation ReturnLineStation(int numberLine, int stationNumber);
         public IEnumerable<LineStation> LineStationList();
         public void UpdatingLineStation(LineStation lineStation);
-        public IEnumerable<LineStation> OneLineFromList(int numberLine);
+        public IEnumerable<LineStation> OneLineFromList(Predicate<LineStation> predicate);
         public int IndexOfLastLineStation(int numberLine);
         public IEnumerable<int> LinesFromList(int numberStation);
 

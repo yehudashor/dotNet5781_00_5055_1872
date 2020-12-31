@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BLAPI;
+
 namespace UI
 {
     /// <summary>
@@ -20,7 +22,10 @@ namespace UI
     /// </summary>
     public partial class MainWindow : Window
     {
-         IBL1 bl = BLFactory.GetBL("1");
+        //public static Bus Bus1 { set; get; }
+        public static ObservableCollection<Bus> listBus = new ObservableCollection<Bus>();
+
+        IBL1 bl = BLFactory.GetBL("1");
         public MainWindow()
         {
             InitializeComponent();
@@ -28,7 +33,7 @@ namespace UI
 
         private void Administrator(object sender, RoutedEventArgs e)
         {
-            ManagerLogin managerLogin = new ManagerLogin();
+            ManagerLogin managerLogin = new ManagerLogin(bl);
             _ = managerLogin.ShowDialog();
         }
 

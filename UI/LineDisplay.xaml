@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="LineDisplay" Height="450" Width="800">
-    <Grid>
-        
+        Title="LineDisplay" Height="450" Width="810">
+    <Grid Height="421" Margin="0,0,0.333,-0.333" VerticalAlignment="Bottom">
+        <Button Content="אוטובוסים" HorizontalAlignment="Left" VerticalAlignment="Top" Width="281" Height="421" RenderTransformOrigin="0.5,0.5" Click="Bus"/>
+        <Button Content="קווים" HorizontalAlignment="Left" Margin="242,0,0,0" VerticalAlignment="Top" Width="281" Height="421" Click="Line"/>
+        <Button Content="תחנות" HorizontalAlignment="Left" Margin="525,0,-9,0" VerticalAlignment="Top" Width="281" Height="421" Click="Station"/>
+
     </Grid>
 </Window>

@@ -16,11 +16,11 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\Music\פרויקט 2020\</OutputPath>
+    <OutputPath>..\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -57,8 +57,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Bus.xaml.cs">
+      <DependentUpon>Bus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="bus\BusSelectionChanged.xaml.cs">
+      <DependentUpon>BusSelectionChanged.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Line.xaml.cs">
+      <DependentUpon>Line.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LineDisplay.xaml.cs">
       <DependentUpon>LineDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="lines\AddLine.xaml.cs">
+      <DependentUpon>AddLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="lines\DelteLine.xaml.cs">
+      <DependentUpon>DelteLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="lines\UdptingLine.xaml.cs">
+      <DependentUpon>UdptingLine.xaml</DependentUpon>
     </Compile>
     <Compile Include="ManagerLogin.xaml.cs">
       <DependentUpon>ManagerLogin.xaml</DependentUpon>
@@ -69,11 +87,46 @@
     <Compile Include="ShowLines.xaml.cs">
       <DependentUpon>ShowLines.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ShowStations.xaml.cs">
-      <DependentUpon>ShowStations.xaml</DependentUpon>
+    <Compile Include="Station.xaml.cs">
+      <DependentUpon>Station.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Station.cs" />
+    <Compile Include="StationLine\AddStationLine.xaml.cs">
+      <DependentUpon>AddStationLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StationLine\AddStationLine1.xaml.cs">
+      <DependentUpon>AddStationLine1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StationShow\LineInStation.xaml.cs">
+      <DependentUpon>LineInStation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StationShow\Station1.xaml.cs">
+      <DependentUpon>Station1.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Bus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="bus\BusSelectionChanged.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Line.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LineDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="lines\AddLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="lines\DelteLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="lines\UdptingLine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -101,7 +154,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ShowStations.xaml">
+    <Page Include="Station.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StationLine\AddStationLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StationLine\AddStationLine1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StationShow\LineInStation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StationShow\Station1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -124,6 +193,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\BO.BusLineBO.datasource" />
+    <None Include="Properties\DataSources\BO.BusStationBO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -138,5 +209,6 @@
       <Name>BL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

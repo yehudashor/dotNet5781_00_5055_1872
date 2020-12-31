@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using BLAPI;
 namespace UI
 {
     /// <summary>
@@ -19,28 +19,26 @@ namespace UI
     /// </summary>
     public partial class ManagerLogin : Window
     {
-        public ManagerLogin()
+        IBL1 bl1;
+        public ManagerLogin(IBL1 bl)
         {
+            bl1 = bl;
             InitializeComponent();
         }
 
         private void LodIn(object sender, RoutedEventArgs e)
         {
-            if (Password1.Password.Length > 6 && UserN.Text.Length > 4)
+            if (bl1.FindUser(Password1.Password, UserN.Text))
             {
-                LineDisplay lineDisplay = new LineDisplay();
+                LineDisplay lineDisplay = new LineDisplay(bl1);
                 lineDisplay.Show();
-                UserN.Text = "";
-                Password1.Password = "";
             }
-            // lineDisplay.Close();
-            //Password1.Password = "k";
-            //Password1.TextInput == "uuu";
+
             else
             {
                 _ = MessageBox.Show("One of the details you entered is incorrect!!! try again");
-                UserN.Text = "";
-                Password1.Password = "";
+                UserN.ClearValue(TextBox.TextProperty);
+                //Password1.ClearValue(TextBox.TextProperty);
             }
         }
     }

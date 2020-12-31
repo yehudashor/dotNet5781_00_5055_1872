@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using BLAPI;
 namespace UI
 {
     /// <summary>
@@ -19,9 +19,29 @@ namespace UI
     /// </summary>
     public partial class LineDisplay : Window
     {
-        public LineDisplay()
+        IBL1 bl2;
+        public LineDisplay(IBL1 bl)
         {
+            bl2 = bl;
             InitializeComponent();
+        }
+
+        private void Bus(object sender, RoutedEventArgs e)
+        {
+            Bus bus = new Bus(bl2);
+            _ = bus.ShowDialog();
+        }
+
+        private void Line(object sender, RoutedEventArgs e)
+        {
+            Line line = new Line(bl2);
+            _ = line.ShowDialog();
+        }
+
+        private void Station(object sender, RoutedEventArgs e)
+        {
+            Station station = new Station();
+            _ = station.ShowDialog();
         }
     }
 }

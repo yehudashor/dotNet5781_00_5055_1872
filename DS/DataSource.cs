@@ -9,9 +9,9 @@ namespace DS
     /// <summary>
     /// 
     /// </summary>
-    public class DataSource
+    public static class DataSource
     {
-        public DataSource()
+        static DataSource()
         {
             for (int i = 0; i < R.Next(25, 35); i++)
             {
@@ -21,27 +21,27 @@ namespace DS
             {
                 InitializationStation();
             }
-            for (int i = 0; i < 100; i++)
-            {
-                InitializationConsecutiveStations(i);
-            }
             for (int i = 0; i < 10; i++)
             {
                 InitializationBusLines();
             }
+            for (int i = 0; i < 99; i++)
+            {
+                InitializationConsecutiveStations(i);
+            }
+            InitializationLineStation();
         }
         public static Random R = new Random(DateTime.Now.Millisecond);
-        // 
-        public static List<Bus> Bus1 { get; set; }
-        public static List<BusStation> BusStations { get; set; }
-        public static List<ConsecutiveStations> ConsecutiveStations { get; set; }
-        public static List<LineStation> LineStations { get; set; }
-        public static List<BusLine> BusLines { get; set; }
-        public static List<BusTraveling> BusTravelings { get; set; }
-        public static List<LineExit> LineExits { get; set; }
-        public static List<User> Users { get; set; }
+        public static List<Bus> Bus1 = new List<Bus>();
+        public static List<BusStation> BusStations = new List<BusStation>();
+        public static List<ConsecutiveStations> ConsecutiveStations = new List<ConsecutiveStations>();
+        public static List<LineStation> LineStations = new List<LineStation>();
+        public static List<BusLine> BusLines = new List<BusLine>();
+        public static List<BusTraveling> BusTravelings = new List<BusTraveling>();
+        public static List<LineExit> LineExits = new List<LineExit>();
+        public static List<User> Users = new List<User>();
 
-        public static void InitializationUser()
+        static void InitializationUser()
         {
             Users = new List<User>
             {
@@ -834,7 +834,7 @@ namespace DS
             NumbersAreRunning.StationID++;
         }
 
-        public static void InitializationBus()
+        static void InitializationBus()
         {
             int number = R.Next(1200);
             Bus bus = new Bus
@@ -849,7 +849,7 @@ namespace DS
             Bus1.Add(bus);
         }
 
-        public static void InitializationConsecutiveStations(int i)
+        static void InitializationConsecutiveStations(int i)
         {
             ConsecutiveStations consecutiveStations = new ConsecutiveStations
             {
@@ -861,7 +861,7 @@ namespace DS
             ConsecutiveStations.Add(consecutiveStations);
         }
 
-        public static void InitializationBusLines()
+        static void InitializationBusLines()
         {
             bool[] chack = new bool[2] { true, false };
             BusLine busLine = new BusLine
@@ -869,34 +869,37 @@ namespace DS
                 BusLineID1 = NumbersAreRunning.BusLineID,
                 LineNumber = R.Next(999),
                 AreaBusInterUrban = (Area)R.Next(5),
-                UrbanInterUrban = chack[R.Next(3)]
+                UrbanInterUrban = chack[R.Next(2)],
+                IsAvailable1 = true
             };
             BusLines.Add(busLine);
             NumbersAreRunning.BusLineID++;
         }
 
-        public static void InitializationLineStation()
+        static void InitializationLineStation()
         {
-            int k = 0, j;
             for (int i = 0; i < BusLines.Count; i++)
             {
-                LineStation lineStation = new LineStation
+                for (int j = 0; j < 10; j++)
                 {
-                    BusLineID2 = BusLines[i].BusLineID1
-                };
-                for (j = 0; j < 55; j += R.Next(1, 4))
-                {
+                    LineStation lineStation = new LineStation
+                    {
+                        BusLineID2 = BusLines[i].BusLineID1
+                    };
                     lineStation.StationNumberOnLine = BusStations[j].StationNumber;
-                    lineStation.LocationNumberOnLine = k;
+                    lineStation.LocationNumberOnLine = j;
+                    lineStation.ChackDelete2 = true;
                     LineStations.Add(lineStation);
+
                     if (j == 0)
                     {
                         BusLines[i].FirstStation = BusStations[j].StationNumber;
                     }
-                    k++;
+                    if (j == 9)
+                    {
+                        BusLines[i].LastStation = BusStations[j].StationNumber;
+                    }
                 }
-                BusLines[i].LastStation = BusStations[j].StationNumber;
-                k = 0;
             }
         }
 
@@ -904,7 +907,7 @@ namespace DS
         /// A function designed to initialize the station addresses is called in an initial initialization function.
         /// </summary>
         /// <param name="stationaddress1"></param>
-        public static void AddAdress(ref string[] stationaddress1)
+        static void AddAdress(ref string[] stationaddress1)
         {
             stationaddress1[0] = " כנסת ישראל/רות ";
             stationaddress1[1] = " כנסת ישראל/הושע";
@@ -949,7 +952,7 @@ namespace DS
             stationaddress1[40] = " האדמור מנדי כהנא";
         }
 
-        public static void NameOfStation(ref string[] stationaddress1)
+        static void NameOfStation(ref string[] stationaddress1)
         {
             stationaddress1[0] = "רחוב כנסת ישראל ";
             stationaddress1[1] = "רחוב כנסת ישראל";

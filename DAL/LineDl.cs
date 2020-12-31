@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DS;
 using DLAPI;
 using DO;
-//using DS;
 
 namespace DL
 {
-    public class LineDl : IDAL
+    internal class LineDl : IDAL
     {
-        #region singelton
+        #region singleton
         static LineDl() { }// static ctor to ensure instance init is done just before first usage
         LineDl() { } // default => private
         public static LineDl Instance { get; } = new LineDl(); // The public Instance property to use
@@ -32,20 +32,8 @@ namespace DL
 
         void IDAL.DeleteBus(string License_number)
         {
-            if (DataSource.Bus1.Exists(bus1 => bus1.License_number == License_number && bus1.IsAvailable == true))
-            {
-                foreach (Bus item in DataSource.Bus1)
-                {
-                    if (item.License_number == License_number)
-                    {
-                        item.IsAvailable = false;
-                    }
-                }
-            }
-            else
-            {
-                throw new ExceptionDl("The buses not exist in the compny");
-            }
+            int index = DataSource.Bus1.FindIndex(item => item.License_number == License_number && item.IsAvailable);
+            DataSource.Bus1[index].IsAvailable = index == -1 ? throw new ExceptionDl("The buses not exist in the compny") : false;
         }
         void IDAL.UpdatingBus(Bus bus)
         {
@@ -58,11 +46,11 @@ namespace DL
             return bus.Clone() ?? throw new ExceptionDl("The buses not exist in the compny");
         }
 
-        IEnumerable<Bus> IDAL.BusList()
+        IEnumerable<Bus> IDAL.BusLists()
         {
             return from bus in DataSource.Bus1
                    where bus.IsAvailable
-                   select bus.Clone();
+                   select bus;
         }
         #endregion Bus
 
@@ -113,6 +101,13 @@ namespace DL
         #endregion Station
 
         #region BusLine
+        int IDAL.BusLineId()
+        {
+            //IEnumerable<int> vs = from line in DataSource.BusLines
+            //                      where line.IsAvailable1
+            //                      select line.BusLineID1;
+            return DataSource.BusLines.Count == 0 ? throw new ExceptionDl("there are no lines in the compny") : DataSource.BusLines.Count;
+        }
         int IDAL.AddBusLine(BusLine line)
         {
             line.BusLineID1 = NumbersAreRunning.BusLineID;
@@ -133,6 +128,7 @@ namespace DL
             int index = DataSource.BusLines.FindIndex(line1 => line1.BusLineID1 == line.BusLineID1);
             DataSource.BusLines[index] = index == -1 ? throw new ExceptionDl("The BusLine not exist in the compny!!!") : line.Clone();
         }
+
         BusLine IDAL.ReturnBusLine(int numberLineId)
         {
             BusLine busLine = DataSource.BusLines.Find(line => line.BusLineID1 == numberLineId);
@@ -167,17 +163,9 @@ namespace DL
                 throw new ExceptionDl("The Station not exist in the compny");
             }
 
-            if (DataSource.LineStations.Exists(lineStation1 => lineStation1.BusLineID2 == lineStation.BusLineID2))
+            if (DataSource.LineStations.Exists(lineStation1 => lineStation1.BusLineID2 == lineStation.BusLineID2 && lineStation1.StationNumberOnLine == lineStation.StationNumberOnLine && lineStation1.ChackDelete2))
             {
-                LineStation lineStation1 = DataSource.LineStations.FirstOrDefault(lineStation1 => lineStation1.BusLineID2 == lineStation.BusLineID2 && lineStation1.StationNumberOnLine == lineStation.StationNumberOnLine && lineStation1.ChackDelete2);
-                if (lineStation1 != null)
-                {
-                    throw new ExceptionDl("the Station alrady exist in the this line!!!");
-                }
-                else
-                {
-                    DataSource.LineStations.Add(lineStation.Clone());
-                }
+                throw new ExceptionDl("the Station alrady exist in the this line!!!");
             }
             else
             {
@@ -246,12 +234,15 @@ namespace DL
             return lineStations[lineStations.Count].StationNumberOnLine;
         }
 
-        IEnumerable<LineStation> IDAL.OneLineFromList(int numberLine)
+        public IEnumerable<LineStation> OneLineFromList(Predicate<LineStation> predicate)
         {
-            IEnumerable<LineStation> OneLineStation = from line in DataSource.LineStations
-                                                      where line.ChackDelete2 && line.BusLineID2 == numberLine
-                                                      select line;
-            return OneLineStation ?? throw new ExceptionDl("the line dsnt exist in the compny");
+            return from line in DataSource.LineStations
+                   where predicate(line)
+                   select line.Clone();
+            //return from line in DataSource.LineStations
+            //       where line.ChackDelete2 && line.BusLineID2 == numberLine
+            //       select line.Clone();
+            //return OneLineStation ?? throw new ExceptionDl("the line dsnt exist in the compny");
         }
 
         IEnumerable<int> IDAL.LinesFromList(int numberStation)
@@ -427,7 +418,7 @@ namespace DL
         #region  User
         void IDAL.AddUser(User user)
         {
-            User user1 = DataSource.Users.FirstOrDefault(user1 => user1.Username == user.Username);
+            User user1 = DataSource.Users.FirstOrDefault(user2 => user2.Username == user.Username);
             if (user1 != null)
             {
                 throw new ExceptionDl("the User alrdy exist in the compny!!!");
@@ -465,7 +456,9 @@ namespace DL
 
         public bool FindUser(string pass, string UserNam)
         {
-            return DataSource.Users.Exists(item => item.ChackDelete && item.Password == pass && item.Username == UserNam && item.ManagementPermission && item.Permission1 == Permission.ManagementPermission);
+            return DataSource.Users.Exists(item => item.ChackDelete && item.Password == pass && item.Username == UserNam && item.ManagementPermission && item.Permission1 == Permission.ManagementPermission)
+                ? true
+                : throw new ExceptionDl("rong User!!!");
         }
         #endregion User
     }

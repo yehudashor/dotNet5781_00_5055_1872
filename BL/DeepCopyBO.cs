@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using BO;
+
 namespace BL
 {
     public static class DeepCopyBO
@@ -21,6 +22,18 @@ namespace BL
                     propTo.SetValue(to, value);
             }
         }
+        //public static void CopyPropertiesTo1<S, T>(this S from, T to)
+        //{
+        //    foreach (PropertyInfo propTo in to.GetType().GetProperties())
+        //    {
+        //        PropertyInfo propFrom = typeof(S).GetProperty(propTo.Name);
+        //        if (propFrom == null)
+        //            continue;
+        //        var value = propFrom.GetValue(from, null);
+        //        if (value is ValueType || value is string)
+        //            propTo.SetValue(to, value);
+        //    }
+        //}
         public static object CopyPropertiesToNew<S>(this S from, Type type)
         {
             object to = Activator.CreateInstance(type); // new object of Type
