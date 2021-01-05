@@ -22,19 +22,16 @@ namespace UI.StationLine
     {
         IBL1 bl = BLFactory.GetBL("1");
         BO.BusLineBO BusLine;
-        public int Number { get; set; }
-        public AddStationLine1(BO.BusLineBO BusLineBO, int i)
+        public string Number { get; set; }
+        public AddStationLine1(BO.BusLineBO BusLineBO)
         {
             InitializeComponent();
-            Number = i;
+
             IEnumerable<BO.BusStationBO> busStationBOs = bl.ShowStation();
+            Stationline.DataContext = bl.ShowStation().ToList();
             foreach (BO.BusStationBO item in busStationBOs)
             {
-                ComboBoxItem newItem = new ComboBoxItem
-                {
-                    Content = item.StationNumber
-                };
-                _ = listOfNumberStation.Items.Add(newItem);
+                _ = Stationline.Items.Add(item.StationNumber);
             }
             BusLine = BusLineBO;
         }
@@ -45,16 +42,26 @@ namespace UI.StationLine
 
         private void AddBus(object sender, RoutedEventArgs e)
         {
-            bl.AddBusLineBO(BusLine);
-            Line.busLineBOs.Add(BusLine);
+            try
+            {
+                bl.AddBusLineBO(BusLine);
+                Line.busLineBOs.Add(bl.LineInformation(BusLine.BusLineID1));
+                _ = MessageBox.Show("Good Insert Line");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void AddStation(object sender, RoutedEventArgs e)
         {
             BO.StationLineBO busStationBO = new BO.StationLineBO
             {
-                StationNumberOnLine = (int)listOfNumberStation.SelectedItem
+                StationNumberOnLine = int.Parse(tb.Text)
             };
+            _ = MessageBox.Show("Good Insert Station");
             BusLine.StationLineBOs.Add(busStationBO);
         }
     }

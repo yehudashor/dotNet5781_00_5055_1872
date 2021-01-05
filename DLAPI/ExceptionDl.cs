@@ -11,9 +11,6 @@ namespace DO
     /// </summary>
     public class ExceptionDl : Exception
     {
-        public ExceptionDl(string messge) : base(messge)
-        {
-            Console.WriteLine(messge);
-        }
+        public ExceptionDl(string messge) : base(messge) { }
     }
 }

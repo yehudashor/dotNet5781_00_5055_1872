@@ -1,0 +1,58 @@
+﻿<Window x:Class="UI.StationLine.DeleteStationFromLine"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI.StationLine"
+        mc:Ignorable="d"
+        Title="DeleteStationFromLine" Height="450" Width="803.333">
+    <Grid>
+
+        <ListView x:Name="ListViewDelete" ItemsSource="{Binding}" Margin="0,0,298.667,0.667" SelectionMode="Single" SelectionChanged="DeleteStationLine" HorizontalAlignment="Right" Width="498" >
+            <ListView.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Control.VerticalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="stationNumberColumn" Header="Station Number" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="-6,-1" Text="{Binding StationNumberOnLine}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn x:Name="nameOfStationColumn" Header="Name Of Station" Width="130">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="-6,-1" Text="{Binding NameOfStation}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                   
+
+                    <GridViewColumn x:Name="LocationNumberOnLine" Header="Is Available 3" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="6,-1,-6,-1" Text="{Binding LocationNumberOnLine}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn x:Name="stationAddressColumn" Header="Station Address" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Margin="-6,-1" Content="Delete" Click="DeleteStation"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Click Delete Station" HorizontalAlignment="Left" Margin="575,80,0,0" VerticalAlignment="Top" Width="155" Height="200"/>
+    </Grid>
+</Window>

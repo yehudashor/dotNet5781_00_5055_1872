@@ -22,7 +22,9 @@ namespace BLAPI
         #region BusLineStation
         public BusLineBO LineInformation(int numberLine);
         public void AddStationToLine(StationLineBO stationLineBO);
-        public void DeleteStationFromLine(int LineNumber, int NumberStationToDelete, int DeleteFromConsecutiveStations);
+        public void DeleteStationFromLine(int LineNumber, int NumberStationToDelete);
+        public StationLineBO ReturnStationLine(int LineNumber, int numberStation);
+
         #endregion BusLineStation
 
         #region BusLine
@@ -35,6 +37,7 @@ namespace BLAPI
         #region Station
         public void AddStationToDo(BusStationBO busStationBO);
         public void DeleteStationFromDo(int numberOfStation);
+        public BusStationBO ReturnStationToPL(int numberOfStation);
         public IEnumerable<BusStationBO> ShowStation();
         IEnumerable<BusLineBO> LinePastInStationBOs(int NumberStation);
         #endregion Station

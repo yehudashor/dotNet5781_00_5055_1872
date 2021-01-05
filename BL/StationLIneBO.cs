@@ -9,17 +9,20 @@ namespace BO
     public class StationLineBO
     {
         public int BusLineID2 { get; set; }
+        public string NameOfStation { get; set; }
         public int StationNumberOnLine { get; set; }
         public int LocationNumberOnLine { get; set; }
         public bool ChackDelete2 { get; set; }
-        public override string ToString()
-        {
-            return ToStringProperty();
-        }
+        public int DistanceBetweenTooStations { get; set; }
+        public double AverageTime { get; set; }
+        //public override string ToString()
+        //{
+        //    return ToStringProperty();
+        //}
 
-        private string ToStringProperty()
-        {
-            throw new NotImplementedException();
-        }
+        //private string ToStringProperty()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

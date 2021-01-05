@@ -5,19 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="400" >
+        Title="MainWindow" Height="450" Width="400" Background= "Linen" >
     <Grid RenderTransformOrigin="0.493,0.533">
         <Grid.RowDefinitions>
-            <RowDefinition Height="157*"/>
-            <RowDefinition Height="264*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
-        <Button Content="Log in as an administrator/worker" Background="Green" HorizontalAlignment="Left" Margin="63,144,0,0" VerticalAlignment="Top" Width="255" Click="Administrator " Height="50" Grid.RowSpan="2">
-        </Button>
+        <Button Content="Log in as an administrator/worker" Background="Green" HorizontalAlignment="Left" Margin="63,144,0,0" VerticalAlignment="Top" Width="255" Click="Administrator " Height="50"/>
         <Button Content="Log in as a customer" Background="Gainsboro" HorizontalAlignment="Left" Margin="63,54,0,0" VerticalAlignment="Top" Width="255" Height="50" Click="Customer " >
         </Button>
-
-
-
 
     </Grid>
 </Window>

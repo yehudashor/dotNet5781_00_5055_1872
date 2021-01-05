@@ -23,14 +23,27 @@ namespace UI
     public partial class Station : Window
     {
         IBL1 bl = BLFactory.GetBL("1");
+        BO.BusLineBO BusLine1;
         public static ObservableCollection<BO.BusStationBO> busLineBOs = new ObservableCollection<BO.BusStationBO>();
         public Station()
         {
             InitializeComponent();
             IEnumerable<BO.BusStationBO> busStationBOs = bl.ShowStation();
-
-            StationList.ItemsSource = busStationBOs;
+            foreach (BO.BusStationBO item in busStationBOs)
+            {
+                busLineBOs.Add(item);
+            }
+            StationList.ItemsSource = busLineBOs;
         }
+
+        public Station(BO.BusLineBO BusLine)
+        {
+            InitializeComponent();
+            IEnumerable<BO.BusStationBO> busStationBOs = bl.ShowStation();
+            StationList.ItemsSource = busStationBOs;
+            BusLine1 = BusLine;
+        }
+
 
         private void Station_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -55,6 +68,40 @@ namespace UI
             }
             //Bus1 = fxElt.DataContext as Bus;
 
+            //AddStation
+        }
+
+        private void Add(object sender, RoutedEventArgs e)
+        {
+            AddStation addStation = new AddStation();
+            addStation.Show();
+        }
+
+
+        private void Udapting(object sender, RoutedEventArgs e)
+        {
+            BO.BusStationBO busStationBO = new BO.BusStationBO();
+            FrameworkElement fxElt = sender as FrameworkElement;
+            busStationBO = fxElt.DataContext as BO.BusStationBO;
+            Udapting udapting = new Udapting(busStationBO);
+            udapting.Show();
+        }
+
+        private void Delete(object sender, RoutedEventArgs e)
+        {
+            FrameworkElement fxElt = sender as FrameworkElement;
+            BO.BusStationBO busStationBO = fxElt.DataContext as BO.BusStationBO;
+            bl.DeleteStationFromDo(busStationBO.StationNumber);
+            _ = busLineBOs.Remove(busStationBO);
+            busLineBOs.Add(bl.ReturnStationToPL(busStationBO.StationNumber));
+            // _ = ShowLine.busLineBOs.Remove(busStationBO);
+            StationList.Items.Refresh();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ConsecutiveStations consecutiveStations = new ConsecutiveStations();
+            consecutiveStations.Show();
         }
     }
 }

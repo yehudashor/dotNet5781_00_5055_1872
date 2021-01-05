@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BLAPI;
+using UI.StationLine;
 
 namespace UI
 {
@@ -20,14 +22,34 @@ namespace UI
     /// </summary>
     public partial class ShowLine : Window
     {
-        IBL1 bl4;
+        public static ObservableCollection<BO.StationLineBO> busLineBOs = new ObservableCollection<BO.StationLineBO>();
+        IBL1 bl = BLFactory.GetBL("1");
         public BO.BusLineBO BusLine { get; set; }
         public ShowLine(BO.BusLineBO busLineBO)
         {
             InitializeComponent();
             BusLine = busLineBO;
-            busStationBOListView.ItemsSource = busLineBO.BusStationBO1;
+
+            foreach (BO.StationLineBO item in busLineBO.StationLineBOs)
+            {
+                busLineBOs.Add(item);
+            }
+
+            busStationBOListView.ItemsSource = busLineBOs;
             shoeLine.DataContext = busLineBO;
+            busStationBOListView.Items.Refresh();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AddStationTowOldLine addStationTowOldLine = new AddStationTowOldLine(BusLine.BusLineID1);
+            _ = addStationTowOldLine.ShowDialog();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            DeleteStationFromLine deleteStationFromLine = new DeleteStationFromLine(BusLine.BusLineID1);
+            deleteStationFromLine.Show();
         }
     }
 }

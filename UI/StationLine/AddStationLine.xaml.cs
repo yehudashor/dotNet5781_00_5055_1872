@@ -34,7 +34,7 @@ namespace UI.StationLine
         {
             if (int.Parse(numberOfStationInTheLine.Text) >= 2)
             {
-                AddStationLine1 addStationLine1 = new AddStationLine1(BusLine1, int.Parse(numberOfStationInTheLine.Text));
+                AddStationLine1 addStationLine1 = new AddStationLine1(BusLine1);
                 _ = addStationLine1.ShowDialog();
             }
             else

@@ -44,14 +44,13 @@ namespace DLAPI
         #endregion BusLine
 
         #region LineStation
-        public void AddLineStation(LineStation lineStation);
+        public IEnumerable<int> AddLineStation(LineStation lineStation);
         public void DeleteOneLineStation(int NumberLine, int stationNumber);
         public void DeleteLineStation(int NumberLine);
         public LineStation ReturnLineStation(int numberLine, int stationNumber);
         public IEnumerable<LineStation> LineStationList();
         public void UpdatingLineStation(LineStation lineStation);
         public IEnumerable<LineStation> OneLineFromList(Predicate<LineStation> predicate);
-        public int IndexOfLastLineStation(int numberLine);
         public IEnumerable<int> LinesFromList(int numberStation);
 
         // public IEnumerable<LineStation> OneLineFromList(Predicate<LineStation> predicate);

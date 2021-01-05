@@ -21,7 +21,7 @@ namespace BO
         public bool IsAvailable3 { get; set; }
         public override string ToString()
         {
-            return ToStringProperty();
+            return string.Format("StationNumber: {0}, NameOfStation: {1}", StationNumber, NameOfStation);
         }
 
         private string ToStringProperty()

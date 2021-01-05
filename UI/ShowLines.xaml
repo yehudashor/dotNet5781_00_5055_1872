@@ -6,8 +6,72 @@
         xmlns:local="clr-namespace:UI"
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="UI.ShowLine"
         mc:Ignorable="d"
-        Title="ShowLine" Height="450" Width="800">
- 
+        Title="ShowLine" Height="auto" Width="auto">
+    <Window.Resources>
+        <Style x:Key="BaseControlStyle" 
+               TargetType="{x:Type Control}">
+            <Setter Property="FontFamily" Value="Tahoma" />
+            <Setter Property="FontSize" Value="8pt"/>
+            <Setter Property="Margin" Value="2" />
+        </Style>
+
+
+        <Style  x:Key="HeaderStyle"
+                TargetType="{x:Type Control}">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Offset="0.0" Color="#90DDDD" />
+                            <GradientStop Offset="1.0" Color="#5BFFFF" />
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style  x:Key="HeaderStyle1"
+                TargetType="{x:Type Control}">
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Offset="0.0" Color="OrangeRed" />
+                            <GradientStop Offset="1.0" Color="Coral"  />
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type ListView}" 
+               BasedOn="{StaticResource HeaderStyle1}">
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+
+        <Style TargetType="{x:Type GridViewColumnHeader}" 
+               BasedOn="{StaticResource HeaderStyle1}">
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+
+        <Style TargetType="{x:Type Label}" 
+               BasedOn="{StaticResource HeaderStyle}">
+        </Style>
+        <Style TargetType="{x:Type TextBox}" 
+               BasedOn="{StaticResource HeaderStyle}">
+        </Style>
+
+        <Style TargetType="Button"  BasedOn="{StaticResource HeaderStyle1}">
+            <Setter Property="FontFamily" Value="Times New Roman" />
+            <Setter Property="FontSize" Value="22" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+    </Window.Resources>
+
     <Grid >
 
         <Grid x:Name="shoeLine" VerticalAlignment="Top" Margin="0,10,0,0" HorizontalAlignment="Left" Width="280" Height="405">
@@ -15,48 +79,41 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto" MinHeight="53.333"/>
-                <RowDefinition Height="Auto" MinHeight="46"/>
-                <RowDefinition Height="Auto" MinHeight="60"/>
-                <RowDefinition Height="Auto" MinHeight="60.667"/>
+                <RowDefinition Height="Auto" MinHeight="56.667"/>
+                <RowDefinition Height="Auto" MinHeight="56.667"/>
+                <RowDefinition Height="Auto" MinHeight="64"/>
+                <RowDefinition Height="Auto" MinHeight="63.333"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto" MinWidth="143.333"/>
+                <ColumnDefinition Width="Auto" MinWidth="126.667"/>
             </Grid.ColumnDefinitions>
-            <Label VerticalAlignment="Center" Grid.Row="0" Margin="3,3,0,17" HorizontalAlignment="Left" Grid.Column="0" Content="Area Bus Inter Urban:" Height="26" Width="123"/>
-            <TextBox x:Name="areaBusInterUrbanTextBox" Width="120" VerticalAlignment="Center" Text="{Binding AreaBusInterUrban, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3,4,0,18" Height="24" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3,10,0,10" HorizontalAlignment="Left" Grid.Column="0" Content="Area Bus Urban:" Height="26" Width="95"/>
-            <TextBox x:Name="areaBusUrbanComboBox" Width="120" VerticalAlignment="Center" Grid.Row="1" Margin="3,12,0,12" Height="22" HorizontalAlignment="Left"  Grid.Column="1" Text="{Binding AreaBusUrban, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-            <Label VerticalAlignment="Center" Grid.Row="2" Margin="3,17,0,3" HorizontalAlignment="Left" Grid.Column="0" Content="Bus Line ID 1:" Height="26" Width="81"/>
-            <TextBox x:Name="busLineID1TextBox" Width="120" VerticalAlignment="Center" Text="{Binding BusLineID1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3,18,0,4" Height="24" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3,7,0,20.333" HorizontalAlignment="Left" Grid.Column="0" Content="First Station:" Height="26" Width="75"/>
-            <TextBox x:Name="firstStationTextBox" Width="120" VerticalAlignment="Center" Text="{Binding FirstStation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3,8,0,21.333" Height="24" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="4" Margin="3,9.667,0,10.333" HorizontalAlignment="Left" Grid.Column="0" Content="Is Available 1:" Height="26" Width="81"/>
-            <TextBox x:Name="isAvailable1TextBox" Width="120" VerticalAlignment="Center" Text="{Binding IsAvailable1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3,10.667,0,11.333" Height="24" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="5" Margin="3,19.667,0,15.667" HorizontalAlignment="Left" Grid.Column="0" Content="Last Station:" Height="26" Width="74"/>
-            <TextBox x:Name="lastStationTextBox" Width="120" VerticalAlignment="Center" Text="{Binding LastStation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3,20.667,0,16.667" Height="24" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="6" Margin="3,12.333,0,23" HorizontalAlignment="Left" Grid.Column="0" Content="Line Number:" Height="26" Width="81"/>
-            <TextBox x:Name="lineNumberTextBox" Width="120" VerticalAlignment="Center" Text="{Binding LineNumber, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="6" Margin="3,13.333,0,24" Height="24" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="7" Margin="3,3,0,16.333" HorizontalAlignment="Left" Grid.Column="0" Content="Urban Inter Urban:" Height="26" Width="109"/>
-            <TextBox x:Name="urbanInterUrbanTextBox" Width="120" VerticalAlignment="Center" Text="{Binding UrbanInterUrban, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="7" Margin="3,4,0,17.333" Height="24" HorizontalAlignment="Left" Grid.Column="1"/>
+
+            <Label VerticalAlignment="Center" FontSize ="15"  Grid.Row="2" Margin="3,12.667,0,10.667" HorizontalAlignment="Left" Grid.Column="0" Content="Area Line:" Height="26" Width="115"/>
+            <TextBox x:Name="areaBusUrbanComboBox" FontSize ="15" Width="120" VerticalAlignment="Center" Grid.Row="2" Margin="3,21.667,0,16" Height="27" HorizontalAlignment="Left"  Grid.Column="1" Text="{Binding AreaBusUrban, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+            <Label VerticalAlignment="Center" Width="115" FontSize ="15" Grid.Row="0" Margin="3,18,0,6.667" HorizontalAlignment="Left" Grid.Column="0" Content="Line ID:" Height="26"/>
+            <TextBox x:Name="busLineID1TextBox"  Width="121" FontSize ="15" VerticalAlignment="Center" Text="{Binding BusLineID1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3,20,0,4.667" Height="26" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" FontSize ="15" Grid.Row="4" Margin="3,8.667,0,22" HorizontalAlignment="Left" Grid.Column="0" Content="First Station:" Height="26" Width="115"/>
+            <TextBox x:Name="firstStationTextBox" FontSize ="15" Width="120" VerticalAlignment="Center" Text="{Binding FirstStation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3,9.667,0,19" Height="28" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="3" FontSize ="15" Margin="3,13.333,0,17.333" HorizontalAlignment="Left" Grid.Column="0" Content="Is Available 1:" Height="26" Width="115"/>
+            <TextBox x:Name="isAvailable1TextBox" Width="120" FontSize ="15" VerticalAlignment="Center" Text="{Binding GetAvailable, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3,14.333,0,18.333" Height="24" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="5" FontSize ="15" Margin="3,22,0,16" HorizontalAlignment="Left" Grid.Column="0" Content="Last Station:" Height="26" Width="115"/>
+            <TextBox x:Name="lastStationTextBox" Width="120" FontSize ="15" VerticalAlignment="Center" Text="{Binding LastStation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3,23,0,14" Height="27" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="1" FontSize ="15" Margin="3,14.333,0,24.333" HorizontalAlignment="Left" Grid.Column="0" Content="Line Number:" Height="26" Width="115"/>
+            <TextBox x:Name="lineNumberTextBox" Width="120" FontSize ="15" VerticalAlignment="Center" Text="{Binding LineNumber, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3,15.333,0,22.333" Height="27" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="6" FontSize ="15" Margin="3,11,7,26.333" Grid.Column="0" Content="Urban/InterUrban:" Height="26"/>
+            <TextBox x:Name="urbanInterUrbanTextBox" Width="120" FontSize ="15" VerticalAlignment="Center" Text="{Binding  GetUrban, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="6" Margin="3,12,0,24.333" Height="27" HorizontalAlignment="Left" Grid.Column="1"/>
         </Grid>
-        
-        
-        <ListView x:Name="busStationBOListView" ItemsSource="{Binding}" Margin="270,5,3.333,0.667" SelectionMode="Single">
-            <ListView.ItemContainerStyle>
-                <Style>
-                    <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"/>
-                    <Setter Property="Control.VerticalContentAlignment" Value="Stretch"/>
-                </Style>
-            </ListView.ItemContainerStyle>
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn x:Name="stationNumberColumn" Header="Station Number" Width="100">
+
+        <ListView x:Name="busStationBOListView"  ItemsSource="{Binding}" Margin="270,5,3.333,75.667" SelectionMode="Single" >
+
+            <ListView.View >
+                <GridView >
+                    <GridViewColumn  x:Name="stationNumberColumn" Header="Station Number" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Margin="-6,-1" Text="{Binding StationNumber}"/>
+                                <TextBlock Margin="-6,-1" Text="{Binding StationNumberOnLine}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -69,25 +126,27 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn x:Name="stationAddressColumn" Header="Station Address" Width="150">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Margin="-6,-1" Text="{Binding StationAddress}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
 
                     <GridViewColumn x:Name="isAvailable3Column" Header="Is Available 3" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Margin="6,-1,-6,-1" Text="{Binding IsAvailable3}"/>
+                                <TextBlock Margin="6,-1,-6,-1" Text="{Binding ChackDelete2 }"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
+                    <GridViewColumn x:Name="Location1" Header="Location" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="6,-1,-6,-1" Text="{Binding LocationNumberOnLine }"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Content="Add station" HorizontalAlignment="Left" Margin="270,380,0,0" VerticalAlignment="Top" Width="235" Height="38" Click="Button_Click"/>
+        <Button Content="Delete station" HorizontalAlignment="Left" Margin="510,380,0,0" VerticalAlignment="Top" Width="249" Height="39" Click="Button_Click_1"/>
 
 
     </Grid>

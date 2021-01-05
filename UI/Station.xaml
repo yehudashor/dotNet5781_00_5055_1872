@@ -5,10 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="Station" Height="450" Width="800">
+        Title="Station" Height="450" Width="1200">
     <Grid>
-        <ListView x:Name="StationList" ItemsSource="{Binding}" Margin="-5,5,218.333,0.667" SelectionMode="Single" SelectionChanged="Station_SelectionChanged" >
-          
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width ="850"/>
+            <ColumnDefinition Width ="500"/>
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="StationList" ItemsSource="{Binding}" Margin="-5,5,-1.667,0.667" SelectionMode="Single" SelectionChanged="Station_SelectionChanged" >
+
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Station Number" Width="150">
@@ -28,16 +32,35 @@
                     </GridViewColumn>
 
 
-                    <GridViewColumn Header="Lines passing through the station" Width="250">
+                    <GridViewColumn Header="קווים העוברים בתחנה" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Button x:Name="AddStation" Click="Linespassingstation"  Content="Station lines"  Width="100" Height ="40"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
+
+                    <GridViewColumn Header="מחיקת תחנה" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="Delete1" Click="Delete"  Content="Delete Station"  Width="100" Height ="40"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="עדכון פרטי התחנה" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="Udapting" Click="Udapting"  Content="Udapting Station"  Width="100" Height ="40"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Content="Add" Grid.Column="1" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="125" Height="420" Click="Add"/>
+        <Button Content="תצוגת תחנות עוקבות" Grid.Column="1" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Top" Width="210" Height="420" Click="Button_Click"/>
     </Grid>
 </Window>
 

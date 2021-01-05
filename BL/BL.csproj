@@ -51,6 +51,7 @@
     <Compile Include="BusStationBO.cs" />
     <Compile Include="ConsecutiveStationsBl.cs" />
     <Compile Include="ConsecutiveStations.cs" />
+    <Compile Include="ExceptionBl.cs" />
     <Compile Include="InformationBusLineBl.cs" />
     <Compile Include="DeepCopyBO.cs" />
     <Compile Include="IBL.cs" />

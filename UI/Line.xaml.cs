@@ -23,53 +23,57 @@ namespace UI
     public partial class Line : Window
     {
         public static ObservableCollection<BO.BusLineBO> busLineBOs = new ObservableCollection<BO.BusLineBO>();
-        IBL1 bl3;
-        public Line(IBL1 bl)
+        IBL1 bl = BLFactory.GetBL("1");
+        public Line()
         {
             InitializeComponent();
-            bl3 = bl;
-            int count = bl3.ReturnBusLineIdFromDl();
+            int count = bl.ReturnBusLineIdFromDl();
             for (int i = 0; i < count; i++)
             {
-                busLineBOs.Add(bl3.LineInformation(i));
+                busLineBOs.Add(bl.LineInformation(i));
             }
             lines.ItemsSource = busLineBOs;
         }
 
+
         private void Add(object sender, RoutedEventArgs e)
         {
-            AddLine addLine = new AddLine(bl3);
+            AddLine addLine = new AddLine();
             _ = addLine.ShowDialog();
             lines.Items.Refresh();
         }
 
-        private void Udpting(object sender, RoutedEventArgs e)
+        private void Udapting(object sender, RoutedEventArgs e)
         {
-
+            FrameworkElement frameworkElement = sender as FrameworkElement;
+            BO.BusLineBO busLineBO = frameworkElement.DataContext as BO.BusLineBO;
+            UdptingLine udptingLine = new UdptingLine(busLineBO);
+            _ = udptingLine.ShowDialog();
         }
 
         private void Delete(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                FrameworkElement frameworkElement = sender as FrameworkElement;
+                BO.BusLineBO busLineBO = frameworkElement.DataContext as BO.BusLineBO;
+                bl.DeleteBusLineBO(busLineBO.BusLineID1);
+                busLineBOs.RemoveAt(busLineBO.BusLineID1);
+                busLineBOs.Insert(busLineBO.BusLineID1, bl.LineInformation(busLineBO.BusLineID1));
+                lines.Items.Refresh();
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
         }
 
         private void Lines_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ShowLine showLine = new ShowLine((BO.BusLineBO)lines.SelectedItem);
             _ = showLine.ShowDialog();
+            lines.Items.Refresh();
         }
-
-        //private void ShowBusLine(int index)
-        //{
-        //    currentDisplayBusLine = collectionOfbusLines[index];
-        //    UpGrid.DataContext = currentDisplayBusLine;
-        //    lbBusLineStations.DataContext = currentDisplayBusLine.RouteTheLine;
-        //}
-
-        //private void CbBusLines_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    ShowBusLine((cbBusLines.SelectedValue as BusLine).LineNumber);
-        //}
-
     }
 }

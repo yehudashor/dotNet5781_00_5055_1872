@@ -1,0 +1,41 @@
+﻿<Window x:Class="UI.StationLine.AddStationTowOldLine"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI.StationLine"
+        mc:Ignorable="d"
+        Title="AddStationTowOldLine" Height="450" Width="800">
+    <Grid>
+        <ListView x:Name="StationList" ItemsSource="{Binding}" Margin="-5,5,-1.667,0.667" SelectionMode="Single">
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Station Number" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="-6,-1" Text="{Binding StationNumber}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn  Header="Name Of Station" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="-6,-1" Text="{Binding NameOfStation}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Add station to line" Width="250">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="AddStationtoline" Click="AddStation"  Content="Add station to line"  Width="100" Height ="40"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

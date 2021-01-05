@@ -14,6 +14,21 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -72,9 +87,6 @@
     <Compile Include="lines\AddLine.xaml.cs">
       <DependentUpon>AddLine.xaml</DependentUpon>
     </Compile>
-    <Compile Include="lines\DelteLine.xaml.cs">
-      <DependentUpon>DelteLine.xaml</DependentUpon>
-    </Compile>
     <Compile Include="lines\UdptingLine.xaml.cs">
       <DependentUpon>UdptingLine.xaml</DependentUpon>
     </Compile>
@@ -96,11 +108,29 @@
     <Compile Include="StationLine\AddStationLine1.xaml.cs">
       <DependentUpon>AddStationLine1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StationLine\AddStationTowOldLine.xaml.cs">
+      <DependentUpon>AddStationTowOldLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StationLine\DeleteStationFromLine.xaml.cs">
+      <DependentUpon>DeleteStationFromLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StationShow\AddStation.xaml.cs">
+      <DependentUpon>AddStation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StationShow\ConsecutiveStations.xaml.cs">
+      <DependentUpon>ConsecutiveStations.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StationShow\LineInStation.xaml.cs">
       <DependentUpon>LineInStation.xaml</DependentUpon>
     </Compile>
     <Compile Include="StationShow\Station1.xaml.cs">
       <DependentUpon>Station1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StationShow\Udapting.xaml.cs">
+      <DependentUpon>Udapting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StationShow\UdaptingDt.xaml.cs">
+      <DependentUpon>UdaptingDt.xaml</DependentUpon>
     </Compile>
     <Page Include="Bus.xaml">
       <SubType>Designer</SubType>
@@ -119,10 +149,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="lines\AddLine.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="lines\DelteLine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,11 +192,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="StationLine\AddStationTowOldLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StationLine\DeleteStationFromLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StationShow\AddStation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StationShow\ConsecutiveStations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StationShow\LineInStation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StationShow\Station1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StationShow\Udapting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StationShow\UdaptingDt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -195,6 +245,7 @@
     </EmbeddedResource>
     <None Include="Properties\DataSources\BO.BusLineBO.datasource" />
     <None Include="Properties\DataSources\BO.BusStationBO.datasource" />
+    <None Include="Properties\DataSources\BO.ConsecutiveStationsBo.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -209,6 +260,17 @@
       <Name>BL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

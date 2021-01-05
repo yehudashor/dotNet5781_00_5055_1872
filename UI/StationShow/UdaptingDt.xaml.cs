@@ -11,17 +11,26 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BLAPI;
 
-namespace UI.lines
+namespace UI.StationShow
 {
     /// <summary>
-    /// Interaction logic for DelteLine.xaml
+    /// Interaction logic for UdaptingDt.xaml
     /// </summary>
-    public partial class DelteLine : Window
+    public partial class UdaptingDt : Window
     {
-        public DelteLine()
+        IBL1 bl = BLFactory.GetBL("1");
+        BO.ConsecutiveStationsBo consecutiveStationsBo;
+        public UdaptingDt(BO.ConsecutiveStationsBo consecutiveStationsBo1)
         {
+            consecutiveStationsBo = consecutiveStationsBo1;
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

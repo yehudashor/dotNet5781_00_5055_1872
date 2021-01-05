@@ -34,8 +34,8 @@ namespace UI
 
         private void Line(object sender, RoutedEventArgs e)
         {
-            Line line = new Line(bl2);
-            _ = line.ShowDialog();
+            Line line = new Line();
+            line.Show();
         }
 
         private void Station(object sender, RoutedEventArgs e)

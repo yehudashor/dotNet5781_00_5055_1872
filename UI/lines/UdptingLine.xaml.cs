@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BLAPI;
 
 namespace UI.lines
 {
@@ -19,9 +20,28 @@ namespace UI.lines
     /// </summary>
     public partial class UdptingLine : Window
     {
-        public UdptingLine()
+        IBL1 bl = BLFactory.GetBL("1");
+        BO.BusLineBO busLineBO;
+        public UdptingLine(BO.BusLineBO busLineBO1)
         {
+            busLineBO = busLineBO1;
             InitializeComponent();
+            areaBusUrbanComboBox.ItemsSource = Enum.GetValues(typeof(BO.Area1));
+            //(Enums.AREA)cbArea.SelectedItem
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            busLineBO.LineNumber = int.Parse(lineNumberTextBlock.Text);
+            //busLineBO.IsAvailable1 = 
+            //busLineBO.AreaBusInterUrban = 
+            _ = Line.busLineBOs.Remove(busLineBO);
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -5,13 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="ManagerLogin" Height="250" Width="400">
-    <StackPanel RenderTransformOrigin="0.514,0.495">
-        <Label Content="Enter a username:" />
-        <TextBox x:Name="UserN" Height="23" TextWrapping="Wrap" />
-        <Label Content="password:" Height="34" Margin="0,0,0.333,0" RenderTransformOrigin="0.5,0.5"/>
-        <PasswordBox x:Name="Password1" PasswordChar="*" />
-        <Button Content="Log in" Height="25" Margin="0,0,0.333,0" Click="LodIn"/>
+        Title="ManagerLogin" Height="550" Width="800">
+    <Border Margin="5,5,5.333,0" Padding="5" Background="LightYellow" 
+          BorderBrush="SteelBlue" BorderThickness="3,5,3,5" CornerRadius="3"
+          VerticalAlignment="Top" Height="452">
 
-    </StackPanel>
+
+        <StackPanel RenderTransformOrigin="0.514,0.495">
+
+            <TextBlock Text ="Enter a username:" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock.Foreground>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="Yellow" Offset="0.0" />
+                        <GradientStop Color="Red" Offset="0.25" />
+                        <GradientStop Color="Blue" Offset="0.75" />
+                        <GradientStop Color="LimeGreen" Offset="1.0" />
+                    </LinearGradientBrush>
+                </TextBlock.Foreground>
+            </TextBlock>            <TextBox x:Name="UserN" Height="23" TextWrapping="Wrap" Margin="232,0,254,0" />            <TextBlock Text = "password:" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock.Foreground>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="Yellow" Offset="0.0" />
+                        <GradientStop Color="Red" Offset="0.25" />
+                        <GradientStop Color="Blue" Offset="0.75" />
+                        <GradientStop Color="LimeGreen" Offset="1.0" />
+                    </LinearGradientBrush>
+                </TextBlock.Foreground>
+            </TextBlock>
+
+            <PasswordBox x:Name="Password1" PasswordChar="*" Margin="231,0,253,0" />
+            <Grid Height="80">
+                <Button Content="Log in" Height="50" Margin="231,0,253,0" Click="LodIn" Background="LightBlue"/>
+                </Grid>
+        </StackPanel>
+    </Border>
 </Window>

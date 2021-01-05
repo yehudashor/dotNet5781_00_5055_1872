@@ -57,7 +57,7 @@ namespace DL
         #region Station
         void IDAL.AddStation(BusStation station)
         {
-            if (!DataSource.BusStations.Exists(station1 => station1.StationNumber == station.StationNumber && station1.IsAvailable3))
+            if (DataSource.BusStations.Exists(station1 => station1.StationNumber == station.StationNumber && station1.IsAvailable3))
             {
                 throw new ExceptionDl("The Station alrady exist in the compny");
             }
@@ -119,9 +119,16 @@ namespace DL
         void IDAL.DeleteBusLine(int BusLineID)
         {
             int index = DataSource.BusLines.FindIndex(BusLine => BusLine.BusLineID1 == BusLineID);
-            DataSource.BusLines[index].IsAvailable1 = index == -1
-                ? throw new ExceptionDl("The line not exist in the compny!!!")
-                : true ? false : throw new ExceptionDl("The Line exists but has already been deleted!!!");
+            if (index == -1)
+            {
+                throw new ExceptionDl("The line not exist in the compny!!!");
+            }
+            else
+            {
+                DataSource.BusLines[index].GetAvailable = DataSource.BusLines[index].GetAvailable == Available.Notavailable
+                    ? throw new ExceptionDl("The Line exists but has already been deleted!!!")
+                    : Available.Notavailable;
+            }
         }
         void IDAL.UpdatingBusLine(BusLine line)
         {
@@ -138,26 +145,22 @@ namespace DL
         IEnumerable<BusLine> IDAL.BusLinesList()
         {
             return from line in DataSource.BusLines
-                   where line.IsAvailable1 == true
+                   where line.GetAvailable == Available.Available
                    select line.Clone();
         }
 
         IEnumerable<BusLine> IDAL.BusLinesList(int numberLine)
         {
             return from line in DataSource.BusLines
-                   where line.IsAvailable1 == true && line.BusLineID1 == numberLine
+                   where line.GetAvailable == Available.Available && line.BusLineID1 == numberLine
                    select line.Clone();
         }
         #endregion BusLine
 
         #region LineStation
 
-        void IDAL.AddLineStation(LineStation lineStation)
+        IEnumerable<int> IDAL.AddLineStation(LineStation lineStation)
         {
-            if (!DataSource.BusLines.Exists(BusLine => BusLine.BusLineID1 == lineStation.BusLineID2 && BusLine.IsAvailable1))
-            {
-                throw new ExceptionDl("The line not exist in the compny");
-            }
             if (!DataSource.BusStations.Exists(station1 => station1.StationNumber == lineStation.StationNumberOnLine && station1.IsAvailable3))
             {
                 throw new ExceptionDl("The Station not exist in the compny");
@@ -167,23 +170,77 @@ namespace DL
             {
                 throw new ExceptionDl("the Station alrady exist in the this line!!!");
             }
+
             else
             {
-                DataSource.LineStations.Add(lineStation.Clone());
+                int[] n = (int[])new int[2].AsEnumerable();
+                //ופשוט להכניס אם הוא האיבר שמיקומו גדול באחד ממיקום בגדול ביותר תחזיר את המספר של הגדול ביותר
+                // אם הוא נכנס באמצע לקדם את כל הבאים אחריו אחד קדימה במיקום ולהכניס אותו ולהחזיר את קודמו והבא אחריו
+                //  או קטן מאפס חריגה אם הוא גדול מאינדקס המיקום הגדול ביותר, ביותר מאחד 
+                int index1 = 0;
+                for (int i = 0; i < DataSource.LineStations.Count; i++)
+                {
+                    if (DataSource.LineStations[i].BusLineID2 == lineStation.BusLineID2 && DataSource.LineStations[i].LocationNumberOnLine > DataSource.LineStations[i + 1].LocationNumberOnLine)
+                    {
+                        index1 = DataSource.LineStations[i].LocationNumberOnLine;
+                    }
+                    if (DataSource.LineStations[i].BusLineID2 == lineStation.BusLineID2 && DataSource.LineStations[i].LocationNumberOnLine < DataSource.LineStations[i + 1].LocationNumberOnLine)
+                    {
+                        index1 = DataSource.LineStations[i + 1].LocationNumberOnLine;
+                    }
+                }
+
+                if (1 + index1 < lineStation.LocationNumberOnLine || lineStation.LocationNumberOnLine < 0)
+                {
+                    throw new ExceptionDl("rong Location!!!");
+                }
+
+                if (index1 == lineStation.LocationNumberOnLine - 1)
+                {
+                    DataSource.LineStations.Add(lineStation.Clone());
+                    n[0] = DataSource.LineStations[index1].StationNumberOnLine;
+                    return n;
+                }
+
+                if (DataSource.LineStations.Exists(item => item.BusLineID2 == lineStation.BusLineID2 && item.LocationNumberOnLine == lineStation.LocationNumberOnLine))
+                {
+                    n[0] = DataSource.LineStations.FindIndex(item => item.BusLineID2 == lineStation.BusLineID2 && item.LocationNumberOnLine == lineStation.LocationNumberOnLine);
+                    n[1] = DataSource.LineStations.FindIndex(item => item.BusLineID2 == lineStation.BusLineID2 && item.LocationNumberOnLine == lineStation.LocationNumberOnLine - 1);
+                    int number = n[0];
+                    if (n[0] != -1)
+                    {
+                        _ = n[0] == DataSource.LineStations[number].StationNumberOnLine;
+                    }
+                    if (n[1] != -1)
+                    {
+                        _ = n[1] == DataSource.LineStations[n[1]].StationNumberOnLine;
+                    }
+                    for (int i = 0; i < DataSource.LineStations.Count; i++)
+                    {
+                        if (DataSource.LineStations[i].BusLineID2 == lineStation.BusLineID2 && DataSource.LineStations[i].LocationNumberOnLine >= lineStation.LocationNumberOnLine)
+                        {
+                            DataSource.LineStations[i].LocationNumberOnLine += 1;
+                        }
+                    }
+                    DataSource.LineStations.Add(lineStation.Clone());
+                }
+                return n;
             }
         }
 
         void IDAL.DeleteOneLineStation(int NumberLine, int stationNumber)
         {
             int index = DataSource.LineStations.FindIndex(lineStation => lineStation.BusLineID2 == NumberLine && lineStation.StationNumberOnLine == stationNumber);
-            if (index != -1 && DataSource.LineStations[index].ChackDelete2)
-            {
-                DataSource.LineStations[index].ChackDelete2 = false;
-            }
             if (index != -1 && !DataSource.LineStations[index].ChackDelete2)
             {
                 throw new ExceptionDl("the station found but she deleted!!!");
             }
+
+            if (index != -1 && DataSource.LineStations[index].ChackDelete2)
+            {
+                DataSource.LineStations[index].ChackDelete2 = false;
+            }
+
             if (index == -1)
             {
                 throw new ExceptionDl("the line isnt exist in the list!!!");
@@ -225,24 +282,12 @@ namespace DL
                    select line;
         }
 
-        int IDAL.IndexOfLastLineStation(int numberLine)
-        {
-            List<LineStation> lineStations = DataSource.LineStations.FindAll(item => item.BusLineID2 == numberLine);
-            lineStations = (List<LineStation>)(from lineStation in lineStations
-                                               orderby lineStation.LocationNumberOnLine
-                                               select lineStation);
-            return lineStations[lineStations.Count].StationNumberOnLine;
-        }
 
         public IEnumerable<LineStation> OneLineFromList(Predicate<LineStation> predicate)
         {
             return from line in DataSource.LineStations
                    where predicate(line)
-                   select line.Clone();
-            //return from line in DataSource.LineStations
-            //       where line.ChackDelete2 && line.BusLineID2 == numberLine
-            //       select line.Clone();
-            //return OneLineStation ?? throw new ExceptionDl("the line dsnt exist in the compny");
+                   select line.Clone() ?? throw new ExceptionDl("the line dsnt exist in the compny");
         }
 
         IEnumerable<int> IDAL.LinesFromList(int numberStation)

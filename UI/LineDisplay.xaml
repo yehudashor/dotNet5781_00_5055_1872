@@ -5,11 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="LineDisplay" Height="450" Width="810">
-    <Grid Height="421" Margin="0,0,0.333,-0.333" VerticalAlignment="Bottom">
-        <Button Content="אוטובוסים" HorizontalAlignment="Left" VerticalAlignment="Top" Width="281" Height="421" RenderTransformOrigin="0.5,0.5" Click="Bus"/>
-        <Button Content="קווים" HorizontalAlignment="Left" Margin="242,0,0,0" VerticalAlignment="Top" Width="281" Height="421" Click="Line"/>
-        <Button Content="תחנות" HorizontalAlignment="Left" Margin="525,0,-9,0" VerticalAlignment="Top" Width="281" Height="421" Click="Station"/>
+        Title="LineDisplay" Height="450" Width="810" MinWidth="7">
+    <Window.Resources>
+        
+        <Style x:Key="BaseControlStyle" 
+               TargetType="{x:Type Control}">
+            <Setter Property="FontFamily" Value="Tahoma" />
+            <Setter Property="FontSize" Value="24pt"/>
+            <Setter Property="Margin" Value="4" />
+        </Style>
 
+        <Style TargetType="{x:Type Button}" 
+               BasedOn="{StaticResource BaseControlStyle}">
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+    </Window.Resources>
+    
+    <Grid Height="421" Margin="0,0,0.333,-0.333" VerticalAlignment="Bottom">
+        <Button Content="אוטובוסים" HorizontalAlignment="Left" VerticalAlignment="Top" Width="281" Height="421" RenderTransformOrigin="0.5,0.5" Click="Bus">
+            <Button.Background>
+                <RadialGradientBrush Center="0.5,0.5" RadiusX="1.0" RadiusY="1.0">
+                    <GradientStop Color="Firebrick" Offset="0.0" />
+                    <GradientStop Color="Wheat" Offset="1.0" />
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+
+
+
+
+        <Button x:Name="d" Content="קווים" HorizontalAlignment="Left" Margin="242,0,0,0" VerticalAlignment="Top" Width="281" Height="421" Click="Line">
+            <Button.Background>
+                <RadialGradientBrush Center="0.5,0.5" RadiusX="1.0" RadiusY="1.0">
+                    <GradientStop Color="Yellow" Offset="0.0" />
+                    <GradientStop Color="Orange" Offset="1.0" />
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        
+        <Button Content="תחנות" HorizontalAlignment="Left" Margin="525,0,-9,0" VerticalAlignment="Top" Width="281" Height="421" Click="Station">
+        <Button.Background>
+            <RadialGradientBrush Center="0.5,0.5" RadiusX="1.0" RadiusY="1.0">
+                <GradientStop Color="LightYellow" Offset="0.0" />
+                <GradientStop Color="Orange" Offset="1.0" />
+            </RadialGradientBrush>
+        </Button.Background>
+        </Button>
     </Grid>
 </Window>
