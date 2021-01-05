@@ -166,9 +166,11 @@ namespace BL
                 BusLine busLine = dl.ReturnBusLine(numberLine);
                 busLine.CopyPropertiesTo(busLineBO);
 
-                IEnumerable<LineStation> lineStations = from line in dl.OneLineFromList(line1 => line1.ChackDelete2 && line1.BusLineID2 == numberLine)
-                                                        orderby line.LocationNumberOnLine
-                                                        select line;
+                IEnumerable<LineStation> lineStations = dl.OneLineFromList(line1 => line1.ChackDelete2 && line1.BusLineID2 == numberLine);
+
+                IEnumerable<LineStation> lineStations10 = from line in lineStations
+                                                          orderby line.LocationNumberOnLine
+                                                          select line;
 
                 IEnumerable<BusStation> busStationBOs = from busLine5 in lineStations
                                                         let p = dl.ReturnStation(busLine5.StationNumberOnLine)
@@ -181,7 +183,7 @@ namespace BL
                 var w = from busLine5 in busStationBOs1
                         select new { NameOfStation1 = busLine5.NameOfStation };
 
-                List<LineStation> lineStations1 = lineStations.ToList();
+                List<LineStation> lineStations1 = lineStations10.ToList();
 
 
 
@@ -192,7 +194,7 @@ namespace BL
                     busLineBO.StationLineBOs.Add(new StationLineBO { NameOfStation = item.NameOfStation1 });
                 }
 
-                for (int i = 0; i < lineStations1.Count - 1; i++)
+                for (int i = 0; i < lineStations1.Count; i++)
                 {
                     busLineBO.StationLineBOs[i].StationNumberOnLine = lineStations1[i].StationNumberOnLine;
                     busLineBO.StationLineBOs[i].ChackDelete2 = lineStations1[i].ChackDelete2;
@@ -339,6 +341,7 @@ namespace BL
                         LastStation = busLineBO.StationLineBOs[busLineBO.StationLineBOs.Count - 1].StationNumberOnLine,
                         GetAvailable = (DO.Available)(int)busLineBO.GetAvailable
                     };
+                    busLineBO.BusLineID1 = dl.AddBusLine(busLine);
 
                     for (int i = 0; i < busLineBO.StationLineBOs.Count; i++)
                     {
@@ -346,8 +349,6 @@ namespace BL
                         busLineBO.StationLineBOs[i].LocationNumberOnLine = i;
                         busLineBO.StationLineBOs[i].BusLineID2 = busLineBO.BusLineID1;
                     }
-
-                    busLineBO.BusLineID1 = dl.AddBusLine(busLine);
 
                     IEnumerable<LineStation> s = from AddLineStationToDL in busLineBO.StationLineBOs
                                                  let p = ReturnNewLineStationDoFromBo(AddLineStationToDL)
@@ -431,7 +432,7 @@ namespace BL
                     LocationNumberOnLine = stationLineBO.LocationNumberOnLine,
                     ChackDelete2 = stationLineBO.ChackDelete2
                 };
-                dl.AddLineStation(lineStation1);
+                _ = dl.AddLineStation(lineStation1);
                 //int number = dl.IndexOfLastLineStation(stationLineBO.BusLineID2);
                 //ConsecutiveStationsBl consecutiveStationsBl = new ConsecutiveStationsBl(number, stationLineBO.StationNumberOnLine);
                 //ConsecutiveStations consecutiveStations = new ConsecutiveStations

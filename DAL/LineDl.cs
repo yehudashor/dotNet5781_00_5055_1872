@@ -173,58 +173,60 @@ namespace DL
 
             else
             {
-                int[] n = (int[])new int[2].AsEnumerable();
-                //ופשוט להכניס אם הוא האיבר שמיקומו גדול באחד ממיקום בגדול ביותר תחזיר את המספר של הגדול ביותר
-                // אם הוא נכנס באמצע לקדם את כל הבאים אחריו אחד קדימה במיקום ולהכניס אותו ולהחזיר את קודמו והבא אחריו
-                //  או קטן מאפס חריגה אם הוא גדול מאינדקס המיקום הגדול ביותר, ביותר מאחד 
-                int index1 = 0;
-                for (int i = 0; i < DataSource.LineStations.Count; i++)
-                {
-                    if (DataSource.LineStations[i].BusLineID2 == lineStation.BusLineID2 && DataSource.LineStations[i].LocationNumberOnLine > DataSource.LineStations[i + 1].LocationNumberOnLine)
-                    {
-                        index1 = DataSource.LineStations[i].LocationNumberOnLine;
-                    }
-                    if (DataSource.LineStations[i].BusLineID2 == lineStation.BusLineID2 && DataSource.LineStations[i].LocationNumberOnLine < DataSource.LineStations[i + 1].LocationNumberOnLine)
-                    {
-                        index1 = DataSource.LineStations[i + 1].LocationNumberOnLine;
-                    }
-                }
+                DataSource.LineStations.Add(lineStation);
+                return null;
+                //int[] n = (int[])new int[2].AsEnumerable();
+                ////ופשוט להכניס אם הוא האיבר שמיקומו גדול באחד ממיקום בגדול ביותר תחזיר את המספר של הגדול ביותר
+                //// אם הוא נכנס באמצע לקדם את כל הבאים אחריו אחד קדימה במיקום ולהכניס אותו ולהחזיר את קודמו והבא אחריו
+                ////  או קטן מאפס חריגה אם הוא גדול מאינדקס המיקום הגדול ביותר, ביותר מאחד 
+                //int index1 = 0;
+                //for (int i = 0; i < DataSource.LineStations.Count; i++)
+                //{
+                //    if (DataSource.LineStations[i].BusLineID2 == lineStation.BusLineID2 && DataSource.LineStations[i].LocationNumberOnLine > DataSource.LineStations[i + 1].LocationNumberOnLine)
+                //    {
+                //        index1 = DataSource.LineStations[i].LocationNumberOnLine;
+                //    }
+                //    if (DataSource.LineStations[i].BusLineID2 == lineStation.BusLineID2 && DataSource.LineStations[i].LocationNumberOnLine < DataSource.LineStations[i + 1].LocationNumberOnLine)
+                //    {
+                //        index1 = DataSource.LineStations[i + 1].LocationNumberOnLine;
+                //    }
+                //}
 
-                if (1 + index1 < lineStation.LocationNumberOnLine || lineStation.LocationNumberOnLine < 0)
-                {
-                    throw new ExceptionDl("rong Location!!!");
-                }
+                //if (1 + index1 < lineStation.LocationNumberOnLine || lineStation.LocationNumberOnLine < 0)
+                //{
+                //    throw new ExceptionDl("rong Location!!!");
+                //}
 
-                if (index1 == lineStation.LocationNumberOnLine - 1)
-                {
-                    DataSource.LineStations.Add(lineStation.Clone());
-                    n[0] = DataSource.LineStations[index1].StationNumberOnLine;
-                    return n;
-                }
+                //if (index1 == lineStation.LocationNumberOnLine - 1)
+                //{
+                //    DataSource.LineStations.Add(lineStation.Clone());
+                //    n[0] = DataSource.LineStations[index1].StationNumberOnLine;
+                //    return n;
+                //}
 
-                if (DataSource.LineStations.Exists(item => item.BusLineID2 == lineStation.BusLineID2 && item.LocationNumberOnLine == lineStation.LocationNumberOnLine))
-                {
-                    n[0] = DataSource.LineStations.FindIndex(item => item.BusLineID2 == lineStation.BusLineID2 && item.LocationNumberOnLine == lineStation.LocationNumberOnLine);
-                    n[1] = DataSource.LineStations.FindIndex(item => item.BusLineID2 == lineStation.BusLineID2 && item.LocationNumberOnLine == lineStation.LocationNumberOnLine - 1);
-                    int number = n[0];
-                    if (n[0] != -1)
-                    {
-                        _ = n[0] == DataSource.LineStations[number].StationNumberOnLine;
-                    }
-                    if (n[1] != -1)
-                    {
-                        _ = n[1] == DataSource.LineStations[n[1]].StationNumberOnLine;
-                    }
-                    for (int i = 0; i < DataSource.LineStations.Count; i++)
-                    {
-                        if (DataSource.LineStations[i].BusLineID2 == lineStation.BusLineID2 && DataSource.LineStations[i].LocationNumberOnLine >= lineStation.LocationNumberOnLine)
-                        {
-                            DataSource.LineStations[i].LocationNumberOnLine += 1;
-                        }
-                    }
-                    DataSource.LineStations.Add(lineStation.Clone());
-                }
-                return n;
+                //if (DataSource.LineStations.Exists(item => item.BusLineID2 == lineStation.BusLineID2 && item.LocationNumberOnLine == lineStation.LocationNumberOnLine))
+                //{
+                //    n[0] = DataSource.LineStations.FindIndex(item => item.BusLineID2 == lineStation.BusLineID2 && item.LocationNumberOnLine == lineStation.LocationNumberOnLine);
+                //    n[1] = DataSource.LineStations.FindIndex(item => item.BusLineID2 == lineStation.BusLineID2 && item.LocationNumberOnLine == lineStation.LocationNumberOnLine - 1);
+                //    int number = n[0];
+                //    if (n[0] != -1)
+                //    {
+                //        _ = n[0] == DataSource.LineStations[number].StationNumberOnLine;
+                //    }
+                //    if (n[1] != -1)
+                //    {
+                //        _ = n[1] == DataSource.LineStations[n[1]].StationNumberOnLine;
+                //    }
+                //    for (int i = 0; i < DataSource.LineStations.Count; i++)
+                //    {
+                //        if (DataSource.LineStations[i].BusLineID2 == lineStation.BusLineID2 && DataSource.LineStations[i].LocationNumberOnLine >= lineStation.LocationNumberOnLine)
+                //        {
+                //            DataSource.LineStations[i].LocationNumberOnLine += 1;
+                //        }
+                //    }
+                //    DataSource.LineStations.Add(lineStation.Clone());
+                //}
+                //return n;
             }
         }
 
