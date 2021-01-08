@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,21 +28,43 @@ namespace UI.lines
             busLineBO = busLineBO1;
             InitializeComponent();
             areaBusUrbanComboBox.ItemsSource = Enum.GetValues(typeof(BO.Area1));
-            //(Enums.AREA)cbArea.SelectedItem
+            getUrbanComboBox.ItemsSource = Enum.GetValues(typeof(BO.Urban));
+            getAvailableComboBox.ItemsSource = Enum.GetValues(typeof(BO.Available));
+            getAvailableComboBox.SelectedIndex = 0;
+            getUrbanComboBox.SelectedIndex = 0;
+            areaBusUrbanComboBox.SelectedIndex = 0;
+            lineNumberTextBox.Text = busLineBO1.LineNumber.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            busLineBO.LineNumber = int.Parse(lineNumberTextBlock.Text);
-            //busLineBO.IsAvailable1 = 
-            //busLineBO.AreaBusInterUrban = 
-            _ = Line.busLineBOs.Remove(busLineBO);
+            try
+            {
+                busLineBO.AreaBusUrban = (BO.Area1)areaBusUrbanComboBox.SelectedItem;
+                busLineBO.GetUrban = (BO.Urban)getUrbanComboBox.SelectedItem;
+                busLineBO.GetAvailable = (BO.Available)getAvailableComboBox.SelectedItem;
+                bl.UdaptingLine(busLineBO);
+                Line.busLineBOs.Insert(busLineBO.BusLineID1, busLineBO);
+                _ = MessageBox.Show("The line has been updated successfully");
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        //PreviewTextInput= "NumberValidationTextBox" 
+        /// <summary>
+        /// A function that ensures that only numbers can be entered in the textBox field !!!
+        /// (Part of the above bonus).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
-
+            Regex regex = new Regex("[^0-9]$");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

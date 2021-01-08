@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UI"
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="UI.ShowLine"
         mc:Ignorable="d"
-        Title="ShowLine" Height="auto" Width="auto">
+        Title="ShowLine" Height="auto" Width="auto" WindowState="Maximized">
     <Window.Resources>
         <Style x:Key="BaseControlStyle" 
                TargetType="{x:Type Control}">
@@ -44,6 +44,10 @@
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
+        </Style>
+
+        <Style TargetType="ListViewItem">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
 
         <Style TargetType="{x:Type ListView}" 
@@ -106,8 +110,7 @@
             <TextBox x:Name="urbanInterUrbanTextBox" Width="120" FontSize ="15" VerticalAlignment="Center" Text="{Binding  GetUrban, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="6" Margin="3,12,0,24.333" Height="27" HorizontalAlignment="Left" Grid.Column="1"/>
         </Grid>
 
-        <ListView x:Name="busStationBOListView"  ItemsSource="{Binding}" Margin="270,5,3.333,75.667" SelectionMode="Single" >
-
+        <ListView x:Name="busStationBOListView" SelectionChanged="BusStationBOListView_SelectionChanged"  ItemsSource="{Binding}" Margin="270,5,3.333,75.667" SelectionMode="Single" >
             <ListView.View >
                 <GridView >
                     <GridViewColumn  x:Name="stationNumberColumn" Header="Station Number" Width="100">
@@ -135,6 +138,21 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
+                    <GridViewColumn x:Name="Distance" Header="Distance" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="6,-1,-6,-1" Text="{Binding DistanceBetweenTooStations }"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="Time" Header="Time" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="6,-1,-6,-1" Text="{Binding AverageTime }"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
                     <GridViewColumn x:Name="Location1" Header="Location" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
@@ -142,11 +160,28 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
+
+                    <GridViewColumn x:Name="Delete1" Header="Delete" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Margin="6,-1,-6,-1" Content="מחיקה" Click="Delete" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn x:Name="Udapting" Header="עדכון מרחק/זמן" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Margin="6,-1,-6,-1" Content="עדכון מרחק/זמן" Click="UdaptingTd" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Add station" HorizontalAlignment="Left" Margin="270,380,0,0" VerticalAlignment="Top" Width="235" Height="38" Click="Button_Click"/>
-        <Button Content="Delete station" HorizontalAlignment="Left" Margin="510,380,0,0" VerticalAlignment="Top" Width="249" Height="39" Click="Button_Click_1"/>
+        <Button x:Name="addStation" Content="Add station" HorizontalAlignment="Left" Margin="1,434,0,0" VerticalAlignment="Top" Width="755" Height="38" Click="Button_Click"/>
+
 
 
     </Grid>

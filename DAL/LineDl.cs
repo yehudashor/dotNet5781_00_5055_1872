@@ -103,9 +103,6 @@ namespace DL
         #region BusLine
         int IDAL.BusLineId()
         {
-            //IEnumerable<int> vs = from line in DataSource.BusLines
-            //                      where line.IsAvailable1
-            //                      select line.BusLineID1;
             return DataSource.BusLines.Count == 0 ? throw new ExceptionDl("there are no lines in the compny") : DataSource.BusLines.Count;
         }
         int IDAL.AddBusLine(BusLine line)
@@ -119,16 +116,11 @@ namespace DL
         void IDAL.DeleteBusLine(int BusLineID)
         {
             int index = DataSource.BusLines.FindIndex(BusLine => BusLine.BusLineID1 == BusLineID);
-            if (index == -1)
-            {
-                throw new ExceptionDl("The line not exist in the compny!!!");
-            }
-            else
-            {
-                DataSource.BusLines[index].GetAvailable = DataSource.BusLines[index].GetAvailable == Available.Notavailable
+            DataSource.BusLines[index].GetAvailable = index == -1
+                ? throw new ExceptionDl("The line not exist in the compny!!!")
+                : DataSource.BusLines[index].GetAvailable == Available.Notavailable
                     ? throw new ExceptionDl("The Line exists but has already been deleted!!!")
                     : Available.Notavailable;
-            }
         }
         void IDAL.UpdatingBusLine(BusLine line)
         {
@@ -159,7 +151,7 @@ namespace DL
 
         #region LineStation
 
-        IEnumerable<int> IDAL.AddLineStation(LineStation lineStation)
+        int IDAL.AddLineStation(LineStation lineStation)
         {
             if (!DataSource.BusStations.Exists(station1 => station1.StationNumber == lineStation.StationNumberOnLine && station1.IsAvailable3))
             {
@@ -171,62 +163,45 @@ namespace DL
                 throw new ExceptionDl("the Station alrady exist in the this line!!!");
             }
 
+            if (!DataSource.LineStations.Exists(item => item.BusLineID2 == lineStation.BusLineID2))
+            {
+                DataSource.LineStations.Add(lineStation.Clone());
+                return 0;
+            }
             else
             {
-                DataSource.LineStations.Add(lineStation);
-                return null;
-                //int[] n = (int[])new int[2].AsEnumerable();
-                ////ופשוט להכניס אם הוא האיבר שמיקומו גדול באחד ממיקום בגדול ביותר תחזיר את המספר של הגדול ביותר
-                //// אם הוא נכנס באמצע לקדם את כל הבאים אחריו אחד קדימה במיקום ולהכניס אותו ולהחזיר את קודמו והבא אחריו
-                ////  או קטן מאפס חריגה אם הוא גדול מאינדקס המיקום הגדול ביותר, ביותר מאחד 
-                //int index1 = 0;
-                //for (int i = 0; i < DataSource.LineStations.Count; i++)
-                //{
-                //    if (DataSource.LineStations[i].BusLineID2 == lineStation.BusLineID2 && DataSource.LineStations[i].LocationNumberOnLine > DataSource.LineStations[i + 1].LocationNumberOnLine)
-                //    {
-                //        index1 = DataSource.LineStations[i].LocationNumberOnLine;
-                //    }
-                //    if (DataSource.LineStations[i].BusLineID2 == lineStation.BusLineID2 && DataSource.LineStations[i].LocationNumberOnLine < DataSource.LineStations[i + 1].LocationNumberOnLine)
-                //    {
-                //        index1 = DataSource.LineStations[i + 1].LocationNumberOnLine;
-                //    }
-                //}
+                int index1 = DataSource.LineStations.FindIndex(item => item.BusLineID2 == lineStation.BusLineID2 && lineStation.LocationNumberOnLine == item.LocationNumberOnLine);
+                if (index1 == -1)
+                {
+                    int index2 = DataSource.LineStations.FindIndex(item => item.BusLineID2 == lineStation.BusLineID2 && lineStation.LocationNumberOnLine == item.LocationNumberOnLine + 1);
+                    DataSource.LineStations.Add(lineStation.Clone());
+                    return DataSource.LineStations[index2].StationNumberOnLine;
+                }
+                else
+                {
+                    foreach (LineStation item1 in DataSource.LineStations.Where(item => item.BusLineID2 == lineStation.BusLineID2 && item.LocationNumberOnLine >= lineStation.LocationNumberOnLine))
+                    {
+                        ++item1.LocationNumberOnLine;
+                    }
+                    DataSource.LineStations.Add(lineStation.Clone());
+                    return DataSource.LineStations[index1].StationNumberOnLine;
+                }
+            }
+        }
+        void IDAL.AddLineStationToNewLine(LineStation lineStation)
+        {
+            if (!DataSource.BusStations.Exists(station1 => station1.StationNumber == lineStation.StationNumberOnLine && station1.IsAvailable3))
+            {
+                throw new ExceptionDl("The Station not exist in the compny");
+            }
 
-                //if (1 + index1 < lineStation.LocationNumberOnLine || lineStation.LocationNumberOnLine < 0)
-                //{
-                //    throw new ExceptionDl("rong Location!!!");
-                //}
-
-                //if (index1 == lineStation.LocationNumberOnLine - 1)
-                //{
-                //    DataSource.LineStations.Add(lineStation.Clone());
-                //    n[0] = DataSource.LineStations[index1].StationNumberOnLine;
-                //    return n;
-                //}
-
-                //if (DataSource.LineStations.Exists(item => item.BusLineID2 == lineStation.BusLineID2 && item.LocationNumberOnLine == lineStation.LocationNumberOnLine))
-                //{
-                //    n[0] = DataSource.LineStations.FindIndex(item => item.BusLineID2 == lineStation.BusLineID2 && item.LocationNumberOnLine == lineStation.LocationNumberOnLine);
-                //    n[1] = DataSource.LineStations.FindIndex(item => item.BusLineID2 == lineStation.BusLineID2 && item.LocationNumberOnLine == lineStation.LocationNumberOnLine - 1);
-                //    int number = n[0];
-                //    if (n[0] != -1)
-                //    {
-                //        _ = n[0] == DataSource.LineStations[number].StationNumberOnLine;
-                //    }
-                //    if (n[1] != -1)
-                //    {
-                //        _ = n[1] == DataSource.LineStations[n[1]].StationNumberOnLine;
-                //    }
-                //    for (int i = 0; i < DataSource.LineStations.Count; i++)
-                //    {
-                //        if (DataSource.LineStations[i].BusLineID2 == lineStation.BusLineID2 && DataSource.LineStations[i].LocationNumberOnLine >= lineStation.LocationNumberOnLine)
-                //        {
-                //            DataSource.LineStations[i].LocationNumberOnLine += 1;
-                //        }
-                //    }
-                //    DataSource.LineStations.Add(lineStation.Clone());
-                //}
-                //return n;
+            if (DataSource.LineStations.Exists(lineStation1 => lineStation1.BusLineID2 == lineStation.BusLineID2 && lineStation1.StationNumberOnLine == lineStation.StationNumberOnLine && lineStation1.ChackDelete2))
+            {
+                throw new ExceptionDl("the Station alrady exist in the this line!!!");
+            }
+            else
+            {
+                DataSource.LineStations.Add(lineStation.Clone());
             }
         }
 
@@ -285,7 +260,7 @@ namespace DL
         }
 
 
-        public IEnumerable<LineStation> OneLineFromList(Predicate<LineStation> predicate)
+        IEnumerable<LineStation> IDAL.OneLineFromList(Predicate<LineStation> predicate)
         {
             return from line in DataSource.LineStations
                    where predicate(line)
@@ -302,7 +277,10 @@ namespace DL
         #endregion LineStation
 
         #region ConsecutiveStations
-
+        bool IDAL.ChackExistingConsecutiveStations(Predicate<ConsecutiveStations> predicate)
+        {
+            return !DataSource.ConsecutiveStations.Exists(predicate);
+        }
         void IDAL.AddConsecutiveStations(ConsecutiveStations consecutiveStations)
         {
             if (DataSource.ConsecutiveStations.Exists(consecutiveStations1 => consecutiveStations1.StationNumber1 == consecutiveStations.StationNumber1 && consecutiveStations1.StationNumber2 == consecutiveStations.StationNumber2))
@@ -333,14 +311,16 @@ namespace DL
             int index = DataSource.ConsecutiveStations.FindIndex(consecutiveStations1 => consecutiveStations1.StationNumber1 == consecutiveStations.StationNumber1 && consecutiveStations1.StationNumber2 == consecutiveStations.StationNumber2);
             DataSource.ConsecutiveStations[index] = index == -1 ? throw new ExceptionDl("The consecutiveStations not exist in the compny!!!") : consecutiveStations.Clone();
         }
-        public int DistanceBetweenTooStations(int numberStation1, int numberStation2)
+
+        float IDAL.DistanceBetweenTooStations(int numberStation1, int numberStation2)
         {
             int index = DataSource.ConsecutiveStations.FindIndex(consecutiveStations1 => consecutiveStations1.StationNumber1 == numberStation1 && consecutiveStations1.StationNumber2 == numberStation2);
             return index != -1
                 ? DataSource.ConsecutiveStations[index].DistanceBetweenTooStations
                 : throw new ExceptionDl("There are no two such stations on the list!!!");
         }
-        public double AverageTimeBetweenTooStationsList(int numberStation1, int numberStation2)
+
+        TimeSpan IDAL.AverageTimeBetweenTooStationsList(int numberStation1, int numberStation2)
         {
             int index = DataSource.ConsecutiveStations.FindIndex(consecutiveStations1 => consecutiveStations1.StationNumber1 == numberStation1 && consecutiveStations1.StationNumber2 == numberStation2);
             return index != -1
@@ -350,9 +330,9 @@ namespace DL
         ConsecutiveStations IDAL.ReturnConsecutiveStation(int stationNumber1, int stationNumber2)
         {
             ConsecutiveStations item = null;
-            if (DataSource.ConsecutiveStations.Exists(consecutiveStations1 => consecutiveStations1.StationNumber1 == stationNumber1 && consecutiveStations1.StationNumber2 == stationNumber1))
+            if (DataSource.ConsecutiveStations.Exists(consecutiveStations1 => consecutiveStations1.StationNumber1 == stationNumber1 && consecutiveStations1.StationNumber2 == stationNumber2))
             {
-                item = DataSource.ConsecutiveStations.Find(consecutiveStations1 => consecutiveStations1.StationNumber1 == stationNumber1 && consecutiveStations1.StationNumber2 == stationNumber1);
+                item = DataSource.ConsecutiveStations.Find(consecutiveStations1 => consecutiveStations1.StationNumber1 == stationNumber1 && consecutiveStations1.StationNumber2 == stationNumber2);
             }
             return item.Clone() ?? throw new ExceptionDl("There are no two such stations on the list!!!"); ;
         }
@@ -361,10 +341,6 @@ namespace DL
         {
             return from Consecutive in DataSource.ConsecutiveStations
                    select Consecutive;
-        }
-        double IDAL.SumOfTime(int NumberOfLine)
-        {
-            return DataSource.ConsecutiveStations.Sum(item => item.AverageTime);
         }
         #endregion ConsecutiveStations
 

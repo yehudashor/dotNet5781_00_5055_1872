@@ -44,7 +44,8 @@ namespace DLAPI
         #endregion BusLine
 
         #region LineStation
-        public IEnumerable<int> AddLineStation(LineStation lineStation);
+        public int AddLineStation(LineStation lineStation);
+        public void AddLineStationToNewLine(LineStation lineStation);
         public void DeleteOneLineStation(int NumberLine, int stationNumber);
         public void DeleteLineStation(int NumberLine);
         public LineStation ReturnLineStation(int numberLine, int stationNumber);
@@ -57,14 +58,14 @@ namespace DLAPI
         #endregion LineStation
 
         #region ConsecutiveStations
+        public bool ChackExistingConsecutiveStations(Predicate<ConsecutiveStations> predicate);
         public void AddConsecutiveStations(ConsecutiveStations consecutiveStations);
         public void DeleteConsecutiveStations(int stationNumber1, int stationNumber2);
         public void UpdatingConsecutiveStations(ConsecutiveStations consecutiveStations);
         public ConsecutiveStations ReturnConsecutiveStation(int stationNumber1, int stationNumber2);
         public IEnumerable<ConsecutiveStations> ConsecutiveStationsList();
-        public double SumOfTime(int NumberOfLine);
-        public int DistanceBetweenTooStations(int numberStation1, int numberStation2);
-        public double AverageTimeBetweenTooStationsList(int numberStation1, int numberStation2);
+        public float DistanceBetweenTooStations(int numberStation1, int numberStation2);
+        public TimeSpan AverageTimeBetweenTooStationsList(int numberStation1, int numberStation2);
         // public IEnumerable<ConsecutiveStations> OneLineFromList(int numberLine);
         //  public IEnumerable<LineStation> OneLineFromList(Predicate<LineStation> predicate);
         #endregion ConsecutiveStations

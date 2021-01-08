@@ -7,62 +7,91 @@
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="UI.StationShow.Udapting"
         mc:Ignorable="d"
         Title="Udapting" Height="450" Width="800" >
+    <Window.Resources>
 
-    <Grid>
+        <Style x:Key="BaseControlStyle" 
+               TargetType="{x:Type Control}">
+            <Setter Property="FontFamily" Value="Tahoma" />
+            <Setter Property="FontSize" Value="24pt"/>
+            <Setter Property="Margin" Value="4" />
+        </Style>
 
-        <Grid x:Name="grid1" VerticalAlignment="Top" Margin="10,5,0,-4.333" HorizontalAlignment="Left" Height="420" Width="260">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" MinHeight="48"/>
-                <RowDefinition Height="Auto" MinHeight="47.333"/>
-                <RowDefinition Height="Auto" MinHeight="47.333"/>
-                <RowDefinition Height="Auto" MinHeight="57.333"/>
-                <RowDefinition Height="Auto" MinHeight="68.667"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto" MinHeight="58.667"/>
-                <RowDefinition Height="Auto" MinHeight="6.667"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Label VerticalAlignment="Center" Grid.Row="0" Margin="3,3,0,25" HorizontalAlignment="Left" Grid.Column="0" Content="Access For Disabled:" Height="26" Width="117"/>
-            <ComboBox x:Name="accessForDisabledComboBox" Width="120" VerticalAlignment="Center" Grid.Row="0" Margin="3.333,5,0,27" ItemsSource="{Binding}" Height="22" HorizontalAlignment="Left" DisplayMemberPath="AccessForDisabled" Grid.Column="1">
-                <ComboBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <VirtualizingStackPanel/>
-                    </ItemsPanelTemplate>
-                </ComboBox.ItemsPanel>
-            </ComboBox>
-            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3,14,0,13.333" HorizontalAlignment="Left" Grid.Column="0" Content="Is Available 3:" Height="26" Width="81"/>
-            <ComboBox x:Name="isAvailable3ComboBox" Width="120" VerticalAlignment="Center" Grid.Row="1" Margin="3.333,16,0,15.333" ItemsSource="{Binding}" Height="22" HorizontalAlignment="Left" DisplayMemberPath="IsAvailable3" Grid.Column="1" SelectionChanged="isAvailable3ComboBox_SelectionChanged">
-                <ComboBoxItem Content="true" />
-                <ComboBoxItem Content="false" />
-                <ComboBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <VirtualizingStackPanel/>
-                    </ItemsPanelTemplate>
-                </ComboBox.ItemsPanel>
-            </ComboBox>
-            <Label VerticalAlignment="Center" Grid.Row="2" Margin="3,24.667,0,2.667" HorizontalAlignment="Left" Grid.Column="0" Content="Latitude:" Height="26" Width="55"/>
-            <TextBox x:Name="latitudeTextBox" Width="120" VerticalAlignment="Center" Text="{Binding Latitude, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3.333,25.667,0,4.667" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3,17.333,0,20" HorizontalAlignment="Left" Grid.Column="0" Content="Longitude:" Height="26" Width="66"/>
-            <TextBox x:Name="longitudeTextBox" Width="120" VerticalAlignment="Center" Text="{Binding Longitude, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3.333,18.333,0,22" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="4" Margin="3,27,0,21.667" HorizontalAlignment="Left" Grid.Column="0" Content="Name Of Station:" Height="26" Width="101"/>
-            <TextBox x:Name="nameOfStationTextBox" Width="120" VerticalAlignment="Center" Text="{Binding NameOfStation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3.333,28,0,22.667" Height="24" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="5" Margin="3,16.333,0,11" HorizontalAlignment="Left" Grid.Column="0" Content="Roof To The Station:" Height="26" Width="115"/>
-            <ComboBox x:Name="roofToTheStationComboBox" Width="120" VerticalAlignment="Center" Grid.Row="5" Margin="3.333,18.333,0,13" ItemsSource="{Binding }" Height="22" HorizontalAlignment="Left" DisplayMemberPath="RoofToTheStation" Grid.Column="1" SelectionChanged="roofToTheStationComboBox_SelectionChanged">
-                <ComboBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <VirtualizingStackPanel/>
-                    </ItemsPanelTemplate>
-                </ComboBox.ItemsPanel>
-            </ComboBox>
-            <Label VerticalAlignment="Center" Grid.Row="6" Margin="3,24,0,9.333" HorizontalAlignment="Left" Grid.Column="0" Content="Station Address:" Height="26" Width="95"/>
-            <TextBox x:Name="stationAddressTextBox" Width="120" VerticalAlignment="Center" Text="{Binding StationAddress, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="6" Margin="3.333,25,0,11.333" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+        <Style TargetType="{x:Type Button}" 
+               BasedOn="{StaticResource BaseControlStyle}">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="15" />
+        </Style>
+
+        <Style TargetType="{x:Type Label}" 
+              >
+            <Setter Property="FontWeight" Value="Bold" ></Setter>
+            <Setter Property="FontSize" Value="15" />
+        </Style>
+
+    </Window.Resources>
+
+    <Border Margin="5,5,5.333,0" Padding="5" Background="LightYellow" 
+          BorderBrush="SteelBlue" BorderThickness="3,5,3,5" CornerRadius="3"
+          VerticalAlignment="Top" Height="452">
+        <Grid>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="380,135,0,0" VerticalAlignment="Top" Width="325" Height="105" Click="Updating">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=stationAddressTextBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value ="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=nameOfStationTextBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value ="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+            <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="33,21,0,0" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Content="Access For Disabled:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                <CheckBox x:Name="accessForDisabledComboBox" IsChecked="{Binding IsAvailable3, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Column="1"  HorizontalAlignment="Left" Height="Auto"  Margin="3" Grid.Row="4" VerticalAlignment="Center" Width="120">
+
+                </CheckBox>
+                <Label Content="Roof To The Station:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+                <CheckBox  x:Name="roofToTheStationComboBox1" Grid.Column="1"  HorizontalAlignment="Left" Height="Auto"  Margin="3" Grid.Row="5" VerticalAlignment="Center" Width="120" IsChecked="{Binding IsAvailable3, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}">
+
+                </CheckBox>
 
 
+
+
+                <Label Content="Is Available 3:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                <CheckBox x:Name="isAvailable3CheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding IsAvailable3, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="2.667,8,0,5" Grid.Row="3" VerticalAlignment="Center" Width="119" Height="19"/>
+
+                <Label Content="Latitude:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+                <TextBlock x:Name="latitudeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding Latitude, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                <Label Content="Longitude:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+                <TextBlock x:Name="longitudeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" Text="{Binding Longitude, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                <Label Content="Name Of Station:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                <TextBox x:Name="nameOfStationTextBox" PreviewTextInput="GenericTextBox_PreviewTextInput" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding NameOfStation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                <Label Content="Roof To The Station:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+
+                <Label Content="Station Address:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                <TextBox x:Name="stationAddressTextBox" PreviewTextInput="GenericTextBox_PreviewTextInput" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding StationAddress, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                <Label Content="Station Number:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                <TextBlock x:Name="stationNumberTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding StationNumber, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            </Grid>
         </Grid>
-        <Button Content="Updating" HorizontalAlignment="Left" Margin="350,140,0,0" VerticalAlignment="Top" Width="295" Height="90" Click="Updating"/>
-
-    </Grid>
+        </Border>
 </Window>

@@ -11,9 +11,8 @@ namespace BO
         public int StationNumber1 { get; set; }
 
         public int StationNumber2 { get; set; }
-
-        public int DistanceBetweenTooStations { get; set; }
-        public double AverageTime { get; set; }
+        public float DistanceBetweenTooStations { get; set; }
+        public TimeSpan AverageTime { get; set; }
         //public override string ToString()
         //{
         //    return ToStringProperty();

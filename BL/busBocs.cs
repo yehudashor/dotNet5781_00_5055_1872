@@ -33,15 +33,5 @@ namespace BO
         public DateTime DayOfTreatment { get; set; }
 
         public bool IsAvailable { get; set; }
-
-        public override string ToString()
-        {
-            return ToStringProperty();
-        }
-
-        private string ToStringProperty()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

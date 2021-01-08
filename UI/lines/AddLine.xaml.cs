@@ -28,14 +28,13 @@ namespace UI.lines
             areaBusUrbanComboBox.ItemsSource = Enum.GetValues(typeof(BO.Area1));
             getUrbanComboBox.ItemsSource = Enum.GetValues(typeof(BO.Urban));
             getAvailableComboBox.ItemsSource = Enum.GetValues(typeof(BO.Available));
+            getAvailableComboBox.SelectedIndex = 0;
+            getUrbanComboBox.SelectedIndex = 0;
+            areaBusUrbanComboBox.SelectedIndex = 0;
         }
 
         private void AddStation(object sender, RoutedEventArgs e)
         {
-            //if ((BO.Area1)areaBusUrbanComboBox.SelectedItem == null)
-            //{
-
-            //}
             BO.BusLineBO BusLineBO = new BO.BusLineBO
             {
                 LineNumber = int.Parse(lineNumberTextBox.Text),
@@ -47,6 +46,7 @@ namespace UI.lines
             AddStationLine addStationLine = new AddStationLine(BusLineBO);
             _ = addStationLine.ShowDialog();
         }
+
         //PreviewTextInput= "NumberValidationTextBox" 
         /// <summary>
         /// A function that ensures that only numbers can be entered in the textBox field !!!
@@ -59,5 +59,6 @@ namespace UI.lines
             Regex regex = new Regex("[^0-9]$");
             e.Handled = regex.IsMatch(e.Text);
         }
+
     }
 }

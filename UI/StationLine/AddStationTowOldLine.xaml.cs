@@ -21,29 +21,35 @@ namespace UI.StationLine
     public partial class AddStationTowOldLine : Window
     {
         IBL1 bl = BLFactory.GetBL("1");
+        public BO.StationLineBO StationLineBO1 { get; set; }
         public int NumberLine { get; set; }
-        public AddStationTowOldLine(int number)
+        public AddStationTowOldLine(int number, BO.StationLineBO stationLineBO)
         {
             InitializeComponent();
             IEnumerable<BO.BusStationBO> busStationBOs = bl.ShowStation();
             StationList.ItemsSource = busStationBOs;
             NumberLine = number;
+            StationLineBO1 = stationLineBO;
         }
         private void AddStation(object sender, RoutedEventArgs e)
         {
-            BO.BusStationBO busStationBO = new BO.BusStationBO();
             FrameworkElement fxElt = sender as FrameworkElement;
-            busStationBO = fxElt.DataContext as BO.BusStationBO;
+            BO.BusStationBO busStationBO = fxElt.DataContext as BO.BusStationBO;
             try
             {
                 BO.StationLineBO stationLineBO = new BO.StationLineBO
                 {
                     BusLineID2 = NumberLine,
                     StationNumberOnLine = busStationBO.StationNumber,
-                    ChackDelete2 = true
+                    ChackDelete2 = true,
+                    LocationNumberOnLine = ++StationLineBO1.LocationNumberOnLine
                 };
-                bl.AddStationToLine(stationLineBO);
-                ShowLine.busLineBOs.Add(bl.ReturnStationLine(NumberLine, stationLineBO.StationNumberOnLine));
+                bl.AddStationToLine(stationLineBO, StationLineBO1.StationNumberOnLine);
+                IEnumerable<BO.StationLineBO> stationLineBO1 = bl.ReturnLineStationList(NumberLine);
+                foreach (BO.StationLineBO item in stationLineBO1)
+                {
+                    ShowLine.busLineBOs.Add(item);
+                }
             }
             catch (Exception)
             {

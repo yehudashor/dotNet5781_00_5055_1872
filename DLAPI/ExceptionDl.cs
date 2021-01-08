@@ -9,6 +9,7 @@ namespace DO
     /// <summary>
     /// 
     /// </summary>
+    [Serializable]
     public class ExceptionDl : Exception
     {
         public ExceptionDl(string messge) : base(messge) { }

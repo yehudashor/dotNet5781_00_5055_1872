@@ -15,16 +15,17 @@ namespace BLAPI
         public void AddBusBO(BusBO bus);
         public void DeleteBusBO(string License_number);
         public BusBO ShowBus(string License_number);
+        public IEnumerable<BusBO> ShowAllBus();
         //public IEnumerable<BusBO> BusInformation();
 
         #endregion Bus
 
         #region BusLineStation
         public BusLineBO LineInformation(int numberLine);
-        public void AddStationToLine(StationLineBO stationLineBO);
+        public void AddStationToLine(StationLineBO stationLineBO, int Number);
         public void DeleteStationFromLine(int LineNumber, int NumberStationToDelete);
         public StationLineBO ReturnStationLine(int LineNumber, int numberStation);
-
+        public IEnumerable<StationLineBO> ReturnLineStationList(int LineNumber);
         #endregion BusLineStation
 
         #region BusLine
@@ -32,6 +33,7 @@ namespace BLAPI
         public void DeleteBusLineBO(int NumberLine);
         //ReturnBusLineId()
         public int ReturnBusLineIdFromDl();
+        public void UdaptingLine(BusLineBO busLineBO);
         #endregion BusLine
 
         #region Station
@@ -50,6 +52,8 @@ namespace BLAPI
 
         #region ConsecutiveStationsBo
         public IEnumerable<ConsecutiveStationsBo> ShowConsecutiveStationsBo();
+        public ConsecutiveStationsBo ShowOneConsecutiveStations(int number1, int number2);
+        public void Udapting(ConsecutiveStationsBo consecutiveStationsBo);
         #endregion  ConsecutiveStationsBo
 
         #region Useres

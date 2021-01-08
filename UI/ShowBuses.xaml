@@ -6,7 +6,74 @@
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
         Title="ShowBus" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <!--<Grid>
+        <Grid x:Name="list" RenderTransformOrigin="0.5,0.5">
+            <ListView Margin="10" x:Name="BusList" Background="PaleTurquoise"  SelectionChanged ="Bus_SelectionChanged_1" ItemsSource="{Binding}">
+
+                <ListView.Resources>
+                    <Style x:Key="myButtonStyle3" TargetType="ListView">
+                        <Setter Property="Background" Value="{Binding}" />
+                    </Style>
+                    <Style TargetType="{x:Type GridViewColumnHeader}">
+                        <Setter Property="HorizontalContentAlignment" Value="Left" />
+                    </Style>
+                    <Style x:Key="myButtonStyle" TargetType="Button">
+                        <Setter Property="Background" Value="LemonChiffon" />
+                    </Style>
+
+                    <Style x:Key="myButtonStyle1" TargetType="Button">
+                        <Setter Property="Background" Value="LemonChiffon" />
+                    </Style>
+           
+
+                    <Style x:Key="myButtonStyle5" TargetType="ProgressBar">
+                        <Setter Property="Background" Value="LightPink" />
+                    </Style>
+                </ListView.Resources>
+
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Trip" Width="115">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate x:Name="jjj">
+                                    <Button x:Name="GoToT"  Content="GoToTrip" Style="{StaticResource myButtonStyle1}" Click="GoTrip" Width="100" Height ="40"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Travel time" Width="115">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate >
+                                    <ProgressBar x:Name="Travel_time" Minimum="0" Maximum="100" Style="{StaticResource myButtonStyle5}" Width="115" Height ="40" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        Adding a button to each element in the list whose event opens a window for refueling 
+                        <GridViewColumn x:Name="refueling" Header="refueling" Width="180">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate >
+                                    <Button Content="refueling" Name="refule"  Style="{StaticResource myButtonStyle}" Click="RefuelingToBus" Width="115"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+
+                        </GridViewColumn>
+
+                        <GridViewColumn x:Name="refu"  Header="Refueling time" Width="115">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ProgressBar x:Name="TimeFoul" Minimum="0" Maximum="12"  Width="115" Height ="40"  ValueChanged="TimeFoul_ValueChanged" />
+                                </DataTemplate>
+
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            Button for add a new bus
+            <Button x:Name="vel" Content="NewBus" Click="NewBus1"  Margin="650,10,0,0" VerticalAlignment="Top" Width="120" Height="225"/>
+            <Button x:Name="t" Content="DeleteBus" Click="DeleteBus"  Margin="650,225,0,0"  Width="120" Height="225"/>
+        </Grid>
+    </Grid>-->
 </Window>

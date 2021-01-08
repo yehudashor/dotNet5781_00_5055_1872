@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="ManagerLogin" Height="550" Width="800">
+        Title="ManagerLogin" Height="486" Width="800">
     <Border Margin="5,5,5.333,0" Padding="5" Background="LightYellow" 
           BorderBrush="SteelBlue" BorderThickness="3,5,3,5" CornerRadius="3"
           VerticalAlignment="Top" Height="452">
@@ -33,10 +33,27 @@
                 </TextBlock.Foreground>
             </TextBlock>
 
-            <PasswordBox x:Name="Password1" PasswordChar="*" Margin="231,0,253,0" />
+            <PasswordBox x:Name="Password1" PasswordChar="*" Margin="231,0,253,0" Height="24" />
             <Grid Height="80">
-                <Button Content="Log in" Height="50" Margin="231,0,253,0" Click="LodIn" Background="LightBlue"/>
-                </Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="9*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Log in" Margin="231,0,253,-5" Click="LodIn" Background="LightBlue" Height="51" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
+                    <Button.Style>
+                        <Style>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=UserN, Path=Text}" Value="">
+                                    <Setter Property="Button.IsEnabled" Value ="False"/>
+                                </DataTrigger>
+                                <!--<DataTrigger Binding="{Binding ElementName=Password1, Path=Password}" Value="">
+                                    <Setter Property="Button.IsEnabled" Value ="False"/>
+                                </DataTrigger>-->
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
         </StackPanel>
     </Border>
 </Window>

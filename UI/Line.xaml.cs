@@ -27,15 +27,26 @@ namespace UI
         public Line()
         {
             InitializeComponent();
-            int count = bl.ReturnBusLineIdFromDl();
-            for (int i = 0; i < count; i++)
-            {
-                busLineBOs.Add(bl.LineInformation(i));
-            }
-            lines.ItemsSource = busLineBOs;
+            lines.ItemsSource = Lines(busLineBOs);
         }
 
-
+        private ObservableCollection<BO.BusLineBO> Lines(ObservableCollection<BO.BusLineBO> busLineBOs)
+        {
+            try
+            {
+                int count = bl.ReturnBusLineIdFromDl();
+                for (int i = 0; i < 2 /*count*/; i++)
+                {
+                    busLineBOs.Add(bl.LineInformation(i));
+                }
+            }
+            catch (BO.ExceptionBl ex)
+            {
+                _ = MessageBox.Show(ex.Message, "Error", MessageBoxButton.OKCancel,
+                    MessageBoxImage.Error);
+            }
+            return busLineBOs;
+        }
         private void Add(object sender, RoutedEventArgs e)
         {
             AddLine addLine = new AddLine();
@@ -62,16 +73,17 @@ namespace UI
                 busLineBOs.Insert(busLineBO.BusLineID1, bl.LineInformation(busLineBO.BusLineID1));
                 lines.Items.Refresh();
             }
-            catch (Exception)
+            catch (BO.ExceptionBl ex)
             {
-
-                throw;
+                _ = MessageBox.Show(ex.Message, "Error", MessageBoxButton.OKCancel,
+                    MessageBoxImage.Error);
             }
         }
 
         private void Lines_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ShowLine showLine = new ShowLine((BO.BusLineBO)lines.SelectedItem);
+            BO.BusLineBO busLineBO = (BO.BusLineBO)lines.SelectedItem;
+            ShowLine showLine = new ShowLine(busLineBO);
             _ = showLine.ShowDialog();
             lines.Items.Refresh();
         }

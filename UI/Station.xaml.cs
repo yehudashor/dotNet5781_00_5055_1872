@@ -27,12 +27,12 @@ namespace UI
         public static ObservableCollection<BO.BusStationBO> busLineBOs = new ObservableCollection<BO.BusStationBO>();
         public Station()
         {
-            InitializeComponent();
             IEnumerable<BO.BusStationBO> busStationBOs = bl.ShowStation();
             foreach (BO.BusStationBO item in busStationBOs)
             {
                 busLineBOs.Add(item);
             }
+            InitializeComponent();
             StationList.ItemsSource = busLineBOs;
         }
 
@@ -53,9 +53,9 @@ namespace UI
 
         private void Linespassingstation(object sender, RoutedEventArgs e)
         {
-            BO.BusStationBO busStationBO = new BO.BusStationBO();
+            _ = new BO.BusStationBO();
             FrameworkElement fxElt = sender as FrameworkElement;
-            busStationBO = fxElt.DataContext as BO.BusStationBO;
+            BO.BusStationBO busStationBO = fxElt.DataContext as BO.BusStationBO;
             try
             {
                 LineInStation lineInStation = new LineInStation(bl.LinePastInStationBOs(busStationBO.StationNumber));
@@ -66,9 +66,6 @@ namespace UI
 
                 throw;
             }
-            //Bus1 = fxElt.DataContext as Bus;
-
-            //AddStation
         }
 
         private void Add(object sender, RoutedEventArgs e)

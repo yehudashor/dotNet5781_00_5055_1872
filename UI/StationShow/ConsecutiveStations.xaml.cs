@@ -35,11 +35,11 @@ namespace UI.StationShow
 
         private void Updating(object sender, RoutedEventArgs e)
         {
-            BO.ConsecutiveStationsBo consecutiveStationsBo = new BO.ConsecutiveStationsBo();
             FrameworkElement fxElt = sender as FrameworkElement;
-            consecutiveStationsBo = fxElt.DataContext as BO.ConsecutiveStationsBo;
+            BO.ConsecutiveStationsBo consecutiveStationsBo = fxElt.DataContext as BO.ConsecutiveStationsBo;
             UdaptingDt udaptingDt = new UdaptingDt(consecutiveStationsBo);
-            _ = udaptingDt.ShowDialog();
+            udaptingDt.Show();
+            consecutiveStationsBoListView.Items.Refresh();
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,6 +28,7 @@ namespace UI.StationShow
         {
             busStationBO = busStationBO1;
             InitializeComponent();
+            stationNumberTextBox.Text = busStationBO1.StationNumber.ToString();
         }
 
         private void Updating(object sender, RoutedEventArgs e)
@@ -36,19 +38,10 @@ namespace UI.StationShow
                 _ = Station.busLineBOs.Remove(busStationBO);
                 busStationBO.NameOfStation = nameOfStationTextBox.Text;
                 busStationBO.StationAddress = stationAddressTextBox.Text;
-                busStationBO.Longitude = float.Parse(longitudeTextBox.Text);
-                busStationBO.Latitude = float.Parse(latitudeTextBox.Text);
-                busStationBO.IsAvailable3 = MyProperty;//bool.Parse((string)isAvailable3ComboBox.SelectedItem);
-                //BO.BusStationBO busStationBO = new BO.BusStationBO
-                //{
-                //    StationNumber = int.Parse(stationNumberTextBox.Text),
-                //    NameOfStation = nameOfStationTextBox.Text,
-                //    StationAddress = stationAddressTextBox.Text,
-                //    // IsAvailable3 = bool.Parse(isAvailable3TextBox.Text),
-                //    // AccessForDisabled = bool.Parse(accessForDisabledTextBox.Text),
-                //    // RoofToTheStation = bool.Parse(roofToTheStationTextBox.Text),
-                //};
-                //bl.(busStationBO);
+                busStationBO.IsAvailable3 = (bool)isAvailable3CheckBox.IsChecked;
+                busStationBO.AccessForDisabled = (bool)accessForDisabledComboBox.IsChecked;
+                busStationBO.RoofToTheStation = (bool)roofToTheStationComboBox1.IsChecked;
+                bl.DeleteStationFromDo(busStationBO.StationNumber);
                 bl.AddStationToDo(busStationBO);
                 Station.busLineBOs.Add(bl.ReturnStationToPL(busStationBO.StationNumber));
             }
@@ -59,14 +52,22 @@ namespace UI.StationShow
             }
         }
 
-        private void roofToTheStationComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //PreviewTextInput="GenericTextBox_PreviewTextInput"
+        private void GenericTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-
+            e.Handled = !IsTextAllowed(e.Text, @"[^א-תA-Za-z/]");
         }
-
-        private void isAvailable3ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private static bool IsTextAllowed(string Text, string AllowedRegex)
         {
-            // MyProperty = bool.Parse(isAvailable3ComboBox.SelectedItem);
+            try
+            {
+                Regex regex = new Regex(AllowedRegex);
+                return !regex.IsMatch(Text);
+            }
+            catch
+            {
+                return true;
+            }
         }
     }
 }

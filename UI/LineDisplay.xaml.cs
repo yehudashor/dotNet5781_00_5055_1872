@@ -28,7 +28,7 @@ namespace UI
 
         private void Bus(object sender, RoutedEventArgs e)
         {
-            Bus bus = new Bus(bl2);
+            Bus bus = new Bus();
             _ = bus.ShowDialog();
         }
 
@@ -41,7 +41,7 @@ namespace UI
         private void Station(object sender, RoutedEventArgs e)
         {
             Station station = new Station();
-            _ = station.ShowDialog();
+            station.Show();
         }
     }
 }

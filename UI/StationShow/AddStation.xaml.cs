@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,7 +25,6 @@ namespace UI.StationShow
         public AddStation()
         {
             InitializeComponent();
-            //
         }
 
         private void Add(object sender, RoutedEventArgs e)
@@ -36,19 +36,23 @@ namespace UI.StationShow
                     StationNumber = int.Parse(stationNumberTextBox.Text),
                     NameOfStation = nameOfStationTextBox.Text,
                     StationAddress = stationAddressTextBox.Text,
-                    IsAvailable3 = bool.Parse(isAvailable3TextBox.Text),
-                    AccessForDisabled = bool.Parse(accessForDisabledTextBox.Text),
-                    RoofToTheStation = bool.Parse(roofToTheStationTextBox.Text),
+                    IsAvailable3 = (bool)isAvailable3CheckBox.IsChecked,
+                    AccessForDisabled = (bool)accessForDisabledComboBox.IsChecked,
+                    RoofToTheStation = (bool)roofToTheStationComboBox1.IsChecked,
                 };
                 bl.AddStationToDo(busStationBO);
                 Station.busLineBOs.Add(bl.ReturnStationToPL(busStationBO.StationNumber));
-
             }
             catch (Exception)
             {
 
                 throw;
             }
+        }
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]$");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }
