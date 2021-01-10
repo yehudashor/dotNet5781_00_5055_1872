@@ -14,9 +14,10 @@
 
         </Button>
         <Button Content="Add station" HorizontalAlignment="Left" Margin="305,250,0,0" VerticalAlignment="Top" Width="165" Height="55" Click="AddStation"/>
-        <ListBox x:Name="Stationline" HorizontalAlignment="Left" Height="135" Margin="240,80,0,0" VerticalAlignment="Top" Width="305" />
-        
+        <ListBox x:Name="Stationline" HorizontalAlignment="Left" Height="135" Margin="238,80,0,0" VerticalAlignment="Top" Width="152" />
+
         <TextBox x:Name="tb" Text="{Binding ElementName=Stationline, Path=SelectedItem}" HorizontalAlignment="Left" Height="25" Margin="75,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="60"/>
+        <ListBox x:Name="Stationline1" HorizontalAlignment="Left" Height="134" Margin="393,80,0,0" VerticalAlignment="Top" Width="175"/>
 
     </Grid>
 </Window>

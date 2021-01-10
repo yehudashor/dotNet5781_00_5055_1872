@@ -168,6 +168,7 @@ namespace DL
                 DataSource.LineStations.Add(lineStation.Clone());
                 return 0;
             }
+
             else
             {
                 int index1 = DataSource.LineStations.FindIndex(item => item.BusLineID2 == lineStation.BusLineID2 && lineStation.LocationNumberOnLine == item.LocationNumberOnLine);
@@ -188,22 +189,22 @@ namespace DL
                 }
             }
         }
-        void IDAL.AddLineStationToNewLine(LineStation lineStation)
-        {
-            if (!DataSource.BusStations.Exists(station1 => station1.StationNumber == lineStation.StationNumberOnLine && station1.IsAvailable3))
-            {
-                throw new ExceptionDl("The Station not exist in the compny");
-            }
+        //void IDAL.AddLineStationToNewLine(LineStation lineStation)
+        //{
+        //    if (!DataSource.BusStations.Exists(station1 => station1.StationNumber == lineStation.StationNumberOnLine && station1.IsAvailable3))
+        //    {
+        //        throw new ExceptionDl("The Station not exist in the compny");
+        //    }
 
-            if (DataSource.LineStations.Exists(lineStation1 => lineStation1.BusLineID2 == lineStation.BusLineID2 && lineStation1.StationNumberOnLine == lineStation.StationNumberOnLine && lineStation1.ChackDelete2))
-            {
-                throw new ExceptionDl("the Station alrady exist in the this line!!!");
-            }
-            else
-            {
-                DataSource.LineStations.Add(lineStation.Clone());
-            }
-        }
+        //    if (DataSource.LineStations.Exists(lineStation1 => lineStation1.BusLineID2 == lineStation.BusLineID2 && lineStation1.StationNumberOnLine == lineStation.StationNumberOnLine && lineStation1.ChackDelete2))
+        //    {
+        //        throw new ExceptionDl("the Station alrady exist in the this line!!!");
+        //    }
+        //    else
+        //    {
+        //        DataSource.LineStations.Add(lineStation.Clone());
+        //    }
+        //}
 
         void IDAL.DeleteOneLineStation(int NumberLine, int stationNumber)
         {

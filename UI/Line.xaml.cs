@@ -20,6 +20,17 @@ namespace UI
     /// <summary>
     /// Interaction logic for Line.xaml
     /// </summary>
+    ///  <local:NumericUpDownControl x:Name="gradeNumUpDown" />
+    //<LinearGradientBrush EndPoint = "0.5,1" StartPoint="0.5,0">
+    //                    <GradientStop Color = "#FFEAE0E0" Offset="0.004"/>
+    //                    <GradientStop Color = "#FFD3CCCC" Offset="1"/>
+    //                    <GradientStop Color = "#FFA69C9C" Offset="0.5"/>
+    //                </LinearGradientBrush>
+    // <StackPanel Orientation = "Horizontal" >
+    //    < Button x:Name="cmdDown" Margin="1" Content="˅" Click="cmdDown_Click" />
+    //    <TextBox x:Name="textNumber" Margin="1" Width="50"  TextChanged="txtNum_TextChanged" />
+    //    <Button x:Name="cmdUp" Margin="1" Content="˄" Click="cmdUp_Click" />
+    //</StackPanel>
     public partial class Line : Window
     {
         public static ObservableCollection<BO.BusLineBO> busLineBOs = new ObservableCollection<BO.BusLineBO>();
@@ -35,7 +46,7 @@ namespace UI
             try
             {
                 int count = bl.ReturnBusLineIdFromDl();
-                for (int i = 0; i < 2 /*count*/; i++)
+                for (int i = 0; i < 1 /*count*/; i++)
                 {
                     busLineBOs.Add(bl.LineInformation(i));
                 }
@@ -89,3 +100,74 @@ namespace UI
         }
     }
 }
+
+
+//public partial class NumericUpDownControl : UserControl
+//{
+//    private float? num = null;
+//    public float? Value
+//    {
+//        get { return num; }
+//        set
+//        {
+//            if (value > MaxValue)
+//                num = MaxValue;
+//            else if (value < MinValue)
+//                num = MinValue;
+//            else
+//                num = value;
+
+//            textNumber.Text = num == null ? "" : num.ToString();
+//        }
+//    }
+
+//    public int MinValue { get; set; }
+//    //  public int MaxValue { get; set; }
+
+
+
+//    public int MaxValue
+//    {
+//        get { return (int)GetValue(MaxValueProperty); }
+//        set { SetValue(MaxValueProperty, value); }
+//    }
+
+//    // Using a DependencyProperty as the backing store for MaxValue.  This enables animation, styling, binding, etc...
+//    public static readonly DependencyProperty MaxValueProperty =
+//        DependencyProperty.Register("MaxValue", typeof(int), typeof(NumericUpDownControl), new PropertyMetadata(100));
+
+
+
+
+
+//    public NumericUpDownControl()
+//    {
+//        InitializeComponent();
+//        MaxValue = 100;
+//    }
+
+
+
+//    private void cmdUp_Click(object sender, RoutedEventArgs e)
+//    {
+//        Value++;
+//    }
+
+//    private void cmdDown_Click(object sender, RoutedEventArgs e)
+//    {
+//        Value--;
+//    }
+
+//    private void txtNum_TextChanged(object sender, TextChangedEventArgs e)
+//    {
+//        if (textNumber == null || textNumber.Text == "-")
+//            return;
+
+//        float val;
+//        if (!float.TryParse(textNumber.Text, out val))
+//            textNumber.Text = Value.ToString();
+//        else
+//            Value = val;
+//    }
+//}
+//}

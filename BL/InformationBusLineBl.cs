@@ -369,7 +369,7 @@ namespace BL
                     foreach (LineStation item in s)
                     {
                         item.BusLineID2 = busLineBO.BusLineID1;
-                        dl.AddLineStationToNewLine(item);
+                        _ = dl.AddLineStation(item);
                     }
 
                     //if (busLineBO.LineExitBos1.Count == 0)

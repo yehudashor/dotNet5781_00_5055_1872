@@ -45,7 +45,6 @@ namespace DLAPI
 
         #region LineStation
         public int AddLineStation(LineStation lineStation);
-        public void AddLineStationToNewLine(LineStation lineStation);
         public void DeleteOneLineStation(int NumberLine, int stationNumber);
         public void DeleteLineStation(int NumberLine);
         public LineStation ReturnLineStation(int numberLine, int stationNumber);
