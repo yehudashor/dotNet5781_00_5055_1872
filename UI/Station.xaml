@@ -5,76 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="Station" Height="auto" Width="auto" WindowState="Maximized" >
-    <Window.Resources>
-        <Style x:Key="BaseControlStyle" 
-               TargetType="{x:Type Control}">
-            <Setter Property="FontFamily" Value="Tahoma" />
-            <Setter Property="FontSize" Value="12pt"/>
-            <Setter Property="Margin" Value="4" />
-        </Style>
-        
-      
-        <Style TargetType="{x:Type ListViewItem}" 
-               BasedOn="{StaticResource BaseControlStyle}">
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="FontWeight" Value="Bold" />
-        </Style>
-
-
-        <Style TargetType="{x:Type Label}" 
-               BasedOn="{StaticResource BaseControlStyle}">
-        </Style>
-        <Style TargetType="{x:Type TextBox}" 
-               BasedOn="{StaticResource BaseControlStyle}">
-        </Style>
-
-        <Style  x:Key="HeaderStyle"
-                TargetType="{x:Type Control}">
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Foreground">
-                <Setter.Value>
-                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStop Offset="0.0" Color="#90DDDD" />
-                            <GradientStop Offset="1.0" Color="#5BFFFF" />
-                        </LinearGradientBrush.GradientStops>
-                    </LinearGradientBrush>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <Style  x:Key="HeaderStyle1"
-                TargetType="{x:Type Control}">
-            <Setter Property="FontSize" Value="11"/>
-            <Setter Property="Foreground">
-                <Setter.Value>
-                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStop Offset="0.0" Color="OrangeRed" />
-                            <GradientStop Offset="1.0" Color="Coral"  />
-                        </LinearGradientBrush.GradientStops>
-                    </LinearGradientBrush>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <Style TargetType="ListView" BasedOn="{StaticResource HeaderStyle}">
-            <Setter Property="FontFamily" Value="Times New Roman" />
-            <Setter Property="FontSize" Value="16" />
-            <Setter Property="FontWeight" Value="Bold" />
-        </Style>
-
-        <Style TargetType="{x:Type GridViewColumnHeader}" 
-               BasedOn="{StaticResource HeaderStyle1}"
-               >
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        </Style>
-    </Window.Resources>
-    <Border Margin="5,5,5.333,0" Padding="5" Background="LightYellow" 
-          BorderBrush="SteelBlue" BorderThickness="3,5,3,5" CornerRadius="3"
-          VerticalAlignment="Top" Height="auto">
-        <Grid>
+        Title="Station" Height="450" Width="1200">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width ="850"/>
             <ColumnDefinition Width ="500"/>
@@ -91,7 +23,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn  Header="Name Of Station" Width="240">
+                    <GridViewColumn  Header="Name Of Station" Width="200">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Margin="-6,-1" Text="{Binding NameOfStation}"/>
@@ -100,26 +32,26 @@
                     </GridViewColumn>
 
 
-                    <GridViewColumn Header="קווים העוברים בתחנה" Width="120">
+                    <GridViewColumn Header="קווים העוברים בתחנה" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="AddStation" Click="Linespassingstation"  Content="Station lines"  Width="120" Height ="30"/>
+                                <Button x:Name="AddStation" Click="Linespassingstation"  Content="Station lines"  Width="100" Height ="40"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn Header="מחיקת תחנה" Width="120">
+                    <GridViewColumn Header="מחיקת תחנה" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="Delete1" Click="Delete"  Content="Delete Station"  Width="120" Height ="30"/>
+                                <Button x:Name="Delete1" Click="Delete"  Content="Delete Station"  Width="100" Height ="40"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn Header="עדכון פרטי התחנה" Width="120">
+                    <GridViewColumn Header="עדכון פרטי התחנה" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="Udapting" Click="Udapting"  Content="Udapting Station"  Width="120" Height ="30"/>
+                                <Button x:Name="Udapting" Click="Udapting"  Content="Udapting Station"  Width="100" Height ="40"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -130,6 +62,5 @@
         <Button Content="Add" Grid.Column="1" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="125" Height="420" Click="Add"/>
         <Button Content="תצוגת תחנות עוקבות" Grid.Column="1" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Top" Width="210" Height="420" Click="Button_Click"/>
     </Grid>
-        </Border>
 </Window>
 

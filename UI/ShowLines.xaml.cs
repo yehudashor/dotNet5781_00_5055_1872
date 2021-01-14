@@ -29,14 +29,16 @@ namespace UI
         public BO.StationLineBO StationLineBO1 { get; set; }
         public ShowLine(BO.BusLineBO busLineBO)
         {
-            InitializeComponent();
+
             foreach (BO.StationLineBO item in busLineBO.StationLineBOs)
             {
                 busLineBOs.Add(item);
             }
             BusLine = busLineBO;
+            InitializeComponent();
             busStationBOListView.ItemsSource = busLineBOs;
             shoeLine.DataContext = busLineBO;
+            busStationBOListView.Items.Refresh();
         }
 
         private void BusStationBOListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -44,7 +46,6 @@ namespace UI
             StationLineBO1 = (BO.StationLineBO)busStationBOListView.SelectedItem;
             addStation.Content = "הוסף תחנה לאחר תחנה: " + StationLineBO1.NameOfStation;
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try

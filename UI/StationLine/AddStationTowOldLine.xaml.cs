@@ -37,7 +37,6 @@ namespace UI.StationLine
             BO.BusStationBO busStationBO = fxElt.DataContext as BO.BusStationBO;
             try
             {
-                // int index = 
                 BO.StationLineBO stationLineBO = new BO.StationLineBO
                 {
                     BusLineID2 = NumberLine,
@@ -45,9 +44,12 @@ namespace UI.StationLine
                     ChackDelete2 = true,
                     LocationNumberOnLine = ++StationLineBO1.LocationNumberOnLine
                 };
-                AddTimeDIS addTimeDIS = new AddTimeDIS(stationLineBO, NumberLine, busStationBO.StationNumber);
-                _ = addTimeDIS.ShowDialog();
-                Close();
+                bl.AddStationToLine(stationLineBO, StationLineBO1.StationNumberOnLine);
+                IEnumerable<BO.StationLineBO> stationLineBO1 = bl.ReturnLineStationList(NumberLine);
+                foreach (BO.StationLineBO item in stationLineBO1)
+                {
+                    ShowLine.busLineBOs.Add(item);
+                }
             }
             catch (Exception)
             {

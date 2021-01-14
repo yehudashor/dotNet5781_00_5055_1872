@@ -31,14 +31,14 @@
                BasedOn="{StaticResource BaseControlStyle}">
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="FontSize" Value="15" />
-
+            
         </Style>
 
         <Style TargetType="{x:Type Label}" 
               >
             <Setter Property="FontWeight" Value="Bold" ></Setter>
             <Setter Property="FontSize" Value="15" />
-
+            
         </Style>
 
     </Window.Resources>
@@ -47,7 +47,7 @@
           VerticalAlignment="Top" Height="452">
         <Grid>
 
-            <Button Content="Add Station To Line" HorizontalAlignment="Left" Margin="461,83,0,0" VerticalAlignment="Top" Width="263" Height="142" Click="AddStation">
+            <Button Content="Add Station To Line" HorizontalAlignment="Left" Margin="286,0,-27,0" VerticalAlignment="Top" Width="509" Height="425" Click="AddStation">
                 <Button.Style>
                     <Style>
                         <Style.Triggers>
@@ -58,8 +58,8 @@
                     </Style>
                 </Button.Style>
             </Button>
-
-            <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="24,19,0,0" VerticalAlignment="Top">
+            
+                <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="24,19,0,0" VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
@@ -83,7 +83,7 @@
                 <TextBox x:Name="lineNumberTextBox" Grid.Column="1" PreviewTextInput= "NumberValidationTextBox"  HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding LineNumber, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
 
                 <Label Content="Get Available:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
-                <ComboBox x:Name="getAvailableComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding}" Margin="2.667,7,0,7" Grid.Row="3" VerticalAlignment="Center" Width="121">
+                <ComboBox x:Name="getAvailableComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding}" Margin="3" Grid.Row="3" VerticalAlignment="Center" Width="120">
                     <ComboBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <VirtualizingStackPanel/>
@@ -99,34 +99,6 @@
                     </ComboBox.ItemsPanel>
                 </ComboBox>
             </Grid>
-            <Grid x:Name="grid2"  HorizontalAlignment="Left" Margin="31,163,0,0" VerticalAlignment="Top" Width="304" Height="73">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" MinWidth="102"/>
-                    <ColumnDefinition Width="Auto" MinWidth="144"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Label Content="First Station:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="0" VerticalAlignment="Center" Height="30" Width="120"/>
-                <ComboBox x:Name="firstStationComboBox"  HorizontalAlignment="Left" Height="22" ItemsSource="{Binding}"  Margin="2.667,7,0,8.333" Grid.Row="0" VerticalAlignment="Center" Width="121" Grid.Column="1">
-                    <ComboBox.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <VirtualizingStackPanel/>
-                        </ItemsPanelTemplate>
-                    </ComboBox.ItemsPanel>
-                </ComboBox>
-                <Label Content="Last Station:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="1" VerticalAlignment="Center" Height="30" Width="97"/>
-                <ComboBox x:Name="lastStationComboBox" Grid.Column="1"  HorizontalAlignment="Left" Height="22" ItemsSource="{Binding}" Margin="2.667,6.667,0,7.333" Grid.Row="1" VerticalAlignment="Center" Width="120">
-                    <ComboBox.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <VirtualizingStackPanel/>
-                        </ItemsPanelTemplate>
-                    </ComboBox.ItemsPanel>
-                </ComboBox>
-            </Grid>
-            <Label Content="Stations" HorizontalAlignment="Left" Margin="193,250,0,0" VerticalAlignment="Top" Width="165"/>
-            <ListBox x:Name="Stations" HorizontalAlignment="Left" Height="115" Margin="11,284,0,0" VerticalAlignment="Top" Width="425"/>
         </Grid>
     </Border>
 </Window>

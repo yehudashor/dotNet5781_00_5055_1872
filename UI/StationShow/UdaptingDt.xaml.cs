@@ -32,7 +32,7 @@ namespace UI.StationShow
         {
             try
             {
-                consecutiveStationsBo.AverageTime = TimeSpan.Parse("H.Text:, M.Text:, S.Text");
+                consecutiveStationsBo.AverageTime = TimeSpan.Parse("H.Text, M.Text, S.Text");
                 consecutiveStationsBo.DistanceBetweenTooStations = float.Parse(D.Text);
                 bl.Udapting(consecutiveStationsBo);
                 _ = ConsecutiveStations.busLineBOs.Remove(consecutiveStationsBo);

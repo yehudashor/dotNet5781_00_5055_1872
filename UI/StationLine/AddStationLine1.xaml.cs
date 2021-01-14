@@ -32,7 +32,6 @@ namespace UI.StationLine
             foreach (BO.BusStationBO item in busStationBOs)
             {
                 _ = Stationline.Items.Add(item.StationNumber);
-                _ = Stationline1.Items.Add(item.NameOfStation);
             }
             BusLine = BusLineBO;
         }
@@ -45,22 +44,9 @@ namespace UI.StationLine
         {
             try
             {
-                MessageBoxResult box = MessageBox.Show("האם אתה בטוח שברצונך להוסיף את הקו?", "ask", MessageBoxButton.OKCancel, MessageBoxImage.Question);
-                switch (box)
-                {
-                    case MessageBoxResult.OK:
-                        bl.AddBusLineBO(BusLine);
-                        Line.busLineBOs.Add(bl.LineInformation(BusLine.BusLineID1));
-                        MessageBoxResult messageBoxResult = MessageBox.Show("הקו נוסף למערכת", "Good");
-                        if (messageBoxResult == MessageBoxResult.OK)
-                        {
-                            Close();
-                        }
-                        break;
-                    case MessageBoxResult.Cancel:
-                        Close();
-                        break;
-                }
+                bl.AddBusLineBO(BusLine);
+                Line.busLineBOs.Add(bl.LineInformation(BusLine.BusLineID1));
+                _ = MessageBox.Show("Good Insert Line");
             }
             catch (Exception)
             {

@@ -111,8 +111,8 @@
     <Compile Include="StationLine\AddStationTowOldLine.xaml.cs">
       <DependentUpon>AddStationTowOldLine.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StationLine\AddTimeDIS.xaml.cs">
-      <DependentUpon>AddTimeDIS.xaml</DependentUpon>
+    <Compile Include="StationLine\AddTimeDISxaml.xaml.cs">
+      <DependentUpon>AddTimeDISxaml.xaml</DependentUpon>
     </Compile>
     <Compile Include="StationShow\AddStation.xaml.cs">
       <DependentUpon>AddStation.xaml</DependentUpon>
@@ -196,7 +196,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StationLine\AddTimeDIS.xaml">
+    <Page Include="StationLine\AddTimeDISxaml.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
