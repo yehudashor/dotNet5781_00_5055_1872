@@ -21,25 +21,25 @@ namespace UI.StationShow
     /// </summary>
     public partial class ConsecutiveStations : Window
     {
-        public static ObservableCollection<BO.ConsecutiveStationsBo> busLineBOs = new ObservableCollection<BO.ConsecutiveStationsBo>();
-        IBL1 bl = BLFactory.GetBL("1");
-        public ConsecutiveStations()
+        public ObservableCollection<BO.ConsecutiveStationsBo> busLineBOs = new ObservableCollection<BO.ConsecutiveStationsBo>();
+        public IBL1 bl;
+        public ConsecutiveStations(IBL1 bl1)
         {
-            foreach (BO.ConsecutiveStationsBo item in bl.ShowConsecutiveStationsBo())
-            {
-                busLineBOs.Add(item);
-            }
             InitializeComponent();
-            consecutiveStationsBoListView.DataContext = busLineBOs;
-        }
-
-        private void Updating(object sender, RoutedEventArgs e)
-        {
-            FrameworkElement fxElt = sender as FrameworkElement;
-            BO.ConsecutiveStationsBo consecutiveStationsBo = fxElt.DataContext as BO.ConsecutiveStationsBo;
-            UdaptingDt udaptingDt = new UdaptingDt(consecutiveStationsBo);
-            udaptingDt.Show();
-            consecutiveStationsBoListView.Items.Refresh();
+            bl = bl1;
+            try
+            {
+                foreach (BO.ConsecutiveStationsBo item in bl.ShowConsecutiveStationsBo())
+                {
+                    busLineBOs.Add(item);
+                }
+                consecutiveStationsBoListView.DataContext = busLineBOs;
+            }
+            catch (BO.BOExceptionStation ex)
+            {
+                _ = MessageBox.Show(ex.Message, "Error", MessageBoxButton.OKCancel,
+                     MessageBoxImage.Error);
+            }
         }
     }
 }

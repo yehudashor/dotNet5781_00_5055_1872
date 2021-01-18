@@ -33,12 +33,19 @@ namespace UI
     //</StackPanel>
     public partial class Line : Window
     {
-        public static ObservableCollection<BO.BusLineBO> busLineBOs = new ObservableCollection<BO.BusLineBO>();
-        IBL1 bl = BLFactory.GetBL("1");
-        public Line()
+        public ObservableCollection<BO.BusLineBO> busLineBOs = new ObservableCollection<BO.BusLineBO>();
+        public IBL1 bl;
+        public Line(IBL1 bl1)
         {
             InitializeComponent();
+            bl = bl1;
             lines.ItemsSource = Lines(busLineBOs);
+            //if (busLineBOs1 != null)
+            //{
+            //    busLineBOs.Add(bl.LineInformation(busLineBOs1.BusLineID1));
+            //    _ = busLineBOs.OrderBy(item => item.BusLineID1);
+            //    lines.Items.Refresh();
+            //}
         }
 
         private ObservableCollection<BO.BusLineBO> Lines(ObservableCollection<BO.BusLineBO> busLineBOs)
@@ -46,33 +53,42 @@ namespace UI
             try
             {
                 int count = bl.ReturnBusLineIdFromDl();
-                for (int i = 0; i < 1 /*count*/; i++)
+                for (int i = 0; i < 1; i++)
                 {
                     busLineBOs.Add(bl.LineInformation(i));
                 }
             }
-            catch (BO.ExceptionBl ex)
+            catch (BO.BOExceptionLine ex)
             {
                 _ = MessageBox.Show(ex.Message, "Error", MessageBoxButton.OKCancel,
                     MessageBoxImage.Error);
+            }
+            catch (BO.BOExceptionLineStation ex)
+            {
+                _ = MessageBox.Show(ex.Message, "Error", MessageBoxButton.OKCancel,
+                    MessageBoxImage.Error);
+            }
+            catch (BO.BOExceptionConsecutiveStations ex)
+            {
+                _ = MessageBox.Show(ex.Message, "Error", MessageBoxButton.OKCancel,
+                     MessageBoxImage.Error);
             }
             return busLineBOs;
         }
         private void Add(object sender, RoutedEventArgs e)
         {
-            AddLine addLine = new AddLine();
-            _ = addLine.ShowDialog();
-            lines.Items.Refresh();
+            AddLine addLine = new AddLine(bl);
+            addLine.Show();
+            Close();
         }
 
         private void Udapting(object sender, RoutedEventArgs e)
         {
             FrameworkElement frameworkElement = sender as FrameworkElement;
             BO.BusLineBO busLineBO = frameworkElement.DataContext as BO.BusLineBO;
-            UdptingLine udptingLine = new UdptingLine(busLineBO);
+            UdptingLine udptingLine = new UdptingLine(busLineBO, bl);
             _ = udptingLine.ShowDialog();
         }
-
         private void Delete(object sender, RoutedEventArgs e)
         {
             try
@@ -84,19 +100,24 @@ namespace UI
                 busLineBOs.Insert(busLineBO.BusLineID1, bl.LineInformation(busLineBO.BusLineID1));
                 lines.Items.Refresh();
             }
-            catch (BO.ExceptionBl ex)
+            catch (BO.BOExceptionLine ex)
             {
                 _ = MessageBox.Show(ex.Message, "Error", MessageBoxButton.OKCancel,
-                    MessageBoxImage.Error);
+                     MessageBoxImage.Error);
+            }
+            catch (BO.BOExceptionLineStation ex)
+            {
+                _ = MessageBox.Show(ex.Message, "Error", MessageBoxButton.OKCancel,
+                      MessageBoxImage.Error);
             }
         }
-
         private void Lines_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             BO.BusLineBO busLineBO = (BO.BusLineBO)lines.SelectedItem;
-            ShowLine showLine = new ShowLine(busLineBO);
+            ShowLine showLine = new ShowLine(busLineBO, bl);
             _ = showLine.ShowDialog();
             lines.Items.Refresh();
+            Close();
         }
     }
 }

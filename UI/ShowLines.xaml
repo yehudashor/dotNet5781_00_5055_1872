@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:UI"
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="UI.ShowLine"
         mc:Ignorable="d"
-        Title="ShowLine" Height="auto" Width="auto" WindowState="Maximized">
+        Title="ShowLine" Height="800" Width="1350">
+    <!--WindowState="Maximized"-->
     <Window.Resources>
         <Style x:Key="BaseControlStyle" 
                TargetType="{x:Type Control}">
@@ -67,6 +68,7 @@
         </Style>
         <Style TargetType="{x:Type TextBox}" 
                BasedOn="{StaticResource HeaderStyle}">
+            <Setter Property="IsReadOnly" Value="True"/>
         </Style>
 
         <Style TargetType="Button"  BasedOn="{StaticResource HeaderStyle1}">
@@ -74,10 +76,14 @@
             <Setter Property="FontSize" Value="22" />
             <Setter Property="FontWeight" Value="Bold" />
         </Style>
+
     </Window.Resources>
 
     <Grid >
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="296" />
+            <ColumnDefinition Width="1554" />
+        </Grid.ColumnDefinitions>
         <Grid x:Name="shoeLine" VerticalAlignment="Top" Margin="0,10,0,0" HorizontalAlignment="Left" Width="280" Height="405">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -90,12 +96,12 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" MinWidth="143.333"/>
-                <ColumnDefinition Width="Auto" MinWidth="126.667"/>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
             <Label VerticalAlignment="Center" FontSize ="15"  Grid.Row="2" Margin="3,12.667,0,10.667" HorizontalAlignment="Left" Grid.Column="0" Content="Area Line:" Height="26" Width="115"/>
-            <TextBox x:Name="areaBusUrbanComboBox" FontSize ="15" Width="120" VerticalAlignment="Center" Grid.Row="2" Margin="3,21.667,0,16" Height="27" HorizontalAlignment="Left"  Grid.Column="1" Text="{Binding AreaBusUrban, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+            <TextBox x:Name="areaBusUrbanComboBox"  FontSize ="15" Width="120" VerticalAlignment="Center" Grid.Row="2" Margin="3,21.667,0,16" Height="27" HorizontalAlignment="Left"  Grid.Column="1" Text="{Binding AreaBusUrban, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
             <Label VerticalAlignment="Center" Width="115" FontSize ="15" Grid.Row="0" Margin="3,18,0,6.667" HorizontalAlignment="Left" Grid.Column="0" Content="Line ID:" Height="26"/>
             <TextBox x:Name="busLineID1TextBox"  Width="121" FontSize ="15" VerticalAlignment="Center" Text="{Binding BusLineID1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3,20,0,4.667" Height="26" HorizontalAlignment="Left" Grid.Column="1"/>
             <Label VerticalAlignment="Center" FontSize ="15" Grid.Row="4" Margin="3,8.667,0,22" HorizontalAlignment="Left" Grid.Column="0" Content="First Station:" Height="26" Width="115"/>
@@ -110,7 +116,7 @@
             <TextBox x:Name="urbanInterUrbanTextBox" Width="120" FontSize ="15" VerticalAlignment="Center" Text="{Binding  GetUrban, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="6" Margin="3,12,0,24.333" Height="27" HorizontalAlignment="Left" Grid.Column="1"/>
         </Grid>
 
-        <ListView x:Name="busStationBOListView" SelectionChanged="BusStationBOListView_SelectionChanged"  ItemsSource="{Binding}" Margin="270,5,3.333,75.667" SelectionMode="Single" >
+        <ListView x:Name="busStationBOListView"  SelectionChanged="BusStationBOListView_SelectionChanged"  ItemsSource="{Binding}" Margin="3,5,3,350.667" SelectionMode="Single" Grid.Column="1"  >
             <ListView.View >
                 <GridView >
                     <GridViewColumn  x:Name="stationNumberColumn" Header="Station Number" Width="100">
@@ -180,9 +186,69 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="addStation" Content="Add station" HorizontalAlignment="Left" Margin="1,434,0,0" VerticalAlignment="Top" Width="755" Height="38" Click="Button_Click"/>
+        <Button x:Name="addStation" IsEnabled="False" Content="Add station" HorizontalAlignment="Left" Margin="196,421,0,0" VerticalAlignment="Top" Width="546" Height="40" Click="Button_Click" Grid.Column="1"/>
 
+        <ListView x:Name="exit" ItemsSource="{Binding}" SelectionChanged="Exit_SelectionChanged"  HorizontalAlignment="Left" Height="173" Margin="6,466,0,0" VerticalAlignment="Top" Width="351" Grid.Column="1">
 
+            <ListView.View >
+                <GridView>
+                    <GridViewColumn x:Name="StartTime" Header="Start" Width="90">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="6,-1,-6,-1" Text="{Binding  LineStartTime  }"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn x:Name="FinishTime" Header="Finish" Width="90">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="6,-1,-6,-1" Text ="{Binding LineFinishTime }"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn  Header="Frequency Time" Width="90">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="6,-1,-6,-1" Text ="{Binding LineFrequencyTime }"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn  Header="Delete exit" Width="90">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Margin="6,-1,-6,-1" Click="Button_Click_2" Content="Delete" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                </GridView >
+            </ListView.View >
+        </ListView>
+        <ListView x:Name="time" HorizontalAlignment="Left" ItemsSource="{Binding}" DisplayMemberPath="{Binding DepartureTimes}" Height="158" Margin="361,484,0,0" VerticalAlignment="Top" Width="113" Grid.Column="1">
+            <!--<ListView.View>
+                <GridView>
+            <GridViewColumn  Header="Time" Width="120" DisplayMemberBinding="{Binding DepartureTimes}">-->
+            <!--<GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  Text="{Binding DepartureTimes}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>-->
+            <!--</GridViewColumn>
+                </GridView >
+            </ListView.View >-->
+        </ListView>
+        <Button Content="Add exit" HorizontalAlignment="Left" Margin="617,476,0,0" VerticalAlignment="Top" Width="303" Height="46" Click="Button_Click_1" Grid.Column="1"/>
+
+        <ListView x:Name="travl" HorizontalAlignment="Left" Margin="482,485,0,0" Width="124" ItemsSource="{Binding}" DisplayMemberPath="{Binding DepartureTimes}" Grid.Column="1" Height="156" VerticalAlignment="Top" >
+            <!--<ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>-->
+        </ListView>
 
     </Grid>
 </Window>

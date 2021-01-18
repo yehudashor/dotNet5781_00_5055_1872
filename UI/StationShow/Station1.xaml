@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UI.StationShow"
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="UI.StationShow.Station1"
         mc:Ignorable="d"
-        Title="Station1" Height="450" Width="800">
+        Title="Station1" Height="500" Width="800">
     <Window.Resources>
 
         <Style x:Key="BaseControlStyle" 
@@ -43,49 +43,49 @@
           BorderBrush="SteelBlue" BorderThickness="3,5,3,5" CornerRadius="3"
           VerticalAlignment="Top" Height="452">
         <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="150"/>
-        </Grid.ColumnDefinitions>
-
-        <Grid x:Name="StationList1" Grid.Column="0" VerticalAlignment="Top" Margin="15,5,0,-4.333" HorizontalAlignment="Left"  Height="420" Width="305" RenderTransformOrigin="0.856,0.505">
-            <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto" MinHeight="59.333"/>
-                <RowDefinition Height="Auto" MinHeight="57.333"/>
-            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="150"/>
             </Grid.ColumnDefinitions>
-            <Label VerticalAlignment="Center" Grid.Row="4" Margin="3,3,0,14.333" HorizontalAlignment="Left" Grid.Column="0" Content="Access For Disabled:" Height="26" Width="117"/>
-            <TextBox x:Name="accessForDisabledTextBlock" VerticalAlignment="Center" Text="{Binding AccessForDisabled}" Grid.Row="4" Margin="3.333,8,-62.667,12.667" HorizontalAlignment="Left" Grid.Column="1" Height="24" Width="146"/>
-            <Label VerticalAlignment="Center" Grid.Row="5" Margin="3,8.667,0,8" HorizontalAlignment="Left" Grid.Column="0" Content="Is Available 3:" Height="26" Width="81"/>
-            <TextBox x:Name="isAvailable3TextBlock" VerticalAlignment="Center" Text="{Binding IsAvailable3}" Grid.Row="5" Margin="3.333,9.667,-60,12" HorizontalAlignment="Left" Grid.Column="1" Height="27" Width="146" RenderTransformOrigin="0.5,0.5">
 
-            </TextBox>
-            <Label VerticalAlignment="Center" Grid.Row="6" Margin="3,14,0,2.667" HorizontalAlignment="Left" Grid.Column="0" Content="Latitude:" Height="26" Width="55"/>
-            <Label x:Name="latitudeLabel" VerticalAlignment="Center" Grid.Row="6" Margin="3,14,0,2.667" HorizontalAlignment="Left" Grid.Column="1" Content="{Binding Latitude}" Height="29" Width="146"/>
-            <Label VerticalAlignment="Center" Grid.Row="7" Margin="3,3.333,0,13.333" HorizontalAlignment="Left" Grid.Column="0" Content="Longitude:" Height="26" Width="66"/>
-            <Label x:Name="longitudeLabel" VerticalAlignment="Center" Grid.Row="7" Margin="3,3.333,0,13.333" HorizontalAlignment="Left" Grid.Column="1" Content="{Binding Longitude}" Height="29" Width="146"/>
-            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3,8.667,0,8" HorizontalAlignment="Left" Grid.Column="0" Content="Name Of Station:" Height="26" Width="101"/>
-            <TextBox x:Name="nameOfStationTextBlock" VerticalAlignment="Center" Text="{Binding NameOfStation}" Grid.Row="1" Margin="3.333,7,-58.667,6.333" HorizontalAlignment="Left" Grid.Column="1" Height="30" Width="146"/>
-            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3,14,0,2.667" HorizontalAlignment="Left" Grid.Column="0" Content="Roof To The Station:" Height="26" Width="115"/>
-            <TextBox x:Name="roofToTheStationTextBlock" VerticalAlignment="Center" Text="{Binding RoofToTheStation}" Grid.Row="3" Margin="3.333,7.667,-64,6.667" HorizontalAlignment="Left" Grid.Column="1" Height="29" Width="146" RenderTransformOrigin="0.5,0.5">
+            <Grid x:Name="StationList1" Grid.Column="0" VerticalAlignment="Top" Margin="15,6,0,0" HorizontalAlignment="Left"  Height="419" Width="311" RenderTransformOrigin="0.856,0.505" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" MinHeight="59.333"/>
+                    <RowDefinition Height="Auto" MinHeight="57.333"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Label VerticalAlignment="Center" Grid.Row="4" Margin="-3,4,0,14.667" HorizontalAlignment="Left" Grid.Column="0" Content="Access Disabled:" Height="26" Width="123"/>
+                <TextBox x:Name="accessForDisabledTextBlock" VerticalAlignment="Center" Text="{Binding AccessForDisabled}" Grid.Row="4" Margin="7.333,8,0,12.667" HorizontalAlignment="Left" Grid.Column="1" Height="24" Width="140"/>
+                <Label VerticalAlignment="Center" Grid.Row="5" Margin="3,8.667,0,8" HorizontalAlignment="Left" Grid.Column="0" Content="Available" Height="26" Width="81"/>
+                <TextBox x:Name="isAvailable3TextBlock" VerticalAlignment="Center" Text="{Binding IsAvailable3}" Grid.Row="5" Margin="3.333,9.667,-60,12" HorizontalAlignment="Left" Grid.Column="1" Height="27" Width="146" RenderTransformOrigin="0.5,0.5">
 
-            </TextBox>
-            <Label VerticalAlignment="Center" Grid.Row="2" Margin="3,18.333,0,15" HorizontalAlignment="Left" Grid.Column="0" Content="Station Address:" Height="26" Width="95"/>
-            <TextBox x:Name="stationAddressTextBlock" VerticalAlignment="Center" Text="{Binding StationAddress}" Grid.Row="2" Margin="3.333,7.667,-64,6.667" HorizontalAlignment="Left" Grid.Column="1" Height="30" Width="146" RenderTransformOrigin="0.5,0.5">
+                </TextBox>
+                <Label VerticalAlignment="Center" Grid.Row="6" Margin="3,14,0,2.667" HorizontalAlignment="Left" Grid.Column="0" Content="Latitude:" Height="26" Width="55"/>
+                <Label x:Name="latitudeLabel" VerticalAlignment="Center" Grid.Row="6" Margin="3,14,0,2.667" HorizontalAlignment="Left" Grid.Column="1" Content="{Binding Latitude}" Height="29" Width="146"/>
+                <Label VerticalAlignment="Center" Grid.Row="7" Margin="3,3.333,0,13.333" HorizontalAlignment="Left" Grid.Column="0" Content="Longitude:" Height="26" Width="66"/>
+                <Label x:Name="longitudeLabel" VerticalAlignment="Center" Grid.Row="7" Margin="3,3.333,0,13.333" HorizontalAlignment="Left" Grid.Column="1" Content="{Binding Longitude}" Height="29" Width="146"/>
+                <Label VerticalAlignment="Center" Grid.Row="1" Margin="3,8.667,0,8" HorizontalAlignment="Left" Grid.Column="0" Content="Name:" Height="26" Width="101"/>
+                <TextBox x:Name="nameOfStationTextBlock" VerticalAlignment="Center" Text="{Binding NameOfStation}" Grid.Row="1" Margin="3.333,7,-58.667,6.333" HorizontalAlignment="Left" Grid.Column="1" Height="30" Width="146"/>
+                <Label VerticalAlignment="Center" Grid.Row="3" Margin="3,14,0,2.667" HorizontalAlignment="Left" Grid.Column="0" Content="Roof" Height="26" Width="115"/>
+                <TextBox x:Name="roofToTheStationTextBlock" VerticalAlignment="Center" Text="{Binding RoofToTheStation}" Grid.Row="3" Margin="3.333,7.667,-64,6.667" HorizontalAlignment="Left" Grid.Column="1" Height="29" Width="146" RenderTransformOrigin="0.5,0.5">
 
-            </TextBox>
-            <Label VerticalAlignment="Center" Grid.Row="0" Margin="3,18,0,13.333" HorizontalAlignment="Left" Grid.Column="0" Content="Station Number:" Height="26" Width="97"/>
-            <TextBox x:Name="stationNumberTextBlock" VerticalAlignment="Center" Text="{Binding StationNumber}" Grid.Row="0" Margin="3,23,0,18.333" HorizontalAlignment="Left" Grid.Column="1" Height="30" Width="146"/>
+                </TextBox>
+                <Label VerticalAlignment="Center" Grid.Row="2" Margin="3,18.333,0,15" HorizontalAlignment="Left" Grid.Column="0" Content="Address:" Height="26" Width="95"/>
+                <TextBox x:Name="stationAddressTextBlock" VerticalAlignment="Center" Text="{Binding StationAddress}" Grid.Row="2" Margin="3.333,7.667,-64,6.667" HorizontalAlignment="Left" Grid.Column="1" Height="30" Width="146" RenderTransformOrigin="0.5,0.5">
+
+                </TextBox>
+                <Label VerticalAlignment="Center" Grid.Row="0" Margin="3,18,0,13.333" HorizontalAlignment="Left" Grid.Column="0" Content="Number:" Height="26" Width="97"/>
+                <TextBox x:Name="stationNumberTextBlock" VerticalAlignment="Center" Text="{Binding StationNumber}" Grid.Row="0" Margin="3,23,0,18.333" HorizontalAlignment="Left" Grid.Column="1" Height="30" Width="146"/>
+            </Grid>
         </Grid>
-    </Grid>
- </Border>
+    </Border>
 </Window>

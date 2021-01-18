@@ -44,9 +44,10 @@ namespace DLAPI
         #endregion BusLine
 
         #region LineStation
-        public int AddLineStation(LineStation lineStation);
+        public void AddLineStation(LineStation lineStation);
         public void DeleteOneLineStation(int NumberLine, int stationNumber);
         public void DeleteLineStation(int NumberLine);
+        public void DeleteLineStation1(int NumberLine);
         public LineStation ReturnLineStation(int numberLine, int stationNumber);
         public IEnumerable<LineStation> LineStationList();
         public void UpdatingLineStation(LineStation lineStation);
@@ -71,21 +72,21 @@ namespace DLAPI
 
         #region LineExit
         public void AddLineExit(LineExit lineExit);
-        public void DeleteLineExit(int lineNumber, string StartTime);
+        public void DeleteLineExit(int lineNumber, TimeSpan StartTime);
         public void UpdatingLineExit(LineExit lineExit);
-        public LineExit ReturnLineExit(int lineNumber, string StartTime);
-        public LineExit OneLineExitFromList(int numberLine, string start);
+        public LineExit ReturnLineExit(int lineNumber, TimeSpan StartTime);
+        public LineExit OneLineExitFromList(int numberLine, TimeSpan StartTime);
         public IEnumerable<LineExit> LineExitList(int numberLine);
 
         // public IEnumerable<ConsecutiveStations> OneLineFromList(int numberLine);
         #endregion LineExit
 
         #region BusTraveling
-        public void AddBusTraveling(BusTraveling busTraveling);
-        public void DeleteBusTraveling(int LineExecution, string License_number, string LeavingTime);
-        public void UpdatingBusTraveling(BusTraveling busTraveling);
-        public BusTraveling ReturnBusTraveling(int LineExecution, string License_number, string LeavingTime);
-        public IEnumerable<BusTraveling> BusTravelingList();
+        //public void AddBusTraveling(BusTraveling busTraveling);
+        //public void DeleteBusTraveling(int LineExecution, string License_number, string LeavingTime);
+        //public void UpdatingBusTraveling(BusTraveling busTraveling);
+        //public BusTraveling ReturnBusTraveling(int LineExecution, string License_number, string LeavingTime);
+        //public IEnumerable<BusTraveling> BusTravelingList();
         #endregion BusTraveling
 
         #region  User

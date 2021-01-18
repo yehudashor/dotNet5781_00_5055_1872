@@ -35,7 +35,6 @@ namespace WpfApp2
         public static BackgroundWorker Worker;
         public static BackgroundWorker Worker1;
         public event PropertyChangedEventHandler PropertyChanged;
-
         /// <summary>
         /// Calling the function of initializing and placing the list in listView.
         /// </summary>

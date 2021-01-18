@@ -21,12 +21,13 @@ namespace UI.lines
     /// </summary>
     public partial class UdptingLine : Window
     {
-        IBL1 bl = BLFactory.GetBL("1");
+        public IBL1 bl;
         BO.BusLineBO busLineBO;
-        public UdptingLine(BO.BusLineBO busLineBO1)
+        public UdptingLine(BO.BusLineBO busLineBO1, IBL1 bl1)
         {
             busLineBO = busLineBO1;
             InitializeComponent();
+            bl = bl1;
             areaBusUrbanComboBox.ItemsSource = Enum.GetValues(typeof(BO.Area1));
             getUrbanComboBox.ItemsSource = Enum.GetValues(typeof(BO.Urban));
             getAvailableComboBox.ItemsSource = Enum.GetValues(typeof(BO.Available));
@@ -44,23 +45,18 @@ namespace UI.lines
                 busLineBO.GetUrban = (BO.Urban)getUrbanComboBox.SelectedItem;
                 busLineBO.GetAvailable = (BO.Available)getAvailableComboBox.SelectedItem;
                 bl.UdaptingLine(busLineBO);
-                Line.busLineBOs.Insert(busLineBO.BusLineID1, busLineBO);
+                Line line = new Line(bl);
+                line.Show();
+                Close();
                 _ = MessageBox.Show("The line has been updated successfully");
             }
-            catch (Exception)
+            catch (BO.BOExceptionLine ex)
             {
-
-                throw;
+                _ = MessageBox.Show(ex.Message, "Error", MessageBoxButton.OKCancel,
+                     MessageBoxImage.Error);
             }
         }
 
-        //PreviewTextInput= "NumberValidationTextBox" 
-        /// <summary>
-        /// A function that ensures that only numbers can be entered in the textBox field !!!
-        /// (Part of the above bonus).
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]$");

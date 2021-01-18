@@ -32,6 +32,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution folder", "Solution
 		bin\config.xml = bin\config.xml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xml", "xml", "{27648648-0215-45F6-946B-98F58721A419}"
+	ProjectSection(SolutionItems) = preProject
+		UserXml.xml = UserXml.xml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLXml", "DLXml\DLXml.csproj", "{AC5E9FF9-823A-4948-AF0E-AE62C8D944D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,6 +93,10 @@ Global
 		{986C1974-8921-4B9E-9D71-D7E76C2653C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{986C1974-8921-4B9E-9D71-D7E76C2653C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{986C1974-8921-4B9E-9D71-D7E76C2653C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC5E9FF9-823A-4948-AF0E-AE62C8D944D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC5E9FF9-823A-4948-AF0E-AE62C8D944D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC5E9FF9-823A-4948-AF0E-AE62C8D944D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC5E9FF9-823A-4948-AF0E-AE62C8D944D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

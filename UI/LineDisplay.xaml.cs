@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BLAPI;
+using UI.LineTrip;
+using UI.Users;
+
 namespace UI
 {
     /// <summary>
@@ -19,29 +22,41 @@ namespace UI
     /// </summary>
     public partial class LineDisplay : Window
     {
-        IBL1 bl2;
-        public LineDisplay(IBL1 bl)
+        public IBL1 bl;
+        public LineDisplay(IBL1 bl1)
         {
-            bl2 = bl;
+            bl = bl1;
             InitializeComponent();
         }
 
         private void Bus(object sender, RoutedEventArgs e)
         {
-            Bus bus = new Bus();
+            Bus bus = new Bus(bl);
             _ = bus.ShowDialog();
         }
 
         private void Line(object sender, RoutedEventArgs e)
         {
-            Line line = new Line();
+            Line line = new Line(bl);
             line.Show();
         }
 
         private void Station(object sender, RoutedEventArgs e)
         {
-            Station station = new Station();
+            Station station = new Station(bl);
             station.Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            User user = new User(bl);
+            user.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            LineTripS lineTripS = new LineTripS(bl);
+            lineTripS.Show();
         }
     }
 }

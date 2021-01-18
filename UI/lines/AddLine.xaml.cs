@@ -22,10 +22,11 @@ namespace UI.lines
     /// </summary>
     public partial class AddLine : Window
     {
-        IBL1 bl = BLFactory.GetBL("1");
-        public AddLine()
+        public IBL1 bl;
+        public AddLine(IBL1 bl1)
         {
             InitializeComponent();
+            bl = bl1;
             IEnumerable<BO.BusStationBO> busStationBOs = bl.ShowStation();
             firstStationComboBox.ItemsSource = busStationBOs;
             firstStationComboBox.DisplayMemberPath = "StationNumber";
@@ -69,12 +70,11 @@ namespace UI.lines
                     {
                         case MessageBoxResult.OK:
                             bl.AddBusLineBO(BusLineBO);
-                            Line.busLineBOs.Add(bl.LineInformation(BusLineBO.BusLineID1));
+                            BO.BusLineBO busLineBO1 = bl.LineInformation(BusLineBO.BusLineID1);
+                            Line line = new Line(bl);
+                            line.Show();
                             MessageBoxResult messageBoxResult = MessageBox.Show("הקו נוסף למערכת", "Good");
-                            if (messageBoxResult == MessageBoxResult.OK)
-                            {
-                                Close();
-                            }
+                            Close();
                             break;
                         case MessageBoxResult.Cancel:
                             Close();
@@ -86,10 +86,15 @@ namespace UI.lines
                     _ = MessageBox.Show("First station should be different from last", "error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            catch (Exception)
+            catch (BO.BOExceptionLine ex)
             {
-
-                throw;
+                _ = MessageBox.Show(ex.Message, "Error", MessageBoxButton.OKCancel,
+                     MessageBoxImage.Error);
+            }
+            catch (BO.BOExceptionLineStation ex)
+            {
+                _ = MessageBox.Show(ex.Message, "Error", MessageBoxButton.OKCancel,
+                     MessageBoxImage.Error);
             }
         }
         //PreviewTextInput= "NumberValidationTextBox" 

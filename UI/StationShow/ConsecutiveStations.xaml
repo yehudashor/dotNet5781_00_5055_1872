@@ -42,13 +42,13 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn x:Name="UpdatingDistanceAndTime" Width="200" Header="Updating">
+                    <!--<GridViewColumn x:Name="UpdatingDistanceAndTime" Width="200" Header="Updating">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Margin="-6,-1"  Content ="Distance And Time" Click="Updating"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                    </GridViewColumn>-->
 
                 </GridView>
             </ListView.View>

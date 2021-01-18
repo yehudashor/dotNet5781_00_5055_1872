@@ -9,7 +9,6 @@
         Title="Bus" Height="450" Width="800">
 
     <Grid>
-
         <DataGrid x:Name="busBODataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="8,0,3.333,4.667" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="license_numberColumn" Width="SizeToHeader" Header="License number" Binding="{Binding License_number}"/>

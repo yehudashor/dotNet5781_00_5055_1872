@@ -5,15 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="400" Background= "Linen" >
-    <Grid RenderTransformOrigin="0.493,0.533">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="0*"/>
-        </Grid.RowDefinitions>
-        <Button Content="Log in as an administrator/worker" Background="Green" HorizontalAlignment="Left" Margin="63,144,0,0" VerticalAlignment="Top" Width="255" Click="Administrator " Height="50"/>
-        <Button Content="Log in as a customer" Background="Gainsboro" HorizontalAlignment="Left" Margin="63,54,0,0" VerticalAlignment="Top" Width="255" Height="50" Click="Customer " >
-        </Button>
+        Title="Manager Login" Height="auto" Width="auto" Background= "Linen" WindowState="Maximized">
+    <Border Margin="5,5,5.333,0" Padding="5" Background="LightYellow" 
+          BorderBrush="SteelBlue" BorderThickness="3,5,3,5" CornerRadius="3"
+          VerticalAlignment="Top" Height="452">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
 
-    </Grid>
+            </Grid.RowDefinitions>
+            <StackPanel RenderTransformOrigin="0.514,0.495" Grid.Row="0">
+
+                <TextBlock Text ="Enter a username:" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="Yellow" Offset="0.0" />
+                            <GradientStop Color="Red" Offset="0.25" />
+                            <GradientStop Color="Blue" Offset="0.75" />
+                            <GradientStop Color="LimeGreen" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>                <TextBox x:Name="UserN" Height="23" TextWrapping="Wrap" Margin="232,0,254,0" />                <TextBlock Text = "password:" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="Yellow" Offset="0.0" />
+                            <GradientStop Color="Red" Offset="0.25" />
+                            <GradientStop Color="Blue" Offset="0.75" />
+                            <GradientStop Color="LimeGreen" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+
+                <PasswordBox x:Name="Password1" PasswordChar="*" Margin="231,0,253,0" Height="24" />
+                <Grid Height="80">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="9*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Log in" Margin="231,0,253,-5" Click="LodIn" Background="LightBlue" Height="51" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
+                        <Button.Style>
+                            <Style>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=UserN, Path=Text}" Value="">
+                                        <Setter Property="Button.IsEnabled" Value ="False"/>
+                                    </DataTrigger>
+                                    <!--<DataTrigger Binding="{Binding ElementName=Password1, Path=Password}" Value="">
+                                    <Setter Property="Button.IsEnabled" Value ="False"/>
+                                </DataTrigger>-->
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Grid>
+            </StackPanel>
+            <!--<Button Content="Add/Delete/Updating - User" HorizontalAlignment="Left" Margin="99,33.667,0,0" Grid.Row="1" VerticalAlignment="Top" Width="238" Height="34" Click="Button_Click"/>-->
+        </Grid>
+    </Border>
 </Window>
