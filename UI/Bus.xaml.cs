@@ -23,15 +23,16 @@ namespace UI
     public partial class Bus : Window
     {
         public static ObservableCollection<BO.BusBO> listBus = new ObservableCollection<BO.BusBO>();
-        IBL1 bl2 = BLFactory.GetBL("1");
-        public Bus()
+        public IBL1 bl;
+        public Bus(IBL1 bl1)
         {
-            IEnumerable<BO.BusBO> busBOs = bl2.ShowAllBus();
+            InitializeComponent();
+            bl = bl1;
+            IEnumerable<BO.BusBO> busBOs = bl.ShowAllBus();
             foreach (BO.BusBO item in busBOs)
             {
                 listBus.Add(item);
             }
-            InitializeComponent();
             busBODataGrid.ItemsSource = listBus;
         }
 
@@ -41,13 +42,5 @@ namespace UI
         //    _ = bus.ShowDialog();
         //    BusList.Items.Refresh();
         //}
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-            System.Windows.Data.CollectionViewSource busBOViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("busBOViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // busBOViewSource.Source = [generic data source]
-        }
     }
 }

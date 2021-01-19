@@ -23,19 +23,19 @@ namespace UI.StationShow
     {
         public bool MyProperty { get; set; }
         BO.BusStationBO busStationBO;
-        IBL1 bl = BLFactory.GetBL("1");
-        public Udapting(BO.BusStationBO busStationBO1)
+        public IBL1 bl;
+        public Udapting(BO.BusStationBO busStationBO1, IBL1 bl1)
         {
             busStationBO = busStationBO1;
             InitializeComponent();
             stationNumberTextBox.Text = busStationBO1.StationNumber.ToString();
+            bl = bl1;
         }
 
         private void Updating(object sender, RoutedEventArgs e)
         {
             try
             {
-                _ = Station.busLineBOs.Remove(busStationBO);
                 busStationBO.NameOfStation = nameOfStationTextBox.Text;
                 busStationBO.StationAddress = stationAddressTextBox.Text;
                 busStationBO.IsAvailable3 = (bool)isAvailable3CheckBox.IsChecked;
@@ -43,12 +43,13 @@ namespace UI.StationShow
                 busStationBO.RoofToTheStation = (bool)roofToTheStationComboBox1.IsChecked;
                 bl.DeleteStationFromDo(busStationBO.StationNumber);
                 bl.AddStationToDo(busStationBO);
-                Station.busLineBOs.Add(bl.ReturnStationToPL(busStationBO.StationNumber));
+                Station station = new Station(bl);
+                station.Show();
             }
-            catch (Exception)
+            catch (BO.BOExceptionStation ex)
             {
-
-                throw;
+                _ = MessageBox.Show(ex.Message, "Error", MessageBoxButton.OKCancel,
+                     MessageBoxImage.Error);
             }
         }
 

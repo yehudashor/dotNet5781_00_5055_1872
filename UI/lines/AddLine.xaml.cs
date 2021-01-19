@@ -22,15 +22,27 @@ namespace UI.lines
     /// </summary>
     public partial class AddLine : Window
     {
-        public AddLine()
+        public IBL1 bl;
+        public AddLine(IBL1 bl1)
         {
             InitializeComponent();
+            bl = bl1;
+            IEnumerable<BO.BusStationBO> busStationBOs = bl.ShowStation();
+            firstStationComboBox.ItemsSource = busStationBOs;
+            firstStationComboBox.DisplayMemberPath = "StationNumber";
+
+            lastStationComboBox.ItemsSource = busStationBOs;
+            lastStationComboBox.DisplayMemberPath = "StationNumber";
+            Stations.ItemsSource = busStationBOs;
+
             areaBusUrbanComboBox.ItemsSource = Enum.GetValues(typeof(BO.Area1));
             getUrbanComboBox.ItemsSource = Enum.GetValues(typeof(BO.Urban));
             getAvailableComboBox.ItemsSource = Enum.GetValues(typeof(BO.Available));
             getAvailableComboBox.SelectedIndex = 0;
             getUrbanComboBox.SelectedIndex = 0;
             areaBusUrbanComboBox.SelectedIndex = 0;
+            firstStationComboBox.SelectedIndex = 0;
+            lastStationComboBox.SelectedIndex = 0;
         }
 
         private void AddStation(object sender, RoutedEventArgs e)
@@ -42,11 +54,49 @@ namespace UI.lines
                 GetUrban = (BO.Urban)getUrbanComboBox.SelectedItem,
                 GetAvailable = (BO.Available)getAvailableComboBox.SelectedItem
             };
-            BusLineBO.StationLineBOs = new List<BO.StationLineBO>();
-            AddStationLine addStationLine = new AddStationLine(BusLineBO);
-            _ = addStationLine.ShowDialog();
-        }
 
+            BusLineBO.StationLineBOs = new List<BO.StationLineBO>
+            {
+                new BO.StationLineBO { StationNumberOnLine = ((BO.BusStationBO)firstStationComboBox.SelectedItem).StationNumber },
+                new BO.StationLineBO { StationNumberOnLine = ((BO.BusStationBO)lastStationComboBox.SelectedItem).StationNumber}
+            };
+
+            try
+            {
+                if (BusLineBO.StationLineBOs[0].StationNumberOnLine != BusLineBO.StationLineBOs[1].StationNumberOnLine)
+                {
+                    MessageBoxResult box = MessageBox.Show("האם אתה בטוח שברצונך להוסיף את הקו?", "ask", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                    switch (box)
+                    {
+                        case MessageBoxResult.OK:
+                            bl.AddBusLineBO(BusLineBO);
+                            BO.BusLineBO busLineBO1 = bl.LineInformation(BusLineBO.BusLineID1);
+                            Line line = new Line(bl);
+                            line.Show();
+                            MessageBoxResult messageBoxResult = MessageBox.Show("הקו נוסף למערכת", "Good");
+                            Close();
+                            break;
+                        case MessageBoxResult.Cancel:
+                            Close();
+                            break;
+                    }
+                }
+                else
+                {
+                    _ = MessageBox.Show("First station should be different from last", "error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            catch (BO.BOExceptionLine ex)
+            {
+                _ = MessageBox.Show(ex.Message, "Error", MessageBoxButton.OKCancel,
+                     MessageBoxImage.Error);
+            }
+            catch (BO.BOExceptionLineStation ex)
+            {
+                _ = MessageBox.Show(ex.Message, "Error", MessageBoxButton.OKCancel,
+                     MessageBoxImage.Error);
+            }
+        }
         //PreviewTextInput= "NumberValidationTextBox" 
         /// <summary>
         /// A function that ensures that only numbers can be entered in the textBox field !!!
@@ -59,6 +109,5 @@ namespace UI.lines
             Regex regex = new Regex("[^0-9]$");
             e.Handled = regex.IsMatch(e.Text);
         }
-
     }
 }

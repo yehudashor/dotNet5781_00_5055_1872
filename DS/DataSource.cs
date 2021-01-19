@@ -15,6 +15,7 @@ namespace DS
             InitializationLine();
             InitializationLineStation();
             InitializationConsecutiveStations();
+            InitializationLineExits();
             for (int i = 0; i < 30; i++)
             {
                 InitializationBus();
@@ -27,8 +28,107 @@ namespace DS
         public static List<LineStation> LineStations;
         public static List<BusLine> BusLines;
         public static List<BusTraveling> BusTravelings = new List<BusTraveling>();
-        public static List<LineExit> LineExits = new List<LineExit>();
+        public static List<LineExit> LineExits;
         public static List<User> Users = new List<User>();
+        public static void InitializationLineExits()
+        {
+            LineExits = new List<LineExit>
+            {
+                new LineExit
+                {
+                    BusLineID1 = 0,
+                    LineStartTime = new TimeSpan(6, 0, 0),
+                    LineFinishTime = new TimeSpan(10, 0, 0),
+                    LineFrequencyTime = new TimeSpan(0, 10, 0),
+                    LineFrequency = 24,
+                },
+                new LineExit
+                {
+                    BusLineID1 = 0,
+                    LineStartTime = new TimeSpan(10, 0, 0),
+                    LineFinishTime = new TimeSpan(15, 0, 0),
+                    LineFrequencyTime = new TimeSpan(0, 20, 0),
+                    LineFrequency = 15,
+                },
+                new LineExit
+                {
+                    BusLineID1 = 0,
+                    LineStartTime = new TimeSpan(15, 0, 0),
+                    LineFinishTime = new TimeSpan(23, 0, 0),
+                    LineFrequencyTime = new TimeSpan(0, 15, 0),
+                    LineFrequency = 32,
+                },
+
+
+
+                new LineExit
+                {
+                    BusLineID1 = 1,
+                    LineStartTime = new TimeSpan(6, 0, 0),
+                    LineFinishTime = new TimeSpan(15, 0, 0),
+                    LineFrequencyTime = new TimeSpan(0, 15, 0),
+                    LineFrequency = 36,
+                },
+
+
+                new LineExit
+                {
+                    BusLineID1 = 1,
+                    LineStartTime = new TimeSpan(15, 0, 0),
+                    LineFinishTime = new TimeSpan(23, 0, 0),
+                    LineFrequencyTime = new TimeSpan(0, 10, 0),
+                    LineFrequency = 48,
+                },
+
+
+                new LineExit
+                {
+                    BusLineID1 = 2,
+                    LineStartTime = new TimeSpan(10, 0, 0),
+                    LineFinishTime = new TimeSpan(20, 0, 0),
+                    LineFrequencyTime = new TimeSpan(2, 0, 0),
+                    LineFrequency = 5
+                },
+
+                new LineExit
+                {
+                    BusLineID1 = 3,
+                    LineStartTime = new TimeSpan(8, 0, 0),
+                     LineFinishTime = new TimeSpan(20, 0, 0),
+                     LineFrequencyTime = new TimeSpan(1, 0, 0),
+                     LineFrequency = 12
+                },
+
+                 new LineExit
+                {
+                    BusLineID1 = 4,
+                    LineStartTime = new TimeSpan(6, 0, 0),
+                     LineFinishTime = new TimeSpan(20, 0, 0),
+                     LineFrequencyTime = new TimeSpan(0, 30, 0),
+                     LineFrequency = 28
+                },
+
+                  new LineExit
+                {
+                    BusLineID1 = 5,
+                    LineStartTime = new TimeSpan(5, 0, 0),
+                     LineFinishTime = new TimeSpan(23, 55, 0),
+                     LineFrequencyTime = new TimeSpan(0, 20, 0),
+                     LineFrequency = 58
+                },
+
+                   new LineExit
+                {
+                    BusLineID1 = 6,
+                    LineStartTime = new TimeSpan(7, 0, 0),
+                },
+                new LineExit
+                {
+                    BusLineID1 = 7,
+                    LineStartTime = new TimeSpan(14, 0, 0),
+                },
+            };
+        }
         public static void InitializationBus()
         {
             int number = R.Next(1200);
@@ -529,7 +629,7 @@ namespace DS
                     Latitude = (float)((float)(R.NextDouble() * (33.3 - 31)) + 31),
                     Longitude = (float)((float)(R.NextDouble() * (35.5 - 34.3)) + 34.3)
                 },
-                    
+
                         new BusStation
                 {
                     IsAvailable3 = true,
@@ -784,7 +884,7 @@ namespace DS
                 new BusLine
                 {
                      LineNumber = 50,
-                      GetAvailable = Available.Available,
+                      GetAvailable = Available.Notavailable,
                      GetUrban = Urban.Urban,
                      AreaBusUrban = Area1.South,
                      FirstStation=14917,
@@ -1661,722 +1761,421 @@ namespace DS
         //14541 14542 14904 14905 14906 14908 14909 14910 14912 15300
         //14917 14918 14919 14920 14921 14922 14925 14926 14927 14928
         public static void InitializationConsecutiveStations()
-        {//GetDistanceBeforeLunch(),
-         //    AverageTime = GetTimeBeforeLunch()
-
+        {
             ConsecutiveStations = new List<ConsecutiveStations>
             {
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10045,
-                    StationNumber2 = 10509,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-               AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10509,
-                    StationNumber2 = 10510,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-               AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10510,
-                    StationNumber2 = 13426,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-               AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =  13426,
-                    StationNumber2 =  14531,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-               AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14531,
-                    StationNumber2 = 14533,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-               AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =14533 ,
-                    StationNumber2 = 14534,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-               AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14534 ,
-                    StationNumber2 =14537,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-               AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14537,
-                    StationNumber2 = 14538,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-               AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14538,
-                    StationNumber2 = 14540,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-               AverageTime = GetTimeBeforeLunch()
-                },
+            // 50
+            new ConsecutiveStations
+            {
+                StationNumber1 = 14917,
+                StationNumber2 = 14918,
+                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                AverageTime = GetTimeBeforeLunch()
+            },
+            new ConsecutiveStations
+            {
+                StationNumber1 = 14918,
+                StationNumber2 = 14919,
+                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                AverageTime = GetTimeBeforeLunch()
+            },
 
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10510,
-                    StationNumber2 = 10836,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10836,
-                    StationNumber2 = 10837,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =  10837,
-                    StationNumber2 =  10847,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10847,
-                    StationNumber2 = 13426,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 13426,
-                    StationNumber2 = 14531,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                     StationNumber1 =14531 ,
-                    StationNumber2 =14533 ,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14533,
-                    StationNumber2 =14534 ,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =14534  ,
-                    StationNumber2 = 14537,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14537 ,
-                    StationNumber2 =14538 ,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14919,
+                                StationNumber2 = 14920,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14920,
+                                StationNumber2 = 14921,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14921,
+                                StationNumber2 = 14922,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14922,
+                                StationNumber2 = 14925,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14925,
+                                StationNumber2 = 14926,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14926,
+                                StationNumber2 = 14927,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14927,
+                                StationNumber2 = 14928,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            
+                            
+                            
 
 
+                            // 40 
+                              new ConsecutiveStations
+                              {
+                                  StationNumber1 = 10045,
+                                  StationNumber2 = 10509,
+                                  DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                  AverageTime = GetTimeBeforeLunch()
 
-                 new ConsecutiveStations
-                {
-                    StationNumber1 = 10510,
-                    StationNumber2 = 10836,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10836,
-                    StationNumber2 = 10837,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =  10837,
-                    StationNumber2 =  10847,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10847,
-                    StationNumber2 = 13426,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 13426,
-                    StationNumber2 = 14531,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                     StationNumber1 =14531 ,
-                    StationNumber2 =14533 ,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14533,
-                    StationNumber2 =14534 ,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =14534  ,
-                    StationNumber2 = 14537,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14537 ,
-                    StationNumber2 =14538 ,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
+                              },
+                              new ConsecutiveStations
+                              {
+                                  StationNumber1 = 10509,
+                                  StationNumber2 = 10510,
+                                  DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                  AverageTime = GetTimeBeforeLunch()
+                              },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 10510,
+                                StationNumber2 = 13426,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 13426,
+                                StationNumber2 = 14531,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14531,
+                                StationNumber2 = 14533,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14533,
+                                StationNumber2 = 14534,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14534,
+                                StationNumber2 = 14537,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14537,
+                                StationNumber2 = 14538,
 
-
-                 new ConsecutiveStations
-                {
-                    StationNumber1 = 10510,
-                    StationNumber2 = 10836,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10836,
-                    StationNumber2 = 10837,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =  10837,
-                    StationNumber2 =  10847,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10847,
-                    StationNumber2 = 13426,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 13426,
-                    StationNumber2 = 14531,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                     StationNumber1 =14531 ,
-                    StationNumber2 =14533 ,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14533,
-                    StationNumber2 =14534 ,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =14534  ,
-                    StationNumber2 = 14537,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14537 ,
-                    StationNumber2 =14538 ,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-
-                 new ConsecutiveStations
-                {
-                    StationNumber1 = 10510,
-                    StationNumber2 = 10836,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10836,
-                    StationNumber2 = 10837,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =  10837,
-                    StationNumber2 =  10847,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10847,
-                    StationNumber2 = 13426,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 13426,
-                    StationNumber2 = 14531,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                     StationNumber1 =14531 ,
-                    StationNumber2 =14533 ,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14533,
-                    StationNumber2 =14534 ,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =14534  ,
-                    StationNumber2 = 14537,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14537 ,
-                    StationNumber2 =14538 ,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-
-                 new ConsecutiveStations
-                {
-                    StationNumber1 = 10510,
-                    StationNumber2 = 10836,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10836,
-                    StationNumber2 = 10837,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =  10837,
-                    StationNumber2 =  10847,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10847,
-                    StationNumber2 = 13426,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 13426,
-                    StationNumber2 = 14531,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                     StationNumber1 =14531 ,
-                    StationNumber2 =14533 ,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14533,
-                    StationNumber2 =14534 ,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =14534  ,
-                    StationNumber2 = 14537,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14537 ,
-                    StationNumber2 =14538 ,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-
-                 new ConsecutiveStations
-                {
-                    StationNumber1 = 10510,
-                    StationNumber2 = 10836,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10836,
-                    StationNumber2 = 10837,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =  10837,
-                    StationNumber2 =  10847,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10847,
-                    StationNumber2 = 13426,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 13426,
-                    StationNumber2 = 14531,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                     StationNumber1 =14531 ,
-                    StationNumber2 =14533 ,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14533,
-                    StationNumber2 =14534 ,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =14534  ,
-                    StationNumber2 = 14537,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14537 ,
-                    StationNumber2 =14538 ,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-
-                 new ConsecutiveStations
-                {
-                    StationNumber1 = 10510,
-                    StationNumber2 = 10836,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10836,
-                    StationNumber2 = 10837,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =  10837,
-                    StationNumber2 =  10847,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10847,
-                    StationNumber2 = 13426,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 13426,
-                    StationNumber2 = 14531,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                     StationNumber1 =14531 ,
-                    StationNumber2 =14533 ,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14533,
-                    StationNumber2 =14534 ,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =14534  ,
-                    StationNumber2 = 14537,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14537 ,
-                    StationNumber2 =14538 ,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-
-                 new ConsecutiveStations
-                {
-                    StationNumber1 = 10510,
-                    StationNumber2 = 10836,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10836,
-                    StationNumber2 = 10837,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =  10837,
-                    StationNumber2 =  10847,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10847,
-                    StationNumber2 = 13426,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 13426,
-                    StationNumber2 = 14531,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                     StationNumber1 =14531 ,
-                    StationNumber2 =14533 ,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14533,
-                    StationNumber2 =14534 ,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =14534  ,
-                    StationNumber2 = 14537,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14537 ,
-                    StationNumber2 =14538 ,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-
-                 new ConsecutiveStations
-                {
-                    StationNumber1 = 10510,
-                    StationNumber2 = 10836,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10836,
-                    StationNumber2 = 10837,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =  10837,
-                    StationNumber2 =  10847,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10847,
-                    StationNumber2 = 13426,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 13426,
-                    StationNumber2 = 14531,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                     StationNumber1 =14531 ,
-                    StationNumber2 =14533 ,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14533,
-                    StationNumber2 =14534 ,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =14534  ,
-                    StationNumber2 = 14537,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14537 ,
-                    StationNumber2 =14538 ,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-
-                 new ConsecutiveStations
-                {
-                    StationNumber1 = 10510,
-                    StationNumber2 = 10836,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10836,
-                    StationNumber2 = 10837,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =  10837,
-                    StationNumber2 =  10847,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 10847,
-                    StationNumber2 = 13426,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                    AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 13426,
-                    StationNumber2 = 14531,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                     StationNumber1 =14531 ,
-                    StationNumber2 =14533 ,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14533,
-                    StationNumber2 =14534 ,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 =14534  ,
-                    StationNumber2 = 14537,
-                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
-                new ConsecutiveStations
-                {
-                    StationNumber1 = 14537 ,
-                    StationNumber2 =14538 ,
-                    DistanceBetweenTooStations =GetDistanceBeforeLunch(),
-                 AverageTime = GetTimeBeforeLunch()
-                },
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14538,
+                                StationNumber2 = 14540,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
 
 
 
 
-            };
+
+                            // 41
+
+                            new ConsecutiveStations
+
+                            {
+                                StationNumber1 = 10510,
+                                StationNumber2 = 10836,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 10836,
+                                StationNumber2 = 10837,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                             new ConsecutiveStations
+                             {
+                                 StationNumber1 = 10837,
+                                 StationNumber2 = 10847,
+                                 DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                 AverageTime = GetTimeBeforeLunch()
+                             },
+                              new ConsecutiveStations
+                              {
+                                  StationNumber1 = 10847,
+                                  StationNumber2 = 13426,
+                                  DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                  AverageTime = GetTimeBeforeLunch()
+                              },
+
+                            // 42
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14540,
+                                StationNumber2 = 14541,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14541,
+                                StationNumber2 = 14542
+            ,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14542,
+                                StationNumber2 = 14904,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14904,
+                                StationNumber2 = 14905,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14905,
+                                StationNumber2 = 14906,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14906,
+                                StationNumber2 = 14908,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14908
+             ,
+                                StationNumber2 = 14909,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14909,
+                                StationNumber2 = 14910,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14910,
+                                StationNumber2 = 14912,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+
+
+                            // 43
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14912,
+                                StationNumber2 = 14913,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14913,
+                                StationNumber2 = 14917,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                          
+                            // 45
+
+                            
+
+                            // 46
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14931,
+                                StationNumber2 = 14932,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14932,
+                                StationNumber2 = 14933,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14933,
+                                StationNumber2 = 14934,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+
+
+
+
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14934,
+                                StationNumber2 = 14935,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14935,
+                                StationNumber2 = 14936,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14936,
+                                StationNumber2 = 15285,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 15285,
+                                StationNumber2 = 15287,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 15287,
+                                StationNumber2 = 15289,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 15289,
+                                StationNumber2 = 15290,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+
+
+                            // 47
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14928,
+                                StationNumber2 = 14929,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14929,
+                                StationNumber2 = 14930,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14930,
+                                StationNumber2 = 14931,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14931,
+                                StationNumber2 = 14932,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14932,
+                                StationNumber2 = 14933,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14933,
+                                StationNumber2 = 14934,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14934,
+                                StationNumber2 = 14935,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+                            new ConsecutiveStations
+                            {
+                                StationNumber1 = 14935,
+                                StationNumber2 = 14936,
+                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                AverageTime = GetTimeBeforeLunch()
+                            },
+
+                            // 48
+                                new ConsecutiveStations
+                                {
+                                    StationNumber1 = 10509,
+                                    StationNumber2 = 10847,
+                                    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                    AverageTime = GetTimeBeforeLunch()
+                                },
+                              
+
+                                  // 49
+                                  new ConsecutiveStations
+                                  {
+                                      StationNumber1 = 14912,
+                                      StationNumber2 = 15300,
+                                      DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                      AverageTime = GetTimeBeforeLunch()
+                                  },
+             };
         }
     }
 }

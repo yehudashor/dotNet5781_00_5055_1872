@@ -21,10 +21,11 @@ namespace UI.StationShow
     /// </summary>
     public partial class AddStation : Window
     {
-        IBL1 bl = BLFactory.GetBL("1");
-        public AddStation()
+        public IBL1 bl;
+        public AddStation(IBL1 bl1)
         {
             InitializeComponent();
+            bl = bl1;
         }
 
         private void Add(object sender, RoutedEventArgs e)
@@ -41,12 +42,13 @@ namespace UI.StationShow
                     RoofToTheStation = (bool)roofToTheStationComboBox1.IsChecked,
                 };
                 bl.AddStationToDo(busStationBO);
-                Station.busLineBOs.Add(bl.ReturnStationToPL(busStationBO.StationNumber));
+                Station station = new Station(bl);
+                station.Show();
             }
-            catch (Exception)
+            catch (BO.BOExceptionStation ex)
             {
-
-                throw;
+                _ = MessageBox.Show(ex.Message, "Error", MessageBoxButton.OKCancel,
+                     MessageBoxImage.Error);
             }
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)

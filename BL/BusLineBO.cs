@@ -21,6 +21,8 @@ namespace BO
         public Area1 AreaBusUrban { get; set; }
         public Urban GetUrban { get; set; }
         public Available GetAvailable { get; set; }
+        public TimeSpan BeginningTime { get; set; }
+        public TimeSpan EndTime { get; set; }
         //public override string ToString()
         //{
         //    return ToStringProperty();

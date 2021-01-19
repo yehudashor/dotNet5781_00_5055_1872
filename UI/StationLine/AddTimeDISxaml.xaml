@@ -5,22 +5,89 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI.StationLine"
         mc:Ignorable="d"
-        Title="AddTimeDISxaml" Height="450" Width="800">
-    <Grid>
-        <Label Content="מרחק" HorizontalAlignment="Left" Margin="178,5,0,0" VerticalAlignment="Top" Width="44"/>
-        <Button Content="עדכן זמן/מרחק" HorizontalAlignment="Left" Margin="100,160,0,0" VerticalAlignment="Top" Width="197" Height="26" RenderTransformOrigin="0.5,0.5" Click="Button_Click">
+        Title="AddTimeDISxaml" Height="450" Width="1000">
 
+    <Window.Resources>
+        
+
+        <Style TargetType="{x:Type Button}" >
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="15" />
+        </Style>
+
+        <Style TargetType="{x:Type Label}" 
+              >
+            <Setter Property="FontWeight" Value="Bold" ></Setter>
+            <Setter Property="FontSize" Value="11" />
+        </Style>
+
+    </Window.Resources>
+
+    <Grid RenderTransformOrigin="0.508,0.502">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="395*"/>
+            <ColumnDefinition Width="398*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="מרחק" HorizontalAlignment="Left" Margin="178,5,0,0" VerticalAlignment="Top" Width="44" Height="26"/>
+        <Button Content="עדכן זמן/מרחק" HorizontalAlignment="Left" Margin="100,160,0,0" VerticalAlignment="Top" Width="717" Height="26" RenderTransformOrigin="0.5,0.5" Click="Button_Click" Grid.ColumnSpan="2">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName= H, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value ="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=D, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value ="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=M, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value ="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=DA, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value ="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=HA, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value ="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=MA, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value ="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=SA, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value ="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=S, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value ="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
         </Button>
-        <TextBox x:Name="D"  HorizontalAlignment="Left" Height="35" Margin="151,35,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="98"/>
-        <Label Content="שעה" HorizontalAlignment="Left" Margin="104,80,0,0" VerticalAlignment="Top" Height="25" Width="38"/>
-        <TextBox x:Name="H"  HorizontalAlignment="Left" Height="29" Margin="100,105,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="41"/>
-        <Label Content="דקה" HorizontalAlignment="Left" Margin="183,80,0,0" VerticalAlignment="Top" Height="26" Width="35"/>
-        <TextBox x:Name="M" HorizontalAlignment="Left" Height="30" Margin="175,105,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="46"/>
+        <TextBox x:Name="D" PreviewTextInput ="NumberValidationTextBox"  HorizontalAlignment="Left" Height="35" Margin="151,35,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="98"/>
+        <Label Content="שעה"  HorizontalAlignment="Left" Margin="104,80,0,0" VerticalAlignment="Top" Height="25" Width="38"/>
+        <TextBox x:Name="H" MaxLength="2" PreviewTextInput ="NumberValidationTextBox1"  HorizontalAlignment="Left" Height="29" Margin="100,105,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="41"/>
+        <Label Content="דקה"  HorizontalAlignment="Left" Margin="183,80,0,0" VerticalAlignment="Top" Height="26" Width="35"/>
+        <TextBox x:Name="M" MaxLength="2" PreviewTextInput ="NumberValidationTextBox2" HorizontalAlignment="Left" Height="30" Margin="175,105,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="46"/>
         <Label Content="שניה" HorizontalAlignment="Left" Margin="253,81,0,0" VerticalAlignment="Top" Height="27" Width="40"/>
-        <TextBox x:Name="S" HorizontalAlignment="Left" Height="32" Margin="251,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48"/>
-        <Label Content=":הוסף זמן ומרחק לתחנה" HorizontalAlignment="Left" Margin="321,42,0,0" VerticalAlignment="Top" Height="25" Width="138"/>
-        <TextBlock HorizontalAlignment="Left" Margin="362,74,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="16"/>
-        <TextBlock HorizontalAlignment="Left" Margin="350,102,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="19" Width="82"/>
+        <TextBox x:Name="S" MaxLength="2" PreviewTextInput ="NumberValidationTextBox2" HorizontalAlignment="Left" Height="32" Margin="251,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48"/>
+        <Label Content=":זמן/מרחק מתחנה" HorizontalAlignment="Left" Margin="331,42,0,0" VerticalAlignment="Top" Height="25" Width="107"/>
+        <TextBlock x:Name ="sc"   HorizontalAlignment="Left" Margin="362,74,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="16" Width="0"/>
+        <TextBlock x:Name ="sa"  HorizontalAlignment="Left" Margin="322,69,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="23" Width="157"/>
+
+
+        <Label Content="מרחק"  Grid.Column="1" HorizontalAlignment="Left" Margin="177.667,5,0,0" VerticalAlignment="Top" Width="44" Height="26"/>
+        <TextBox x:Name="DA"  PreviewTextInput ="NumberValidationTextBox"  HorizontalAlignment="Left" Grid.Column="1" Height="35" Margin="150.667,35,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="98"/>
+        <Label Content="שעה" HorizontalAlignment="Left" Grid.Column="1" Margin="103.667,80,0,0" VerticalAlignment="Top" Height="25" Width="38"/>
+        <TextBox x:Name="HA" MaxLength="2" PreviewTextInput ="NumberValidationTextBox1"  HorizontalAlignment="Left" Grid.Column="1" Height="28" Margin="99.333,109,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="41"/>
+        <Label Content="דקה" HorizontalAlignment="Left" Grid.Column="1" Margin="182.667,80,0,0" VerticalAlignment="Top" Height="26" Width="35"/>
+        <TextBox x:Name="MA" MaxLength="2" PreviewTextInput ="NumberValidationTextBox2" HorizontalAlignment="Left" Grid.Column="1" Height="32" Margin="174.667,105,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="46"/>
+        <Label Content="שניה" HorizontalAlignment="Left" Grid.Column="1" Margin="252.667,81,0,0" VerticalAlignment="Top" Height="27" Width="40"/>
+        <TextBox x:Name="SA" MaxLength="2" PreviewTextInput ="NumberValidationTextBox2" HorizontalAlignment="Left" Grid.Column="1" Height="32" Margin="250.667,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48"/>
+        <Label Content=":זמן/מרחק מתחנה" Grid.Column="1" HorizontalAlignment="Left" Margin="351.333,42,0,0" VerticalAlignment="Top" Height="25" Width="107"/>
+        <TextBlock HorizontalAlignment="Left" Grid.Column="1" Margin="361.667,74,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="16" Width="0"/>
+        <TextBlock HorizontalAlignment="Left" Grid.Column="1" Margin="332.333,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="157"/>
+        <Label Content=":לתחנה" HorizontalAlignment="Left" Margin="360,93,0,0" VerticalAlignment="Top" Width="59" Height="26"/>
+        <TextBlock x:Name ="sbe" HorizontalAlignment="Left"  Margin="323,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Height="21"/>
+        <Label Content=":לתחנה" Grid.Column="1" HorizontalAlignment="Left" Margin="372.333,102,0,0" VerticalAlignment="Top" Width="86" Height="25"/>
+        <TextBlock Grid.Column="1" x:Name ="sd" HorizontalAlignment="Left" Margin="332.333,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Height="22"/>
 
     </Grid>
 </Window>

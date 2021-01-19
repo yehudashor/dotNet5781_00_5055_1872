@@ -12,11 +12,13 @@ namespace DO
     /// </summary>
     public class LineExit
     {
+        public int Id { get; set; }
         public int BusLineID1 { get; set; }
-        public string LineStartTime { get; set; }
+        public TimeSpan LineStartTime { get; set; }
 
         //זמן סיום מחושב ע"פ זמן יציאה + תחנות קו וזמנים ביניהן
-        public int LineFinishTime { get; set; }
+        public TimeSpan LineFinishTime { get; set; }
+        public TimeSpan LineFrequencyTime { get; set; }
         public int LineFrequency { get; set; }
         public override string ToString()
         {

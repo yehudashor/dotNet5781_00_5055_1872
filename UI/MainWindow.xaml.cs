@@ -22,24 +22,30 @@ namespace UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        //public static Bus Bus1 { set; get; }
-        public static ObservableCollection<Bus> listBus = new ObservableCollection<Bus>();
 
-        IBL1 bl = BLFactory.GetBL("1");
+        IBL1 bl1 = BLFactory.GetBL("1");
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Administrator(object sender, RoutedEventArgs e)
+        private void LodIn(object sender, RoutedEventArgs e)
         {
-            ManagerLogin managerLogin = new ManagerLogin(bl);
-            _ = managerLogin.ShowDialog();
-        }
-
-        private void Customer(object sender, RoutedEventArgs e)
-        {
-            _ = MessageBox.Show("In construction");
+            try
+            {
+                if (bl1.FindUser(Password1.Password, UserN.Text))
+                {
+                    LineDisplay lineDisplay = new LineDisplay(bl1);
+                    lineDisplay.Show();
+                    Close();
+                }
+            }
+            catch (BO.BOExceptionUser ex)
+            {
+                _ = MessageBox.Show("One of the details you entered is incorrect!!! try again" + ex);
+                UserN.ClearValue(TextBox.TextProperty);
+            }
         }
     }
 }

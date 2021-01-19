@@ -20,45 +20,35 @@ namespace UI.StationLine
     /// </summary>
     public partial class AddStationTowOldLine : Window
     {
-        IBL1 bl = BLFactory.GetBL("1");
+        public IBL1 bl;
         public BO.StationLineBO StationLineBO1 { get; set; }
+        public BO.StationLineBO StationLineBO2 { get; set; }
         public int NumberLine { get; set; }
-        public AddStationTowOldLine(int number, BO.StationLineBO stationLineBO)
+        public AddStationTowOldLine(IBL1 bl1, int number, BO.StationLineBO stationLineBO, BO.StationLineBO stationLineBO3)
         {
             InitializeComponent();
+            bl = bl1;
             IEnumerable<BO.BusStationBO> busStationBOs = bl.ShowStation();
             StationList.ItemsSource = busStationBOs;
             NumberLine = number;
             StationLineBO1 = stationLineBO;
+            StationLineBO2 = stationLineBO3;
         }
         private void AddStation(object sender, RoutedEventArgs e)
         {
             FrameworkElement fxElt = sender as FrameworkElement;
             BO.BusStationBO busStationBO = fxElt.DataContext as BO.BusStationBO;
-            try
-            {
-                BO.StationLineBO stationLineBO = new BO.StationLineBO
-                {
-                    BusLineID2 = NumberLine,
-                    StationNumberOnLine = busStationBO.StationNumber,
-                    ChackDelete2 = true,
-                    LocationNumberOnLine = ++StationLineBO1.LocationNumberOnLine
-                };
-                bl.AddStationToLine(stationLineBO, StationLineBO1.StationNumberOnLine);
-                IEnumerable<BO.StationLineBO> stationLineBO1 = bl.ReturnLineStationList(NumberLine);
-                foreach (BO.StationLineBO item in stationLineBO1)
-                {
-                    ShowLine.busLineBOs.Add(item);
-                }
-            }
-            catch (Exception)
-            {
 
-                throw;
-            }
-            //Bus1 = fxElt.DataContext as Bus;
-
-            //AddStation
+            BO.StationLineBO stationLineBO = new BO.StationLineBO
+            {
+                BusLineID2 = NumberLine,
+                StationNumberOnLine = busStationBO.StationNumber,
+                ChackDelete2 = true,
+                LocationNumberOnLine = StationLineBO2.LocationNumberOnLine
+            };
+            AddTimeDIS addTimeDIS = new AddTimeDIS(bl, StationLineBO1, stationLineBO, StationLineBO2, busStationBO.NameOfStation);
+            addTimeDIS.Show();
+            Close();
         }
     }
 }

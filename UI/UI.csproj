@@ -87,11 +87,14 @@
     <Compile Include="lines\AddLine.xaml.cs">
       <DependentUpon>AddLine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="lines\AddLineExit.xaml.cs">
+      <DependentUpon>AddLineExit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="lines\UdptingLine.xaml.cs">
       <DependentUpon>UdptingLine.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ManagerLogin.xaml.cs">
-      <DependentUpon>ManagerLogin.xaml</DependentUpon>
+    <Compile Include="LineTrip\LineTripS.xaml.cs">
+      <DependentUpon>LineTripS.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShowBuses.xaml.cs">
       <DependentUpon>ShowBuses.xaml</DependentUpon>
@@ -101,12 +104,6 @@
     </Compile>
     <Compile Include="Station.xaml.cs">
       <DependentUpon>Station.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="StationLine\AddStationLine.xaml.cs">
-      <DependentUpon>AddStationLine.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="StationLine\AddStationLine1.xaml.cs">
-      <DependentUpon>AddStationLine1.xaml</DependentUpon>
     </Compile>
     <Compile Include="StationLine\AddStationTowOldLine.xaml.cs">
       <DependentUpon>AddStationTowOldLine.xaml</DependentUpon>
@@ -132,6 +129,15 @@
     <Compile Include="StationShow\UdaptingDt.xaml.cs">
       <DependentUpon>UdaptingDt.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Users\AddUser.xaml.cs">
+      <DependentUpon>AddUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Users\UdaptingUser.xaml.cs">
+      <DependentUpon>UdaptingUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Users\User.xaml.cs">
+      <DependentUpon>User.xaml</DependentUpon>
+    </Compile>
     <Page Include="Bus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -152,7 +158,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="lines\AddLineExit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="lines\UdptingLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LineTrip\LineTripS.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -168,10 +182,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ManagerLogin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ShowBuses.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -181,14 +191,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Station.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="StationLine\AddStationLine.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="StationLine\AddStationLine1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -224,6 +226,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Users\AddUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Users\UdaptingUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Users\User.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -247,6 +261,9 @@
     <None Include="Properties\DataSources\BO.BusLineBO.datasource" />
     <None Include="Properties\DataSources\BO.BusStationBO.datasource" />
     <None Include="Properties\DataSources\BO.ConsecutiveStationsBo.datasource" />
+    <None Include="Properties\DataSources\BO.LineExitBo.datasource" />
+    <None Include="Properties\DataSources\BO.LineTrip.datasource" />
+    <None Include="Properties\DataSources\BO.UserBo.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -272,6 +289,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -22,18 +22,27 @@ namespace UI
     /// </summary>
     public partial class Station : Window
     {
-        IBL1 bl = BLFactory.GetBL("1");
+        public IBL1 bl;
         BO.BusLineBO BusLine1;
-        public static ObservableCollection<BO.BusStationBO> busLineBOs = new ObservableCollection<BO.BusStationBO>();
-        public Station()
+        public ObservableCollection<BO.BusStationBO> busLineBOs = new ObservableCollection<BO.BusStationBO>();
+        public Station(IBL1 bl1)
         {
-            IEnumerable<BO.BusStationBO> busStationBOs = bl.ShowStation();
-            foreach (BO.BusStationBO item in busStationBOs)
-            {
-                busLineBOs.Add(item);
-            }
             InitializeComponent();
-            StationList.ItemsSource = busLineBOs;
+            try
+            {
+                bl = bl1;
+                IEnumerable<BO.BusStationBO> busStationBOs = bl.ShowStation();
+                foreach (BO.BusStationBO item in busStationBOs)
+                {
+                    busLineBOs.Add(item);
+                }
+                StationList.ItemsSource = busLineBOs;
+            }
+            catch (BO.BOExceptionStation ex)
+            {
+                _ = MessageBox.Show(ex.Message, "Error", MessageBoxButton.OKCancel,
+                     MessageBoxImage.Error);
+            }
         }
 
         public Station(BO.BusLineBO BusLine)
@@ -61,17 +70,18 @@ namespace UI
                 LineInStation lineInStation = new LineInStation(bl.LinePastInStationBOs(busStationBO.StationNumber));
                 _ = lineInStation.ShowDialog();
             }
-            catch (Exception)
+            catch (BO.BOExceptionLine ex)
             {
-
-                throw;
+                _ = MessageBox.Show(ex.Message, "Error", MessageBoxButton.OKCancel,
+                      MessageBoxImage.Error);
             }
         }
 
         private void Add(object sender, RoutedEventArgs e)
         {
-            AddStation addStation = new AddStation();
+            AddStation addStation = new AddStation(bl);
             addStation.Show();
+            Close();
         }
 
 
@@ -80,24 +90,32 @@ namespace UI
             BO.BusStationBO busStationBO = new BO.BusStationBO();
             FrameworkElement fxElt = sender as FrameworkElement;
             busStationBO = fxElt.DataContext as BO.BusStationBO;
-            Udapting udapting = new Udapting(busStationBO);
+            Udapting udapting = new Udapting(busStationBO, bl);
             udapting.Show();
+            Close();
         }
 
         private void Delete(object sender, RoutedEventArgs e)
         {
-            FrameworkElement fxElt = sender as FrameworkElement;
-            BO.BusStationBO busStationBO = fxElt.DataContext as BO.BusStationBO;
-            bl.DeleteStationFromDo(busStationBO.StationNumber);
-            _ = busLineBOs.Remove(busStationBO);
-            busLineBOs.Add(bl.ReturnStationToPL(busStationBO.StationNumber));
-            // _ = ShowLine.busLineBOs.Remove(busStationBO);
-            StationList.Items.Refresh();
+            try
+            {
+                FrameworkElement fxElt = sender as FrameworkElement;
+                BO.BusStationBO busStationBO = fxElt.DataContext as BO.BusStationBO;
+                bl.DeleteStationFromDo(busStationBO.StationNumber);
+                _ = busLineBOs.Remove(busStationBO);
+                busLineBOs.Add(bl.ReturnStationToPL(busStationBO.StationNumber));
+                StationList.Items.Refresh();
+            }
+            catch (BO.BOExceptionStation ex)
+            {
+                _ = MessageBox.Show(ex.Message, "Error", MessageBoxButton.OKCancel,
+                     MessageBoxImage.Error);
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ConsecutiveStations consecutiveStations = new ConsecutiveStations();
+            ConsecutiveStations consecutiveStations = new ConsecutiveStations(bl);
             consecutiveStations.Show();
         }
     }

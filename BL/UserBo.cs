@@ -23,14 +23,14 @@ namespace BO
 
         public bool ManagementPermission { get; set; }
         public bool ChackDelete { get; set; }
-        public override string ToString()
-        {
-            return ToStringProperty();
-        }
+        //public override string ToString()
+        //{
+        //    return ToStringProperty();
+        //}
 
-        private string ToStringProperty()
-        {
-            throw new NotImplementedException();
-        }
+        //private string ToStringProperty()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
