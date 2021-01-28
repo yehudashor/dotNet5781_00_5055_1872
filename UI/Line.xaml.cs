@@ -33,7 +33,7 @@ namespace UI
     //</StackPanel>
     public partial class Line : Window
     {
-        public ObservableCollection<BO.BusLineBO> busLineBOs = new ObservableCollection<BO.BusLineBO>();
+        internal ObservableCollection<BO.BusLineBO> busLineBOs = new ObservableCollection<BO.BusLineBO>();
         public IBL1 bl;
         public Line(IBL1 bl1)
         {
@@ -48,12 +48,13 @@ namespace UI
             //}
         }
 
+
         private ObservableCollection<BO.BusLineBO> Lines(ObservableCollection<BO.BusLineBO> busLineBOs)
         {
             try
             {
                 int count = bl.ReturnBusLineIdFromDl();
-                for (int i = 0; i < 1; i++)
+                for (int i = 0; i < count; i++)
                 {
                     busLineBOs.Add(bl.LineInformation(i));
                 }

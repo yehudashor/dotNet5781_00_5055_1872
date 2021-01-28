@@ -75,8 +75,14 @@
     <Compile Include="Bus.xaml.cs">
       <DependentUpon>Bus.xaml</DependentUpon>
     </Compile>
+    <Compile Include="bus\AddBus.xaml.cs">
+      <DependentUpon>AddBus.xaml</DependentUpon>
+    </Compile>
     <Compile Include="bus\BusSelectionChanged.xaml.cs">
       <DependentUpon>BusSelectionChanged.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="bus\UdaptingBus.xaml.cs">
+      <DependentUpon>UdaptingBus.xaml</DependentUpon>
     </Compile>
     <Compile Include="Line.xaml.cs">
       <DependentUpon>Line.xaml</DependentUpon>
@@ -142,7 +148,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="bus\AddBus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="bus\BusSelectionChanged.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="bus\UdaptingBus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -90,7 +90,6 @@ namespace BO
             return base.ToString() + $", Error: {Id}";
         }
     }
-
     public class BOExceptionConsecutiveStations : Exception
     {
         public int Id;

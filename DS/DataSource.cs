@@ -134,7 +134,6 @@ namespace DS
             int number = R.Next(1200);
             Bus bus = new Bus
             {
-                License_number = R.Next(1000000, 100000000).ToString(),
                 StartDate = new DateTime(R.Next(1999, 2020), R.Next(1, 13), R.Next(1, 29)),
                 KmForRefueling = number,
                 KmForTreatment = number * R.Next(3, 10),
@@ -142,6 +141,7 @@ namespace DS
                 Status = (TravelMode)R.Next(4),
                 IsAvailable = true
             };
+            bus.License_number = bus.StartDate.Year >= 2018 ? R.Next(10000000, 100000000).ToString() : R.Next(1000000, 10000000).ToString();
             Bus1.Add(bus);
         }
         public static void InitializationUser()

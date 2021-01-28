@@ -56,7 +56,7 @@ namespace DL
         {
             return DataSource.Users.Exists(item => item.ChackDelete && item.Password == pass && item.Username == UserNam && item.ManagementPermission && item.Permission1 == Permission.ManagementPermission)
                 ? true
-                : throw new ExceptionUser(UserNam, "Rong user!!!");
+                : throw new ExceptionUser(UserNam, "Rong user!!!");//, "Rong user!!!");
         }
         #endregion User
 

@@ -62,7 +62,7 @@
                     <GridViewColumn x:Name="refueling" Header="refueling" Width="180">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate >
-                                <Button Content="refueling" Name="refule"  Style="{StaticResource myButtonStyle}" Click="RefuelingToBus" Width="115"/>
+                                <Button Content="refueling"  Name="refule"  Style="{StaticResource myButtonStyle}" Click="RefuelingToBus" Width="115"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                        
@@ -83,8 +83,9 @@
         <!--Button for add a new bus-->
         <Button x:Name="vel" Content="NewBus" Background="HotPink" Click="NewBus1"  Margin="650,10,0,0" VerticalAlignment="Top" Width="120" Height="225"/>
         
-        <Button x:Name="t" Content="DeleteBus" Background="DarkOrchid" Click="DeleteBus"  Margin="650,225,0,0"  Width="120" Height="225"/>
-        <TextBox x:Name="temp" Margin="900,225,0,0"  Width="20" Height="225"/>
+        <Button x:Name="t"  Content="DeleteBus" Background="DarkOrchid" Click="DeleteBus"  Margin="650,225,0,0"  Width="120" Height="225"/>
+        <TextBox x:Name="temp" Text="ooo" Margin="900,225,0,0"  Width="20" Height="225"/>
+        <TextBox x:Name="temp1"    Margin="900,225,0,0"  Width="20" Height="225" />
         <ProgressBar x:Name="proggr"  Minimum="0" Maximum="12"  Width="115" Height ="40" Margin="900,225,0,0" />
     </Grid>
 </Window>

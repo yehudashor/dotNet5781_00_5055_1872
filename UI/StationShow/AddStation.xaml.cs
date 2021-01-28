@@ -27,11 +27,15 @@ namespace UI.StationShow
             InitializeComponent();
             bl = bl1;
         }
-
+        public bool v(int a)
+        {
+            return a % 5 == 0;
+        }
         private void Add(object sender, RoutedEventArgs e)
         {
             try
             {
+
                 BO.BusStationBO busStationBO = new BO.BusStationBO
                 {
                     StationNumber = int.Parse(stationNumberTextBox.Text),

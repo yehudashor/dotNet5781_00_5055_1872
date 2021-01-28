@@ -7,9 +7,112 @@
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="UI.Bus"
         mc:Ignorable="d"
         Title="Bus" Height="450" Width="800">
+   
+    <Grid >
+        <ListView x:Name="busBOListView" ItemsSource="{Binding}" Margin="0,7,4.333,-92.333" SelectionMode="Single">
+            <ListView.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Control.VerticalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="dayOfTreatmentColumn" Header="Day Of Treatment" Width="80">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Margin="6,-1,-6,-1" Text="{Binding DayOfTreatment, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="isAvailableColumn" Header="Is Available" Width="80">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Margin="-6,-1" Text="{Binding IsAvailable, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="kmForRefuelingColumn" Header="Km For Refueling" Width="80">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Margin="-6,-1" Text="{Binding KmForRefueling, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="kmForTreatmentColumn" Header="Km For Treatment" Width="80">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Margin="-6,-1" Text="{Binding KmForTreatment, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="kmOfTreatmentColumn" Header="Km Of Treatment" Width="80">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Margin="-6,-1" Text="{Binding KmOfTreatment, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="license_numberColumn" Header="License number" Width="80">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Margin="-6,-1" Text="{Binding License_number, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="startDateColumn" Header="Start Date" Width="80">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Margin="-6,-1" Text="{Binding StartDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="statusColumn" Header="Status" Width="80">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Margin="-6,-1" Text="{Binding Status, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
 
-    <Grid>
-        <DataGrid x:Name="busBODataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="8,0,3.333,4.667" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
+                    <GridViewColumn Header="Trip" Width="115">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Name="jjj">
+                                <Button x:Name="GoToT"  Content="Go To Trip"  Click="GoTrip" Width="100" Height ="40"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    
+
+                    <!--Adding a button to each element in the list whose event opens a window for refueling -->
+                    <GridViewColumn x:Name="refueling" Header="refueling" Width="180">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate >
+                                <Button Content="refueling" Name="refule"  Click="RefuelingToBus" Width="115"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Delete bus" Width="115">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate >
+                                <Button Content="Delete" Name="refule"  Click="DeleteBus" Width="115"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Udapting" Width="115">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate >
+                                <Button Content="Udapting" Name="refule"  Click="UdaptingBus" Width="115"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <!--<DataGrid x:Name="busBODataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="8,0,3.333,4.667" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="license_numberColumn" Width="SizeToHeader" Header="License number" Binding="{Binding License_number}"/>
                 <DataGridTextColumn x:Name="startDateColumn" Width="SizeToHeader" Header="Start Date" Binding="{Binding StartDate}"/>
@@ -18,9 +121,13 @@
                 <DataGridTextColumn x:Name="kmForTreatmentColumn" Width="SizeToHeader" Header="Km For Treatment" Binding="{Binding KmForTreatment}"/>
                 <DataGridTextColumn x:Name="dayOfTreatmentColumn" Width="SizeToHeader" Header="Day Of Treatment" Binding="{Binding DayOfTreatment}"/>
                 <DataGridTextColumn x:Name="statusColumn" Width="SizeToHeader" Header="Status" Binding="{Binding Status}"/>
+                
             </DataGrid.Columns>
-        </DataGrid>
+
+
+            
+        </DataGrid>-->
 
     </Grid>
-    
+
 </Window>

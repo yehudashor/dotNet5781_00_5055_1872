@@ -14,7 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BLAPI;
 using UI.bus;
-
+using System.Threading;
+using System.ComponentModel;
 namespace UI
 {
     /// <summary>
@@ -22,7 +23,7 @@ namespace UI
     /// </summary>
     public partial class Bus : Window
     {
-        public static ObservableCollection<BO.BusBO> listBus = new ObservableCollection<BO.BusBO>();
+        public ObservableCollection<BO.BusBO> listBus = new ObservableCollection<BO.BusBO>();
         public IBL1 bl;
         public Bus(IBL1 bl1)
         {
@@ -33,7 +34,77 @@ namespace UI
             {
                 listBus.Add(item);
             }
-            busBODataGrid.ItemsSource = listBus;
+            busBOListView.ItemsSource = listBus;
+        }
+
+        private void GoTrip(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                FrameworkElement frameworkElement = sender as FrameworkElement;
+                BO.BusBO busBO = frameworkElement.DataContext as BO.BusBO;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void DeleteBus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                FrameworkElement frameworkElement = sender as FrameworkElement;
+                BO.BusBO busBO = frameworkElement.DataContext as BO.BusBO;
+                bl.DeleteBusBO(busBO.License_number);
+                _ = listBus.Remove(busBO);
+                listBus.Add(bl.ShowBus(busBO.License_number));
+                busBOListView.Items.Refresh();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void RefuelingToBus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                FrameworkElement frameworkElement = sender as FrameworkElement;
+                BO.BusBO busBO = frameworkElement.DataContext as BO.BusBO;
+                List<BO.BusBO> busBOs = listBus.ToList();
+                int index = busBOs.FindIndex(item => item.License_number == busBO.License_number);
+                busBO.KmForRefueling = 0;
+                bl.DeleteBusBO(busBO.License_number);
+                Thread.Sleep(12000);
+                bl.AddBusBO(busBO);
+                listBus.Insert(index, bl.ShowBus(busBO.License_number));
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void UdaptingBus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                FrameworkElement frameworkElement = sender as FrameworkElement;
+                BO.BusBO busBO = frameworkElement.DataContext as BO.BusBO;
+                UdaptingBus udaptingBus = new UdaptingBus(bl, busBO);
+                _ = udaptingBus.ShowDialog();
+                Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         //private void Bus_SelectionChanged_1(object sender, SelectionChangedEventArgs e)

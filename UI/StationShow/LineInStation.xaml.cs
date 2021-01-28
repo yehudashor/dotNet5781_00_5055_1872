@@ -23,6 +23,19 @@ namespace UI.StationShow
         {
             InitializeComponent();
             linesPastInStationListView.ItemsSource = busLineBOs;
+            //var a = new int[] { 1, 2, 3, 4, 7 };
+            //var b = new string[] { "19", "3", "24", "a" };
+            //var ans = (
+            // from x in a
+            // from y in b
+            // where y.StartsWith(x.ToString())
+            // select x + 0.1
+            //).OrderByDescending(q => q).FirstOrDefault();
+            //foreach (var item in ans)
+            //{
+            //    Console.WriteLine(item + " " + item.GetType());
+            //}
+
         }
     }
 }

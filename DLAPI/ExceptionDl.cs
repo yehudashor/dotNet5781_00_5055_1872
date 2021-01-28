@@ -39,10 +39,12 @@ namespace DO
     public class ExceptionLine : Exception
     {
         public int Id;
+
         public ExceptionLine(int id, string messge) : base(messge)
         {
             Id = id;
         }
+
         public override string ToString()
         {
             return base.ToString() + $", bad line id: {Id}";
@@ -78,6 +80,8 @@ namespace DO
             return base.ToString() + $", bad Line Exit id: {Id} And {Id1}";
         }
     }
+    /// </summary>
+
     [Serializable]
     public class ExceptionUser : Exception
     {
@@ -86,12 +90,15 @@ namespace DO
         {
             Id = id;
         }
-        public override string ToString() => base.ToString() + $", bad User id: {Id}";
-        //{
-            //return  + 
-        //}
+        public ExceptionUser(string id, string messge, Exception inner) : base(messge, inner)
+        {
+            Id = id;
+        }
+        public override string ToString()
+        {
+            return base.ToString() + $", bad User id: {Id}";
+        }
     }
-
     public class ExceptionConsecutiveStations : Exception
     {
         public int Id;

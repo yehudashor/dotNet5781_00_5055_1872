@@ -56,6 +56,8 @@ namespace BLAPI
         public IEnumerable<LineTrip> LineTrips(int NumberStation, TimeSpan Time, int numberStationDestination = 0);
         void StartSimulator(TimeSpan startTime, int Rate, Action<TimeSpan> updateTime);
         void StopSimulator();
+
+        // IEnumerable<TimeTowStations> Timetow(int numberStation1, int numberStation2, TimeSpan time);
         #endregion LineTrip
 
         #region ConsecutiveStationsBo

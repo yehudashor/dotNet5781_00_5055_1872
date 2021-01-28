@@ -13,14 +13,6 @@
         <ListView x:Name="linesPastInStationListView" Width="Auto" SelectionMode="Single" Margin="0,-5,18.333,0.667" ItemsSource="{Binding}" Height="Auto">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn x:Name="busLineID1Column" Width="80" Header="Bus Line ID 1">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBox Margin="6,-1,-6,-1" Text="{Binding BusLineID1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    
                     <GridViewColumn x:Name="lineNumberColumn" Width="80" Header="Line Number">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
@@ -29,13 +21,6 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn x:Name="urbanInterUrbanColumn" Width="80" Header="Urban Inter Urban">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBox Margin="-6,-1" Text="{Binding UrbanInterUrban, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
 
                     <GridViewColumn x:Name="lastStationColumn" Width="80" Header="Last Station">
                         <GridViewColumn.CellTemplate>
@@ -44,23 +29,25 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    
-                    <GridViewColumn x:Name="isAvailable1Column" Width="80" Header="Is Available 1">
+
+                    <GridViewColumn x:Name="isAvailable1Column" Width="80" Header="Available">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Margin="-6,-1" Text="{Binding IsAvailable1}"/>
+                                <TextBlock Margin="-6,-1" Text="{Binding GetAvailable}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn x:Name="rea" Width="80" Header="Area">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="-6,-1" Text="{Binding AreaBusUrban}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
                 </GridView>
             </ListView.View>
-            <ListView.ItemContainerStyle>
-                <Style>
-                    <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"/>
-                    <Setter Property="Control.VerticalContentAlignment" Value="Stretch"/>
-                </Style>
-            </ListView.ItemContainerStyle>
         </ListView>
 
     </Grid>
