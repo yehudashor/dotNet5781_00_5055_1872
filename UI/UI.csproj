@@ -99,6 +99,9 @@
     <Compile Include="lines\UdptingLine.xaml.cs">
       <DependentUpon>UdptingLine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LineTrip\cameToStation.xaml.cs">
+      <DependentUpon>cameToStation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LineTrip\LineTripS.xaml.cs">
       <DependentUpon>LineTripS.xaml</DependentUpon>
     </Compile>
@@ -177,6 +180,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="lines\UdptingLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LineTrip\cameToStation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

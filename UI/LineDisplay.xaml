@@ -52,7 +52,8 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="משתמשים" HorizontalAlignment="Left" Margin="1091,2,0,0" VerticalAlignment="Top" Width="280" Height="417" Click="Button_Click"/>
+        <Button Content="משתמשים" HorizontalAlignment="Left" Margin="1210,2,0,0" VerticalAlignment="Top" Width="161" Height="417" Click="Button_Click"/>
         <Button Content="נסיעות" HorizontalAlignment="Left" Margin="811,5,0,0" VerticalAlignment="Top" Width="274" Height="413" Click="Button_Click_1"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="1090,6,0,0" VerticalAlignment="Top" Width="117" Height="409" Click="Button_Click_2"/>
     </Grid>
 </Window>

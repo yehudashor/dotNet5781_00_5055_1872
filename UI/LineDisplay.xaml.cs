@@ -58,5 +58,11 @@ namespace UI
             LineTripS lineTripS = new LineTripS(bl);
             lineTripS.Show();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            cameToStation cameToStation = new cameToStation(bl);
+            cameToStation.Show();
+        }
     }
 }

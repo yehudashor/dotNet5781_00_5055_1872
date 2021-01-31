@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace DL
         static readonly DLXML instance = new DLXML();
         static DLXML()
         {
+            // InitializationConsecutiveStations();
             //  InitializationLineExits();
         }// static ctor to ensure instance init is done just before first usage
         DLXML() { } // default => private
@@ -35,10 +37,10 @@ namespace DL
         public static string ConsecutiveStationsXml = @"ConsecutiveStations.xml";
         public static string LineStationXml = @"LineStation.xml";
         public static string LineExitXml = @"LineExit.xml";
-        //        public static Random R = new Random(DateTime.Now.Millisecond);
+        public static Random R = new Random(DateTime.Now.Millisecond);
         //        public static List<Bus> Bus1 = new List<Bus>();
         //        public static List<BusStation> BusStations;
-        //        public static List<ConsecutiveStations> ConsecutiveStations;
+        //public static List<ConsecutiveStations> ConsecutiveStations;
         //        public static List<LineStation> LineStations;
         //        public static List<BusLine> BusLines;
         //        public static List<BusTraveling> BusTravelings = new List<BusTraveling>();
@@ -1410,7 +1412,7 @@ namespace DL
         //                    },
         //                    #endregion
         //                    #region 47-7תחנות קו מס' 
-
+        // 14927 14928 14929 14930 14931  14932 14933 14934 14935
         //                    new LineStation
         //                    {
         //                        BusLineID2 = 7,
@@ -1713,25 +1715,25 @@ namespace DL
         //            };
         //            XMLTools.SaveListToXMLSerializer(LineStations, LineStationXml);
         //        }
-        //        public static TimeSpan GetTimeBeforeLunch()
-        //        {
-        //            return new TimeSpan(0, R.Next(1, 7), R.Next(0, 60));
-        //        }
-        //        public static float GetDistanceBeforeLunch()
-        //        {
-        //            return (float)((float)(R.NextDouble() * (4.6 - 1)) + 1);
-        //        }
-        //        //14905 14906 14908 14909 14910 14912 14913 14917 14918 14919
-        //        //14540 14541 14542 14904 14905 14906 14908 14909 14910 14912 
-        //        //14533 14534 14537 14538 14540 14541 14542 14904 14905 14906
-        //        //14931 14932 14933 14934 14935 14936 15285 15287 15289 15290
-        //        //14927 14928 14929 14930 14931 14932 14933 14934 14935 14936
-        //        //10509 10847 13426 14531 14533 14534 14537 14538 14540 14541
-        //        //14541 14542 14904 14905 14906 14908 14909 14910 14912 15300
-        //        //14917 14918 14919 14920 14921 14922 14925 14926 14927 14928
-        //        public static void InitializationConsecutiveStations()
-        //        {
-        //            ConsecutiveStations = new List<ConsecutiveStations>
+        //public static TimeSpan GetTimeBeforeLunch()
+        //{
+        //    return new TimeSpan(0, R.Next(1, 7), R.Next(0, 60));
+        //}
+        //public static float GetDistanceBeforeLunch()
+        //{
+        //    return (float)((float)(R.NextDouble() * (4.6 - 1)) + 1);
+        //}
+        ////14905 14906 14908 14909 14910 14912 14913 14917 14918 14919
+        ////14540 14541 14542 14904 14905 14906 14908 14909 14910 14912 
+        ////14533 14534 14537 14538 14540 14541 14542 14904 14905 14906
+        ////14931 14932 14933 14934 14935 14936 15285 15287 15289 15290
+        ////14927 14928 14929 14930 14931 14932 14933 14934 14935 14936
+        ////10509 10847 13426 14531 14533 14534 14537 14538 14540 14541
+        ////14541 14542 14904 14905 14906 14908 14909 14910 14912 15300
+        ////14917 14918 14919 14920 14921 14922 14925 14926 14927 14928
+        //public static void InitializationConsecutiveStations()
+        //{
+        //    ConsecutiveStations = new List<ConsecutiveStations>
         //            {
         //            // 50
         //            new ConsecutiveStations
@@ -2021,9 +2023,6 @@ namespace DL
         //                                AverageTime = GetTimeBeforeLunch()
         //                            },
 
-
-
-
         //                            new ConsecutiveStations
         //                            {
         //                                StationNumber1 = 14934,
@@ -2083,6 +2082,7 @@ namespace DL
         //                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
         //                                AverageTime = GetTimeBeforeLunch()
         //                            },
+        //                            //
         //                            new ConsecutiveStations
         //                            {
         //                                StationNumber1 = 14930,
@@ -2090,43 +2090,43 @@ namespace DL
         //                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
         //                                AverageTime = GetTimeBeforeLunch()
         //                            },
-        //                            new ConsecutiveStations
-        //                            {
-        //                                StationNumber1 = 14931,
-        //                                StationNumber2 = 14932,
-        //                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-        //                                AverageTime = GetTimeBeforeLunch()
-        //                            },
-        //                            new ConsecutiveStations
-        //                            {
-        //                                StationNumber1 = 14932,
-        //                                StationNumber2 = 14933,
-        //                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-        //                                AverageTime = GetTimeBeforeLunch()
-        //                            },
-        //                            new ConsecutiveStations
-        //                            {
-        //                                StationNumber1 = 14933,
-        //                                StationNumber2 = 14934,
-        //                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-        //                                AverageTime = GetTimeBeforeLunch()
-        //                            },
-        //                            new ConsecutiveStations
-        //                            {
-        //                                StationNumber1 = 14934,
-        //                                StationNumber2 = 14935,
-        //                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-        //                                AverageTime = GetTimeBeforeLunch()
-        //                            },
-        //                            new ConsecutiveStations
-        //                            {
-        //                                StationNumber1 = 14935,
-        //                                StationNumber2 = 14936,
-        //                                DistanceBetweenTooStations = GetDistanceBeforeLunch(),
-        //                                AverageTime = GetTimeBeforeLunch()
-        //                            },
+                                    //new ConsecutiveStations
+                                    //{
+                                    //    StationNumber1 = 14931,
+                                    //    StationNumber2 = 14932,
+                                    //    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                    //    AverageTime = GetTimeBeforeLunch()
+                                    //},
+                                    //new ConsecutiveStations
+                                    //{
+                                    //    StationNumber1 = 14932,
+                                    //    StationNumber2 = 14933,
+                                    //    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                    //    AverageTime = GetTimeBeforeLunch()
+                                    //},
+                                    //new ConsecutiveStations
+                                    //{
+                                    //    StationNumber1 = 14933,
+                                    //    StationNumber2 = 14934,
+                                    //    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                    //    AverageTime = GetTimeBeforeLunch()
+                                    //},
+                                    //new ConsecutiveStations
+                                    //{
+                                    //    StationNumber1 = 14934,
+                                    //    StationNumber2 = 14935,
+                                    //    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                    //    AverageTime = GetTimeBeforeLunch()
+                                    //},
+                                    //new ConsecutiveStations
+                                    //{
+                                    //    StationNumber1 = 14935,
+                                    //    StationNumber2 = 14936,
+                                    //    DistanceBetweenTooStations = GetDistanceBeforeLunch(),
+                                    //    AverageTime = GetTimeBeforeLunch()
+                                    //},
 
-        //                            // 48
+                                    // 48
         //                                new ConsecutiveStations
         //                                {
         //                                    StationNumber1 = 10509,
@@ -2145,9 +2145,31 @@ namespace DL
         //                                      AverageTime = GetTimeBeforeLunch()
         //                                  },
         //             };
-        //            XMLTools.SaveListToXMLSerializer(ConsecutiveStations, ConsecutiveStationsXml);
-        //        }
+        //    for (int i = 0; i < ConsecutiveStations.Count; i++)
+        //    {
+        //        AddConsecutiveStations1(ConsecutiveStations[i]);
+        //    }
+        //    //XMLTools.SaveListToXMLSerializer(ConsecutiveStations, ConsecutiveStationsXml);
+        //}
+        //public static void AddConsecutiveStations1(ConsecutiveStations consecutiveStations)
+        //{
+        //    XElement element = XMLTools.LoadListFromXMLElement(ConsecutiveStationsXml);
+        //    XElement consecutiveStations1 = (from p in element.Elements()
+        //                                     where p.Element("StationNumber1").Value == consecutiveStations.StationNumber1.ToString() && p.Element("StationNumber2").Value == consecutiveStations.StationNumber2.ToString()
+        //                                     select p).FirstOrDefault();
+        //    if (consecutiveStations1 != null)
+        //    {
+        //        throw new ExceptionConsecutiveStations(consecutiveStations.StationNumber1, consecutiveStations.StationNumber2, "There are already two such stations on the list!!!");
+        //    }
 
+        //    XElement consecutive = new XElement("ConsecutiveStations", new XElement("StationNumber1", consecutiveStations.StationNumber1),
+        //                           new XElement("StationNumber2", consecutiveStations.StationNumber2),
+        //                           new XElement("DistanceBetweenTooStations", consecutiveStations.DistanceBetweenTooStations),
+        //                           new XElement("AverageTime", consecutiveStations.AverageTime.ToString()));
+        //    element.Add(consecutive);
+
+        //    XMLTools.SaveListToXMLElement(element, ConsecutiveStationsXml);
+        //}
         #region  User
         string userXml = @"UserXml.xml";
         void IDAL.AddUser(User user)
@@ -2528,45 +2550,103 @@ namespace DL
         #endregion LineStation
 
         #region ConsecutiveStations
+
+        void IDAL.AddConsecutiveStations(ConsecutiveStations consecutiveStations)
+        {
+            XElement element = XMLTools.LoadListFromXMLElement(ConsecutiveStationsXml);
+            XElement consecutiveStations1 = (from p in element.Elements()
+                                             where p.Element("StationNumber1").Value == consecutiveStations.StationNumber1.ToString() && p.Element("StationNumber2").Value == consecutiveStations.StationNumber2.ToString()
+                                             select p).FirstOrDefault();
+            if (consecutiveStations1 != null)
+            {
+                throw new ExceptionConsecutiveStations(consecutiveStations.StationNumber1, consecutiveStations.StationNumber2, "There are already two such stations on the list!!!"); 
+            }
+
+            XElement consecutive = new XElement("ConsecutiveStations", new XElement("StationNumber1", consecutiveStations.StationNumber1),
+                                   new XElement("StationNumber2", consecutiveStations.StationNumber2),
+                                   new XElement("DistanceBetweenTooStations", consecutiveStations.DistanceBetweenTooStations),
+                                   new XElement("AverageTime", consecutiveStations.AverageTime.ToString()));
+            element.Add(consecutive);
+
+            XMLTools.SaveListToXMLElement(element, ConsecutiveStationsXml);
+        }
+
+        void IDAL.DeleteConsecutiveStations(int stationNumber1, int stationNumber2)
+        {
+
+
+            XElement element = XMLTools.LoadListFromXMLElement(ConsecutiveStationsXml);
+            XElement consecutiveStations1 = (from p in element.Elements()
+                                             where p.Element("StationNumber1").Value == stationNumber1.ToString() && p.Element("StationNumber2").Value == stationNumber2.ToString()
+                                             select p).FirstOrDefault();
+            if (consecutiveStations1 == null)
+            {
+                throw new ExceptionConsecutiveStations(stationNumber1, stationNumber2, "There are no two such stations on the list!!!");
+            }
+            consecutiveStations1.Remove();
+
+            XMLTools.SaveListToXMLElement(element, ConsecutiveStationsXml);
+        }
+
+        void IDAL.UpdatingConsecutiveStations(ConsecutiveStations consecutiveStations)
+        {
+            XElement element = XMLTools.LoadListFromXMLElement(ConsecutiveStationsXml);
+            XElement consecutiveStations1 = (from p in element.Elements()
+                                             where p.Element("StationNumber1").Value == consecutiveStations.StationNumber1.ToString() && p.Element("StationNumber2").Value == consecutiveStations.StationNumber2.ToString()
+                                             select p).FirstOrDefault();
+
+            if (consecutiveStations1 != null)
+            {
+                consecutiveStations1.Element("StationNumber1").Value = consecutiveStations.ToString();
+                consecutiveStations1.Element("StationNumber2").Value = consecutiveStations.StationNumber2.ToString();
+                consecutiveStations1.Element("DistanceBetweenTooStations").Value = consecutiveStations.DistanceBetweenTooStations.ToString();
+                consecutiveStations1.Element("AverageTime").Value = consecutiveStations.AverageTime.ToString();
+                XMLTools.SaveListToXMLElement(element, ConsecutiveStationsXml);
+            }
+            else
+            {
+                throw new ExceptionConsecutiveStations(consecutiveStations.StationNumber1, consecutiveStations.StationNumber2, "The consecutiveStations not exist in the compny!!!");
+            }
+        }
+
+        ConsecutiveStations IDAL.ReturnConsecutiveStation(int stationNumber1, int stationNumber2)
+        {
+            XElement element = XMLTools.LoadListFromXMLElement(ConsecutiveStationsXml);
+            ConsecutiveStations consecutiveStations = (from p in element.Elements()
+                                                       where p.Element("StationNumber1").Value == stationNumber1.ToString() && p.Element("StationNumber2").Value == stationNumber2.ToString()
+                                                       select new ConsecutiveStations()
+                                                       {
+                                                           StationNumber1 = int.Parse(p.Element("StationNumber1").Value),
+                                                           StationNumber2 = int.Parse(p.Element("StationNumber2").Value),
+                                                           DistanceBetweenTooStations = float.Parse(p.Element("DistanceBetweenTooStations").Value),
+                                                           AverageTime = TimeSpan.Parse(p.Element("AverageTime").Value)
+                                                           //  AverageTime = TimeSpan.ParseExact(p.Element("AverageTime").Value, "hh\\:mm\\:ss", CultureInfo.InvariantCulture)
+                                                       }).FirstOrDefault();
+
+            return consecutiveStations ?? throw new ExceptionConsecutiveStations(stationNumber1, stationNumber2, "There are no two such stations on the list!!!");
+        }
+
+        IEnumerable<ConsecutiveStations> IDAL.ConsecutiveStationsList()
+        {
+            XElement element = XMLTools.LoadListFromXMLElement(ConsecutiveStationsXml);
+
+            return from p in element.Elements()
+                   let s = new ConsecutiveStations()
+                   {
+                       StationNumber1 = int.Parse(p.Element("StationNumber1").Value),
+                       StationNumber2 = int.Parse(p.Element("StationNumber2").Value),
+                       DistanceBetweenTooStations = float.Parse(p.Element("DistanceBetweenTooStations").Value),
+                       AverageTime = TimeSpan.ParseExact(p.Element("AverageTime").Value, "hh\\:mm\\:ss", CultureInfo.InvariantCulture)
+                   }
+                   select s;
+        }
+
         bool IDAL.ChackExistingConsecutiveStations(Predicate<ConsecutiveStations> predicate)
         {
             List<ConsecutiveStations> consecutives = XMLTools.LoadListFromXMLSerializer<ConsecutiveStations>(ConsecutiveStationsXml);
             return consecutives.Exists(predicate);
         }
-        void IDAL.AddConsecutiveStations(ConsecutiveStations consecutiveStations)
-        {
-            List<ConsecutiveStations> consecutives = XMLTools.LoadListFromXMLSerializer<ConsecutiveStations>(ConsecutiveStationsXml);
-            if (consecutives.Exists(consecutiveStations1 => consecutiveStations1.StationNumber1 == consecutiveStations.StationNumber1 && consecutiveStations1.StationNumber2 == consecutiveStations.StationNumber2))
-            {
-                throw new ExceptionConsecutiveStations(consecutiveStations.StationNumber1, consecutiveStations.StationNumber2, "There are already two such stations on the list!!!");
-            }
-            else
-            {
-                consecutives.Add(consecutiveStations);
-                XMLTools.SaveListToXMLSerializer(consecutives, ConsecutiveStationsXml);
-            }
-        }
-        void IDAL.DeleteConsecutiveStations(int stationNumber1, int stationNumber2)
-        {
-            List<ConsecutiveStations> consecutives = XMLTools.LoadListFromXMLSerializer<ConsecutiveStations>(ConsecutiveStationsXml);
-            if (consecutives.Exists(consecutiveStations1 => consecutiveStations1.StationNumber1 == stationNumber1 && consecutiveStations1.StationNumber2 == stationNumber2))
-            {
-                ConsecutiveStations item = consecutives.Find(consecutiveStations1 => consecutiveStations1.StationNumber1 == stationNumber1 && consecutiveStations1.StationNumber2 == stationNumber2);
-                _ = consecutives.Remove(item);
-                XMLTools.SaveListToXMLSerializer(consecutives, ConsecutiveStationsXml);
-            }
-            else
-            {
-                throw new ExceptionConsecutiveStations(stationNumber1, stationNumber2, "There are no two such stations on the list!!!");
-            }
-        }
-        void IDAL.UpdatingConsecutiveStations(ConsecutiveStations consecutiveStations)
-        {
-            List<ConsecutiveStations> consecutives = XMLTools.LoadListFromXMLSerializer<ConsecutiveStations>(ConsecutiveStationsXml);
-            int index = consecutives.FindIndex(consecutiveStations1 => consecutiveStations1.StationNumber1 == consecutiveStations.StationNumber1 && consecutiveStations1.StationNumber2 == consecutiveStations.StationNumber2);
-            consecutives[index] = index == -1 ? throw new ExceptionConsecutiveStations(consecutiveStations.StationNumber1, consecutiveStations.StationNumber2, "The consecutiveStations not exist in the compny!!!") : consecutiveStations;
-            XMLTools.SaveListToXMLSerializer(consecutives, ConsecutiveStationsXml);
-        }
+
         float IDAL.DistanceBetweenTooStations(int numberStation1, int numberStation2)
         {
             List<ConsecutiveStations> consecutives = XMLTools.LoadListFromXMLSerializer<ConsecutiveStations>(ConsecutiveStationsXml);
@@ -2575,30 +2655,87 @@ namespace DL
                 ? consecutives[index].DistanceBetweenTooStations
                 : throw new ExceptionConsecutiveStations(numberStation1, numberStation2, "There are no two such stations on the list!!!");
         }
+
         TimeSpan IDAL.AverageTimeBetweenTooStationsList(int numberStation1, int numberStation2)
         {
-            List<ConsecutiveStations> consecutives = XMLTools.LoadListFromXMLSerializer<ConsecutiveStations>(ConsecutiveStationsXml);
-            int index = consecutives.FindIndex(consecutiveStations1 => consecutiveStations1.StationNumber1 == numberStation1 && consecutiveStations1.StationNumber2 == numberStation2);
-            return index != -1
-                ? consecutives[index].AverageTime
-                : throw new ExceptionConsecutiveStations(numberStation1, numberStation2, "There are no two such stations on the list!!!");
+            XElement element = XMLTools.LoadListFromXMLElement(ConsecutiveStationsXml);
+            ConsecutiveStations consecutiveStations = (from p in element.Elements()
+                                                       where p.Element("StationNumber1").Value == numberStation1.ToString() && p.Element("StationNumber2").Value == numberStation2.ToString()
+                                                       select new ConsecutiveStations()
+                                                       {
+                                                           StationNumber1 = int.Parse(p.Element("StationNumber1").Value),
+                                                           StationNumber2 = int.Parse(p.Element("StationNumber2").Value),
+                                                           DistanceBetweenTooStations = float.Parse(p.Element("DistanceBetweenTooStations").Value),
+                                                           AverageTime = TimeSpan.ParseExact(p.Element("AverageTime").Value, "hh\\:mm\\:ss", CultureInfo.InvariantCulture)
+                                                       }).FirstOrDefault();
+
+            return consecutiveStations == null ? throw new ExceptionConsecutiveStations(numberStation1, numberStation2, "There are no two such stations on the list!!!") : consecutiveStations.AverageTime;
+
+            //List<ConsecutiveStations> consecutives = XMLTools.LoadListFromXMLSerializer<ConsecutiveStations>(ConsecutiveStationsXml);
+            //int index = consecutives.FindIndex(consecutiveStations1 => consecutiveStations1.StationNumber1 == numberStation1 && consecutiveStations1.StationNumber2 == numberStation2);
+            //return index != -1
+            //    ? consecutives[index].AverageTime
         }
-        ConsecutiveStations IDAL.ReturnConsecutiveStation(int stationNumber1, int stationNumber2)
-        {
-            List<ConsecutiveStations> consecutives = XMLTools.LoadListFromXMLSerializer<ConsecutiveStations>(ConsecutiveStationsXml);
-            ConsecutiveStations item = null;
-            if (consecutives.Exists(consecutiveStations1 => consecutiveStations1.StationNumber1 == stationNumber1 && consecutiveStations1.StationNumber2 == stationNumber2))
-            {
-                item = consecutives.Find(consecutiveStations1 => consecutiveStations1.StationNumber1 == stationNumber1 && consecutiveStations1.StationNumber2 == stationNumber2);
-            }
-            return item ?? throw new ExceptionConsecutiveStations(stationNumber1, stationNumber2, "There are no two such stations on the list!!!"); ;
-        }
-        IEnumerable<ConsecutiveStations> IDAL.ConsecutiveStationsList()
-        {
-            List<ConsecutiveStations> consecutives = XMLTools.LoadListFromXMLSerializer<ConsecutiveStations>(ConsecutiveStationsXml);
-            return from Consecutive in consecutives
-                   select Consecutive;
-        }
+
+        //bool IDAL.ChackExistingConsecutiveStations(Predicate<ConsecutiveStations> predicate)
+        //{
+        //    List<ConsecutiveStations> consecutives = XMLTools.LoadListFromXMLSerializer<ConsecutiveStations>(ConsecutiveStationsXml);
+        //    return consecutives.Exists(predicate);
+        //}
+
+        //void IDAL.AddConsecutiveStations(ConsecutiveStations consecutiveStations)
+        //{
+        //    List<ConsecutiveStations> consecutives = XMLTools.LoadListFromXMLSerializer<ConsecutiveStations>(ConsecutiveStationsXml);
+        //    if (consecutives.Exists(consecutiveStations1 => consecutiveStations1.StationNumber1 == consecutiveStations.StationNumber1 && consecutiveStations1.StationNumber2 == consecutiveStations.StationNumber2))
+        //    {
+        //        throw new ExceptionConsecutiveStations(consecutiveStations.StationNumber1, consecutiveStations.StationNumber2, "There are already two such stations on the list!!!");
+        //    }
+        //    else
+        //    {
+        //        consecutives.Add(consecutiveStations);
+        //        XMLTools.SaveListToXMLSerializer(consecutives, ConsecutiveStationsXml);
+        //    }
+        //}
+
+        //void IDAL.DeleteConsecutiveStations(int stationNumber1, int stationNumber2)
+        //{
+        //    List<ConsecutiveStations> consecutives = XMLTools.LoadListFromXMLSerializer<ConsecutiveStations>(ConsecutiveStationsXml);
+        //    if (consecutives.Exists(consecutiveStations1 => consecutiveStations1.StationNumber1 == stationNumber1 && consecutiveStations1.StationNumber2 == stationNumber2))
+        //    {
+        //        ConsecutiveStations item = consecutives.Find(consecutiveStations1 => consecutiveStations1.StationNumber1 == stationNumber1 && consecutiveStations1.StationNumber2 == stationNumber2);
+        //        _ = consecutives.Remove(item);
+        //        XMLTools.SaveListToXMLSerializer(consecutives, ConsecutiveStationsXml);
+        //    }
+        //    else
+        //    {
+        //        throw new ExceptionConsecutiveStations(stationNumber1, stationNumber2, "There are no two such stations on the list!!!");
+        //    }
+        //}
+
+        //void IDAL.UpdatingConsecutiveStations(ConsecutiveStations consecutiveStations)
+        //{
+        //    List<ConsecutiveStations> consecutives = XMLTools.LoadListFromXMLSerializer<ConsecutiveStations>(ConsecutiveStationsXml);
+        //    int index = consecutives.FindIndex(consecutiveStations1 => consecutiveStations1.StationNumber1 == consecutiveStations.StationNumber1 && consecutiveStations1.StationNumber2 == consecutiveStations.StationNumber2);
+        //    consecutives[index] = index == -1 ? throw new ExceptionConsecutiveStations(consecutiveStations.StationNumber1, consecutiveStations.StationNumber2, "The consecutiveStations not exist in the compny!!!") : consecutiveStations;
+        //    XMLTools.SaveListToXMLSerializer(consecutives, ConsecutiveStationsXml);
+        //}
+
+        //ConsecutiveStations IDAL.ReturnConsecutiveStation(int stationNumber1, int stationNumber2)
+        //{
+        //    List<ConsecutiveStations> consecutives = XMLTools.LoadListFromXMLSerializer<ConsecutiveStations>(ConsecutiveStationsXml);
+        //    ConsecutiveStations item = null;
+        //    if (consecutives.Exists(consecutiveStations1 => consecutiveStations1.StationNumber1 == stationNumber1 && consecutiveStations1.StationNumber2 == stationNumber2))
+        //    {
+        //        item = consecutives.Find(consecutiveStations1 => consecutiveStations1.StationNumber1 == stationNumber1 && consecutiveStations1.StationNumber2 == stationNumber2);
+        //    }
+        //    return item ?? throw new ExceptionConsecutiveStations(stationNumber1, stationNumber2, "There are no two such stations on the list!!!");
+        //}
+        //IEnumerable<ConsecutiveStations> IDAL.ConsecutiveStationsList()
+        //{
+        //    List<ConsecutiveStations> consecutives = XMLTools.LoadListFromXMLSerializer<ConsecutiveStations>(ConsecutiveStationsXml);
+        //    return from Consecutive in consecutives
+        //           select Consecutive;
+        //}
         #endregion ConsecutiveStations
 
         #region LineExit

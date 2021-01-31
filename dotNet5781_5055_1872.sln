@@ -29,11 +29,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution folder", "Solution folder", "{C390D45D-976B-49EF-B666-14DFB712ABAD}"
 	ProjectSection(SolutionItems) = preProject
-		bin\xmlFile\BusXml.xml = bin\xmlFile\BusXml.xml
+		bin\BusXml.xml = bin\BusXml.xml
 		bin\config.xml = bin\config.xml
-		bin\xmlFile\ConsecutiveStations.xml = bin\xmlFile\ConsecutiveStations.xml
 		bin\xmlFile\LineExit.xml = bin\xmlFile\LineExit.xml
 		bin\xmlFile\LineStation.xml = bin\xmlFile\LineStation.xml
+		bin\LineStation.xml = bin\LineStation.xml
 		bin\xmlFile\LineXml.xml = bin\xmlFile\LineXml.xml
 		bin\xmlFile\StationXml.xml = bin\xmlFile\StationXml.xml
 		bin\xmlFile\UserXml.xml = bin\xmlFile\UserXml.xml

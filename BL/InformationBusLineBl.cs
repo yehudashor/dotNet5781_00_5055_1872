@@ -15,16 +15,53 @@ namespace BL
     {
         IDAL dl = DLFactory.GetDL();
         private static readonly Random D = new Random(DateTime.Now.Millisecond);
-        public event EventHandler ValueChanged;
+
         #region LineTrip
-        void IBL1.StartSimulator(TimeSpan startTime, int Rate, Action<TimeSpan> updateTime)
+        IEnumerable<TimeSpan> IBL1.TimeCamingToCurrnetStation(int LineNumber, int NumberStation)
         {
+            try
+            {
+                TimeSpan timeSpan = new TimeSpan();
+                TimeSpan timeSpan1 = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+                List<LineExitBo> lineExits1 = new List<LineExitBo>();
 
-        }
-        void IBL1.StopSimulator()
-        {
+                List<TimeSpan> timeSpans = new List<TimeSpan>();
+                List<LineExit> lineExits = dl.LineExitList(LineNumber).ToList();
+                for (int j = 0; j < lineExits.Count; j++)
+                {
+                    for (TimeSpan time = lineExits[j].LineStartTime; time < lineExits[j].LineFinishTime; time += lineExits[j].LineFrequencyTime)
+                    {
+                        timeSpans.Add(time);
+                    }
+                }
 
+                List<LineStation> lineStations = dl.OneLineFromList(t => t.BusLineID2 == NumberStation).OrderBy(p => p.LocationNumberOnLine).ToList();
+                int temp = lineStations.FindIndex(item => item.StationNumberOnLine == NumberStation);
+                for (int j = 0; j < temp; j++)
+                {
+                    timeSpan += dl.AverageTimeBetweenTooStationsList(lineStations[j].StationNumberOnLine, lineStations[j + 1].StationNumberOnLine);
+                }
+
+                return from timeCame in timeSpans
+                       where timeCame + timeSpan > timeSpan1 && timeSpan1 > timeCame
+                       let t = timeSpan1 - timeCame + timeSpan
+                       select t;
+
+                //for (int p = 0; p < timeSpans.Count; p++)
+                //{
+                //    if (timeSpans[p] + timeSpan > timeSpan1 && timeSpan1 > timeSpans[p])
+                //    {
+                //        //lineTrip.Add(new LineTrip { StartTrip = lineExits1[i].DepartureTimes[p], LineNumber = lineExits1[i].BusLineID1, NameOfLastStation = lineExits1[i].NameOfLastStation, TimeCameToStation = lineExits1[i].DepartureTimes[p] + timeSpan - Time, TimeFromStationToDestination = lineExits1[i].DepartureTimes[p] + timeSpan + timeSpan2 });
+                //    }
+                //}
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
+
         TimeSpan IBL1.TravelTimeBetweenTwoStations(int LineNumber, int NumberStation1, int NumberStation2)
         {
             TimeSpan timeSpan = new TimeSpan();

@@ -10,7 +10,6 @@ namespace BL
     {
         public int LineNumber { get; set; }
         public TimeSpan TimeStations { get; set; }
-
         //List<int> LineNumbers = new List<int>();
         //List<TimeSpan> Time = new List<TimeSpan>();
     }

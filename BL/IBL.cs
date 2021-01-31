@@ -54,9 +54,7 @@ namespace BLAPI
         #region LineTrip
         public TimeSpan TravelTimeBetweenTwoStations(int LineNumber, int NumberStation1, int NumberStation2);
         public IEnumerable<LineTrip> LineTrips(int NumberStation, TimeSpan Time, int numberStationDestination = 0);
-        void StartSimulator(TimeSpan startTime, int Rate, Action<TimeSpan> updateTime);
-        void StopSimulator();
-
+        public IEnumerable<TimeSpan> TimeCamingToCurrnetStation(int LineNumber, int NumberStation);
         // IEnumerable<TimeTowStations> Timetow(int numberStation1, int numberStation2, TimeSpan time);
         #endregion LineTrip
 
@@ -74,6 +72,7 @@ namespace BLAPI
         //public void ShowUser(string Username);
         public bool FindUser(string pass, string UserNam);
         public UserBo GetUser(string UserName);
+        //TimeSpan TimeCamingToCurrnetStation(int LineNumber, int NumberStation, TimeSpan time = default);
         #endregion Useres
     }
 }
