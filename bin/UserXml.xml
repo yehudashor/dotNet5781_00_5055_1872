@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <User>
+    <Username>yehuda</Username>
+    <Password>yehudashor789</Password>
+    <PasswordOnlyForNumbers>0</PasswordOnlyForNumbers>
+    <Permission1>ManagementPermission</Permission1>
+    <ManagementPermission>true</ManagementPermission>
+    <ChackDelete>true</ChackDelete>
+  </User>
+  <User>
+    <Username>1</Username>
+    <Password>a</Password>
+    <PasswordOnlyForNumbers>0</PasswordOnlyForNumbers>
+    <Permission1>ManagementPermission</Permission1>
+    <ManagementPermission>true</ManagementPermission>
+    <ChackDelete>true</ChackDelete>
+  </User>
+  <User>
+    <Username>Shor1998</Username>
+    <Password>05276351</Password>
+    <PasswordOnlyForNumbers>0</PasswordOnlyForNumbers>
+    <Permission1>WithoutManagementPermission</Permission1>
+    <ManagementPermission>false</ManagementPermission>
+    <ChackDelete>true</ChackDelete>
+  </User>
+  <User>
+    <Username>koko</Username>
+    <Password>111111</Password>
+    <PasswordOnlyForNumbers>0</PasswordOnlyForNumbers>
+    <Permission1>ManagementPermission</Permission1>
+    <ManagementPermission>true</ManagementPermission>
+    <ChackDelete>false</ChackDelete>
+  </User>
+  <User>
+    <Username>gggg</Username>
+    <Password>222222</Password>
+    <PasswordOnlyForNumbers>0</PasswordOnlyForNumbers>
+    <Permission1>ManagementPermission</Permission1>
+    <ManagementPermission>true</ManagementPermission>
+    <ChackDelete>true</ChackDelete>
+  </User>
+  <User>
+    <Username>דוד פקקטה</Username>
+    <Password>43555</Password>
+    <Permission1>ManagementPermission</Permission1>
+    <ManagementPermission>False</ManagementPermission>
+    <ChackDelete>True</ChackDelete>
+  </User>
+</ArrayOfUser>

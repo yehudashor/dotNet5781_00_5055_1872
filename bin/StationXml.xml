@@ -1,0 +1,696 @@
+<?xml version="1.0"?>
+<ArrayOfBusStation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BusStation>
+    <StationNumber>10045</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.6185722</Latitude>
+    <Longitude>34.6056</Longitude>
+    <NameOfStation>, שדרות הרצל/ המלאכה</NameOfStation>
+    <StationAddress>רחוב:שדרות הרצל  עיר: אופקים</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>false</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>10509</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.106945</Latitude>
+    <Longitude>34.895462</Longitude>
+    <NameOfStation> שד.הרצל/משעול איריס</NameOfStation>
+    <StationAddress> :שדרות הרצל 49 עיר: אופקים </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>false</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>10510</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.8071327</Latitude>
+    <Longitude>35.44988</Longitude>
+    <NameOfStation>הרצל/עיריית אופקים </NameOfStation>
+    <StationAddress> שדרות הרצל 31 עיר: אופקים</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>10836</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.5919571</Latitude>
+    <Longitude>35.092907</Longitude>
+    <NameOfStation>הרצל/ז'בוטינסקי </NameOfStation>
+    <StationAddress> :שדרות הרצל 26 עיר: אופקים</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>10837</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.30494</Latitude>
+    <Longitude>35.42097</Longitude>
+    <NameOfStation>שדרות הרצל/גיבורי ישראל </NameOfStation>
+    <StationAddress> :שדרות הרצל 52 עיר: אופקים</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>10847</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>33.1374</Latitude>
+    <Longitude>35.1349754</Longitude>
+    <NameOfStation> מכבי אש</NameOfStation>
+    <StationAddress>:הנשיא 21 עיר: אופקים  </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>13426</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.5317059</Latitude>
+    <Longitude>34.5096245</Longitude>
+    <NameOfStation>דרך הטייסים/דרך הנביאים </NameOfStation>
+    <StationAddress>:דרך הטייסים 17 עיר: אופקים  </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14531</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.49064</Latitude>
+    <Longitude>35.4501572</Longitude>
+    <NameOfStation>ז'בוטינסקי/נחושתן </NameOfStation>
+    <StationAddress> :ז'בוטינסקי 16 עיר: אופקים</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14533</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.2619934</Latitude>
+    <Longitude>34.7028</Longitude>
+    <NameOfStation>שוק </NameOfStation>
+    <StationAddress> הרב חיים חורי 20 עיר: אופקים</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14534</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.81816</Latitude>
+    <Longitude>34.53056</Longitude>
+    <NameOfStation>מכבי האש </NameOfStation>
+    <StationAddress> :הנשיא 21 עיר: אופקים</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14537</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.0555611</Latitude>
+    <Longitude>34.642128</Longitude>
+    <NameOfStation>החרוב/הארזים </NameOfStation>
+    <StationAddress> :החרוב 9 עיר: אופקים </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14538</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.4322834</Latitude>
+    <Longitude>35.13937</Longitude>
+    <NameOfStation>החרוב/דרך בית וגן </NameOfStation>
+    <StationAddress>החרוב 9 עיר: אופקים </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14540</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.9629478</Latitude>
+    <Longitude>34.879982</Longitude>
+    <NameOfStation>חפץ חיים/רפאל אלנקווה </NameOfStation>
+    <StationAddress>חפץ חיים 4 עיר: אופקים </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14541</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.0340214</Latitude>
+    <Longitude>34.4606361</Longitude>
+    <NameOfStation> חפץ חיים/רפאל אלנקווה</NameOfStation>
+    <StationAddress> :חפץ חיים 2 עיר: אופקים</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14542</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.01892</Latitude>
+    <Longitude>34.8110962</Longitude>
+    <NameOfStation> חפץ חיים/שבזי</NameOfStation>
+    <StationAddress>:חפץ חיים 16 עיר: אופקים </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14904</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.642786</Latitude>
+    <Longitude>34.4357529</Longitude>
+    <NameOfStation> דוד המלך/אסא</NameOfStation>
+    <StationAddress> :דוד המלך 72 עיר: אופקים </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14905</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.59335</Latitude>
+    <Longitude>34.519886</Longitude>
+    <NameOfStation>דוד המלך/אסא </NameOfStation>
+    <StationAddress> :דוד המלך 75 עיר: אופקים</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14906</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.4058</Latitude>
+    <Longitude>35.0487976</Longitude>
+    <NameOfStation> קיבוץ גלויות/ש''ד הרצל</NameOfStation>
+    <StationAddress> :קיבוץ גלויות 4 עיר: אופקים </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14908</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.1045151</Latitude>
+    <Longitude>35.0861244</Longitude>
+    <NameOfStation> קיבוץ גלויות/רחבת דדו</NameOfStation>
+    <StationAddress>:קיבוץ גלויות 48 עיר: אופקים  </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14909</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.9732876</Latitude>
+    <Longitude>35.0543</Longitude>
+    <NameOfStation> קיבוץ גלויות/קדש</NameOfStation>
+    <StationAddress> :קיבוץ גלויות 66 עיר: אופקים</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14910</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.6942177</Latitude>
+    <Longitude>34.4833</Longitude>
+    <NameOfStation>קיבוץ גלויות/חיים חורי </NameOfStation>
+    <StationAddress> :קיבוץ גלויות 55 עיר: אופקים</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14912</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.5999985</Latitude>
+    <Longitude>35.4045677</Longitude>
+    <NameOfStation> חיים חורי/פרי מגדים</NameOfStation>
+    <StationAddress> פרי מגדים  עיר: אופקים </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14913</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.1905327</Latitude>
+    <Longitude>35.3341</Longitude>
+    <NameOfStation> פרי מגדים/חיים חורי</NameOfStation>
+    <StationAddress> :פרי מגדים  עיר: אופקים </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14917</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>33.1717567</Latitude>
+    <Longitude>35.4632378</Longitude>
+    <NameOfStation> פרי מגדים/העינב</NameOfStation>
+    <StationAddress> :פרי מגדים 42 עיר: אופקים</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14918</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>33.1726952</Latitude>
+    <Longitude>34.380722</Longitude>
+    <NameOfStation> פרי מגדים/העינב</NameOfStation>
+    <StationAddress> :פרי מגדים 42 עיר: אופקים</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14919</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.6807251</Latitude>
+    <Longitude>35.4545822</Longitude>
+    <NameOfStation>משה שרת/השקד </NameOfStation>
+    <StationAddress>:משה שרת 3 עיר: אופקים  </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14920</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.4105263</Latitude>
+    <Longitude>34.63789</Longitude>
+    <NameOfStation>משה שרת/שדרות הרצל </NameOfStation>
+    <StationAddress> משה שרת 6 עיר: אופקים</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14921</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>33.2236862</Latitude>
+    <Longitude>34.80234</Longitude>
+    <NameOfStation>משה שרת/החרוב </NameOfStation>
+    <StationAddress> משה שרת 36 עיר: אופקים </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14922</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.15345</Latitude>
+    <Longitude>35.2381668</Longitude>
+    <NameOfStation> משה שרת/החרוב</NameOfStation>
+    <StationAddress>:משה שרת 23 עיר: אופקים  </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14925</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.47835</Latitude>
+    <Longitude>35.3411331</Longitude>
+    <NameOfStation> ירושלים/קרית ספר</NameOfStation>
+    <StationAddress>:ירושלים 41 עיר: אופקים  </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14926</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>33.1699181</Latitude>
+    <Longitude>34.44821</Longitude>
+    <NameOfStation>קרית ספר/אליהו התשבי </NameOfStation>
+    <StationAddress>:קרית ספר 48 עיר: אופקים  </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14927</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.5008144</Latitude>
+    <Longitude>35.1480026</Longitude>
+    <NameOfStation> קרית ספר/אליהו התשבי</NameOfStation>
+    <StationAddress> קרית ספר 79 עיר: אופקים </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14928</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.50574</Latitude>
+    <Longitude>35.27941</Longitude>
+    <NameOfStation>מגדל המים </NameOfStation>
+    <StationAddress> :דרך הנביאים 4 עיר: אופקים</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14929</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.0070171</Latitude>
+    <Longitude>34.3575249</Longitude>
+    <NameOfStation> מגדל המים</NameOfStation>
+    <StationAddress> בדרך הנביאים 11 עיר: אופקים</StationAddress>
+    <AccessForDisabled>false</AccessForDisabled>
+    <RoofToTheStation>false</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14930</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.2959824</Latitude>
+    <Longitude>34.3289261</Longitude>
+    <NameOfStation>קרית ספר/יואל </NameOfStation>
+    <StationAddress> קרית ספר 8 עיר: אופקים </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14931</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.0999527</Latitude>
+    <Longitude>35.37231</Longitude>
+    <NameOfStation> פרי מגדים/התמר</NameOfStation>
+    <StationAddress>:פרי מגדים 86 עיר: אופקים  </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14932</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>33.0987434</Latitude>
+    <Longitude>34.49431</Longitude>
+    <NameOfStation> פרי מגדים/ערבה</NameOfStation>
+    <StationAddress>פרי מגדים 96 עיר: אופקים </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14933</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>33.04769</Latitude>
+    <Longitude>35.3456879</Longitude>
+    <NameOfStation> פרי מגדים/הגורן</NameOfStation>
+    <StationAddress> פרי מגדים 124 עיר: אופקים </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>false</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14934</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.055748</Latitude>
+    <Longitude>34.62097</Longitude>
+    <NameOfStation> פרי מגדים/ארבעת המינים</NameOfStation>
+    <StationAddress> :פרי מגדים 124 עיר: אופקים </StationAddress>
+    <AccessForDisabled>false</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14935</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.41826</Latitude>
+    <Longitude>35.4900475</Longitude>
+    <NameOfStation> דוד המלך/שלמה המלך</NameOfStation>
+    <StationAddress>:דוד המלך 14 עיר: אופקים </StationAddress>
+    <AccessForDisabled>false</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>14936</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.239872</Latitude>
+    <Longitude>34.3545151</Longitude>
+    <NameOfStation> דוד המלך/שלמה המלך</NameOfStation>
+    <StationAddress>דוד המלך 7 עיר: אופקים  </StationAddress>
+    <AccessForDisabled>false</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>15285</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.4351883</Latitude>
+    <Longitude>34.75089</Longitude>
+    <NameOfStation> שד. הרצל/מבצע קדש</NameOfStation>
+    <StationAddress>:שדרות הרצל 27 עיר: אופקים </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>15287</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.2988777</Latitude>
+    <Longitude>34.6807823</Longitude>
+    <NameOfStation> החיד''א/בן איש חי</NameOfStation>
+    <StationAddress> החיד''א 13 עיר: אופקים</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>15289</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>33.14967</Latitude>
+    <Longitude>34.7934227</Longitude>
+    <NameOfStation>דוד בוזגלו/רפאל אלנקווה </NameOfStation>
+    <StationAddress> :דוד בוזגלו  עיר: אופקים </StationAddress>
+    <AccessForDisabled>false</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>15290</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.4977646</Latitude>
+    <Longitude>34.5311165</Longitude>
+    <NameOfStation> דוד בוזגלו/רפאל אלנקווה</NameOfStation>
+    <StationAddress> :דוד בוזגלו  עיר: אופקים</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>false</RoofToTheStation>
+    <IsAvailable3>false</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>15291</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.2817459</Latitude>
+    <Longitude>35.1381035</Longitude>
+    <NameOfStation>שד. הרצל/הנשיא </NameOfStation>
+    <StationAddress> שדרות הרצל  עיר: אופקים</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>15294</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.0283852</Latitude>
+    <Longitude>34.96667</Longitude>
+    <NameOfStation> שדרות הרצל/כצנלסון</NameOfStation>
+    <StationAddress> שדרות הרצל 48 עיר: אופקים</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>15296</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.5758171</Latitude>
+    <Longitude>34.51399</Longitude>
+    <NameOfStation> שדרות הרצל</NameOfStation>
+    <StationAddress> שדרות הרצל 85 עיר: אופקים </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>false</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>15298</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>33.15051</Latitude>
+    <Longitude>34.9650421</Longitude>
+    <NameOfStation> דרך הטייסים/דרך בוזגלו</NameOfStation>
+    <StationAddress>:דרך הטייסים  עיר: אופקים  </StationAddress>
+    <AccessForDisabled>false</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>15299</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.6113453</Latitude>
+    <Longitude>34.6199951</Longitude>
+    <NameOfStation>דרך הטייסים/רבי עקיבא </NameOfStation>
+    <StationAddress> :דרך הטייסים 49 עיר: אופקים </StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>false</RoofToTheStation>
+    <IsAvailable3>false</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>15300</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.9750061</Latitude>
+    <Longitude>35.3755646</Longitude>
+    <NameOfStation> בית ספר שושנים/החיד''א</NameOfStation>
+    <StationAddress> :החיד''א  עיר: אופקים</StationAddress>
+    <AccessForDisabled>false</AccessForDisabled>
+    <RoofToTheStation>false</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>12345</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.77825</Latitude>
+    <Longitude>34.641304</Longitude>
+    <NameOfStation>dddd</NameOfStation>
+    <StationAddress>rrrrr</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>false</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>15290</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.6048145</Latitude>
+    <Longitude>35.05045</Longitude>
+    <NameOfStation>ssss</NameOfStation>
+    <StationAddress>sssddd</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>false</RoofToTheStation>
+    <IsAvailable3>false</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>15299</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.7649155</Latitude>
+    <Longitude>34.5063744</Longitude>
+    <NameOfStation>ss</NameOfStation>
+    <StationAddress>df</StationAddress>
+    <AccessForDisabled>false</AccessForDisabled>
+    <RoofToTheStation>false</RoofToTheStation>
+    <IsAvailable3>false</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>15299</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.7124</Latitude>
+    <Longitude>34.57</Longitude>
+    <NameOfStation>רחוב התבור </NameOfStation>
+    <StationAddress>סמטת התרנגולים</StationAddress>
+    <AccessForDisabled>false</AccessForDisabled>
+    <RoofToTheStation>false</RoofToTheStation>
+    <IsAvailable3>false</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>15290</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>33.1479874</Latitude>
+    <Longitude>34.5502472</Longitude>
+    <NameOfStation>רחוב השושנים</NameOfStation>
+    <StationAddress>סמטת התמרים </StationAddress>
+    <AccessForDisabled>false</AccessForDisabled>
+    <RoofToTheStation>false</RoofToTheStation>
+    <IsAvailable3>false</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>12345</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.435524</Latitude>
+    <Longitude>35.0493164</Longitude>
+    <NameOfStation>רחוב החצילים </NameOfStation>
+    <StationAddress>סמטת הצנון</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>false</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>12345</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.54442</Latitude>
+    <Longitude>35.3443756</Longitude>
+    <NameOfStation>רחוב אירן</NameOfStation>
+    <StationAddress>תל השומר</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>23432</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.988451</Latitude>
+    <Longitude>34.687355</Longitude>
+    <NameOfStation> רחוב אילת</NameOfStation>
+    <StationAddress>תלמון</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>99999</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.8844452</Latitude>
+    <Longitude>35.16449</Longitude>
+    <NameOfStation>היהודים לא באים</NameOfStation>
+    <StationAddress>מאה שערים</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>false</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>33333</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.2903252</Latitude>
+    <Longitude>35.0559</Longitude>
+    <NameOfStation>תימן </NameOfStation>
+    <StationAddress>קוקו</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>343433</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.9092636</Latitude>
+    <Longitude>34.48113</Longitude>
+    <NameOfStation>רחוב חפץ חיים</NameOfStation>
+    <StationAddress>חפץ חיים\קצות החושן</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>33335</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.9273529</Latitude>
+    <Longitude>35.1696167</Longitude>
+    <NameOfStation>קקטוס</NameOfStation>
+    <StationAddress>המצרי</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+</ArrayOfBusStation>

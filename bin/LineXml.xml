@@ -1,0 +1,267 @@
+<?xml version="1.0"?>
+<ArrayOfBusLine xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BusLine>
+    <BusLineID1>0</BusLineID1>
+    <LineNumber>40</LineNumber>
+    <FirstStation>10045</FirstStation>
+    <LastStation>14540</LastStation>
+    <AreaBusUrban>דרום</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Available</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>1</BusLineID1>
+    <LineNumber>41</LineNumber>
+    <FirstStation>10510</FirstStation>
+    <LastStation>14538</LastStation>
+    <AreaBusUrban>דרום</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Available</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>2</BusLineID1>
+    <LineNumber>42</LineNumber>
+    <FirstStation>14540</FirstStation>
+    <LastStation>14912</LastStation>
+    <AreaBusUrban>דרום</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Available</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>3</BusLineID1>
+    <LineNumber>43</LineNumber>
+    <FirstStation>14905</FirstStation>
+    <LastStation>14919</LastStation>
+    <AreaBusUrban>דרום</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Available</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>4</BusLineID1>
+    <LineNumber>44</LineNumber>
+    <FirstStation>14540</FirstStation>
+    <LastStation>14912</LastStation>
+    <AreaBusUrban>דרום</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Available</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>5</BusLineID1>
+    <LineNumber>45</LineNumber>
+    <FirstStation>14533</FirstStation>
+    <LastStation>14906</LastStation>
+    <AreaBusUrban>דרום</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Available</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>6</BusLineID1>
+    <LineNumber>46</LineNumber>
+    <FirstStation>14931</FirstStation>
+    <LastStation>15289</LastStation>
+    <AreaBusUrban>דרום</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Available</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>7</BusLineID1>
+    <LineNumber>47</LineNumber>
+    <FirstStation>14927</FirstStation>
+    <LastStation>14936</LastStation>
+    <AreaBusUrban>אילת</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Available</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>8</BusLineID1>
+    <LineNumber>48</LineNumber>
+    <FirstStation>10509</FirstStation>
+    <LastStation>14541</LastStation>
+    <AreaBusUrban>דרום</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Available</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>9</BusLineID1>
+    <LineNumber>49</LineNumber>
+    <FirstStation>14541</FirstStation>
+    <LastStation>15300</LastStation>
+    <AreaBusUrban>דרום</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Available</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>10</BusLineID1>
+    <LineNumber>50</LineNumber>
+    <FirstStation>14917</FirstStation>
+    <LastStation>14928</LastStation>
+    <AreaBusUrban>דרום</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Available</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>11</BusLineID1>
+    <LineNumber>190</LineNumber>
+    <FirstStation>10509</FirstStation>
+    <LastStation>10045</LastStation>
+    <AreaBusUrban>ירושלים</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Available</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>12</BusLineID1>
+    <LineNumber>123</LineNumber>
+    <FirstStation>10836</FirstStation>
+    <LastStation>10510</LastStation>
+    <AreaBusUrban>ירושלים</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Available</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>13</BusLineID1>
+    <LineNumber>310</LineNumber>
+    <FirstStation>10837</FirstStation>
+    <LastStation>14533</LastStation>
+    <AreaBusUrban>ירושלים</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Available</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>14</BusLineID1>
+    <LineNumber>320</LineNumber>
+    <FirstStation>10510</FirstStation>
+    <LastStation>14930</LastStation>
+    <AreaBusUrban>ירושלים</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Available</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>15</BusLineID1>
+    <LineNumber>330</LineNumber>
+    <FirstStation>14531</FirstStation>
+    <LastStation>10510</LastStation>
+    <AreaBusUrban>השרון</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Notavailable</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>16</BusLineID1>
+    <LineNumber>340</LineNumber>
+    <FirstStation>10847</FirstStation>
+    <LastStation>14931</LastStation>
+    <AreaBusUrban>ירושלים</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Notavailable</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>17</BusLineID1>
+    <LineNumber>360</LineNumber>
+    <FirstStation>14909</FirstStation>
+    <LastStation>14531</LastStation>
+    <AreaBusUrban>דרום</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Notavailable</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>18</BusLineID1>
+    <LineNumber>330</LineNumber>
+    <FirstStation>14909</FirstStation>
+    <LastStation>15294</LastStation>
+    <AreaBusUrban>שפלה</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Notavailable</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>19</BusLineID1>
+    <LineNumber>340</LineNumber>
+    <FirstStation>14928</FirstStation>
+    <LastStation>15291</LastStation>
+    <AreaBusUrban>ירושלים</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Notavailable</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>20</BusLineID1>
+    <LineNumber>340</LineNumber>
+    <FirstStation>14533</FirstStation>
+    <LastStation>343433</LastStation>
+    <AreaBusUrban>ירושלים</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Notavailable</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>21</BusLineID1>
+    <LineNumber>350</LineNumber>
+    <FirstStation>14534</FirstStation>
+    <LastStation>14930</LastStation>
+    <AreaBusUrban>ירושלים</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Available</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>22</BusLineID1>
+    <LineNumber>14</LineNumber>
+    <FirstStation>14531</FirstStation>
+    <LastStation>10510</LastStation>
+    <AreaBusUrban>ירושלים</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Available</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>23</BusLineID1>
+    <LineNumber>150</LineNumber>
+    <FirstStation>14537</FirstStation>
+    <LastStation>14917</LastStation>
+    <AreaBusUrban>גליל</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Available</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+</ArrayOfBusLine>
