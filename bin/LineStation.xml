@@ -732,4 +732,16 @@
     <LocationNumberOnLine>6</LocationNumberOnLine>
     <ChackDelete2>true</ChackDelete2>
   </LineStation>
+  <LineStation>
+    <BusLineID2>25</BusLineID2>
+    <StationNumberOnLine>10847</StationNumberOnLine>
+    <LocationNumberOnLine>0</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>25</BusLineID2>
+    <StationNumberOnLine>10045</StationNumberOnLine>
+    <LocationNumberOnLine>1</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
 </ArrayOfLineStation>

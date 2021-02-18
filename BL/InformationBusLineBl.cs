@@ -1210,7 +1210,6 @@ namespace BL
             }
         }
         #endregion Bus
-
         private static readonly Random D = new Random(DateTime.Now.Millisecond);
     }
 }

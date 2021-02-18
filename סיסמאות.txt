@@ -1,0 +1,22 @@
+בס"ד. סיסמאות פרוייקט :
+
+1.
+    <Username>yehuda</Username> שם משתמש.
+    <Password>yehudashor789</Password> סיסמה.
+
+2.
+    <Username>1</Username>שם משתמש.
+    <Password>a</Password>סיסמה.
+
+3.
+    <Username>Shor1998</Username>שם משתמש.
+    <Password>05276351</Password>סיסמה.
+
+4.
+    <Username>koko</Username>שם משתמש.
+    <Password>111111</Password>סיסמה.
+    
+5.
+    <Username>gggg</Username>שם משתמש.
+    <Password>222222</Password>סיסמה.
+ 

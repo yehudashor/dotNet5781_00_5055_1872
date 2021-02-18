@@ -275,4 +275,15 @@
     <BeginningTime />
     <EndTime />
   </BusLine>
+  <BusLine>
+    <BusLineID1>25</BusLineID1>
+    <LineNumber>345</LineNumber>
+    <FirstStation>10847</FirstStation>
+    <LastStation>10045</LastStation>
+    <AreaBusUrban>ירושלים</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Available</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
 </ArrayOfBusLine>

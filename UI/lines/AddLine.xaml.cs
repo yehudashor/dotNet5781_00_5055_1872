@@ -74,6 +74,7 @@ namespace UI.lines
                 new BO.StationLineBO { StationNumberOnLine = ((StationPO)firstStationComboBox.SelectedItem).StationNumber},
                 new BO.StationLineBO { StationNumberOnLine = ((StationPO)lastStationComboBox.SelectedItem).StationNumber}
             };
+
             try
             {
                 if (BusLineBO.StationLineBOs[0].StationNumberOnLine != BusLineBO.StationLineBOs[1].StationNumberOnLine)

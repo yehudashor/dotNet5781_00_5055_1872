@@ -576,4 +576,10 @@
     <DistanceBetweenTooStations>2.496409</DistanceBetweenTooStations>
     <AverageTime>00:03:28</AverageTime>
   </ConsecutiveStations>
+  <ConsecutiveStations>
+    <StationNumber1>10847</StationNumber1>
+    <StationNumber2>10045</StationNumber2>
+    <DistanceBetweenTooStations>1.318343</DistanceBetweenTooStations>
+    <AverageTime>00:02:26</AverageTime>
+  </ConsecutiveStations>
 </ConsecutiveStations.xml>
