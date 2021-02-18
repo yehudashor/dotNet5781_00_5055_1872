@@ -1667,7 +1667,7 @@ namespace DS
                         LocationNumberOnLine = 9,
                     },
                     #endregion              
-                    #region תחנות קו מס50-10'  
+                    #region תחנות קו מס 50-10'  
                     new LineStation
                     {
                         BusLineID2 = 10,
