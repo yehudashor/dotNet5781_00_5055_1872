@@ -9,7 +9,7 @@
     <StationAddress>רחוב:שדרות הרצל  עיר: אופקים</StationAddress>
     <AccessForDisabled>true</AccessForDisabled>
     <RoofToTheStation>true</RoofToTheStation>
-    <IsAvailable3>false</IsAvailable3>
+    <IsAvailable3>true</IsAvailable3>
   </BusStation>
   <BusStation>
     <StationNumber>10509</StationNumber>
@@ -20,7 +20,7 @@
     <StationAddress> :שדרות הרצל 49 עיר: אופקים </StationAddress>
     <AccessForDisabled>true</AccessForDisabled>
     <RoofToTheStation>true</RoofToTheStation>
-    <IsAvailable3>false</IsAvailable3>
+    <IsAvailable3>true</IsAvailable3>
   </BusStation>
   <BusStation>
     <StationNumber>10510</StationNumber>
@@ -141,7 +141,7 @@
     <StationAddress>חפץ חיים 4 עיר: אופקים </StationAddress>
     <AccessForDisabled>true</AccessForDisabled>
     <RoofToTheStation>true</RoofToTheStation>
-    <IsAvailable3>true</IsAvailable3>
+    <IsAvailable3>false</IsAvailable3>
   </BusStation>
   <BusStation>
     <StationNumber>14541</StationNumber>
@@ -493,7 +493,7 @@
     <StationAddress> :דוד בוזגלו  עיר: אופקים</StationAddress>
     <AccessForDisabled>true</AccessForDisabled>
     <RoofToTheStation>false</RoofToTheStation>
-    <IsAvailable3>false</IsAvailable3>
+    <IsAvailable3>true</IsAvailable3>
   </BusStation>
   <BusStation>
     <StationNumber>15291</StationNumber>
@@ -548,7 +548,7 @@
     <StationAddress> :דרך הטייסים 49 עיר: אופקים </StationAddress>
     <AccessForDisabled>true</AccessForDisabled>
     <RoofToTheStation>false</RoofToTheStation>
-    <IsAvailable3>false</IsAvailable3>
+    <IsAvailable3>true</IsAvailable3>
   </BusStation>
   <BusStation>
     <StationNumber>15300</StationNumber>
@@ -570,7 +570,7 @@
     <StationAddress>rrrrr</StationAddress>
     <AccessForDisabled>true</AccessForDisabled>
     <RoofToTheStation>true</RoofToTheStation>
-    <IsAvailable3>false</IsAvailable3>
+    <IsAvailable3>true</IsAvailable3>
   </BusStation>
   <BusStation>
     <StationNumber>15290</StationNumber>
@@ -581,7 +581,7 @@
     <StationAddress>sssddd</StationAddress>
     <AccessForDisabled>true</AccessForDisabled>
     <RoofToTheStation>false</RoofToTheStation>
-    <IsAvailable3>false</IsAvailable3>
+    <IsAvailable3>true</IsAvailable3>
   </BusStation>
   <BusStation>
     <StationNumber>15299</StationNumber>
@@ -592,7 +592,7 @@
     <StationAddress>df</StationAddress>
     <AccessForDisabled>false</AccessForDisabled>
     <RoofToTheStation>false</RoofToTheStation>
-    <IsAvailable3>false</IsAvailable3>
+    <IsAvailable3>true</IsAvailable3>
   </BusStation>
   <BusStation>
     <StationNumber>15299</StationNumber>
@@ -603,7 +603,7 @@
     <StationAddress>סמטת התרנגולים</StationAddress>
     <AccessForDisabled>false</AccessForDisabled>
     <RoofToTheStation>false</RoofToTheStation>
-    <IsAvailable3>false</IsAvailable3>
+    <IsAvailable3>true</IsAvailable3>
   </BusStation>
   <BusStation>
     <StationNumber>15290</StationNumber>
@@ -614,7 +614,7 @@
     <StationAddress>סמטת התמרים </StationAddress>
     <AccessForDisabled>false</AccessForDisabled>
     <RoofToTheStation>false</RoofToTheStation>
-    <IsAvailable3>false</IsAvailable3>
+    <IsAvailable3>true</IsAvailable3>
   </BusStation>
   <BusStation>
     <StationNumber>12345</StationNumber>
@@ -625,7 +625,7 @@
     <StationAddress>סמטת הצנון</StationAddress>
     <AccessForDisabled>true</AccessForDisabled>
     <RoofToTheStation>true</RoofToTheStation>
-    <IsAvailable3>false</IsAvailable3>
+    <IsAvailable3>true</IsAvailable3>
   </BusStation>
   <BusStation>
     <StationNumber>12345</StationNumber>
@@ -689,6 +689,28 @@
     <Longitude>35.1696167</Longitude>
     <NameOfStation>קקטוס</NameOfStation>
     <StationAddress>המצרי</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>1234</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>31.44211</Latitude>
+    <Longitude>34.6588364</Longitude>
+    <NameOfStation>רחוב קינג ג'ורג'</NameOfStation>
+    <StationAddress>דוד מלך ישראל</StationAddress>
+    <AccessForDisabled>true</AccessForDisabled>
+    <RoofToTheStation>true</RoofToTheStation>
+    <IsAvailable3>true</IsAvailable3>
+  </BusStation>
+  <BusStation>
+    <StationNumber>343433</StationNumber>
+    <StationId1>0</StationId1>
+    <Latitude>32.3182449</Latitude>
+    <Longitude>35.4181061</Longitude>
+    <NameOfStation> רחוב שלמה המלך</NameOfStation>
+    <StationAddress>החכם באדם</StationAddress>
     <AccessForDisabled>true</AccessForDisabled>
     <RoofToTheStation>true</RoofToTheStation>
     <IsAvailable3>true</IsAvailable3>

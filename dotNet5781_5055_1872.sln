@@ -31,12 +31,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution folder", "Solution
 	ProjectSection(SolutionItems) = preProject
 		bin\BusXml.xml = bin\BusXml.xml
 		bin\config.xml = bin\config.xml
-		bin\xmlFile\LineExit.xml = bin\xmlFile\LineExit.xml
-		bin\xmlFile\LineStation.xml = bin\xmlFile\LineStation.xml
+		bin\ConsecutiveStations.xml = bin\ConsecutiveStations.xml
+		bin\LineExit.xml = bin\LineExit.xml
 		bin\LineStation.xml = bin\LineStation.xml
-		bin\xmlFile\LineXml.xml = bin\xmlFile\LineXml.xml
-		bin\xmlFile\StationXml.xml = bin\xmlFile\StationXml.xml
-		bin\xmlFile\UserXml.xml = bin\xmlFile\UserXml.xml
+		bin\LineXml.xml = bin\LineXml.xml
+		bin\StationXml.xml = bin\StationXml.xml
+		bin\UserXml.xml = bin\UserXml.xml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLXml", "DLXml\DLXml.csproj", "{AC5E9FF9-823A-4948-AF0E-AE62C8D944D1}"

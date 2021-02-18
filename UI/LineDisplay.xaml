@@ -5,9 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="LineDisplay" Height="450" Width="1380" MinWidth="7">
+        Title="תפריט" Height="700" Width="1380" MinWidth="7" WindowState="Maximized" Background="Black" >
     <Window.Resources>
-
         <Style x:Key="BaseControlStyle" 
                TargetType="{x:Type Control}">
             <Setter Property="FontFamily" Value="Tahoma" />
@@ -15,14 +14,136 @@
             <Setter Property="Margin" Value="4" />
         </Style>
 
+
+
+
+
+
+
+
+
+
         <Style TargetType="{x:Type Button}" 
-               BasedOn="{StaticResource BaseControlStyle}">
-            <Setter Property="FontWeight" Value="Bold" />
+            BasedOn="{StaticResource BaseControlStyle}">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Duration="0:0:0.300" Storyboard.TargetProperty="Width" From="685" To="300" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Duration="0:0:0.800" Storyboard.TargetProperty="Width"  From="300" To="685" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
         </Style>
 
     </Window.Resources>
 
-    <Grid Height="421" Margin="0,0,0.333,-0.333" VerticalAlignment="Bottom">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+
+        <Button x:Name="d" Click="Line" Grid.Column="0" Grid.Row="0">
+            <Button.Content>
+                <Grid>
+                    <Image  Source="london-double-decker-bus.jpg"  Stretch="Fill"/>
+                    <TextBlock Text="קווים" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="55"  />
+                </Grid>
+            </Button.Content>
+        </Button>
+
+        <Button Click="Button_Click_2"  Grid.Column="0" Grid.Row="1">
+            <Button.Content>
+                <Grid>
+                    <Image Source="Employee.png" Stretch="Fill" Width="685" Height="230"/>
+                    <TextBlock Text=" זמני הגעה" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="45"  />
+                </Grid>
+            </Button.Content>
+        </Button>
+
+        <Button Click="Button_Click_1"  Grid.Column="0" Grid.Row="2">
+            <Button.Content>
+                <Grid>
+                    <Image  Width="685" Height="230" Source="public-transportation-app-concept-eco-bus-poster-electric-transport-vehicles-blue-energy-modern-city-environment-light-175407497.jpg" Stretch="Fill" />
+                    <TextBlock Text=" נסיעות" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="45"  />
+                </Grid>
+            </Button.Content>
+        </Button>
+        <!--<Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="100" Margin="10" Source="Images/20170724_100331.jpg" />
+                    <TextBlock Text="Preview Mouse Right - Tunnel" VerticalAlignment="Center" PreviewMouseRightButtonDown="Button_PreviewMouseRightButtonDown"/>
+                </StackPanel>
+            </Button.Content>-->
+        <!--</Button>-->
+      
+
+       
+        <Button  Click="Station" Grid.Row="0" Grid.Column="1">
+            <Button.Content>
+            <Grid>
+ <Image Height="233" Source="Station.jpg" Stretch="Fill" Width="685"/>
+                    <TextBlock Text=" תחנות" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="45"  />
+            </Grid>
+        </Button.Content>
+        </Button>
+
+        <Button   Click="Bus" Grid.Row="1" Grid.Column="1">
+            <Button.Content>
+                <Grid>
+                    <Image Height="233" Source="Homepage-Banner-Bus-1609320344.jpg" Stretch="Fill" Width="685"/>
+                    <TextBlock Text="אוטובוסים" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold" FontSize="55" Margin="0,61,0,82.667" Width="314"  />
+                </Grid>
+            </Button.Content>
+        </Button>
+
+        <Button   Click="Button_Click" Grid.Row="2" Grid.Column="1">
+            <Button.Content>
+                <Grid>
+
+                    <Image Height="233" Source="160323089-user-login-background-with-light-and-text.jpg" Stretch="Fill" Width="685"/>
+                    <TextBlock Text="משתמשים" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="45"  Width="314"  />
+                </Grid>
+            </Button.Content>
+        </Button>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+    </Grid>
+
+
+
+
+    <!--<Grid Height="421" Margin="0,0,0.333,-0.333" VerticalAlignment="Bottom">
         <Button Content="אוטובוסים" HorizontalAlignment="Left" VerticalAlignment="Top" Width="290" Height="421" RenderTransformOrigin="0.5,0.5" Click="Bus" Margin="-5,4,0,-4">
             <Button.Background>
                 <RadialGradientBrush Center="0.5,0.5" RadiusX="1.0" RadiusY="1.0">
@@ -35,16 +156,24 @@
 
 
 
-        <Button x:Name="d" Content="קווים" HorizontalAlignment="Left" Margin="242,0,0,0" VerticalAlignment="Top" Width="281" Height="421" Click="Line">
-            <Button.Background>
+        <Button x:Name="d"  HorizontalAlignment="Left" Margin="540,-4,0,0" VerticalAlignment="Top" Width="351" Height="223"  Click="Line">
+            -->
+    <!--<Button.Background>
                 <RadialGradientBrush Center="0.5,0.5" RadiusX="1.0" RadiusY="1.0">
                     <GradientStop Color="Yellow" Offset="0.0" />
                     <GradientStop Color="Orange" Offset="1.0" />
                 </RadialGradientBrush>
-            </Button.Background>
+            </Button.Background>-->
+    <!--
+            <Button.Content>
+                <Grid>
+                    <Image  Source="https://images.railyatri.in/ry_images_prod/Homepage-Banner-Bus-1609320344.jpg" Width="auto" Margin="0,-27,-7,-24"  />
+                    <TextBlock Text="קווים" VerticalAlignment="Center" Margin="161,19,-1.667,161.333" />
+                </Grid>
+            </Button.Content>
         </Button>
 
-        <Button Content="תחנות" HorizontalAlignment="Left" Margin="525,0,0,0" VerticalAlignment="Top" Width="281" Height="421" Click="Station">
+        <Button Content="תחנות" HorizontalAlignment="Left" Margin="613,0,0,0" VerticalAlignment="Bottom" Width="193" Height="86" Click="Station">
             <Button.Background>
                 <RadialGradientBrush Center="0.5,0.5" RadiusX="1.0" RadiusY="1.0">
                     <GradientStop Color="LightYellow" Offset="0.0" />
@@ -52,8 +181,18 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="משתמשים" HorizontalAlignment="Left" Margin="1210,2,0,0" VerticalAlignment="Top" Width="161" Height="417" Click="Button_Click"/>
-        <Button Content="נסיעות" HorizontalAlignment="Left" Margin="811,5,0,0" VerticalAlignment="Top" Width="274" Height="413" Click="Button_Click_1"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="1090,6,0,0" VerticalAlignment="Top" Width="117" Height="409" Click="Button_Click_2"/>
-    </Grid>
+        <Button Content="משתמשים" HorizontalAlignment="Left" Margin="1221,2,0,0" VerticalAlignment="Top" Width="150" Height="417" Click="Button_Click"/>
+        <Button Content="נסיעות" HorizontalAlignment="Left" Margin="915,332,0,0" VerticalAlignment="Top" Width="110" Height="86" Click="Button_Click_1"/>
+        <Button  HorizontalAlignment="Left" Margin="1030,4,0,0" VerticalAlignment="Top" Width="187" Height="414" Click="Button_Click_2">
+
+            <Button.Content>
+                <Grid>
+                    <Image  Source="https://i0.wp.com/www.suntelematics.com/wp-content/uploads/2018/02/Employee.png?fit=1020%2C510" Width="auto" Height="225"  />
+                    <TextBlock Text=" זמני הגעה" VerticalAlignment="Center" Margin="10" />
+                </Grid>
+            </Button.Content>
+        </Button>
+        <Image HorizontalAlignment="Left" Height="100" Margin="373,125,0,0" VerticalAlignment="Top" Width="100" />
+
+    </Grid>-->
 </Window>

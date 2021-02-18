@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BLAPI;
+using UI.PO;
 
 namespace UI.StationShow
 {
@@ -22,21 +23,19 @@ namespace UI.StationShow
     public partial class AddStation : Window
     {
         public IBL1 bl;
-        public AddStation(IBL1 bl1)
+        Station station;
+        public AddStation(IBL1 bl1, Station station1)
         {
             InitializeComponent();
+            station = station1;
             bl = bl1;
-        }
-        public bool v(int a)
-        {
-            return a % 5 == 0;
         }
         private void Add(object sender, RoutedEventArgs e)
         {
             try
             {
-
-                BO.BusStationBO busStationBO = new BO.BusStationBO
+                BO.BusStationBO busStationBO = new BO.BusStationBO();
+                StationPO busStationPO = new StationPO
                 {
                     StationNumber = int.Parse(stationNumberTextBox.Text),
                     NameOfStation = nameOfStationTextBox.Text,
@@ -45,9 +44,13 @@ namespace UI.StationShow
                     AccessForDisabled = (bool)accessForDisabledComboBox.IsChecked,
                     RoofToTheStation = (bool)roofToTheStationComboBox1.IsChecked,
                 };
+                busStationPO.DeepCopyTo(busStationBO);
                 bl.AddStationToDo(busStationBO);
-                Station station = new Station(bl);
-                station.Show();
+                bl.ReturnStationToPL(busStationBO.StationNumber).DeepCopyTo(busStationPO);
+                station.busLineBOs.Add(busStationPO);
+                Close();
+                //Station station = new Station(bl);
+                //station.Show();
             }
             catch (BO.BOExceptionStation ex)
             {
@@ -55,6 +58,7 @@ namespace UI.StationShow
                      MessageBoxImage.Error);
             }
         }
+
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]$");

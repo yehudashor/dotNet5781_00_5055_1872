@@ -1,84 +1,78 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DO;
+/// <summary>
+/// An interface which realizes the service contract towards the bl layer, according to the crud principle.
+/// </summary>
 namespace DLAPI
 {
     /// <summary>
-    /// 
+    /// Each entity has the option of adding, deleting, updating, requesting a single object, requesting a complete collection, requests according to filtering conditions. 
+    /// Deletion is done with a Boolean field indicating the deletion of the entity.
     /// </summary>
     public interface IDAL
     {
         #region Bus
-        public void AddBus(Bus bus);
-        public void DeleteBus(string License_number);
+        void AddBus(Bus bus);
 
-        public void UpdatingBus(Bus bus);
-        public Bus ReturnBusToBl(string License_number);
+        void DeleteBus(string License_number);
 
-        public IEnumerable<Bus> BusLists();
+        void UpdatingBus(Bus bus);
 
-        // public IEnumerable<object> FilteringBusList(Predicate<Bus> predicate);
+        Bus ReturnBusToBl(string License_number);
+
+        IEnumerable<Bus> BusLists();
         #endregion Bus
 
         #region station
-        public void AddStation(BusStation station);
-        public void DeleteStation(int numberStation);
-
-        public void UpdatingStation(BusStation station);
-        public BusStation ReturnStation(int numberStation);
-
-        public IEnumerable<BusStation> StationList();
+        void AddStation(BusStation station);
+        void DeleteStation(int numberStation);
+        void UpdatingStation(BusStation station);
+        BusStation ReturnStation(int numberStation);
+        IEnumerable<BusStation> StationList();
         #endregion station
 
         #region BusLine
-        public int AddBusLine(BusLine Line);
-        public void DeleteBusLine(int BusLineID);
-        public void UpdatingBusLine(BusLine Line);
-        public BusLine ReturnBusLine(int numberLineId);
-        public IEnumerable<BusLine> BusLinesList();
-        public int BusLineId();
-        public IEnumerable<BusLine> BusLinesList(int numberLine);
+        int AddBusLine(BusLine Line);
+        void DeleteBusLine(int BusLineID);
+        void UpdatingBusLine(BusLine Line);
+        BusLine ReturnBusLine(int numberLineId);
+        IEnumerable<BusLine> BusLinesList();
+        int BusLineId();
+        IEnumerable<BusLine> BusLinesList(int numberLine);
         #endregion BusLine
 
         #region LineStation
-        public void AddLineStation(LineStation lineStation);
-        public void DeleteOneLineStation(int NumberLine, int stationNumber);
-        public void DeleteLineStation(int NumberLine);
-        public void DeleteLineStation1(int NumberLine);
-        public LineStation ReturnLineStation(int numberLine, int stationNumber);
-        public IEnumerable<LineStation> LineStationList();
-        public void UpdatingLineStation(LineStation lineStation);
-        public IEnumerable<LineStation> OneLineFromList(Predicate<LineStation> predicate);
-        public IEnumerable<int> LinesFromList(int numberStation);
-
-        // public IEnumerable<LineStation> OneLineFromList(Predicate<LineStation> predicate);
+        void AddLineStation(LineStation lineStation);
+        void DeleteOneLineStation(int NumberLine, int stationNumber);
+        void DeleteLineStation(int NumberLine);
+        void DeleteLineStation1(int NumberLine);
+        LineStation ReturnLineStation(int numberLine, int stationNumber);
+        IEnumerable<LineStation> LineStationList();
+        void UpdatingLineStation(LineStation lineStation);
+        IEnumerable<LineStation> OneLineFromList(Predicate<LineStation> predicate);
+        IEnumerable<int> LinesFromList(int numberStation);
         #endregion LineStation
 
         #region ConsecutiveStations
-        public bool ChackExistingConsecutiveStations(Predicate<ConsecutiveStations> predicate);
-        public void AddConsecutiveStations(ConsecutiveStations consecutiveStations);
-        public void DeleteConsecutiveStations(int stationNumber1, int stationNumber2);
-        public void UpdatingConsecutiveStations(ConsecutiveStations consecutiveStations);
-        public ConsecutiveStations ReturnConsecutiveStation(int stationNumber1, int stationNumber2);
-        public IEnumerable<ConsecutiveStations> ConsecutiveStationsList();
-        public float DistanceBetweenTooStations(int numberStation1, int numberStation2);
-        public TimeSpan AverageTimeBetweenTooStationsList(int numberStation1, int numberStation2);
-        // public IEnumerable<ConsecutiveStations> OneLineFromList(int numberLine);
-        //  public IEnumerable<LineStation> OneLineFromList(Predicate<LineStation> predicate);
+        bool ChackExistingConsecutiveStations(Predicate<ConsecutiveStations> predicate);
+        void AddConsecutiveStations(ConsecutiveStations consecutiveStations);
+        void DeleteConsecutiveStations(int stationNumber1, int stationNumber2);
+        void UpdatingConsecutiveStations(ConsecutiveStations consecutiveStations);
+        ConsecutiveStations ReturnConsecutiveStation(int stationNumber1, int stationNumber2);
+        IEnumerable<ConsecutiveStations> ConsecutiveStationsList();
+        float DistanceBetweenTooStations(int numberStation1, int numberStation2);
+        TimeSpan AverageTimeBetweenTooStationsList(int numberStation1, int numberStation2);
+        IEnumerable<ConsecutiveStations> ConsecutiveStationsListPredicate(Predicate<ConsecutiveStations> predicate);
         #endregion ConsecutiveStations
 
         #region LineExit
-        public void AddLineExit(LineExit lineExit);
-        public void DeleteLineExit(int lineNumber, TimeSpan StartTime);
-        public void UpdatingLineExit(LineExit lineExit);
-        public LineExit ReturnLineExit(int lineNumber, TimeSpan StartTime);
-        public LineExit OneLineExitFromList(int numberLine, TimeSpan StartTime);
-        public IEnumerable<LineExit> LineExitList(int numberLine);
-
-        // public IEnumerable<ConsecutiveStations> OneLineFromList(int numberLine);
+        void AddLineExit(LineExit lineExit);
+        void DeleteLineExit(int lineNumber, TimeSpan StartTime);
+        void UpdatingLineExit(LineExit lineExit);
+        LineExit ReturnLineExit(int lineNumber, TimeSpan StartTime);
+        LineExit OneLineExitFromList(int numberLine, TimeSpan StartTime);
+        IEnumerable<LineExit> LineExitList(int numberLine);
         #endregion LineExit
 
         #region BusTraveling
@@ -90,12 +84,12 @@ namespace DLAPI
         #endregion BusTraveling
 
         #region  User
-        public void AddUser(User user);
-        public void DeleteUser(string Username1);
-        public void UpdatingUser(User user);
-        public User ReturnUser(string Username1);
-        public IEnumerable<User> UseresList();
-        public bool FindUser(string pass, string UserNam);
+        void AddUser(User user);
+        void DeleteUser(string Username1);
+        void UpdatingUser(User user);
+        User ReturnUser(string Username1);
+        IEnumerable<User> UseresList();
+        bool FindUser(string pass, string UserNam);
         #endregion User
     }
 }

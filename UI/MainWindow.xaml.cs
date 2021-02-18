@@ -43,7 +43,7 @@ namespace UI
             }
             catch (BO.BOExceptionUser ex)
             {
-                _ = MessageBox.Show("One of the details you entered is incorrect!!! try again" + ex);
+                _ = MessageBox.Show("אחד או יותר מהפרטים שהזנת שגוי!!! נסה שנית", ex.Message, MessageBoxButton.OK, MessageBoxImage.Error);
                 UserN.ClearValue(TextBox.TextProperty);
             }
         }

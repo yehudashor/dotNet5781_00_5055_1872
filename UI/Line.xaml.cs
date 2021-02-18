@@ -1,62 +1,66 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using BLAPI;
 using UI.lines;
+using UI.PO;
 
 namespace UI
 {
     /// <summary>
     /// Interaction logic for Line.xaml
     /// </summary>
-    ///  <local:NumericUpDownControl x:Name="gradeNumUpDown" />
-    //<LinearGradientBrush EndPoint = "0.5,1" StartPoint="0.5,0">
-    //                    <GradientStop Color = "#FFEAE0E0" Offset="0.004"/>
-    //                    <GradientStop Color = "#FFD3CCCC" Offset="1"/>
-    //                    <GradientStop Color = "#FFA69C9C" Offset="0.5"/>
-    //                </LinearGradientBrush>
-    // <StackPanel Orientation = "Horizontal" >
-    //    < Button x:Name="cmdDown" Margin="1" Content="˅" Click="cmdDown_Click" />
-    //    <TextBox x:Name="textNumber" Margin="1" Width="50"  TextChanged="txtNum_TextChanged" />
-    //    <Button x:Name="cmdUp" Margin="1" Content="˄" Click="cmdUp_Click" />
-    //</StackPanel>
     public partial class Line : Window
     {
-        internal ObservableCollection<BO.BusLineBO> busLineBOs = new ObservableCollection<BO.BusLineBO>();
+        internal ObservableCollection<BusLine> busLineBOs = new ObservableCollection<BusLine>();
+
+        public BO.BusLineBO BusLineBO { get; set; }
+
         public IBL1 bl;
+
         public Line(IBL1 bl1)
         {
             InitializeComponent();
             bl = bl1;
-            lines.ItemsSource = Lines(busLineBOs);
-            //if (busLineBOs1 != null)
-            //{
-            //    busLineBOs.Add(bl.LineInformation(busLineBOs1.BusLineID1));
-            //    _ = busLineBOs.OrderBy(item => item.BusLineID1);
-            //    lines.Items.Refresh();
-            //}
+            busLineBOs = Lines(busLineBOs);
+            _ = busLineBOs.OrderBy(l => (int)l.AreaBusUrban);
+            lines.ItemsSource = busLineBOs;
         }
 
-
-        private ObservableCollection<BO.BusLineBO> Lines(ObservableCollection<BO.BusLineBO> busLineBOs)
+        private ObservableCollection<BusLine> Lines(ObservableCollection<BusLine> busLineBOs)
         {
             try
             {
+                List<BusLine> busLineBOs1 = new List<BusLine>();
                 int count = bl.ReturnBusLineIdFromDl();
                 for (int i = 0; i < count; i++)
                 {
-                    busLineBOs.Add(bl.LineInformation(i));
+                    BusLine busLine = new BusLine();
+                    BO.BusLineBO busLineBO = new BO.BusLineBO();
+                    busLineBO = bl.LineInformation(i);
+                    if (busLineBO != null)
+                    {
+                        busLineBO.DeepCopyTo(busLine);
+
+                        for (int j = 0; j < busLineBO.StationLineBOs.Count; j++)
+                        {
+                            StationLinePO stationLinePO = new StationLinePO();
+                            busLineBO.StationLineBOs[j].DeepCopyTo(stationLinePO);
+                            busLine.StationLineBOs.Add(stationLinePO);
+                        }
+                        for (int k = 0; k < busLineBO.LineExitBos1.Count; k++)
+                        {
+                            LineExitPO lineExitPO = new LineExitPO();
+                            busLineBO.LineExitBos1[k].DeepCopyTo(lineExitPO);
+                            lineExitPO.DepartureTimes = busLineBO.LineExitBos1[k].DepartureTimes;
+                            lineExitPO.TimeFinishTrval = busLineBO.LineExitBos1[k].TimeFinishTrval;
+                            busLine.LineExitBos1.Add(lineExitPO);
+                        }
+                        //busLineBOs1.Add(busLine);
+                        busLineBOs.Add(busLine);
+                    }
                 }
             }
             catch (BO.BOExceptionLine ex)
@@ -78,16 +82,14 @@ namespace UI
         }
         private void Add(object sender, RoutedEventArgs e)
         {
-            AddLine addLine = new AddLine(bl);
+            AddLine addLine = new AddLine(bl, this);
             addLine.Show();
-            Close();
         }
-
         private void Udapting(object sender, RoutedEventArgs e)
         {
             FrameworkElement frameworkElement = sender as FrameworkElement;
-            BO.BusLineBO busLineBO = frameworkElement.DataContext as BO.BusLineBO;
-            UdptingLine udptingLine = new UdptingLine(busLineBO, bl);
+            BusLine busLinePO = frameworkElement.DataContext as BusLine;
+            UdptingLine udptingLine = new UdptingLine(busLinePO, bl);
             _ = udptingLine.ShowDialog();
         }
         private void Delete(object sender, RoutedEventArgs e)
@@ -95,10 +97,9 @@ namespace UI
             try
             {
                 FrameworkElement frameworkElement = sender as FrameworkElement;
-                BO.BusLineBO busLineBO = frameworkElement.DataContext as BO.BusLineBO;
-                bl.DeleteBusLineBO(busLineBO.BusLineID1);
-                busLineBOs.RemoveAt(busLineBO.BusLineID1);
-                busLineBOs.Insert(busLineBO.BusLineID1, bl.LineInformation(busLineBO.BusLineID1));
+                BusLine busLinePO = frameworkElement.DataContext as BusLine;
+                bl.DeleteBusLineBO(busLinePO.BusLineID1);
+                _ = busLineBOs.Remove(busLinePO);
                 lines.Items.Refresh();
             }
             catch (BO.BOExceptionLine ex)
@@ -114,11 +115,10 @@ namespace UI
         }
         private void Lines_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            BO.BusLineBO busLineBO = (BO.BusLineBO)lines.SelectedItem;
-            ShowLine showLine = new ShowLine(busLineBO, bl);
+            BusLine busLinePO = (BusLine)lines.SelectedItem;
+            ShowLine showLine = new ShowLine(busLinePO, bl, this);
             _ = showLine.ShowDialog();
             lines.Items.Refresh();
-            Close();
         }
     }
 }

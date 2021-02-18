@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DLAPI;
 
 namespace DO
 {
     /// <summary>
-    /// 
+    /// Line Station Department. Which connects a physical station to a line by - the line number + the station number.
+    /// And in addition holds the location of the station on the line.
     /// </summary>
     public class LineStation
     {

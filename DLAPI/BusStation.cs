@@ -8,7 +8,7 @@ using DLAPI;
 namespace DO
 {
     /// <summary>
-    /// 
+    /// Physical Station Department.
     /// </summary>
     public class BusStation
     {

@@ -21,7 +21,7 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Chack Delete:"/>
+            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3"  HorizontalAlignment="Left" Grid.Column="0" Content="Chack Delete:"/>
             <CheckBox x:Name="chackDeleteCheckBox" VerticalAlignment="Center" Grid.Row="3" Margin="3" IsChecked="{Binding ChackDelete, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Grid.Column="1" Content=""/>
             <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Password:"/>
             <TextBox x:Name="passwordTextBox" Width="120" VerticalAlignment="Center" Text="{Binding Password, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
@@ -37,7 +37,7 @@
             <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Username:"/>
             <TextBox x:Name="usernameTextBox" Width="120" VerticalAlignment="Center" Text="{Binding Username, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
         </Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="267,305,0,0" VerticalAlignment="Top" Width="158" Height="31" Click="Button_Click"/>
+        <Button Content="הוסף" HorizontalAlignment="Left" Margin="267,305,0,0" VerticalAlignment="Top" Width="158" Height="31" Click="Button_Click"/>
 
     </Grid>
 </Window>

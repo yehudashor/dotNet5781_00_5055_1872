@@ -5,61 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="Manager Login" Height="auto" Width="auto" Background= "Linen" WindowState="Maximized">
-    <Border Margin="5,5,5.333,0" Padding="5" Background="LightYellow" 
-          BorderBrush="SteelBlue" BorderThickness="3,5,3,5" CornerRadius="3"
-          VerticalAlignment="Top" Height="452">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="*"/>
+        Title="Manager Login" Width="700" Height="auto">
 
-            </Grid.RowDefinitions>
-            <StackPanel RenderTransformOrigin="0.514,0.495" Grid.Row="0">
+    <!--<Window.Background>
+        <ImageBrush  ImageSource=""></ImageBrush>
+    </Window.Background>-->
+    <!--<Border   Background="LightYellow" 
+          BorderBrush="SteelBlue" BorderThickness="3,5,3,5"
+           >-->
 
-                <TextBlock Text ="Enter a username:" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock.Foreground>
-                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                            <GradientStop Color="Yellow" Offset="0.0" />
-                            <GradientStop Color="Red" Offset="0.25" />
-                            <GradientStop Color="Blue" Offset="0.75" />
-                            <GradientStop Color="LimeGreen" Offset="1.0" />
-                        </LinearGradientBrush>
-                    </TextBlock.Foreground>
-                </TextBlock>                <TextBox x:Name="UserN" Height="23" TextWrapping="Wrap" Margin="232,0,254,0" />                <TextBlock Text = "password:" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock.Foreground>
-                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                            <GradientStop Color="Yellow" Offset="0.0" />
-                            <GradientStop Color="Red" Offset="0.25" />
-                            <GradientStop Color="Blue" Offset="0.75" />
-                            <GradientStop Color="LimeGreen" Offset="1.0" />
-                        </LinearGradientBrush>
-                    </TextBlock.Foreground>
-                </TextBlock>
+    <Grid >
 
-                <PasswordBox x:Name="Password1" PasswordChar="*" Margin="231,0,253,0" Height="24" />
-                <Grid Height="80">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="7*"/>
-                        <ColumnDefinition Width="9*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button Content="Log in" Margin="231,0,253,-5" Click="LodIn" Background="LightBlue" Height="51" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
-                        <Button.Style>
-                            <Style>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=UserN, Path=Text}" Value="">
-                                        <Setter Property="Button.IsEnabled" Value ="False"/>
-                                    </DataTrigger>
-                                    <!--<DataTrigger Binding="{Binding ElementName=Password1, Path=Password}" Value="">
+        <Image Source="160323089-user-login-background-with-light-and-text.jpg"   ></Image>
+        <StackPanel  >
+            <TextBlock Text ="שם משתמש:" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock.Foreground>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="Yellow" Offset="0.0" />
+                        <GradientStop Color="Red" Offset="0.25" />
+                        <GradientStop Color="Blue" Offset="0.75" />
+                        <GradientStop Color="LimeGreen" Offset="1.0" />
+                    </LinearGradientBrush>
+                </TextBlock.Foreground>
+            </TextBlock>                       <TextBox x:Name="UserN" Height="23" TextWrapping="Wrap" Width="250" />            <Line X1="2" Y1="3"  Height="13" Width="250" >            </Line>            <TextBlock Text = "סיסמה:" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock.Foreground>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="Yellow" Offset="0.0" />
+                        <GradientStop Color="Red" Offset="0.25" />
+                        <GradientStop Color="Blue" Offset="0.75" />
+                        <GradientStop Color="LimeGreen" Offset="1.0" />
+                    </LinearGradientBrush>
+                </TextBlock.Foreground>
+            </TextBlock>
+
+            <PasswordBox x:Name="Password1" PasswordChar="*" Width="250" Height="23" />
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="9*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="התחבר"  Click="LodIn" Foreground="Red"  Height="51" VerticalAlignment="Top" Width="250" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="260,249,251.333,-300" >
+                    <Button.Style>
+                        <Style>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=UserN, Path=Text}" Value="">
+                                    <Setter Property="Button.IsEnabled" Value ="False"/>
+                                </DataTrigger>
+                                <!--<DataTrigger Binding="{Binding ElementName=Password1, Path=Password}" Value="">
                                     <Setter Property="Button.IsEnabled" Value ="False"/>
                                 </DataTrigger>-->
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                    </Button>
-                </Grid>
-            </StackPanel>
-            <!--<Button Content="Add/Delete/Updating - User" HorizontalAlignment="Left" Margin="99,33.667,0,0" Grid.Row="1" VerticalAlignment="Top" Width="238" Height="34" Click="Button_Click"/>-->
-        </Grid>
-    </Border>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
+
+            <!--<Image Height="184" Source ="https://cdn5.vectorstock.com/i/1000x1000/08/29/login-interface-username-and-password-vector-1960829.jpg"/>
+                <TextBox Height="23" TextWrapping="Wrap" Text="TextBox"/>-->
+        </StackPanel>
+        <!--<Button Content="Add/Delete/Updating - User" HorizontalAlignment="Left" Margin="99,33.667,0,0" Grid.Row="1" VerticalAlignment="Top" Width="238" Height="34" Click="Button_Click"/>-->
+    </Grid>
+
+    <!--</Border>-->
 </Window>

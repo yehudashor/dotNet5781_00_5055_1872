@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BLAPI;
+using UI.PO;
 using UI.StationLine;
 
 namespace UI.lines
@@ -23,17 +25,29 @@ namespace UI.lines
     public partial class AddLine : Window
     {
         public IBL1 bl;
-        public AddLine(IBL1 bl1)
+        public Line Add;
+        public ObservableCollection<StationPO> busLineBOs1 = new ObservableCollection<StationPO>();
+        public AddLine(IBL1 bl1, Line Add1)
         {
             InitializeComponent();
+            Add = Add1;
             bl = bl1;
-            IEnumerable<BO.BusStationBO> busStationBOs = bl.ShowStation();
-            firstStationComboBox.ItemsSource = busStationBOs;
+            List<BO.BusStationBO> busStationBOs = bl.ShowStation().ToList();
+
+            for (int i = 0; i < busStationBOs.Count; i++)
+            {
+                StationPO stationPO = new StationPO();
+                busStationBOs[i].DeepCopyTo(stationPO);
+                busLineBOs1.Add(stationPO);
+            }
+
+            firstStationComboBox.ItemsSource = busLineBOs1;
             firstStationComboBox.DisplayMemberPath = "StationNumber";
 
-            lastStationComboBox.ItemsSource = busStationBOs;
+            lastStationComboBox.ItemsSource = busLineBOs1;
             lastStationComboBox.DisplayMemberPath = "StationNumber";
-            Stations.ItemsSource = busStationBOs;
+
+            Stations.ItemsSource = busLineBOs1;
 
             areaBusUrbanComboBox.ItemsSource = Enum.GetValues(typeof(BO.Area1));
             getUrbanComboBox.ItemsSource = Enum.GetValues(typeof(BO.Urban));
@@ -57,10 +71,9 @@ namespace UI.lines
 
             BusLineBO.StationLineBOs = new List<BO.StationLineBO>
             {
-                new BO.StationLineBO { StationNumberOnLine = ((BO.BusStationBO)firstStationComboBox.SelectedItem).StationNumber },
-                new BO.StationLineBO { StationNumberOnLine = ((BO.BusStationBO)lastStationComboBox.SelectedItem).StationNumber}
+                new BO.StationLineBO { StationNumberOnLine = ((StationPO)firstStationComboBox.SelectedItem).StationNumber},
+                new BO.StationLineBO { StationNumberOnLine = ((StationPO)lastStationComboBox.SelectedItem).StationNumber}
             };
-         
             try
             {
                 if (BusLineBO.StationLineBOs[0].StationNumberOnLine != BusLineBO.StationLineBOs[1].StationNumberOnLine)
@@ -70,9 +83,17 @@ namespace UI.lines
                     {
                         case MessageBoxResult.OK:
                             bl.AddBusLineBO(BusLineBO);
-                            BO.BusLineBO busLineBO1 = bl.LineInformation(BusLineBO.BusLineID1);
-                            Line line = new Line(bl);
-                            line.Show();
+                            BusLine busLine = new BusLine();
+                            BO.BusLineBO busLineBO = new BO.BusLineBO();
+                            busLineBO = bl.LineInformation(BusLineBO.BusLineID1);
+                            busLineBO.DeepCopyTo(busLine);
+                            for (int j = 0; j < busLineBO.StationLineBOs.Count; j++)
+                            {
+                                StationLinePO stationLinePO = new StationLinePO();
+                                busLineBO.StationLineBOs[j].DeepCopyTo(stationLinePO);
+                                busLine.StationLineBOs.Add(stationLinePO);
+                            }
+                            Add.busLineBOs.Add(busLine);
                             MessageBoxResult messageBoxResult = MessageBox.Show("הקו נוסף למערכת", "Good");
                             Close();
                             break;

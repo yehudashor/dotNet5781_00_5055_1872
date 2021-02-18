@@ -13,28 +13,28 @@
         <ListView x:Name="consecutiveStationsBoListView" SelectionMode="Single" Margin="0,0,3.333,5.667" ItemsSource="{Binding}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn x:Name="stationNumber1Column" Width="130" Header="Station Number 1">
+                    <GridViewColumn x:Name="stationNumber1Column" Width="130" Header="מספר תחנה 1">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBox Margin="-6,-1" Text="{Binding StationNumber1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn x:Name="stationNumber2Column" Width="130" Header="Station Number 2">
+                    <GridViewColumn x:Name="stationNumber2Column" Width="130" Header="מספר תחנה 2 ">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBox Margin="-6,-1" Text="{Binding StationNumber2, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn x:Name="averageTimeColumn" Width="130" Header="Average Time">
+                    <GridViewColumn x:Name="averageTimeColumn" Width="130" Header="זמן נסיעה">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBox Margin="6,-1,-6,-1" Text="{Binding AverageTime, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn x:Name="distanceBetweenTooStationsColumn" Width="200" Header="Distance Between Too Stations">
+                    <GridViewColumn x:Name="distanceBetweenTooStationsColumn" Width="200" Header="מרחק">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBox Margin="-6,-1" Text="{Binding DistanceBetweenTooStations, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>

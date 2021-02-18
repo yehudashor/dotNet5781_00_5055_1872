@@ -1,15 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace BO
 {
+    /// <summary>
+    /// A class representing the arrival times of the lines to the station.
+    /// In addition includes the travel time of a line from the above station to any station at the request of the company / customer.
+    /// </summary>
     public class LineTrip
     {
         public int LineNumber { get; set; }
         public string NameOfLastStation { get; set; }
-        //public List<TimeSpan> StartTrip = new List<TimeSpan>();
-        //public List<TimeSpan> TimeCameToStation = new List<TimeSpan>();
-        //public List<TimeSpan> TimeFromStationToDestination = new List<TimeSpan>()
         public TimeSpan StartTrip { get; set; }
         public TimeSpan TimeCameToStation { get; set; }
         public TimeSpan TimeFromStationToDestination { get; set; }

@@ -122,7 +122,7 @@
                 <GridView>
                     <GridViewColumn Header="מספר הקו" Width ="100" DisplayMemberBinding="{Binding LineNumber }" />
                     <GridViewColumn Header="יצא בשעה" Width ="100" DisplayMemberBinding="{Binding StartTrip  }" />
-                    <GridViewColumn Header="יגיע בעוד" Width ="100" DisplayMemberBinding="{Binding TimeCameToStation  }" />
+                    <GridViewColumn Header="יגיע לתחנה בעוד" Width ="100" DisplayMemberBinding="{Binding TimeCameToStation  }" />
                     <GridViewColumn Header="יגיע ליעד בעוד" Width ="100" DisplayMemberBinding="{Binding  TimeFromStationToDestination  }" />
                     <GridViewColumn Header="תחנת סיום" Width ="210" DisplayMemberBinding="{Binding NameOfLastStation}" />
                 </GridView>

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+/// <summary>
+/// Exceptional classes of bl.
+/// </summary>
 namespace BO
 {
     [Serializable]
@@ -81,14 +79,19 @@ namespace BO
     public class BOExceptionUser : Exception
     {
         public string Id;
+
+        public BOExceptionUser(string message) : base(message)
+        {
+        }
+
         public BOExceptionUser(string messge, Exception innerException) : base(messge, innerException)
         {
             Id = ((DO.ExceptionUser)innerException).Id;
         }
-        public override string ToString()
-        {
-            return base.ToString() + $", Error: {Id}";
-        }
+        //public override string ToString()
+        //{
+        //    return base.ToString() + $", Error: {Id}";
+        //}
     }
     public class BOExceptionConsecutiveStations : Exception
     {

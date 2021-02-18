@@ -54,6 +54,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -63,9 +65,11 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -105,9 +109,14 @@
     <Compile Include="LineTrip\LineTripS.xaml.cs">
       <DependentUpon>LineTripS.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ShowBuses.xaml.cs">
-      <DependentUpon>ShowBuses.xaml</DependentUpon>
+    <Compile Include="PO\BusLine.cs" />
+    <Compile Include="PO\CopyProp.cs" />
+    <Compile Include="PO\LineExitPO.cs" />
+    <Compile Include="PO\modl.xaml.cs">
+      <DependentUpon>modl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PO\StationLinePO.cs" />
+    <Compile Include="PO\StationPO.cs" />
     <Compile Include="ShowLines.xaml.cs">
       <DependentUpon>ShowLines.xaml</DependentUpon>
     </Compile>
@@ -203,7 +212,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ShowBuses.xaml">
+    <Page Include="PO\modl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -313,6 +322,33 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Employee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Homepage-Banner-Bus-1609320344.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="public-transportation-app-concept-eco-bus-poster-electric-transport-vehicles-blue-energy-modern-city-environment-light-175407497.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="london-double-decker-bus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="160323089-user-login-background-with-light-and-text.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Station.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="depositphotos_163541732-stock-illustration-city-transport-infrastructure-panorama-people.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="imgbin-tour-bus-service-transport-coach-bus-terminus-bus-bXja713aDRiiKfw2gCA9T9e48.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="school-bus-2483644-2075656.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

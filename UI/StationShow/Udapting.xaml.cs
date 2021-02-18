@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BLAPI;
+using UI.PO;
 
 namespace UI.StationShow
 {
@@ -22,13 +23,13 @@ namespace UI.StationShow
     public partial class Udapting : Window
     {
         public bool MyProperty { get; set; }
-        BO.BusStationBO busStationBO;
+        public StationPO busStationPO;
         public IBL1 bl;
-        public Udapting(BO.BusStationBO busStationBO1, IBL1 bl1)
+        public Udapting(StationPO busStationPO1, IBL1 bl1)
         {
-            busStationBO = busStationBO1;
+            busStationPO = busStationPO1;
             InitializeComponent();
-            stationNumberTextBox.Text = busStationBO1.StationNumber.ToString();
+            stationNumberTextBox.Text = busStationPO1.StationNumber.ToString();
             bl = bl1;
         }
 
@@ -36,15 +37,16 @@ namespace UI.StationShow
         {
             try
             {
-                busStationBO.NameOfStation = nameOfStationTextBox.Text;
-                busStationBO.StationAddress = stationAddressTextBox.Text;
-                busStationBO.IsAvailable3 = (bool)isAvailable3CheckBox.IsChecked;
-                busStationBO.AccessForDisabled = (bool)accessForDisabledComboBox.IsChecked;
-                busStationBO.RoofToTheStation = (bool)roofToTheStationComboBox1.IsChecked;
+                BO.BusStationBO busStationBO = new BO.BusStationBO();
+                busStationPO.NameOfStation = nameOfStationTextBox.Text;
+                busStationPO.StationAddress = stationAddressTextBox.Text;
+                busStationPO.IsAvailable3 = (bool)isAvailable3CheckBox.IsChecked;
+                busStationPO.AccessForDisabled = (bool)accessForDisabledComboBox.IsChecked;
+                busStationPO.RoofToTheStation = (bool)roofToTheStationComboBox1.IsChecked;
+                busStationPO.DeepCopyTo(busStationBO);
                 bl.DeleteStationFromDo(busStationBO.StationNumber);
                 bl.AddStationToDo(busStationBO);
-                Station station = new Station(bl);
-                station.Show();
+                Close();
             }
             catch (BO.BOExceptionStation ex)
             {

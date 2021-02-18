@@ -45,19 +45,16 @@ namespace UI.Users
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AddUser addUser = new AddUser(bl);
+            AddUser addUser = new AddUser(bl, this);
             addUser.Show();
-            Close();
         }
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
-
             FrameworkElement frameworkElement = sender as FrameworkElement;
             BO.UserBo userBo = frameworkElement.DataContext as BO.UserBo;
             UdaptingUser udaptingUser = new UdaptingUser(bl, userBo);
             udaptingUser.Show();
             Close();
-
         }
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
@@ -67,7 +64,6 @@ namespace UI.Users
                 BO.UserBo userBo = frameworkElement.DataContext as BO.UserBo;
                 bl.DeleteUserFromDo(userBo.Username);
                 _ = busLineBOs.Remove(userBo);
-                busLineBOs.Add(bl.GetUser(userBo.Username));
             }
             catch (BO.BOExceptionUser ex)
             {

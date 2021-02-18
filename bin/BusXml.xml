@@ -317,7 +317,7 @@
     <Status>OnRefueling</Status>
     <TotalMiles>22071</TotalMiles>
     <DayOfTreatment>0001-01-01T00:00:00</DayOfTreatment>
-    <IsAvailable>true</IsAvailable>
+    <IsAvailable>false</IsAvailable>
   </Bus>
   <Bus>
     <License_number>3123133</License_number>
@@ -570,7 +570,7 @@
     <Status>InMiddleOfTrip</Status>
     <TotalMiles>27336</TotalMiles>
     <DayOfTreatment>0001-01-01T00:00:00</DayOfTreatment>
-    <IsAvailable>true</IsAvailable>
+    <IsAvailable>false</IsAvailable>
   </Bus>
   <Bus>
     <License_number>5459714</License_number>
@@ -1097,6 +1097,28 @@
     <KmForRefueling>172</KmForRefueling>
     <Status>InMiddleOfTrip</Status>
     <TotalMiles>4128</TotalMiles>
+    <DayOfTreatment>0001-01-01T00:00:00</DayOfTreatment>
+    <IsAvailable>true</IsAvailable>
+  </Bus>
+  <Bus>
+    <License_number>80900550</License_number>
+    <KmForTreatment>3417</KmForTreatment>
+    <StartDate>2018-09-04T00:00:00</StartDate>
+    <KmOfTreatment>0</KmOfTreatment>
+    <KmForRefueling>0</KmForRefueling>
+    <Status>InMiddleOfTrip</Status>
+    <TotalMiles>27336</TotalMiles>
+    <DayOfTreatment>0001-01-01T00:00:00</DayOfTreatment>
+    <IsAvailable>true</IsAvailable>
+  </Bus>
+  <Bus>
+    <License_number>1466514</License_number>
+    <KmForTreatment>8408</KmForTreatment>
+    <StartDate>2016-02-02T00:00:00</StartDate>
+    <KmOfTreatment>0</KmOfTreatment>
+    <KmForRefueling>0</KmForRefueling>
+    <Status>OnRefueling</Status>
+    <TotalMiles>22071</TotalMiles>
     <DayOfTreatment>0001-01-01T00:00:00</DayOfTreatment>
     <IsAvailable>true</IsAvailable>
   </Bus>

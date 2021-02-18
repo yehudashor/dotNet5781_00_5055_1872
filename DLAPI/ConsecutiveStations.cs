@@ -8,7 +8,8 @@ using DLAPI;
 namespace DO
 {
     /// <summary>
-    /// 
+    /// Department of Subsequent Stations. 
+    /// Which holds information about the time and distance of two consecutive stations.
     /// </summary>
     public class ConsecutiveStations
     {
@@ -18,14 +19,5 @@ namespace DO
 
         public float DistanceBetweenTooStations { get; set; }
         public TimeSpan AverageTime { get; set; }
-        public override string ToString()
-        {
-            return ToStringProperty();
-        }
-
-        private string ToStringProperty()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

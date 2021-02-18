@@ -6,9 +6,63 @@
         xmlns:local="clr-namespace:UI"
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="UI.ShowLine"
         mc:Ignorable="d"
-        Title="ShowLine" Height="800" Width="1350">
+        Title="ShowLine" Height="800" Width="1350"  >
     <!--WindowState="Maximized"-->
     <Window.Resources>
+        <!--<Style x:Key = "TriggerStyle" TargetType = "Button">
+            <Style.Triggers>
+                <Trigger Property = "IsMouseOver" Value = "True">
+                    <Setter Property = "Foreground" Value = "Red" />
+                    <Setter Property = "Background" Value = "Green" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>-->
+        <ControlTemplate x:Key = "ButtonTemplate" TargetType = "Button">
+            <Grid>
+
+                <Ellipse x:Name = "ButtonEllipse" Height = "100" Width = "150" >
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint = "0,0.2" EndPoint = "0.2,1.4">
+                            <!--<GradientStop Offset = "0" Color = "Red" />
+                            <GradientStop Offset = "1" Color = "Orange" />-->
+                            <GradientStop Offset="0.0" Color="#90DDDD" />
+                            <GradientStop Offset="1.0" Color="#5BFFFF" />
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+
+                <ContentPresenter Content = "{TemplateBinding Content}" 
+               HorizontalAlignment = "Center" VerticalAlignment = "Center" />
+            </Grid>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key = "ButtonTemplate1" TargetType = "Button">
+            <Grid>
+
+                <Ellipse x:Name = "ButtonEllipse" Height = "50" Width = "70" >
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint = "0,0.2" EndPoint = "0.2,1.4">
+                            <!--<GradientStop Offset = "0" Color = "Red" />
+                            <GradientStop Offset = "1" Color = "Orange" />-->
+                            <GradientStop Offset="0.0" Color="#90DDDD" />
+                            <GradientStop Offset="1.0" Color="#5BFFFF" />
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+
+                <ContentPresenter Content = "{TemplateBinding Content}" 
+               HorizontalAlignment = "Center" VerticalAlignment = "Center" />
+            </Grid>
+        </ControlTemplate>
+
+
+
+
+
+
+
+
+
         <Style x:Key="BaseControlStyle" 
                TargetType="{x:Type Control}">
             <Setter Property="FontFamily" Value="Tahoma" />
@@ -45,6 +99,8 @@
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
+
+
         </Style>
 
         <Style TargetType="ListViewItem">
@@ -65,9 +121,29 @@
 
         <Style TargetType="{x:Type Label}" 
                BasedOn="{StaticResource HeaderStyle}">
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="Margin" Value="5, 8, -4, 15"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
         <Style TargetType="{x:Type TextBox}" 
                BasedOn="{StaticResource HeaderStyle}">
+            <!--<Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Offset="0.0" Color="#90DDDD" />
+                            <GradientStop Offset="1.0" Color="#5BFFFF" />
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>-->
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
             <Setter Property="IsReadOnly" Value="True"/>
         </Style>
 
@@ -75,51 +151,94 @@
             <Setter Property="FontFamily" Value="Times New Roman" />
             <Setter Property="FontSize" Value="22" />
             <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Offset="0.0" Color="#90DDDD" />
+                            <GradientStop Offset="1.0" Color="#5BFFFF" />
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
         </Style>
 
     </Window.Resources>
 
-    <Grid >
+    <Grid  >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="296" />
+            <ColumnDefinition Width="220" />
             <ColumnDefinition Width="1554" />
         </Grid.ColumnDefinitions>
-        <Grid x:Name="shoeLine" VerticalAlignment="Top" Margin="0,10,0,0" HorizontalAlignment="Left" Width="280" Height="405">
+        <Grid x:Name="shoeLine" Grid.ColumnSpan="2" Margin="2,0,1552,-1.333" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto" MinHeight="56.667"/>
-                <RowDefinition Height="Auto" MinHeight="56.667"/>
-                <RowDefinition Height="Auto" MinHeight="64"/>
-                <RowDefinition Height="Auto" MinHeight="63.333"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
 
-            <Label VerticalAlignment="Center" FontSize ="15"  Grid.Row="2" Margin="3,12.667,0,10.667" HorizontalAlignment="Left" Grid.Column="0" Content="Area Line:" Height="26" Width="115"/>
-            <TextBox x:Name="areaBusUrbanComboBox"  FontSize ="15" Width="120" VerticalAlignment="Center" Grid.Row="2" Margin="3,21.667,0,16" Height="27" HorizontalAlignment="Left"  Grid.Column="1" Text="{Binding AreaBusUrban, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-            <Label VerticalAlignment="Center" Width="115" FontSize ="15" Grid.Row="0" Margin="3,18,0,6.667" HorizontalAlignment="Left" Grid.Column="0" Content="Line ID:" Height="26"/>
-            <TextBox x:Name="busLineID1TextBox"  Width="121" FontSize ="15" VerticalAlignment="Center" Text="{Binding BusLineID1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3,20,0,4.667" Height="26" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" FontSize ="15" Grid.Row="4" Margin="3,8.667,0,22" HorizontalAlignment="Left" Grid.Column="0" Content="First Station:" Height="26" Width="115"/>
-            <TextBox x:Name="firstStationTextBox" FontSize ="15" Width="120" VerticalAlignment="Center" Text="{Binding FirstStation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3,9.667,0,19" Height="28" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="3" FontSize ="15" Margin="3,13.333,0,17.333" HorizontalAlignment="Left" Grid.Column="0" Content="Is Available 1:" Height="26" Width="115"/>
-            <TextBox x:Name="isAvailable1TextBox" Width="120" FontSize ="15" VerticalAlignment="Center" Text="{Binding GetAvailable, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3,14.333,0,18.333" Height="24" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="5" FontSize ="15" Margin="3,22,0,16" HorizontalAlignment="Left" Grid.Column="0" Content="Last Station:" Height="26" Width="115"/>
-            <TextBox x:Name="lastStationTextBox" Width="120" FontSize ="15" VerticalAlignment="Center" Text="{Binding LastStation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3,23,0,14" Height="27" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="1" FontSize ="15" Margin="3,14.333,0,24.333" HorizontalAlignment="Left" Grid.Column="0" Content="Line Number:" Height="26" Width="115"/>
-            <TextBox x:Name="lineNumberTextBox" Width="120" FontSize ="15" VerticalAlignment="Center" Text="{Binding LineNumber, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3,15.333,0,22.333" Height="27" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="6" FontSize ="15" Margin="3,11,7,26.333" Grid.Column="0" Content="Urban/InterUrban:" Height="26"/>
-            <TextBox x:Name="urbanInterUrbanTextBox" Width="120" FontSize ="15" VerticalAlignment="Center" Text="{Binding  GetUrban, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="6" Margin="3,12,0,24.333" Height="27" HorizontalAlignment="Left" Grid.Column="1"/>
+            </Grid.RowDefinitions>
+
+            <Label VerticalAlignment="Center"    Content="מספר מזהה" Margin="76,4,57,11.333" Width="87" />
+            <TextBox x:Name="busLineID1TextBox"  Text="{Binding BusLineID1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" />
+
+            <Label Grid.Row="2"  Content="מספר הקו" Margin="78,8.333,61,7" Width="81" />
+            <TextBox x:Name="lineNumberTextBox" Text="{Binding LineNumber, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="3" />
+
+            <Label Grid.Row="4" Content="אזור" Margin="91,7.667,81,7.667" Width="48" />
+            <TextBox x:Name="areaBusUrbanComboBox"    Grid.Row="5"  Text="{Binding AreaBusUrban, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+
+            <Label Grid.Row="6" Content="עירוני/בין עירוני" Margin="62,8,46,7.333" Width="112" />
+            <TextBox x:Name="urbanInterUrbanTextBox"  Text="{Binding  GetUrban, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="7" />
+
+            <Label Grid.Row="8"  Content="תחנה ראשונה" Margin="62,8.333,46,7" Width="112" />
+            <TextBox x:Name="firstStationTextBox"  Text="{Binding FirstStation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="9" />
+
+            <Label Grid.Row="10"  Content="תחנה אחרונה" Margin="59,7.667,64,7.667" Width="97" />
+            <TextBox x:Name="lastStationTextBox"  Text="{Binding LastStation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="11" />
+
+            <Label Content="קו ראשון" Grid.Row="12" Margin="79,8,72,7.333" Width="69" />
+            <TextBox x:Name="beginningTimeTextBox"  Grid.Row="13" Text="{Binding BeginningTime, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+
+            <Label Content="קו אחרון" Grid.Row="14" Margin="77,8.333,75,7" Width="68" />
+            <TextBox x:Name="endTimeTextBox" Grid.Row="15" Text="{Binding EndTime, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
+
+            <Label  Grid.Row="16"  Content="זמינות הקו" Margin="76,8.333,70,4.333" Width="74" />
+            <TextBox x:Name="isAvailable1TextBox"  Text="{Binding GetAvailable, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="17" />
+            <Line Grid.Row="2"></Line>
         </Grid>
 
-        <ListView x:Name="busStationBOListView"  SelectionChanged="BusStationBOListView_SelectionChanged"  ItemsSource="{Binding}" Margin="3,5,3,350.667" SelectionMode="Single" Grid.Column="1"  >
+
+
+
+
+
+        <ListView x:Name="busStationBOListView"  SelectionChanged="BusStationBOListView_SelectionChanged"  ItemsSource="{Binding}" Margin="3,5,531,255.667" SelectionMode="Single" Grid.Column="1"  >
             <ListView.View >
                 <GridView >
-                    <GridViewColumn  x:Name="stationNumberColumn" Header="Station Number" Width="100">
+                    <GridViewColumn x:Name="Location1" Header="מספר" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="6,-1,-6,-1" Text="{Binding LocationNumberOnLine }"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn  x:Name="stationNumberColumn" Header="מספר תחנה" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Margin="-6,-1" Text="{Binding StationNumberOnLine}"/>
@@ -127,7 +246,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn x:Name="nameOfStationColumn" Header="Name Of Station" Width="130">
+                    <GridViewColumn x:Name="nameOfStationColumn" Header="שם תחנה" Width="130">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Margin="-6,-1" Text="{Binding NameOfStation}"/>
@@ -136,7 +255,7 @@
                     </GridViewColumn>
 
 
-                    <GridViewColumn x:Name="isAvailable3Column" Header="Is Available 3" Width="120">
+                    <GridViewColumn x:Name="isAvailable3Column" Header="זמינה/לא זמינה" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Margin="6,-1,-6,-1" Text="{Binding ChackDelete2 }"/>
@@ -144,14 +263,14 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn x:Name="Distance" Header="Distance" Width="120">
+                    <GridViewColumn x:Name="Distance" Header="מרחקים" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Margin="6,-1,-6,-1" Text="{Binding DistanceBetweenTooStations }"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn x:Name="Time" Header="Time" Width="120">
+                    <GridViewColumn x:Name="Time" Header="זמנים" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Margin="6,-1,-6,-1" Text="{Binding AverageTime }"/>
@@ -159,18 +278,12 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn x:Name="Location1" Header="Location" Width="120">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Margin="6,-1,-6,-1" Text="{Binding LocationNumberOnLine }"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
 
-                    <GridViewColumn x:Name="Delete1" Header="Delete" Width="120">
+
+                    <GridViewColumn x:Name="Delete1" Header="מחיקת תחנה מהקו" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Margin="6,-1,-6,-1" Content="מחיקה" Click="Delete" />
+                                <Button Template = "{StaticResource ButtonTemplate1}" Margin="6,-1,-6,-1" Content="מחיקה" Click="Delete" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -178,7 +291,7 @@
                     <GridViewColumn x:Name="Udapting" Header="עדכון מרחק/זמן" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Margin="6,-1,-6,-1" Content="עדכון מרחק/זמן" Click="UdaptingTd" />
+                                <Button Template = "{StaticResource ButtonTemplate1}" Margin="6,-1,-6,-1" Content="עדכון" Click="UdaptingTd" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -186,13 +299,13 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="addStation" IsEnabled="False" Content="Add station" HorizontalAlignment="Left" Margin="196,421,0,0" VerticalAlignment="Top" Width="546" Height="40" Click="Button_Click" Grid.Column="1"/>
+        <Button x:Name="addStation" Background="Aqua" Foreground="Indigo" IsEnabled="False" Content="הוסף תחנה" HorizontalAlignment="Left" Margin="196,421,0,0" VerticalAlignment="Top" Width="546" Height="40" Click="Button_Click" Grid.Column="1"/>
 
-        <ListView x:Name="exit" ItemsSource="{Binding}" SelectionChanged="Exit_SelectionChanged"  HorizontalAlignment="Left" Height="173" Margin="6,466,0,0" VerticalAlignment="Top" Width="351" Grid.Column="1">
+        <ListView x:Name="exit" ItemsSource="{Binding}" SelectionChanged="Exit_SelectionChanged"  HorizontalAlignment="Left" Height="188" Margin="286,466,0,0" VerticalAlignment="Top" Width="371" Grid.Column="1">
 
             <ListView.View >
                 <GridView>
-                    <GridViewColumn x:Name="StartTime" Header="Start" Width="90">
+                    <GridViewColumn x:Name="StartTime" Header="זמן התחלה" Width="90">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Margin="6,-1,-6,-1" Text="{Binding  LineStartTime  }"/>
@@ -200,7 +313,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn x:Name="FinishTime" Header="Finish" Width="90">
+                    <GridViewColumn x:Name="FinishTime" Header="זמן סיום" Width="90">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Margin="6,-1,-6,-1" Text ="{Binding LineFinishTime }"/>
@@ -208,7 +321,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn  Header="Frequency Time" Width="90">
+                    <GridViewColumn  Header="תדירות" Width="90">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Margin="6,-1,-6,-1" Text ="{Binding LineFrequencyTime }"/>
@@ -216,10 +329,10 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn  Header="Delete exit" Width="90">
+                    <GridViewColumn  Header="מחיקה" Width="90">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Margin="6,-1,-6,-1" Click="Button_Click_2" Content="Delete" />
+                                <Button  Margin="6,-1,-6,-1" Click="Button_Click_2" Content="מחיקה" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -227,7 +340,7 @@
                 </GridView >
             </ListView.View >
         </ListView>
-        <ListView x:Name="time" HorizontalAlignment="Left" ItemsSource="{Binding}" DisplayMemberPath="{Binding DepartureTimes}" Height="158" Margin="361,484,0,0" VerticalAlignment="Top" Width="113" Grid.Column="1">
+        <ListView x:Name="time" HorizontalAlignment="Left" ItemsSource="{Binding}" DisplayMemberPath="{Binding DepartureTimes}" Height="152" Margin="167,499,0,0" VerticalAlignment="Top" Width="113" Grid.Column="1">
             <!--<ListView.View>
                 <GridView>
             <GridViewColumn  Header="Time" Width="120" DisplayMemberBinding="{Binding DepartureTimes}">-->
@@ -240,15 +353,22 @@
                 </GridView >
             </ListView.View >-->
         </ListView>
-        <Button Content="Add exit" HorizontalAlignment="Left" Margin="617,476,0,0" VerticalAlignment="Top" Width="303" Height="46" Click="Button_Click_1" Grid.Column="1"/>
+        <Button Content="הוסף יציאה" Template = "{StaticResource ButtonTemplate}"  HorizontalAlignment="Left" Margin="664,468,0,0" VerticalAlignment="Top" Width="150" Height="100" Click="Button_Click_1" Grid.Column="1"/>
 
-        <ListView x:Name="travl" HorizontalAlignment="Left" Margin="482,485,0,0" Width="124" ItemsSource="{Binding}" DisplayMemberPath="{Binding DepartureTimes}" Grid.Column="1" Height="156" VerticalAlignment="Top" >
-            <!--<ListView.View>
+        <ListView x:Name="travl"  HorizontalAlignment="Left" Margin="37,500,0,0" Width="124" ItemsSource="{Binding}" DisplayMemberPath="{Binding DepartureTimes}" Grid.Column="1" Height="150" VerticalAlignment="Top" >
+        </ListView>
+        <Label Content="לוז יציאות" Grid.Column="1" HorizontalAlignment="Left" Margin="185,467,0,0" VerticalAlignment="Top" Height="29" Width="74"/>
+        <Label Content="זמני הגעה ליעד" Grid.Column="1" HorizontalAlignment="Left" Margin="53,467,0,0" VerticalAlignment="Top" Width="102" Height="26"/>
+        <Label Content="יגיע לתחנה בעוד" Grid.Column="1" HorizontalAlignment="Left" Margin="861,466,0,0" VerticalAlignment="Top" Width="129"/>
+        <ListView x:Name="TCS" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="867,502,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.547,0.227">
+            <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
-            </ListView.View>-->
+            </ListView.View>
         </ListView>
+
+
 
     </Grid>
 </Window>

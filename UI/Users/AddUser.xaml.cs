@@ -22,10 +22,12 @@ namespace UI.Users
     public partial class AddUser : Window
     {
         public IBL1 bl;
-        public AddUser(IBL1 bl1)
+        public User user;
+        public AddUser(IBL1 bl1, User user1)
         {
             InitializeComponent();
             bl = bl1;
+            user = user1;
             permission1ComboBox.ItemsSource = Enum.GetValues(typeof(Permission));
             permission1ComboBox.SelectedIndex = 0;
         }
@@ -45,10 +47,12 @@ namespace UI.Users
                 {
                     case MessageBoxResult.OK:
                         bl.AddUserToDo(userBo);
-                        User user = new User(bl);
-                        user.Show();
+                        user.busLineBOs.Add(bl.GetUser(userBo.Username));
                         MessageBoxResult messageBoxResult = MessageBox.Show("המשתמש נוסף למערכת", "Good");
-                        Close();
+                        if (messageBoxResult == MessageBoxResult.OK)
+                        {
+                            Close();
+                        }
                         break;
                     case MessageBoxResult.Cancel:
                         Close();

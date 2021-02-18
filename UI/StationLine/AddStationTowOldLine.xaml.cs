@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BLAPI;
+using UI.PO;
 
 namespace UI.StationLine
 {
@@ -21,13 +22,15 @@ namespace UI.StationLine
     public partial class AddStationTowOldLine : Window
     {
         public IBL1 bl;
-        public BO.StationLineBO StationLineBO1 { get; set; }
-        public BO.StationLineBO StationLineBO2 { get; set; }
+        public ShowLine showLine;
+        public StationLinePO StationLineBO1 { get; set; }
+        public StationLinePO StationLineBO2 { get; set; }
         public int NumberLine { get; set; }
-        public AddStationTowOldLine(IBL1 bl1, int number, BO.StationLineBO stationLineBO, BO.StationLineBO stationLineBO3)
+        public AddStationTowOldLine(IBL1 bl1, int number, StationLinePO stationLineBO, StationLinePO stationLineBO3, ShowLine showLine1)
         {
             InitializeComponent();
             bl = bl1;
+            showLine = showLine1;
             IEnumerable<BO.BusStationBO> busStationBOs = bl.ShowStation();
             StationList.ItemsSource = busStationBOs;
             NumberLine = number;
@@ -39,14 +42,14 @@ namespace UI.StationLine
             FrameworkElement fxElt = sender as FrameworkElement;
             BO.BusStationBO busStationBO = fxElt.DataContext as BO.BusStationBO;
 
-            BO.StationLineBO stationLineBO = new BO.StationLineBO
+            StationLinePO stationLineBO = new StationLinePO
             {
                 BusLineID2 = NumberLine,
                 StationNumberOnLine = busStationBO.StationNumber,
                 ChackDelete2 = true,
                 LocationNumberOnLine = StationLineBO2.LocationNumberOnLine
             };
-            AddTimeDIS addTimeDIS = new AddTimeDIS(bl, StationLineBO1, stationLineBO, StationLineBO2, busStationBO.NameOfStation);
+            AddTimeDIS addTimeDIS = new AddTimeDIS(bl, StationLineBO1, stationLineBO, StationLineBO2, busStationBO.NameOfStation, showLine);
             addTimeDIS.Show();
             Close();
         }

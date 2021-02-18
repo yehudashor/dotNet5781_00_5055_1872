@@ -38,12 +38,12 @@ namespace UI.Users
             {
                 MessageBoxResult box = MessageBox.Show("האם אתה בטוח שברצונך לעדכן את פרטי המשתמש?", "ask", MessageBoxButton.OKCancel, MessageBoxImage.Question);
 
-                UserBo.Password = passwordTextBox.Text.ToString();
-                UserBo.Permission1 = (Permission)permission1ComboBox.SelectedItem;
-                UserBo.ChackDelete = (bool)chackDeleteCheckBox.IsChecked;
                 switch (box)
                 {
                     case MessageBoxResult.OK:
+                        UserBo.Password = passwordTextBox.Text.ToString();
+                        UserBo.Permission1 = (Permission)permission1ComboBox.SelectedItem;
+                        UserBo.ChackDelete = (bool)chackDeleteCheckBox.IsChecked;
                         bl.UdptingUser(UserBo);
                         User user = new User(bl);
                         user.Show();

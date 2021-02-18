@@ -8,15 +8,14 @@ using DLAPI;
 namespace DO
 {
     /// <summary>
-    /// 
+    /// Line exit department. A class that holds the line times, 
+    /// departure time departure time, exit end time, and line frequency at exit.
     /// </summary>
     public class LineExit
     {
         public int Id { get; set; }
         public int BusLineID1 { get; set; }
         public TimeSpan LineStartTime { get; set; }
-
-        //זמן סיום מחושב ע"פ זמן יציאה + תחנות קו וזמנים ביניהן
         public TimeSpan LineFinishTime { get; set; }
         public TimeSpan LineFrequencyTime { get; set; }
         public int LineFrequency { get; set; }
@@ -24,7 +23,6 @@ namespace DO
         {
             return ToStringProperty();
         }
-
         private string ToStringProperty()
         {
             throw new NotImplementedException();

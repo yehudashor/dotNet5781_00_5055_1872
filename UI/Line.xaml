@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="Line" Height="auto" Width="auto" WindowState="Maximized" >
+        Title="Line" Height="auto" Width="1200" WindowState="Maximized" >
     <Window.Resources>
+        <ControlTemplate x:Key = "ButtonTemplate" TargetType = "Button">
+            <Grid>
+                <Ellipse x:Name = "ButtonEllipse" Height = "50" Width = "80" >
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint = "0,0.2" EndPoint = "0.2,1.4">
+                            <!--<GradientStop Offset = "0" Color = "Red" />
+                            <GradientStop Offset = "1" Color = "Orange" />-->
+                            <GradientStop Offset="0.0" Color="#90DDDD" />
+                            <GradientStop Offset="1.0" Color="#5BFFFF" />
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+
+                <ContentPresenter Content = "{TemplateBinding Content}" 
+               HorizontalAlignment = "Center" VerticalAlignment = "Center" />
+            </Grid>
+        </ControlTemplate>
+
         <Style x:Key="BaseControlStyle" 
                TargetType="{x:Type Control}">
             <Setter Property="FontFamily" Value="Tahoma" />
@@ -18,6 +36,99 @@
                BasedOn="{StaticResource BaseControlStyle}">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="FontWeight" Value="Bold" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding   Path= AreaBusUrban}" Value="ירושלים">
+                    <Setter  Property="BorderBrush">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Offset="0.0" Color="#90DDDD" />
+                                    <GradientStop Offset="1.0" Color="#5BFFFF" />
+                                </LinearGradientBrush.GradientStops>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <!--<DataTrigger Binding="{Binding Path= AreaBusUrban}" Value="ירושלים">
+                    <Setter Property="Image.Source" Value="depositphotos_163541732-stock-illustration-city-transport-infrastructure-panorama-people.jpg"/>
+                </DataTrigger >-->
+                <DataTrigger Binding="{Binding   Path= AreaBusUrban}" Value="גליל">
+                    <Setter Property="BorderBrush">
+                        <Setter.Value>
+                            <RadialGradientBrush Center="0.5,0.5" RadiusX="1.0" RadiusY="1.0">
+                                <GradientStop Color="Firebrick" Offset="0.0" />
+                                <GradientStop Color="Wheat" Offset="1.0" />
+                            </RadialGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                
+                <DataTrigger Binding="{Binding Path= AreaBusUrban}" Value="השרון">
+                    <Setter Property="BorderBrush">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="Yellow" Offset="0.0" />
+                                <GradientStop Color="Red" Offset="1.0" />
+                                <!--GradientStop Color="Blue" Offset="0.75" />
+                                <GradientStop Color="LimeGreen" Offset="1.0" />-->
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding   Path= AreaBusUrban}" Value="שפלה">
+                    <Setter Property="BorderBrush">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <!--<GradientStop Color="Yellow" Offset="0.0" />
+                                <GradientStop Color="Red" Offset="0.25" />-->
+                                <GradientStop Color="Blue" Offset="0.0" />
+                                <GradientStop Color="LimeGreen" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+
+                </DataTrigger>
+                <DataTrigger Binding="{Binding   Path= AreaBusUrban}" Value="אילת">
+                    <Setter Property="BorderBrush">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="Yellow" Offset="0.0" />
+                                <!--<GradientStop Color="Red" Offset="0.25" />
+                                <GradientStop Color="Blue" Offset="0.75" />-->
+                                <GradientStop Color="LimeGreen" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+
+                </DataTrigger>
+                <DataTrigger Binding="{Binding   Path= AreaBusUrban}" Value="צפון">
+                    <Setter Property="BorderBrush">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="Yellow" Offset="0.0" />
+                                <!--<GradientStop Color="Red" Offset="0.25" />-->
+                                <GradientStop Color="Blue" Offset="1.0" />
+                                <!--<GradientStop Color="LimeGreen" Offset="1.0" />-->
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+
+                </DataTrigger>
+                <DataTrigger Binding="{Binding   Path= AreaBusUrban}" Value="דרום">
+                    <Setter Property="BorderBrush">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <!--<GradientStop Color="Yellow" Offset="0.0" />-->
+                                <GradientStop Color="Red" Offset="0.0" />
+                                <!--<GradientStop Color="Blue" Offset="0.75" />-->
+                                <GradientStop Color="LimeGreen" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+
+
+            </Style.Triggers>
         </Style>
 
 
@@ -29,15 +140,17 @@
             <Setter Property="IsReadOnly" Value="True"/>
         </Style>
 
-        <Style  x:Key="HeaderStyle"
+        <Style x:Key="HeaderStyle"
                 TargetType="{x:Type Control}">
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Foreground">
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                         <LinearGradientBrush.GradientStops>
-                            <GradientStop Offset="0.0" Color="#90DDDD" />
-                            <GradientStop Offset="1.0" Color="#5BFFFF" />
+                            <GradientStop Offset="0.25" Color="#90DDDD" />
+                            <GradientStop Offset="0.5" Color="#5BFFFF" />
+                            <GradientStop Offset="0.75" Color="OrangeRed" />
+                           
                         </LinearGradientBrush.GradientStops>
                     </LinearGradientBrush>
                 </Setter.Value>
@@ -69,44 +182,74 @@
                BasedOn="{StaticResource HeaderStyle1}">
         </Style>
     </Window.Resources>
-    <Border Margin="5,5,5.333,0" Padding="5" Background="LightYellow" 
+    <!--<Border Margin="5,5,5.333,0" Padding="5" Background="LightYellow" 
           BorderBrush="SteelBlue" BorderThickness="3,5,3,5" CornerRadius="3"
-          VerticalAlignment="Top" Height="452">
-        <Grid x:Name="list"  RenderTransformOrigin="0.5,0.5" Margin="0,0,374,0">
+          VerticalAlignment="Top" Height="452">-->
+    <Border>
 
-            <Grid.ColumnDefinitions>
+        <Grid x:Name="list"  RenderTransformOrigin="0.5,0.5" >
+
+            <!--<Grid.ColumnDefinitions>
                 <ColumnDefinition Width="930"/>
                 <ColumnDefinition Width="150"/>
-            </Grid.ColumnDefinitions>
-            <ListView Margin="-4,0,258,1.333" x:Name="lines"  SelectionChanged ="Lines_SelectionChanged">
+            </Grid.ColumnDefinitions>-->
+            <ListView Margin="247,0,207.333,-3.667" x:Name="lines"  SelectionChanged ="Lines_SelectionChanged">
 
                 <ListView.View >
                     <GridView >
-                        <GridViewColumn  x:Name="id" Header="Id line" Width="120" DisplayMemberBinding= "{Binding BusLineID1}" />
-                        <GridViewColumn Header="Line number" Width="120" DisplayMemberBinding="{Binding LineNumber }" />
-                        <GridViewColumn x:Name="area" Header="Area" Width="120" DisplayMemberBinding= "{Binding AreaBusUrban}" />
-                        <GridViewColumn Header="Updating line" Width="165">
+                        <!--<GridViewColumn Width="165">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image x:Name="v"  Source="https://media.istockphoto.com/vectors/white-line-bus-icon-isolated-with-long-shadow-transportation-concept-vector-id1254283501?k=6&m=1254283501&s=170667a&w=0&h=lqMe7_OVpBXaVjVAj8xoAnwtGeNqi0ohBMqs-3yvIyA="  Width="120" Height ="60"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>-->
+                        <!--<GridViewColumn  x:Name="id" Header="Id line" Width="120" DisplayMemberBinding= "{Binding BusLineID1}" />-->
+                        <GridViewColumn Header="מספר קו" Width="165">
 
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button x:Name="Udapting" Click="Udapting"  Content="Updating"  Width="120" Height ="40"/>
+                                    <Button  Width="100" Height ="40">
+                                        <Button.Content>
+                                            <Grid>
+                                                <TextBlock Margin="2,1,57.333,-1.667"   Padding="0,0,120,0" Text="{Binding Path= LineNumber}" Width="40" FontSize="18"  FontWeight="Bold" />
+                                                <Image   Margin="57,0,3.333,0"   Source="school-bus-2483644-2075656.png" Stretch="Fill" Height ="30"  Width="35" ></Image>
+                                            </Grid>
+                                        </Button.Content>
+                                    </Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <!--<GridViewColumn Header="מספר קו" Width="120" DisplayMemberBinding="{Binding LineNumber }" />-->
+                        <GridViewColumn x:Name="area" Header="אזור" Width="120" DisplayMemberBinding= "{Binding AreaBusUrban}" />
+                        <!--<GridViewColumn Header="תחנה ראשונה" Width="165"/>
+                        <GridViewColumn Header="תחנה אחרונה" Width="165"/>-->
+                        <GridViewColumn Header="עדכון קו" Width="165">
+
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="Udapting"  Click="Udapting" Template = "{StaticResource ButtonTemplate}"   Content="עדכון"  Width="120" Height ="60"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="Delete Line" Width="165" >
+                        <GridViewColumn Header="מחיקת קו" Width="165" >
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate >
-                                    <Button x:Name="Delete"  Click="Delete"  Content="Delete"  Width="120" Height ="40"/>
+                                    <Button x:Name="Delete"  Click="Delete" Template = "{StaticResource ButtonTemplate}"  Content="מחיקה"  Width="120" Height ="60"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-
                     </GridView>
                 </ListView.View>
+                <!--<Image Height="256" Source="school-bus-2483644-2075656.png" Stretch="Fill" Width="256"/>-->
 
             </ListView>
-            <Button Content="AddLine" HorizontalAlignment="Left" Margin="674,357,0,0" VerticalAlignment="Top" Width="163" Height="44" Click="Add"/>
+            
+            <Button Content="הוסף קו" Background="LightPink"    HorizontalAlignment="Left" Margin="54,3,0,0" VerticalAlignment="Top" Width="177" Height="107" Click="Add"/>
+            <!--<Image Margin="906,222,-330.667,-0.667" Source="imgbin-tour-bus-service-transport-coach-bus-terminus-bus-bXja713aDRiiKfw2gCA9T9e48.jpg" Stretch="Fill"/>
+            <WebBrowser x:Name="wbMaps" Source="https://www.google.com/maps"/>-->
         </Grid>
+        <!--</Border>-->
     </Border>
 </Window>

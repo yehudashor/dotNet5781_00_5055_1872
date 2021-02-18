@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace BO
 {
+    /// <summary>
+    /// A class representing a line station includes information about the time and distance to the next station.
+    /// </summary>
     public class StationLineBO
     {
         public int BusLineID2 { get; set; }
@@ -15,14 +13,5 @@ namespace BO
         public bool ChackDelete2 { get; set; }
         public float DistanceBetweenTooStations { get; set; }
         public TimeSpan AverageTime { get; set; }
-        //public override string ToString()
-        //{
-        //    return ToStringProperty();
-        //}
-
-        //private string ToStringProperty()
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }

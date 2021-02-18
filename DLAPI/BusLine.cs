@@ -1,21 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DLAPI;
 
 namespace DO
 {
     /// <summary>
-    /// 
+    /// Bus line department.
     /// </summary>
-    public enum Area1 { Jerusalem, Galil, Hasharon, Shefela, Eilat, North, South, Center };
+    public enum Area1 { ירושלים, גליל, השרון, שפלה, אילת, צפון, דרום, מרכז };
     public enum Urban { Urban, NotUrban };
     public enum Available { Available, Notavailable };
     public class BusLine
     {
-        public static int BusLineID = 0;
         public int BusLineID1 { get; set; }
         public int LineNumber { get; set; }
         public int FirstStation { get; set; }

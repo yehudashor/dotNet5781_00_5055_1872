@@ -64,5 +64,10 @@ namespace UI
             cameToStation cameToStation = new cameToStation(bl);
             cameToStation.Show();
         }
+
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

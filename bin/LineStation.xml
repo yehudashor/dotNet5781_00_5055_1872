@@ -4,181 +4,121 @@
     <BusLineID2>0</BusLineID2>
     <StationNumberOnLine>10045</StationNumberOnLine>
     <LocationNumberOnLine>0</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
+    <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
     <BusLineID2>0</BusLineID2>
     <StationNumberOnLine>10509</StationNumberOnLine>
     <LocationNumberOnLine>1</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
+    <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
     <BusLineID2>0</BusLineID2>
     <StationNumberOnLine>10510</StationNumberOnLine>
     <LocationNumberOnLine>2</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
+    <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
     <BusLineID2>0</BusLineID2>
     <StationNumberOnLine>13426</StationNumberOnLine>
     <LocationNumberOnLine>3</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
+    <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
     <BusLineID2>0</BusLineID2>
     <StationNumberOnLine>14531</StationNumberOnLine>
     <LocationNumberOnLine>4</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
+    <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
     <BusLineID2>0</BusLineID2>
     <StationNumberOnLine>14533</StationNumberOnLine>
     <LocationNumberOnLine>5</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
+    <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
     <BusLineID2>0</BusLineID2>
     <StationNumberOnLine>14534</StationNumberOnLine>
     <LocationNumberOnLine>6</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
+    <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
     <BusLineID2>0</BusLineID2>
     <StationNumberOnLine>14537</StationNumberOnLine>
     <LocationNumberOnLine>7</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
+    <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
     <BusLineID2>0</BusLineID2>
     <StationNumberOnLine>14538</StationNumberOnLine>
     <LocationNumberOnLine>8</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
+    <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
     <BusLineID2>0</BusLineID2>
     <StationNumberOnLine>14540</StationNumberOnLine>
     <LocationNumberOnLine>9</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>1</BusLineID2>
-    <StationNumberOnLine>10510</StationNumberOnLine>
-    <LocationNumberOnLine>0</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>1</BusLineID2>
-    <StationNumberOnLine>10836</StationNumberOnLine>
-    <LocationNumberOnLine>1</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>1</BusLineID2>
-    <StationNumberOnLine>10837</StationNumberOnLine>
-    <LocationNumberOnLine>2</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>1</BusLineID2>
-    <StationNumberOnLine>10847</StationNumberOnLine>
-    <LocationNumberOnLine>3</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>1</BusLineID2>
-    <StationNumberOnLine>13426</StationNumberOnLine>
-    <LocationNumberOnLine>4</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>1</BusLineID2>
-    <StationNumberOnLine>14531</StationNumberOnLine>
-    <LocationNumberOnLine>5</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>1</BusLineID2>
-    <StationNumberOnLine>14533</StationNumberOnLine>
-    <LocationNumberOnLine>6</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>1</BusLineID2>
-    <StationNumberOnLine>14534</StationNumberOnLine>
-    <LocationNumberOnLine>7</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>1</BusLineID2>
-    <StationNumberOnLine>14537</StationNumberOnLine>
-    <LocationNumberOnLine>8</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>1</BusLineID2>
-    <StationNumberOnLine>14538</StationNumberOnLine>
-    <LocationNumberOnLine>9</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
+    <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
     <BusLineID2>5</BusLineID2>
     <StationNumberOnLine>14533</StationNumberOnLine>
     <LocationNumberOnLine>0</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
+    <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
     <BusLineID2>5</BusLineID2>
     <StationNumberOnLine>14534</StationNumberOnLine>
     <LocationNumberOnLine>1</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
+    <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
     <BusLineID2>5</BusLineID2>
     <StationNumberOnLine>14537</StationNumberOnLine>
     <LocationNumberOnLine>2</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
+    <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
     <BusLineID2>5</BusLineID2>
     <StationNumberOnLine>14538</StationNumberOnLine>
     <LocationNumberOnLine>3</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
+    <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
     <BusLineID2>5</BusLineID2>
     <StationNumberOnLine>14540</StationNumberOnLine>
     <LocationNumberOnLine>4</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
+    <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
     <BusLineID2>5</BusLineID2>
     <StationNumberOnLine>14541</StationNumberOnLine>
     <LocationNumberOnLine>5</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
+    <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
     <BusLineID2>5</BusLineID2>
     <StationNumberOnLine>14542</StationNumberOnLine>
     <LocationNumberOnLine>6</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
+    <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
     <BusLineID2>5</BusLineID2>
     <StationNumberOnLine>14904</StationNumberOnLine>
     <LocationNumberOnLine>7</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
+    <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
     <BusLineID2>5</BusLineID2>
     <StationNumberOnLine>14905</StationNumberOnLine>
     <LocationNumberOnLine>8</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
+    <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
     <BusLineID2>5</BusLineID2>
     <StationNumberOnLine>14906</StationNumberOnLine>
     <LocationNumberOnLine>9</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
+    <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
     <BusLineID2>6</BusLineID2>
@@ -232,126 +172,6 @@
     <BusLineID2>6</BusLineID2>
     <StationNumberOnLine>15289</StationNumberOnLine>
     <LocationNumberOnLine>8</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>7</BusLineID2>
-    <StationNumberOnLine>14927</StationNumberOnLine>
-    <LocationNumberOnLine>0</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>7</BusLineID2>
-    <StationNumberOnLine>14928</StationNumberOnLine>
-    <LocationNumberOnLine>1</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>7</BusLineID2>
-    <StationNumberOnLine>14929</StationNumberOnLine>
-    <LocationNumberOnLine>2</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>7</BusLineID2>
-    <StationNumberOnLine>14930</StationNumberOnLine>
-    <LocationNumberOnLine>3</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>7</BusLineID2>
-    <StationNumberOnLine>14931</StationNumberOnLine>
-    <LocationNumberOnLine>4</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>7</BusLineID2>
-    <StationNumberOnLine>14932</StationNumberOnLine>
-    <LocationNumberOnLine>5</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>7</BusLineID2>
-    <StationNumberOnLine>14933</StationNumberOnLine>
-    <LocationNumberOnLine>6</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>7</BusLineID2>
-    <StationNumberOnLine>14934</StationNumberOnLine>
-    <LocationNumberOnLine>7</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>7</BusLineID2>
-    <StationNumberOnLine>14935</StationNumberOnLine>
-    <LocationNumberOnLine>8</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>7</BusLineID2>
-    <StationNumberOnLine>14936</StationNumberOnLine>
-    <LocationNumberOnLine>9</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>8</BusLineID2>
-    <StationNumberOnLine>10509</StationNumberOnLine>
-    <LocationNumberOnLine>0</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>8</BusLineID2>
-    <StationNumberOnLine>10847</StationNumberOnLine>
-    <LocationNumberOnLine>1</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>8</BusLineID2>
-    <StationNumberOnLine>13426</StationNumberOnLine>
-    <LocationNumberOnLine>2</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>8</BusLineID2>
-    <StationNumberOnLine>14531</StationNumberOnLine>
-    <LocationNumberOnLine>3</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>8</BusLineID2>
-    <StationNumberOnLine>14533</StationNumberOnLine>
-    <LocationNumberOnLine>4</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>8</BusLineID2>
-    <StationNumberOnLine>14534</StationNumberOnLine>
-    <LocationNumberOnLine>5</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>8</BusLineID2>
-    <StationNumberOnLine>14537</StationNumberOnLine>
-    <LocationNumberOnLine>6</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>8</BusLineID2>
-    <StationNumberOnLine>14538</StationNumberOnLine>
-    <LocationNumberOnLine>7</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>8</BusLineID2>
-    <StationNumberOnLine>14540</StationNumberOnLine>
-    <LocationNumberOnLine>8</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>8</BusLineID2>
-    <StationNumberOnLine>14541</StationNumberOnLine>
-    <LocationNumberOnLine>9</LocationNumberOnLine>
     <ChackDelete2>true</ChackDelete2>
   </LineStation>
   <LineStation>
@@ -571,162 +391,6 @@
     <ChackDelete2>false</ChackDelete2>
   </LineStation>
   <LineStation>
-    <BusLineID2>2</BusLineID2>
-    <StationNumberOnLine>14540</StationNumberOnLine>
-    <LocationNumberOnLine>0</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>2</BusLineID2>
-    <StationNumberOnLine>14541</StationNumberOnLine>
-    <LocationNumberOnLine>1</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>2</BusLineID2>
-    <StationNumberOnLine>14542</StationNumberOnLine>
-    <LocationNumberOnLine>2</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>2</BusLineID2>
-    <StationNumberOnLine>14904</StationNumberOnLine>
-    <LocationNumberOnLine>3</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>2</BusLineID2>
-    <StationNumberOnLine>14905</StationNumberOnLine>
-    <LocationNumberOnLine>4</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>2</BusLineID2>
-    <StationNumberOnLine>14906</StationNumberOnLine>
-    <LocationNumberOnLine>6</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>2</BusLineID2>
-    <StationNumberOnLine>14908</StationNumberOnLine>
-    <LocationNumberOnLine>7</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>2</BusLineID2>
-    <StationNumberOnLine>14909</StationNumberOnLine>
-    <LocationNumberOnLine>8</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>2</BusLineID2>
-    <StationNumberOnLine>14910</StationNumberOnLine>
-    <LocationNumberOnLine>9</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>2</BusLineID2>
-    <StationNumberOnLine>14912</StationNumberOnLine>
-    <LocationNumberOnLine>10</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>2</BusLineID2>
-    <StationNumberOnLine>15287</StationNumberOnLine>
-    <LocationNumberOnLine>5</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>3</BusLineID2>
-    <StationNumberOnLine>14912</StationNumberOnLine>
-    <LocationNumberOnLine>3</LocationNumberOnLine>
-    <ChackDelete2>false</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>3</BusLineID2>
-    <StationNumberOnLine>14905</StationNumberOnLine>
-    <LocationNumberOnLine>0</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>3</BusLineID2>
-    <StationNumberOnLine>14906</StationNumberOnLine>
-    <LocationNumberOnLine>1</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>3</BusLineID2>
-    <StationNumberOnLine>14908</StationNumberOnLine>
-    <LocationNumberOnLine>2</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>3</BusLineID2>
-    <StationNumberOnLine>14919</StationNumberOnLine>
-    <LocationNumberOnLine>3</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>4</BusLineID2>
-    <StationNumberOnLine>14906</StationNumberOnLine>
-    <LocationNumberOnLine>7</LocationNumberOnLine>
-    <ChackDelete2>false</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>4</BusLineID2>
-    <StationNumberOnLine>14540</StationNumberOnLine>
-    <LocationNumberOnLine>0</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>4</BusLineID2>
-    <StationNumberOnLine>14541</StationNumberOnLine>
-    <LocationNumberOnLine>1</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>4</BusLineID2>
-    <StationNumberOnLine>14542</StationNumberOnLine>
-    <LocationNumberOnLine>2</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>4</BusLineID2>
-    <StationNumberOnLine>14904</StationNumberOnLine>
-    <LocationNumberOnLine>3</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>4</BusLineID2>
-    <StationNumberOnLine>14905</StationNumberOnLine>
-    <LocationNumberOnLine>6</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>4</BusLineID2>
-    <StationNumberOnLine>14908</StationNumberOnLine>
-    <LocationNumberOnLine>7</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>4</BusLineID2>
-    <StationNumberOnLine>14912</StationNumberOnLine>
-    <LocationNumberOnLine>8</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>4</BusLineID2>
-    <StationNumberOnLine>15287</StationNumberOnLine>
-    <LocationNumberOnLine>4</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
-    <BusLineID2>4</BusLineID2>
-    <StationNumberOnLine>14921</StationNumberOnLine>
-    <LocationNumberOnLine>5</LocationNumberOnLine>
-    <ChackDelete2>true</ChackDelete2>
-  </LineStation>
-  <LineStation>
     <BusLineID2>19</BusLineID2>
     <StationNumberOnLine>14928</StationNumberOnLine>
     <LocationNumberOnLine>0</LocationNumberOnLine>
@@ -775,6 +439,114 @@
     <ChackDelete2>true</ChackDelete2>
   </LineStation>
   <LineStation>
+    <BusLineID2>3</BusLineID2>
+    <StationNumberOnLine>14908</StationNumberOnLine>
+    <LocationNumberOnLine>2</LocationNumberOnLine>
+    <ChackDelete2>false</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>3</BusLineID2>
+    <StationNumberOnLine>14905</StationNumberOnLine>
+    <LocationNumberOnLine>0</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>3</BusLineID2>
+    <StationNumberOnLine>14906</StationNumberOnLine>
+    <LocationNumberOnLine>1</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>3</BusLineID2>
+    <StationNumberOnLine>14919</StationNumberOnLine>
+    <LocationNumberOnLine>2</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>24</BusLineID2>
+    <StationNumberOnLine>14537</StationNumberOnLine>
+    <LocationNumberOnLine>0</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>24</BusLineID2>
+    <StationNumberOnLine>15287</StationNumberOnLine>
+    <LocationNumberOnLine>1</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>1</BusLineID2>
+    <StationNumberOnLine>10836</StationNumberOnLine>
+    <LocationNumberOnLine>1</LocationNumberOnLine>
+    <ChackDelete2>false</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>1</BusLineID2>
+    <StationNumberOnLine>10510</StationNumberOnLine>
+    <LocationNumberOnLine>0</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>1</BusLineID2>
+    <StationNumberOnLine>10837</StationNumberOnLine>
+    <LocationNumberOnLine>1</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>1</BusLineID2>
+    <StationNumberOnLine>10847</StationNumberOnLine>
+    <LocationNumberOnLine>3</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>1</BusLineID2>
+    <StationNumberOnLine>13426</StationNumberOnLine>
+    <LocationNumberOnLine>4</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>1</BusLineID2>
+    <StationNumberOnLine>14531</StationNumberOnLine>
+    <LocationNumberOnLine>6</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>1</BusLineID2>
+    <StationNumberOnLine>14533</StationNumberOnLine>
+    <LocationNumberOnLine>7</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>1</BusLineID2>
+    <StationNumberOnLine>14534</StationNumberOnLine>
+    <LocationNumberOnLine>8</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>1</BusLineID2>
+    <StationNumberOnLine>14537</StationNumberOnLine>
+    <LocationNumberOnLine>9</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>1</BusLineID2>
+    <StationNumberOnLine>14538</StationNumberOnLine>
+    <LocationNumberOnLine>10</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>1</BusLineID2>
+    <StationNumberOnLine>14922</StationNumberOnLine>
+    <LocationNumberOnLine>2</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>23</BusLineID2>
+    <StationNumberOnLine>14928</StationNumberOnLine>
+    <LocationNumberOnLine>3</LocationNumberOnLine>
+    <ChackDelete2>false</ChackDelete2>
+  </LineStation>
+  <LineStation>
     <BusLineID2>23</BusLineID2>
     <StationNumberOnLine>14537</StationNumberOnLine>
     <LocationNumberOnLine>0</LocationNumberOnLine>
@@ -783,7 +555,181 @@
   <LineStation>
     <BusLineID2>23</BusLineID2>
     <StationNumberOnLine>14917</StationNumberOnLine>
+    <LocationNumberOnLine>3</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>23</BusLineID2>
+    <StationNumberOnLine>14541</StationNumberOnLine>
     <LocationNumberOnLine>1</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>23</BusLineID2>
+    <StationNumberOnLine>14542</StationNumberOnLine>
+    <LocationNumberOnLine>2</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>4</BusLineID2>
+    <StationNumberOnLine>14540</StationNumberOnLine>
+    <LocationNumberOnLine>0</LocationNumberOnLine>
+    <ChackDelete2>false</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>4</BusLineID2>
+    <StationNumberOnLine>14541</StationNumberOnLine>
+    <LocationNumberOnLine>0</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>4</BusLineID2>
+    <StationNumberOnLine>14542</StationNumberOnLine>
+    <LocationNumberOnLine>1</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>4</BusLineID2>
+    <StationNumberOnLine>14904</StationNumberOnLine>
+    <LocationNumberOnLine>2</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>4</BusLineID2>
+    <StationNumberOnLine>14905</StationNumberOnLine>
+    <LocationNumberOnLine>5</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>4</BusLineID2>
+    <StationNumberOnLine>14908</StationNumberOnLine>
+    <LocationNumberOnLine>6</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>4</BusLineID2>
+    <StationNumberOnLine>14912</StationNumberOnLine>
+    <LocationNumberOnLine>7</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>4</BusLineID2>
+    <StationNumberOnLine>15287</StationNumberOnLine>
+    <LocationNumberOnLine>3</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>4</BusLineID2>
+    <StationNumberOnLine>14921</StationNumberOnLine>
+    <LocationNumberOnLine>4</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>2</BusLineID2>
+    <StationNumberOnLine>14540</StationNumberOnLine>
+    <LocationNumberOnLine>0</LocationNumberOnLine>
+    <ChackDelete2>false</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>2</BusLineID2>
+    <StationNumberOnLine>14541</StationNumberOnLine>
+    <LocationNumberOnLine>0</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>2</BusLineID2>
+    <StationNumberOnLine>14542</StationNumberOnLine>
+    <LocationNumberOnLine>1</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>2</BusLineID2>
+    <StationNumberOnLine>14904</StationNumberOnLine>
+    <LocationNumberOnLine>2</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>2</BusLineID2>
+    <StationNumberOnLine>14905</StationNumberOnLine>
+    <LocationNumberOnLine>3</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>2</BusLineID2>
+    <StationNumberOnLine>14906</StationNumberOnLine>
+    <LocationNumberOnLine>4</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>2</BusLineID2>
+    <StationNumberOnLine>14908</StationNumberOnLine>
+    <LocationNumberOnLine>5</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>2</BusLineID2>
+    <StationNumberOnLine>14909</StationNumberOnLine>
+    <LocationNumberOnLine>6</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>2</BusLineID2>
+    <StationNumberOnLine>14910</StationNumberOnLine>
+    <LocationNumberOnLine>7</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>2</BusLineID2>
+    <StationNumberOnLine>14912</StationNumberOnLine>
+    <LocationNumberOnLine>8</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>8</BusLineID2>
+    <StationNumberOnLine>14540</StationNumberOnLine>
+    <LocationNumberOnLine>6</LocationNumberOnLine>
+    <ChackDelete2>false</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>8</BusLineID2>
+    <StationNumberOnLine>10509</StationNumberOnLine>
+    <LocationNumberOnLine>0</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>8</BusLineID2>
+    <StationNumberOnLine>14531</StationNumberOnLine>
+    <LocationNumberOnLine>1</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>8</BusLineID2>
+    <StationNumberOnLine>14533</StationNumberOnLine>
+    <LocationNumberOnLine>2</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>8</BusLineID2>
+    <StationNumberOnLine>14534</StationNumberOnLine>
+    <LocationNumberOnLine>3</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>8</BusLineID2>
+    <StationNumberOnLine>14537</StationNumberOnLine>
+    <LocationNumberOnLine>4</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>8</BusLineID2>
+    <StationNumberOnLine>14538</StationNumberOnLine>
+    <LocationNumberOnLine>5</LocationNumberOnLine>
+    <ChackDelete2>true</ChackDelete2>
+  </LineStation>
+  <LineStation>
+    <BusLineID2>8</BusLineID2>
+    <StationNumberOnLine>14541</StationNumberOnLine>
+    <LocationNumberOnLine>6</LocationNumberOnLine>
     <ChackDelete2>true</ChackDelete2>
   </LineStation>
 </ArrayOfLineStation>

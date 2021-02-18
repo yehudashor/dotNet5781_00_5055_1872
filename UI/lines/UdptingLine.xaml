@@ -35,7 +35,7 @@
         <Grid>
 
 
-            <Button Content="Button" HorizontalAlignment="Left" Margin="283,60,0,0" VerticalAlignment="Top" Width="221" Height="41" Click="Button_Click"/>
+            <Button Content="עדכון" HorizontalAlignment="Left" Margin="283,86,0,0" VerticalAlignment="Top" Width="304" Height="63" Click="Button_Click"/>
             <Grid x:Name="grid1"  HorizontalAlignment="Left" Margin="6,19,0,0" VerticalAlignment="Top" Height="134" Width="250">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -72,7 +72,7 @@
                     </ComboBox.ItemsPanel>
                 </ComboBox>
                 <Label Content=":" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-                <TextBlock x:Name="lineNumberTextBox" PreviewTextInput= "NumberValidationTextBox"   Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding}" VerticalAlignment="Center" Width="120"/>
+                <TextBlock Text="{Binding BusLineID1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" x:Name="lineNumberTextBox" PreviewTextInput= "NumberValidationTextBox"   Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0"  VerticalAlignment="Center" Width="120"/>
             </Grid>
 
 

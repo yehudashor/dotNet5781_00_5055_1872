@@ -1,20 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using BLAPI;
 
 namespace UI.LineTrip
@@ -33,10 +23,10 @@ namespace UI.LineTrip
         public int StationNumber { get; set; }
         public TimeSpan SystemClock { get; set; }
         public TimeSpan SystemClockForBl { get; set; }
-        private Stopwatch stopWatch;
+        private readonly Stopwatch stopWatch;
         private bool isTimerRun;
 
-        IBL1 bl;
+        public IBL1 bl;
         public LineTripS(IBL1 bl1)
         {
             InitializeComponent();
@@ -81,10 +71,10 @@ namespace UI.LineTrip
         {
             string chack = timer.Content.ToString();
 
-            if (chack == "הפעל" && TS.Text != "")
+            if (chack == "הפעל" /*&& TS.Text != ""*/)
             {
                 timer.Content = "עצור";
-                SimulationTime = int.Parse(TS.Text);
+                //   SimulationTime = int.Parse(TS.Text);
                 TS.IsReadOnly = true;
                 if (!isTimerRun)
                 {
@@ -110,7 +100,7 @@ namespace UI.LineTrip
 
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            float a = (float)SimulationTime / 60;
+            //float a = (float)SimulationTime / 60;
             string timerText = stopWatch.Elapsed.ToString();
             timerText = timerText.Substring(0, 8);
             SystemClockForBl = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second + TimeSpan.Parse(timerText).Seconds);

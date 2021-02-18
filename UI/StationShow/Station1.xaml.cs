@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UI.PO;
 
 namespace UI.StationShow
 {
@@ -19,10 +20,10 @@ namespace UI.StationShow
     /// </summary>
     public partial class Station1 : Window
     {
-        BO.BusStationBO Station = new BO.BusStationBO();
-        public Station1(BO.BusStationBO BusStationBO1)
+        public StationPO Station = new StationPO();
+        public Station1(StationPO Station1)
         {
-            Station = BusStationBO1;
+            Station = Station1;
             InitializeComponent();
             StationList1.DataContext = Station;
         }

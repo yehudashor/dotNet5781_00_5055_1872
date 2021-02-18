@@ -69,8 +69,8 @@
   <ConsecutiveStations>
     <StationNumber1>10510</StationNumber1>
     <StationNumber2>13426</StationNumber2>
-    <DistanceBetweenTooStations>2.24520421</DistanceBetweenTooStations>
-    <AverageTime>00:02:57</AverageTime>
+    <DistanceBetweenTooStations>1</DistanceBetweenTooStations>
+    <AverageTime>05:06:08</AverageTime>
   </ConsecutiveStations>
   <ConsecutiveStations>
     <StationNumber1>13426</StationNumber1>
@@ -103,12 +103,6 @@
     <AverageTime>00:04:44</AverageTime>
   </ConsecutiveStations>
   <ConsecutiveStations>
-    <StationNumber1>14538</StationNumber1>
-    <StationNumber2>14540</StationNumber2>
-    <DistanceBetweenTooStations>3.47498417</DistanceBetweenTooStations>
-    <AverageTime>00:05:54</AverageTime>
-  </ConsecutiveStations>
-  <ConsecutiveStations>
     <StationNumber1>10510</StationNumber1>
     <StationNumber2>10836</StationNumber2>
     <DistanceBetweenTooStations>3.8130393</DistanceBetweenTooStations>
@@ -123,8 +117,8 @@
   <ConsecutiveStations>
     <StationNumber1>10837</StationNumber1>
     <StationNumber2>10847</StationNumber2>
-    <DistanceBetweenTooStations>1.36264443</DistanceBetweenTooStations>
-    <AverageTime>00:06:58</AverageTime>
+    <DistanceBetweenTooStations>3</DistanceBetweenTooStations>
+    <AverageTime>00:20:00</AverageTime>
   </ConsecutiveStations>
   <ConsecutiveStations>
     <StationNumber1>10847</StationNumber1>
@@ -133,16 +127,10 @@
     <AverageTime>00:05:10</AverageTime>
   </ConsecutiveStations>
   <ConsecutiveStations>
-    <StationNumber1>14540</StationNumber1>
-    <StationNumber2>14541</StationNumber2>
-    <DistanceBetweenTooStations>3.10820174</DistanceBetweenTooStations>
-    <AverageTime>00:03:44</AverageTime>
-  </ConsecutiveStations>
-  <ConsecutiveStations>
     <StationNumber1>14541</StationNumber1>
     <StationNumber2>14542</StationNumber2>
-    <DistanceBetweenTooStations>2.46114326</DistanceBetweenTooStations>
-    <AverageTime>00:03:26</AverageTime>
+    <DistanceBetweenTooStations>2</DistanceBetweenTooStations>
+    <AverageTime>00:04:00</AverageTime>
   </ConsecutiveStations>
   <ConsecutiveStations>
     <StationNumber1>14542</StationNumber1>
@@ -469,12 +457,6 @@
     <AverageTime>00:02:19</AverageTime>
   </ConsecutiveStations>
   <ConsecutiveStations>
-    <StationNumber1>14533</StationNumber1>
-    <StationNumber2>343433</StationNumber2>
-    <DistanceBetweenTooStations>3.30372</DistanceBetweenTooStations>
-    <AverageTime>00:03:28</AverageTime>
-  </ConsecutiveStations>
-  <ConsecutiveStations>
     <StationNumber1>14534</StationNumber1>
     <StationNumber2>14930</StationNumber2>
     <DistanceBetweenTooStations>1.343741</DistanceBetweenTooStations>
@@ -483,7 +465,115 @@
   <ConsecutiveStations>
     <StationNumber1>14537</StationNumber1>
     <StationNumber2>14917</StationNumber2>
-    <DistanceBetweenTooStations>2.819334</DistanceBetweenTooStations>
-    <AverageTime>00:04:16</AverageTime>
+    <DistanceBetweenTooStations>3</DistanceBetweenTooStations>
+    <AverageTime>00:20:00</AverageTime>
+  </ConsecutiveStations>
+  <ConsecutiveStations>
+    <StationNumber1>14906</StationNumber1>
+    <StationNumber2>14919</StationNumber2>
+    <DistanceBetweenTooStations>3.432141</DistanceBetweenTooStations>
+    <AverageTime>00:01:37</AverageTime>
+  </ConsecutiveStations>
+  <ConsecutiveStations>
+    <StationNumber1>14537</StationNumber1>
+    <StationNumber2>15287</StationNumber2>
+    <DistanceBetweenTooStations>1.961009</DistanceBetweenTooStations>
+    <AverageTime>00:04:22</AverageTime>
+  </ConsecutiveStations>
+  <ConsecutiveStations>
+    <StationNumber1>13426</StationNumber1>
+    <StationNumber2>14931</StationNumber2>
+    <DistanceBetweenTooStations>3.5</DistanceBetweenTooStations>
+    <AverageTime>00:30:00</AverageTime>
+  </ConsecutiveStations>
+  <ConsecutiveStations>
+    <StationNumber1>14931</StationNumber1>
+    <StationNumber2>14531</StationNumber2>
+    <DistanceBetweenTooStations>4.5</DistanceBetweenTooStations>
+    <AverageTime>01:00:00</AverageTime>
+  </ConsecutiveStations>
+  <ConsecutiveStations>
+    <StationNumber1>10510</StationNumber1>
+    <StationNumber2>10837</StationNumber2>
+    <DistanceBetweenTooStations>1.201528</DistanceBetweenTooStations>
+    <AverageTime>00:05:37</AverageTime>
+  </ConsecutiveStations>
+  <ConsecutiveStations>
+    <StationNumber1>10837</StationNumber1>
+    <StationNumber2>14922</StationNumber2>
+    <DistanceBetweenTooStations>2</DistanceBetweenTooStations>
+    <AverageTime>03:03:03</AverageTime>
+  </ConsecutiveStations>
+  <ConsecutiveStations>
+    <StationNumber1>14922</StationNumber1>
+    <StationNumber2>10847</StationNumber2>
+    <DistanceBetweenTooStations>1</DistanceBetweenTooStations>
+    <AverageTime>02:02:02</AverageTime>
+  </ConsecutiveStations>
+  <ConsecutiveStations>
+    <StationNumber1>14537</StationNumber1>
+    <StationNumber2>14541</StationNumber2>
+    <DistanceBetweenTooStations>2.8</DistanceBetweenTooStations>
+    <AverageTime>00:04:20</AverageTime>
+  </ConsecutiveStations>
+  <ConsecutiveStations>
+    <StationNumber1>14541</StationNumber1>
+    <StationNumber2>14917</StationNumber2>
+    <DistanceBetweenTooStations>2.1</DistanceBetweenTooStations>
+    <AverageTime>00:02:00</AverageTime>
+  </ConsecutiveStations>
+  <ConsecutiveStations>
+    <StationNumber1>14542</StationNumber1>
+    <StationNumber2>14917</StationNumber2>
+    <DistanceBetweenTooStations>1</DistanceBetweenTooStations>
+    <AverageTime>01:01:01</AverageTime>
+  </ConsecutiveStations>
+  <ConsecutiveStations>
+    <StationNumber1>14542</StationNumber1>
+    <StationNumber2>14931</StationNumber2>
+    <DistanceBetweenTooStations>2</DistanceBetweenTooStations>
+    <AverageTime>00:05:00</AverageTime>
+  </ConsecutiveStations>
+  <ConsecutiveStations>
+    <StationNumber1>14931</StationNumber1>
+    <StationNumber2>14917</StationNumber2>
+    <DistanceBetweenTooStations>1</DistanceBetweenTooStations>
+    <AverageTime>00:04:00</AverageTime>
+  </ConsecutiveStations>
+  <ConsecutiveStations>
+    <StationNumber1>14934</StationNumber1>
+    <StationNumber2>14936</StationNumber2>
+    <DistanceBetweenTooStations>3.261693</DistanceBetweenTooStations>
+    <AverageTime>00:06:23</AverageTime>
+  </ConsecutiveStations>
+  <ConsecutiveStations>
+    <StationNumber1>10847</StationNumber1>
+    <StationNumber2>14531</StationNumber2>
+    <DistanceBetweenTooStations>1.246457</DistanceBetweenTooStations>
+    <AverageTime>00:06:47</AverageTime>
+  </ConsecutiveStations>
+  <ConsecutiveStations>
+    <StationNumber1>10509</StationNumber1>
+    <StationNumber2>14531</StationNumber2>
+    <DistanceBetweenTooStations>4.452153</DistanceBetweenTooStations>
+    <AverageTime>00:01:38</AverageTime>
+  </ConsecutiveStations>
+  <ConsecutiveStations>
+    <StationNumber1>14542</StationNumber1>
+    <StationNumber2>14928</StationNumber2>
+    <DistanceBetweenTooStations>5</DistanceBetweenTooStations>
+    <AverageTime>00:10:00</AverageTime>
+  </ConsecutiveStations>
+  <ConsecutiveStations>
+    <StationNumber1>14928</StationNumber1>
+    <StationNumber2>14917</StationNumber2>
+    <DistanceBetweenTooStations>2</DistanceBetweenTooStations>
+    <AverageTime>00:05:05</AverageTime>
+  </ConsecutiveStations>
+  <ConsecutiveStations>
+    <StationNumber1>14538</StationNumber1>
+    <StationNumber2>14541</StationNumber2>
+    <DistanceBetweenTooStations>2.496409</DistanceBetweenTooStations>
+    <AverageTime>00:03:28</AverageTime>
   </ConsecutiveStations>
 </ConsecutiveStations.xml>

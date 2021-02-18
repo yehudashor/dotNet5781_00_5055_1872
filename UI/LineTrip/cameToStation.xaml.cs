@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,14 +24,18 @@ namespace UI.LineTrip
     public partial class cameToStation : Window
     {
         public IBL1 bl;
-        internal ObservableCollection<BO.BusLineBO> busLineBOs = new ObservableCollection<BO.BusLineBO>();
+        public BO.StationLineBO StationLine { get; set; }
+        public BO.BusLineBO BusLine { get; set; }
+        public ObservableCollection<BO.BusLineBO> busLineBOs = new ObservableCollection<BO.BusLineBO>();
+        private bool flag;
         public BackgroundWorker Worker;
+        public BackgroundWorker Worker1;
         public cameToStation(IBL1 bl1)
         {
-
+            InitializeComponent();
             bl = bl1;
             lines.ItemsSource = Lines(busLineBOs);
-            InitializeComponent();
+            lines.DisplayMemberPath = "LineNumber";
         }
         private ObservableCollection<BO.BusLineBO> Lines(ObservableCollection<BO.BusLineBO> busLineBOs)
         {
@@ -39,7 +44,10 @@ namespace UI.LineTrip
                 int count = bl.ReturnBusLineIdFromDl();
                 for (int i = 0; i < count; i++)
                 {
-                    busLineBOs.Add(bl.LineInformation(i));
+                    if (bl.LineInformation(i) != null)
+                    {
+                        busLineBOs.Add(bl.LineInformation(i));
+                    }
                 }
             }
             catch (BO.BOExceptionLine ex)
@@ -61,13 +69,48 @@ namespace UI.LineTrip
         }
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            BO.BusLineBO busLineBO = (BO.BusLineBO)lines.SelectedItem;
-            Stations.ItemsSource = busLineBO.StationLineBOs;
+            BusLine = new BO.BusLineBO();
+            BusLine = (BO.BusLineBO)lines.SelectedItem;
+            Stations.ItemsSource = BusLine.StationLineBOs;
+            Stations.DisplayMemberPath = "NameOfStation";
+            //Worker1 = new BackgroundWorker();
+            //Worker1.DoWork += Worker_DoWork0;
         }
 
         private void Stations_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
+            StationLine = new BO.StationLineBO();
+            StationLine = Stations.SelectedItem as BO.StationLineBO;
+            //Worker1.RunWorkerAsync();
+            Worker = new BackgroundWorker();
+            Worker.DoWork += Worker_DoWork;
+            Worker.ProgressChanged += Worker_ProgressChanged1;
+            Worker.WorkerReportsProgress = true;
+            Worker.RunWorkerAsync();
+        }
+        //private void Worker_DoWork0(object sender, DoWorkEventArgs e)
+        //{
+        //    Worker = new BackgroundWorker();
+        //    Worker.DoWork += Worker_DoWork;
+        //    Worker.ProgressChanged += Worker_ProgressChanged1;
+        //    Worker.WorkerReportsProgress = true;
+        //    Worker.RunWorkerAsync();
+        //    Thread.Sleep(6000);
+        //}
+        private void Worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            flag = true;
+            while (flag)
+            {
+                Worker.ReportProgress(1);
+                Thread.Sleep(60000);
+            }
+        }
+
+        private void Worker_ProgressChanged1(object sender, ProgressChangedEventArgs e)
+        {
+            IEnumerable<string> timeSpans = bl.TimeCamingToCurrnetStation(BusLine.BusLineID1, StationLine.StationNumberOnLine);
+            time.ItemsSource = timeSpans.ToList();
         }
     }
 }

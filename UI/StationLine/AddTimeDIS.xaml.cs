@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BLAPI;
+using UI.PO;
 
 namespace UI.StationLine
 {
@@ -23,13 +17,15 @@ namespace UI.StationLine
     public partial class AddTimeDIS : Window
     {
         IBL1 bl;
-        public BO.StationLineBO StationLineBO1 { get; set; }
-        public BO.StationLineBO StationLineBO2 { get; set; }
-        public BO.StationLineBO StationLineBO3 { get; set; }
-        public AddTimeDIS(IBL1 bl1, BO.StationLineBO stationLineBO1, BO.StationLineBO stationLineBO2, BO.StationLineBO stationLineBO3, string name)
+        ShowLine showLine;
+        public StationLinePO StationLineBO1 { get; set; }
+        public StationLinePO StationLineBO2 { get; set; }
+        public StationLinePO StationLineBO3 { get; set; }
+        public AddTimeDIS(IBL1 bl1, StationLinePO stationLineBO1, StationLinePO stationLineBO2, StationLinePO stationLineBO3, string name, ShowLine showLine1)
         {
             InitializeComponent();
             bl = bl1;
+            showLine = showLine1;
             StationLineBO1 = stationLineBO1;
             StationLineBO2 = stationLineBO2;
             StationLineBO3 = stationLineBO3;
@@ -47,11 +43,18 @@ namespace UI.StationLine
 
                 float d = float.Parse(DA.Text);
                 TimeSpan timeSpan = new TimeSpan(int.Parse(HA.Text), int.Parse(MA.Text), int.Parse(SA.Text));
-
-                bl.AddStationToLine(StationLineBO2, StationLineBO1.StationNumberOnLine, StationLineBO3.StationNumberOnLine, timeSpan, d);
+                BO.StationLineBO stationLineBO = new BO.StationLineBO();
+                StationLineBO2.DeepCopyTo(stationLineBO);
+                bl.AddStationToLine(stationLineBO, StationLineBO1.StationNumberOnLine, StationLineBO3.StationNumberOnLine, timeSpan, d);
+                showLine.busLineBOs.Clear();
+                foreach (BO.StationLineBO item in bl.ReturnLineStationList(stationLineBO.BusLineID2))
+                {
+                    StationLinePO stationLinePO = new StationLinePO();
+                    item.DeepCopyTo(stationLinePO);
+                    showLine.busLineBOs.Add(stationLinePO);
+                }
+                showLine.busStationBOListView.Items.Refresh();
                 _ = MessageBox.Show("The station was successfully added");
-                Line line = new Line(bl);
-                line.Show();
                 Close();
             }
             catch (BO.BOExceptionLineStation ex)

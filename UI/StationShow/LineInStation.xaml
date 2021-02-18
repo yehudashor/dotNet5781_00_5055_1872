@@ -13,7 +13,7 @@
         <ListView x:Name="linesPastInStationListView" Width="Auto" SelectionMode="Single" Margin="0,-5,18.333,0.667" ItemsSource="{Binding}" Height="Auto">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn x:Name="lineNumberColumn" Width="80" Header="Line Number">
+                    <GridViewColumn x:Name="lineNumberColumn" Width="80" Header="מספר קו">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBox Margin="-6,-1" Text="{Binding LineNumber, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
@@ -22,7 +22,7 @@
                     </GridViewColumn>
 
 
-                    <GridViewColumn x:Name="lastStationColumn" Width="80" Header="Last Station">
+                    <GridViewColumn x:Name="lastStationColumn" Width="80" Header="תחנה אחרונה">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBox Margin="-6,-1" Text="{Binding LastStation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
@@ -30,7 +30,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn x:Name="isAvailable1Column" Width="80" Header="Available">
+                    <GridViewColumn x:Name="isAvailable1Column" Width="80" Header="זמינות">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Margin="-6,-1" Text="{Binding GetAvailable}"/>
@@ -38,7 +38,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn x:Name="rea" Width="80" Header="Area">
+                    <GridViewColumn x:Name="rea" Width="80" Header="אזור">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Margin="-6,-1" Text="{Binding AreaBusUrban}"/>

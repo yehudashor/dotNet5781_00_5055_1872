@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DO
 {
     /// <summary>
-    /// 
+    /// Deviation class of the DL layer.
     /// </summary>
     [Serializable]
     public class ExceptionBus : Exception
@@ -86,6 +86,11 @@ namespace DO
     public class ExceptionUser : Exception
     {
         public string Id;
+
+        public ExceptionUser(string message) : base(message)
+        {
+        }
+
         public ExceptionUser(string id, string messge) : base(messge)
         {
             Id = id;
@@ -94,10 +99,10 @@ namespace DO
         {
             Id = id;
         }
-        public override string ToString()
-        {
-            return base.ToString() + $", bad User id: {Id}";
-        }
+        //public override string ToString()
+        //{
+        //    return base.ToString() + $", bad User id: {Id}";
+        //}
     }
     public class ExceptionConsecutiveStations : Exception
     {
@@ -126,6 +131,9 @@ namespace DO
             base(message, innerException)
         { xmlFilePath = xmlPath; }
 
-        public override string ToString() => base.ToString() + $", fail to load or create xml file: {xmlFilePath}";
+        public override string ToString()
+        {
+            return base.ToString() + $", fail to load or create xml file: {xmlFilePath}";
+        }
     }
 }

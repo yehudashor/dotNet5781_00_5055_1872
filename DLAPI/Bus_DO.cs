@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DLAPI;
 
 namespace DO
 {
     /// <summary>
-    /// 
+    /// Physical bus department.
     /// </summary>
     public enum TravelMode
     {

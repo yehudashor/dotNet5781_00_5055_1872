@@ -33,11 +33,11 @@
           BorderBrush="SteelBlue" BorderThickness="3,5,3,5" CornerRadius="3"
           VerticalAlignment="Top" Height="452">
         <Grid>
-            <Button Content="Add" HorizontalAlignment="Left" Margin="380,135,0,0" VerticalAlignment="Top" Width="325" Height="105" Click="Add">
+            <Button Content="הוסף" HorizontalAlignment="Left" Margin="380,135,0,0" VerticalAlignment="Top" Width="325" Height="105" Click="Add">
                 <Button.Style>
                     <Style>
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding ElementName=stationNumberTextBox, Path=Text}" Value="">
+                            <DataTrigger Binding="{Binding ElementName=stationNumberTextBox, Path=Text}" Value= "">
                                 <Setter Property="Button.IsEnabled" Value ="False"/>
                             </DataTrigger>
                             <DataTrigger Binding="{Binding ElementName=stationAddressTextBox, Path=Text}" Value="">

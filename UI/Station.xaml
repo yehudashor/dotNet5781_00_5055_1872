@@ -13,14 +13,13 @@
             <Setter Property="FontSize" Value="12pt"/>
             <Setter Property="Margin" Value="4" />
         </Style>
-        
-      
+
+
         <Style TargetType="{x:Type ListViewItem}" 
                BasedOn="{StaticResource BaseControlStyle}">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="FontWeight" Value="Bold" />
         </Style>
-
 
         <Style TargetType="{x:Type Label}" 
                BasedOn="{StaticResource BaseControlStyle}">
@@ -83,7 +82,7 @@
 
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Station Number" Width="150">
+                    <GridViewColumn Header="מספר תחנה" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Margin="-6,-1" Text="{Binding StationNumber}"/>
@@ -91,7 +90,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn  Header="Name Of Station" Width="240">
+                    <GridViewColumn  Header="שם התחנה" Width="240">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Margin="-6,-1" Text="{Binding NameOfStation}"/>
@@ -103,7 +102,7 @@
                     <GridViewColumn Header="קווים העוברים בתחנה" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="AddStation" Click="Linespassingstation"  Content="lines"  Width="120" Height ="30"/>
+                                <Button x:Name="AddStation" Click="Linespassingstation"  Content="קווים"  Width="120" Height ="30"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -111,7 +110,7 @@
                     <GridViewColumn Header="מחיקת תחנה" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="Delete1" Click="Delete"  Content="Delete"  Width="120" Height ="30"/>
+                                <Button x:Name="Delete1" Click="Delete"  Content="מחיקה"  Width="120" Height ="30"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -119,7 +118,7 @@
                     <GridViewColumn Header="עדכון פרטי התחנה" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                    <Button x:Name="Udapting" Click="Udapting"  Content="Updating" Width="120" Height ="30"/>
+                                    <Button x:Name="Udapting" Click="Udapting"  Content="עדכון" Width="120" Height ="30"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -127,8 +126,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Add" Grid.Column="1" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="125" Height="420" Click="Add"/>
-        <Button Content="תצוגת תחנות עוקבות" Grid.Column="1" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Top" Width="210" Height="420" Click="Button_Click"/>
+            
+        <Button Content="הוספת תחנה" Grid.Column="1" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="125" Height="420" Click="Add"/>
+        <Button Content="תחנות עוקבות" Grid.Column="1" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Top" Width="210" Height="420" Click="Button_Click"/>
     </Grid>
         </Border>
 </Window>

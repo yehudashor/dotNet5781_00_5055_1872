@@ -6,36 +6,74 @@
         xmlns:local="clr-namespace:UI.StationLine"
         mc:Ignorable="d"
         Title="AddStationTowOldLine" Height="450" Width="800">
+    <Window.Resources>
+
+        <Style x:Key="BaseControlStyle" 
+               TargetType="{x:Type Control}">
+            <Setter Property="FontFamily" Value="Tahoma" />
+            <Setter Property="FontSize" Value="24pt"/>
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Offset="0.0" Color="#90DDDD" />
+                            <GradientStop Offset="1.0" Color="#5BFFFF" />
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type Button}" 
+               BasedOn="{StaticResource BaseControlStyle}">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="15" />
+        </Style>
+
+        <Style TargetType="{x:Type Label}" >
+            <Setter Property="FontWeight" Value="Bold" ></Setter>
+            <Setter Property="FontSize" Value="15" />
+        </Style>
+
+    </Window.Resources>
+
     <Grid>
-        <ListView x:Name="StationList" ItemsSource="{Binding}" Margin="-5,5,-1.667,0.667" SelectionMode="Single">
+        <Border Margin="5,5,5.333,0" Padding="5" Background="LightYellow" 
+          BorderBrush="SteelBlue" BorderThickness="3,5,3,5" CornerRadius="3"
+          VerticalAlignment="Top" Height="452">
+            <ListView x:Name="StationList" ItemsSource="{Binding}" Margin="-5,5,-1.667,0.667" SelectionMode="Single">
 
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Station Number" Width="150">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Margin="-6,-1" Text="{Binding StationNumber}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                <ListView.View>
+                    
+                    <GridView>
+                        
+                        <GridViewColumn Header="מספר תחנה" Width="150" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Margin="-6,-1" Text="{Binding StationNumber}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                    <GridViewColumn  Header="Name Of Station" Width="200">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Margin="-6,-1" Text="{Binding NameOfStation}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                        <GridViewColumn  Header="שם התחנה" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Margin="-6,-1" Text="{Binding NameOfStation}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                    <GridViewColumn Header="Add station to line" Width="250">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button x:Name="AddStationtoline" Click="AddStation"  Content="Add station to line"  Width="100" Height ="40"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
+                        <GridViewColumn Header="הוסף תחנה לקו" Width="250">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="AddStationtoline" Click="AddStation"  Content="הוסף תחנה"  Width="100" Height ="40"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Border>
     </Grid>
 </Window>

@@ -7,7 +7,7 @@
     <LastStation>14540</LastStation>
     <AreaBusUrban>דרום</AreaBusUrban>
     <GetUrban>Urban</GetUrban>
-    <GetAvailable>Available</GetAvailable>
+    <GetAvailable>Notavailable</GetAvailable>
     <BeginningTime />
     <EndTime />
   </BusLine>
@@ -16,7 +16,7 @@
     <LineNumber>41</LineNumber>
     <FirstStation>10510</FirstStation>
     <LastStation>14538</LastStation>
-    <AreaBusUrban>דרום</AreaBusUrban>
+    <AreaBusUrban>השרון</AreaBusUrban>
     <GetUrban>Urban</GetUrban>
     <GetAvailable>Available</GetAvailable>
     <BeginningTime />
@@ -62,7 +62,7 @@
     <LastStation>14906</LastStation>
     <AreaBusUrban>דרום</AreaBusUrban>
     <GetUrban>Urban</GetUrban>
-    <GetAvailable>Available</GetAvailable>
+    <GetAvailable>Notavailable</GetAvailable>
     <BeginningTime />
     <EndTime />
   </BusLine>
@@ -71,7 +71,7 @@
     <LineNumber>46</LineNumber>
     <FirstStation>14931</FirstStation>
     <LastStation>15289</LastStation>
-    <AreaBusUrban>דרום</AreaBusUrban>
+    <AreaBusUrban>ירושלים</AreaBusUrban>
     <GetUrban>Urban</GetUrban>
     <GetAvailable>Available</GetAvailable>
     <BeginningTime />
@@ -84,7 +84,7 @@
     <LastStation>14936</LastStation>
     <AreaBusUrban>אילת</AreaBusUrban>
     <GetUrban>Urban</GetUrban>
-    <GetAvailable>Available</GetAvailable>
+    <GetAvailable>Notavailable</GetAvailable>
     <BeginningTime />
     <EndTime />
   </BusLine>
@@ -258,6 +258,17 @@
     <LineNumber>150</LineNumber>
     <FirstStation>14537</FirstStation>
     <LastStation>14917</LastStation>
+    <AreaBusUrban>גליל</AreaBusUrban>
+    <GetUrban>Urban</GetUrban>
+    <GetAvailable>Available</GetAvailable>
+    <BeginningTime />
+    <EndTime />
+  </BusLine>
+  <BusLine>
+    <BusLineID1>24</BusLineID1>
+    <LineNumber>360</LineNumber>
+    <FirstStation>14537</FirstStation>
+    <LastStation>15287</LastStation>
     <AreaBusUrban>גליל</AreaBusUrban>
     <GetUrban>Urban</GetUrban>
     <GetAvailable>Available</GetAvailable>

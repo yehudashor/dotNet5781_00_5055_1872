@@ -69,9 +69,9 @@
                 <TextBox x:Name="isAvailable3TextBlock" VerticalAlignment="Center" Text="{Binding IsAvailable3}" Grid.Row="5" Margin="3.333,9.667,-60,12" HorizontalAlignment="Left" Grid.Column="1" Height="27" Width="146" RenderTransformOrigin="0.5,0.5">
 
                 </TextBox>
-                <Label VerticalAlignment="Center" Grid.Row="6" Margin="3,14,0,2.667" HorizontalAlignment="Left" Grid.Column="0" Content="Latitude:" Height="26" Width="55"/>
+                <Label VerticalAlignment="Center" Grid.Row="6" Margin="3,22.667,0,10.667" HorizontalAlignment="Left" Grid.Column="0" Content="Latitude:" Height="26" Width="73"/>
                 <Label x:Name="latitudeLabel" VerticalAlignment="Center" Grid.Row="6" Margin="3,14,0,2.667" HorizontalAlignment="Left" Grid.Column="1" Content="{Binding Latitude}" Height="29" Width="146"/>
-                <Label VerticalAlignment="Center" Grid.Row="7" Margin="3,3.333,0,13.333" HorizontalAlignment="Left" Grid.Column="0" Content="Longitude:" Height="26" Width="66"/>
+                <Label VerticalAlignment="Center" Grid.Row="7" Margin="3,10.333,0,21" HorizontalAlignment="Left" Grid.Column="0" Content="Longitude:" Height="26" Width="82"/>
                 <Label x:Name="longitudeLabel" VerticalAlignment="Center" Grid.Row="7" Margin="3,3.333,0,13.333" HorizontalAlignment="Left" Grid.Column="1" Content="{Binding Longitude}" Height="29" Width="146"/>
                 <Label VerticalAlignment="Center" Grid.Row="1" Margin="3,8.667,0,8" HorizontalAlignment="Left" Grid.Column="0" Content="Name:" Height="26" Width="101"/>
                 <TextBox x:Name="nameOfStationTextBlock" VerticalAlignment="Center" Text="{Binding NameOfStation}" Grid.Row="1" Margin="3.333,7,-58.667,6.333" HorizontalAlignment="Left" Grid.Column="1" Height="30" Width="146"/>

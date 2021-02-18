@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BLAPI;
+using UI.PO;
 
 namespace UI.lines
 {
@@ -22,12 +23,15 @@ namespace UI.lines
     public partial class UdptingLine : Window
     {
         public IBL1 bl;
-        BO.BusLineBO busLineBO;
-        public UdptingLine(BO.BusLineBO busLineBO1, IBL1 bl1)
+        public BO.BusLineBO busLineBO;
+        private BusLine line;
+        public Line Add;
+        public UdptingLine(BusLine busLineBO1, IBL1 bl1)
         {
-            busLineBO = busLineBO1;
             InitializeComponent();
             bl = bl1;
+            line = busLineBO1;
+
             areaBusUrbanComboBox.ItemsSource = Enum.GetValues(typeof(BO.Area1));
             getUrbanComboBox.ItemsSource = Enum.GetValues(typeof(BO.Urban));
             getAvailableComboBox.ItemsSource = Enum.GetValues(typeof(BO.Available));
@@ -41,14 +45,24 @@ namespace UI.lines
         {
             try
             {
-                busLineBO.AreaBusUrban = (BO.Area1)areaBusUrbanComboBox.SelectedItem;
-                busLineBO.GetUrban = (BO.Urban)getUrbanComboBox.SelectedItem;
-                busLineBO.GetAvailable = (BO.Available)getAvailableComboBox.SelectedItem;
-                bl.UdaptingLine(busLineBO);
-                Line line = new Line(bl);
-                line.Show();
-                Close();
-                _ = MessageBox.Show("The line has been updated successfully");
+
+                MessageBoxResult box = MessageBox.Show("האם אתה בטוח שברצונך לעדכן את פרטי הקו?", "ask", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                switch (box)
+                {
+                    case MessageBoxResult.OK:
+                        busLineBO = new BO.BusLineBO();
+                        line.AreaBusUrban = (Area1)areaBusUrbanComboBox.SelectedItem;
+                        line.GetUrban = (Urban)getUrbanComboBox.SelectedItem;
+                        line.GetAvailable = (Available)getAvailableComboBox.SelectedItem;
+                        line.DeepCopyTo(busLineBO);
+                        bl.UdaptingLine(busLineBO);
+                        MessageBoxResult messageBoxResult = MessageBox.Show("הפרטים עודכנו במערכת", "Good");
+                        Close();
+                        break;
+                    case MessageBoxResult.Cancel:
+                        Close();
+                        break;
+                }
             }
             catch (BO.BOExceptionLine ex)
             {

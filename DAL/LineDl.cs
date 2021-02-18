@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using DS;
 using DLAPI;
 using DO;
-using System.Xml.Linq;
-
 namespace DL
 {
     internal class LineDl : IDAL

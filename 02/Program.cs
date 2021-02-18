@@ -336,7 +336,7 @@ namespace dotNet_02_5055_1872
             {
                 Console.WriteLine("rong number!!! enter again: ");
             }
-             collectionOfbusLines.DeleteLineFromRoute(LineToDelete);
+            collectionOfbusLines.DeleteLineFromRoute(LineToDelete);
             Console.WriteLine("Very Good");
         }
 

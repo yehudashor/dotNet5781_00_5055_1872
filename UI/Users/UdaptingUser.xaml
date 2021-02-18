@@ -35,7 +35,7 @@
             <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Username:"/>
             <TextBlock x:Name="usernameTextBox" Width="120" VerticalAlignment="Center" Text="{Binding Username, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
         </Grid>
-        <Button Content="Udapting" HorizontalAlignment="Left" Margin="267,305,0,0" VerticalAlignment="Top" Width="158" Height="31" Click="Button_Click"/>
+        <Button Content="עדכן" HorizontalAlignment="Left" Margin="267,305,0,0" VerticalAlignment="Top" Width="158" Height="31" Click="Button_Click"/>
 
     </Grid>
 </Window>

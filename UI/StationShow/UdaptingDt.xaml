@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI.StationShow"
         mc:Ignorable="d"
-        Title="UdaptingDt" Height="250" Width="400">
+        Title="UdaptingDt" Height="250" Width="400" Background="LawnGreen">
     <Grid>
         <Label Content="מרחק" HorizontalAlignment="Left" Margin="178,5,0,0" VerticalAlignment="Top" Width="44"/>
         <Button Content="עדכן זמן/מרחק" HorizontalAlignment="Left" Margin="100,160,0,0" VerticalAlignment="Top" Width="197" Height="26" RenderTransformOrigin="0.5,0.5" Click="Button_Click">

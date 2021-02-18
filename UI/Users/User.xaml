@@ -12,28 +12,28 @@
         <ListView x:Name="userBoListView" Width="Auto" SelectionMode="Single" Margin="6,7,55.333,171.667" ItemsSource="{Binding}" Height="Auto">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn x:Name="usernameColumn" Width="130" Header="Username">
+                    <GridViewColumn x:Name="usernameColumn" Width="130" Header="שם משתמש">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBox Margin="-6,-1" IsReadOnly="True" Text="{Binding Username, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn x:Name="passwordColumn" Width="120" Header="Password">
+                    <GridViewColumn x:Name="passwordColumn" Width="120" Header="סיסמה">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBox Margin="-6,-1" IsReadOnly="True" Text="{Binding Password, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn x:Name="managementPermissionColumn" Width="120" Header="Management Permission">
+                    <GridViewColumn x:Name="managementPermissionColumn" Width="120" Header="הרשאת מנהל">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBox Margin="-6,-1" IsReadOnly="True" Text="{Binding ManagementPermission, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn x:Name="chackDeleteColumn"  Width="120" Header="Chack Delete">
+                    <GridViewColumn x:Name="chackDeleteColumn"  Width="120" Header="זמינות">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBox Margin="6,-1,-6,-1" IsReadOnly="True" Text="{Binding ChackDelete, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
@@ -41,18 +41,18 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn x:Name="U"  Width="120" Header="Udapting User">
+                    <GridViewColumn x:Name="U"  Width="120" Header="עדכון פרטי משתמש">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Width="120" Content="Udapting" Margin="6,-1,-6,-1" Click="Button_Click1" Height="30"/>
+                                <Button Width="120" Content="עדכון" Margin="6,-1,-6,-1" Click="Button_Click1" Height="30"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn x:Name="D"  Width="120" Header="Delete User">
+                    <GridViewColumn x:Name="D"  Width="120" Header="מחיקת משתמש">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Width="120" Content="Delete" Margin="6,-1,-6,-1" Click="Button_Click2" Height="30"/>
+                                <Button Width="120" Content="מחיקה" Margin="6,-1,-6,-1" Click="Button_Click2" Height="30"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -61,7 +61,7 @@
             </ListView.View>
            
         </ListView>
-        <Button Content="Add User" HorizontalAlignment="Left" Margin="262,285,0,0" VerticalAlignment="Top" Width="333" Height="40" Click="Button_Click"/>
+        <Button Content="הוסף משתמש" HorizontalAlignment="Left" Margin="262,285,0,0" VerticalAlignment="Top" Width="333" Height="40" Click="Button_Click"/>
 
     </Grid>
 </Window>

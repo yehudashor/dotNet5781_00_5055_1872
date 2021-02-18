@@ -40,11 +40,4 @@
     <ManagementPermission>true</ManagementPermission>
     <ChackDelete>true</ChackDelete>
   </User>
-  <User>
-    <Username>דוד פקקטה</Username>
-    <Password>43555</Password>
-    <Permission1>ManagementPermission</Permission1>
-    <ManagementPermission>False</ManagementPermission>
-    <ChackDelete>True</ChackDelete>
-  </User>
 </ArrayOfUser>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BLAPI;
+using UI.PO;
 
 namespace UI.StationShow
 {
@@ -21,13 +22,16 @@ namespace UI.StationShow
     public partial class UdaptingDt : Window
     {
         public IBL1 bl;
-        BO.StationLineBO StationLineBO1;
+        public StationLinePO StationLineBO1;
         public int index { get; set; }
-        // private readonly BO.ConsecutiveStationsBo consecutiveStationsBo;
-        public UdaptingDt(BO.StationLineBO StationLineBO, int index1, IBL1 bl1)
+        public Line line;
+        public ShowLine showLine;
+        public UdaptingDt(StationLinePO StationLineBO, int index1, IBL1 bl1, Line line1, ShowLine showLine1)
         {
             InitializeComponent();
             bl = bl1;
+            line = line1;
+            showLine = showLine1;
             StationLineBO1 = StationLineBO;
             index = index1;
         }
@@ -40,19 +44,19 @@ namespace UI.StationShow
                 consecutiveStationsBo.DistanceBetweenTooStations = float.Parse(D.Text);
                 consecutiveStationsBo.AverageTime = new TimeSpan(int.Parse(H.Text), int.Parse(M.Text), int.Parse(S.Text));
                 bl.Udapting(consecutiveStationsBo);
-                //ShowLine.busLineBOs[StationLineBO1.LocationNumberOnLine].AverageTime = new TimeSpan(int.Parse(H.Text), int.Parse(M.Text), int.Parse(S.Text));
-                //ShowLine.busLineBOs[StationLineBO1.LocationNumberOnLine].DistanceBetweenTooStations = float.Parse(D.Text);
-                //for (int i = 0; i < Line.busLineBOs.Count; i++)
-                //{
-                //    for (int j = 0; j < Line.busLineBOs[i].StationLineBOs.Count - 1; j++)
-                //    {
-                //        if (Line.busLineBOs[i].StationLineBOs[j].StationNumberOnLine == StationLineBO1.StationNumberOnLine && Line.busLineBOs[i].StationLineBOs[j + 1].StationNumberOnLine == index)
-                //        {
-                //            _ = Line.busLineBOs[i].StationLineBOs[j].AverageTime == consecutiveStationsBo.AverageTime;
-                //            _ = Line.busLineBOs[i].StationLineBOs[j].DistanceBetweenTooStations = consecutiveStationsBo.DistanceBetweenTooStations;
-                //        }
-                //    }
-                //}
+
+                for (int i = 0; i < line.busLineBOs.Count; i++)
+                {
+                    for (int j = 0; j < line.busLineBOs[i].StationLineBOs.Count - 1; j++)
+                    {
+                        if (line.busLineBOs[i].StationLineBOs[j].StationNumberOnLine == StationLineBO1.StationNumberOnLine && line.busLineBOs[i].StationLineBOs[j + 1].StationNumberOnLine == index)
+                        {
+                            line.busLineBOs[i].StationLineBOs[j].AverageTime = consecutiveStationsBo.AverageTime;
+                            line.busLineBOs[i].StationLineBOs[j].DistanceBetweenTooStations = consecutiveStationsBo.DistanceBetweenTooStations;
+                        }
+                    }
+                }
+                showLine.busStationBOListView.Items.Refresh();
                 Close();
             }
             catch (BO.BOExceptionConsecutiveStations ex)

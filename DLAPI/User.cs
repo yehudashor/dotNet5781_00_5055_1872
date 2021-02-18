@@ -8,7 +8,7 @@ using DLAPI;
 namespace DO
 {
     /// <summary>
-    /// 
+    /// User class holds the username and password and permission to access.
     /// </summary>
     public enum Permission
     {
