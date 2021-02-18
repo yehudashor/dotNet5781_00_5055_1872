@@ -151,7 +151,7 @@ namespace BL
 
             for (int i = 0; i < lineStations.Count; i++)
             {
-                lineStations1 = dl.OneLineFromList(item => item.BusLineID2 == lineStations[i]).OrderBy(item => item.LocationNumberOnLine).ToList();
+                lineStations1 = dl.OneLineFromList(item => item.BusLineID2 == lineStations[i] && item.ChackDelete2).OrderBy(item => item.LocationNumberOnLine).ToList();
                 temp = lineStations1.FindIndex(item => item.StationNumberOnLine == NumberStation);
 
                 for (int j = 0; j < temp; j++)
